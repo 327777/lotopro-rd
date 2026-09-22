@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-22",
   "fecha_ayer": "2026-09-21",
-  "actualizado_a_las": "12:08 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 100,
     "consultas_base": 100,
@@ -232,8 +232,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        84,
+        73,
+        66
+      ]
     },
     {
       "id": "quiniela_real",
@@ -241,8 +245,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        25,
+        90,
+        91
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -250,8 +258,12 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        57,
+        42,
+        57
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -259,8 +271,12 @@
       "categoria": "Internacionales",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        86,
+        10,
+        84
+      ]
     },
     {
       "id": "florida_dia",
@@ -268,8 +284,12 @@
       "categoria": "Internacionales",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        64,
+        28,
+        55
+      ]
     },
     {
       "id": "lotedom",
@@ -277,8 +297,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        84,
+        95,
+        53
+      ]
     },
     {
       "id": "gana_mas",
@@ -286,8 +310,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        7,
+        0,
+        28
+      ]
     },
     {
       "id": "ny_tarde",
@@ -295,8 +323,12 @@
       "categoria": "Internacionales",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        64,
+        84,
+        1
+      ]
     },
     {
       "id": "la_suerte_tarde",
