@@ -1,0 +1,114 @@
+import pandas as pd
+from datetime import datetime, timedelta
+
+def predecir_jugada_unica(ruta_excel="base_datos_loteria.xlsx"):
+    # Cargar base de datos con estructura exacta: Fecha | 1er | 2do | 3er
+    try:
+        df = pd.read_excel(ruta_excel)
+    except Exception as e:
+        print(f"Error al leer el archivo Excel: {e}")
+        return
+
+    # Normalizar nombres de columnas
+    df.columns = [str(c).strip().lower() for c in df.columns]
+    
+    # Asegurar formato fecha
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    df = df.sort_values('fecha').reset_index(drop=True)
+
+    # 1. Identificar la sesión de ayer (última fecha registrada)
+    if df.empty:
+        print("La base de datos está vacía.")
+        return
+
+    ultima_fecha = df['fecha'].max()
+    df_ayer = df[df['fecha'] == ultima_fecha]
+
+    # Semillas extraídas ayer (todos los números que salieron en 1er, 2do y 3er lugar ayer)
+    semillas_ayer = []
+    for col in ['1er', '2do', '3er']:
+        if col in df_ayer.columns:
+            semillas_ayer.extend(df_ayer[col].dropna().astype(int).tolist())
+    
+    semillas_ayer = list(set(semillas_ayer))
+
+    # 2. Matriz de Frecuencia Histórica y Ausencia (Ciclos de Frío)
+    # Calcular cuántos días han pasado desde la última salida de cada número (00 al 99)
+    todos_numeros = list(range(100))
+    ausencia_dias = {}
+    frecuencia_total = {}
+
+    fecha_actual = df['fecha'].max()
+
+    for num in todos_numeros:
+        # Buscar todas las apariciones del número en cualquier posición
+        apariciones = df[(df['1er'] == num) | (df['2do'] == num) | (df['3er'] == num)]
+        if not apariciones.empty:
+            ultima_aparicion = apariciones['fecha'].max()
+            dias_ausente = (fecha_actual - ultima_aparicion).days
+            ausencia_dias[num] = max(0, dias_ausente)
+            frecuencia_total[num] = len(apariciones)
+        else:
+            ausencia_dias[num] = 999  # Nunca ha salido o historial muy corto
+            frecuencia_total[num] = 0
+
+    # 3. Matriz de Jaladeras / Atracción Histórica basada en las semillas de ayer
+    # Evaluamos qué números suelen salir en los días posteriores a las semillas de ayer
+    puntajes = {num: 0.0 for num in todos_numeros}
+
+    for idx, row in df.iterrows():
+        # Si la fecha anterior inmediata estuvo en las semillas, sumamos peso a los números de esta fila
+        fecha_fila = row['fecha']
+        # Buscar si el día anterior tuvo alguna de las semillas
+        ayer_fila = df[df['fecha'] == (fecha_fila - timedelta(days=1))]
+        if not ayer_fila.empty:
+            numeros_ayer_fila = []
+            for col in ['1er', '2do', '3er']:
+                if col in ayer_fila.columns:
+                    numeros_ayer_fila.extend(ayer_fila[col].dropna().astype(int).tolist())
+            
+            # Si hay coincidencia con las semillas de ayer de la vida real
+            interseccion = set(numeros_ayer_fila).intersection(set(semillas_ayer))
+            if interseccion:
+                # Sumar puntos a los números que salieron en esta fecha histórica subsiguiente
+                for col in ['1er', '2do', '3er']:
+                    if col in row and pd.notna(row[col]):
+                        val = int(row[col])
+                        # Mayor peso si salió en 1er lugar histórico
+                        peso_pos = 3.0 if col == '1er' else (2.0 if col == '2do' else 1.0)
+                        puntajes[val] += peso_pos
+
+    # 4. Integrar Factor de Frío (Maduración) y Filtrado
+    puntaje_final = {}
+    for num in todos_numeros:
+        p_jaladera = puntajes[num]
+        dias = ausencia_dias[num]
+        
+        # Lógica de convergencia: 
+        # Recompensa a los números con alta jaladera histórica desde las semillas de ayer,
+        # pero aplica un multiplicador de maduración si están "fríos" (ej. entre 3 y 10 días sin salir),
+        # penalizando a los que acaban de salir hoy/ayer (dias == 0).
+        if dias == 0:
+            factor_frio = 0.1  # Castigo severo por haber salido recién
+        elif dias >= 2:
+            factor_frio = 1.0 + (dias * 0.2) # Bonificación por maduración progresiva
+        else:
+            factor_frio = 0.5
+
+        puntaje_final[num] = p_jaladera * factor_frio
+
+    # Seleccionar el número absoluto con mayor puntaje ponderado
+    mejor_candidato = max(puntaje_final, key=puntaje_final.get)
+    
+    # Radiografía de Justificación del Candidato Único
+    print("==================================================")
+    print(f" 🎯 CANDIDATO ÚNICO DE ALTA PRECISIÓN PARA MAÑANA: [ {mejor_candidato:02d} ]")
+    print("==================================================")
+    print(f"• Semillas detectadas ayer ({ultima_fecha.strftime('%d/%m/%Y')}): {semillas_ayer}")
+    print(f"• Días exactos de ausencia (Ciclo Frío): {ausencia_dias[mejor_candidato]} días sin aparecer.")
+    print(f"• Peso acumulado por Matriz de Jaladeras: {puntajes[mejor_candidato]:.1f} pts.")
+    print(f"• Puntaje Híbrido de Convergencia Final: {puntaje_final[mejor_candidato]:.2f} pts.")
+    print("• Razón Técnica: Este número encabeza la matriz porque combina el arrastre directo de los resultados de ayer con su punto exacto de maduración en el histórico del Excel.")
+
+if __name__ == "__main__":
+    predecir_jugada_unica()

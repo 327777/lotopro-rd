@@ -1,0 +1,42 @@
+import pandas as pd
+
+# 1. Abrimos el Excel solo para LEER, sin modificar nada
+archivo_excel = 'desde el 2018 hasta 30-06-2026.xlsx'
+xls = pd.ExcelFile(archivo_excel)
+
+print("--------------------------------------------------")
+print("   INICIANDO REVISIÓN DE HOJAS Y FECHAS")
+print("--------------------------------------------------\n")
+
+# 2. Revisamos hoja por hoja
+for hoja in xls.sheet_names:
+    df = pd.read_excel(xls, sheet_name=hoja)
+    
+    # Buscamos la columna que se llama FECHA
+    col_fecha = [columna for columna in df.columns if 'FECHA' in columna.upper()]
+    
+    if not col_fecha:
+        print(f"⚠️ En la hoja '{hoja}': No encontré la columna 'FECHA'.")
+        continue
+        
+    nombre_columna = col_fecha[0]
+    total_filas = len(df)
+    
+    # Probamos leer las fechas en formato Día/Mes/Año
+    fechas_convertidas = pd.to_datetime(df[nombre_columna], dayfirst=True, errors='coerce')
+    
+    # Contamos si alguna fecha dio error
+    fechas_con_error = df[fechas_convertidas.isna() & df[nombre_columna].notna()]
+    cantidad_errores = len(fechas_con_error)
+    
+    if cantidad_errores > 0:
+        print(f"❌ En la hoja '{hoja}': Hay {cantidad_errores} fechas con problemas de un total de {total_filas} filas.")
+        print(f"   Ejemplo de cómo está escrita la fecha rara: {fechas_con_error[nombre_columna].head(2).tolist()}\n")
+    else:
+        fecha_mas_vieja = fechas_convertidas.min().strftime('%d/%m/%Y')
+        fecha_mas_nueva = fechas_convertidas.max().strftime('%d/%m/%Y')
+        print(f"✅ En la hoja '{hoja}': Todo está PERFECTO ({total_filas} filas). Va desde {fecha_mas_vieja} hasta {fecha_mas_nueva}.")
+
+print("\n--------------------------------------------------")
+print("   FIN DE LA REVISIÓN - NINGÚN ARCHIVO FUE ALTERADO")
+print("--------------------------------------------------")

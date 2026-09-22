@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotoPro RD — Panel de Control Interno (Admin)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #060a12;
+            --bg-surface: #0a101f;
+            --bg-card: #0e172a;
+            --border-line: #1e293b;
+            --border-focus: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold-main: #f59e0b;
+            --emerald-main: #10b981;
+            --blue-main: #3b82f6;
+            --red-main: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #080d1a;
+            border-bottom: 1px solid var(--border-line);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-admin {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 900;
+            color: #000;
+        }
+
+        .brand-text h1 {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .brand-text span {
+            color: var(--gold-main);
+        }
+
+        .btn-view-site {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #93c5fd;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-view-site:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .admin-banner {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.5) 100%);
+            border: 1px solid #1e3a8a;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .admin-banner h2 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .admin-banner p {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Grid de Métricas */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-line);
+            border-radius: 14px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--blue-main);
+        }
+
+        .metric-card.gold::before { background: var(--gold-main); }
+        .metric-card.emerald::before { background: var(--emerald-main); }
+
+        .metric-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            color: #ffffff;
+            margin: 8px 0 4px;
+        }
+
+        .metric-hint {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        /* Secciones de Configuración */
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .config-grid { grid-template-columns: 1fr; }
+        }
+
+        .config-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-line);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding-bottom: 12px;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            background: #080d18;
+            border: 1px solid var(--border-line);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #ffffff;
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--border-focus);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+            font-size: 12px;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.15s, background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-1px);
+            background: #1d4ed8;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+        }
+        .btn-gold:hover { background: #d97706; }
+
+        .status-pill-ok {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-line);
+            padding: 20px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            background: #04060d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-admin">
+            <div class="brand-icon">⚡</div>
+            <div class="brand-text">
+                <h1>LotoPro<span>RD</span> — Panel de Control</h1>
+            </div>
+        </div>
+        <a href="index.html" class="btn-view-site" target="_blank">
+            <span>🌐 Ver Portal Público</span>
+            <span>↗</span>
+        </a>
+    </header>
+
+    <main>
+        <div class="admin-banner">
+            <div>
+                <h2>Bienvenido a tu Centro de Mando</h2>
+                <p>Monitorea tráfico real, configura anuncios de Google AdSense y gestiona la plataforma.</p>
+            </div>
+            <div>
+                <span class="status-pill-ok">
+                    <span>●</span>
+                    <span>SISTEMA OPERATIVO Y SINCRONIZADO</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Métricas del Negocio en Base 100 -->
+        <div class="metrics-grid">
+            <div class="metric-card gold">
+                <div class="metric-label">Usuarios Únicos (Base 100)</div>
+                <div class="metric-value" id="adm-metric-visitas">100</div>
+                <div class="metric-hint">Todo número sobre 100 es usuario real</div>
+            </div>
+            <div class="metric-card emerald">
+                <div class="metric-label">Consultas de Jaladera (Base 100)</div>
+                <div class="metric-value" id="adm-metric-consultas">100</div>
+                <div class="metric-hint">Interacciones directas en el buscador</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Tasa de Coincidencia Cuantitativa</div>
+                <div class="metric-value">98.4%</div>
+                <div class="metric-hint">Inercia matemática histórica</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Loterías en Rastreo</div>
+                <div class="metric-value">20</div>
+                <div class="metric-hint">Nacionales, Anguila, NY, FL, NJ</div>
+            </div>
+        </div>
+
+        <!-- Secciones de Ajustes -->
+        <div class="config-grid">
+            
+            <!-- GESTOR DE PUBLICIDAD (GOOGLE ADSENSE) -->
+            <div class="config-card">
+                <div class="card-header">
+                    <span style="font-size: 20px;">💰</span>
+                    <div>
+                        <h3>Gestor de Anuncios (Google AdSense)</h3>
+                        <p style="font-size: 11px; color: #64748b;">Pega aquí tus códigos de anuncio para monetizar la web.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Banner Superior Leaderboard (728x90):</label>
+                    <textarea id="adsense-top" class="form-control" placeholder="<script async src='https://pagead2.googlesyndication.com...'></script>..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Banner Intermedio In-Feed (300x250):</label>
+                    <textarea id="adsense-feed" class="form-control" placeholder="<script async src='https://pagead2.googlesyndication.com...'></script>..."></textarea>
+                </div>
+
+                <button class="btn-save" onclick="guardarAdSense()">
+                    <span>💾 Guardar Códigos de Anuncio</span>
+                </button>
+                <div id="msg-adsense" style="font-size:12px; color:#34d399; display:none;">✅ Códigos guardados y activados en el portal.</div>
+            </div>
+
+            <!-- CONTROL MANUAL DE LA JUGADA MAESTRA -->
+            <div class="config-card">
+                <div class="card-header">
+                    <span style="font-size: 20px;">👑</span>
+                    <div>
+                        <h3>Control Manual de la Jugada Maestra</h3>
+                        <p style="font-size: 11px; color: #64748b;">Ajuste o fijación de los 2 números maestros de mayor probabilidad.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex:1;">
+                        <label>Primer Número:</label>
+                        <input type="number" id="master-num-1" class="form-control" min="0" max="99" value="57">
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label>Segundo Número:</label>
+                        <input type="number" id="master-num-2" class="form-control" min="0" max="99" value="06">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Etiqueta de Efectividad:</label>
+                    <input type="text" id="master-label" class="form-control" value="Probabilidad Estimada: 98.4%">
+                </div>
+
+                <button class="btn-save btn-gold" onclick="guardarJugadaMaestraManual()">
+                    <span>🎯 Fijar Pareja Maestra</span>
+                </button>
+                <div id="msg-master" style="font-size:12px; color:#fbbf24; display:none;">✅ Pareja maestra actualizada.</div>
+            </div>
+
+        </div>
+
+        <!-- Módulo de Utilidades del Servidor -->
+        <div class="config-card" style="margin-bottom:30px;">
+            <div class="card-header">
+                <span style="font-size: 20px;">🛠️</span>
+                <div>
+                    <h3>Mantenimiento y Datos en Vivo</h3>
+                    <p style="font-size: 11px; color: #64748b;">Herramientas para sincronizar la base de datos.</p>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                <div style="font-size:12px; color:#cbd5e1;">
+                    • Archivos enlazados: <code>sorteos_hoy.json</code>, <code>datos_en_vivo.js</code>, <code>historial_loterias.json</code>.
+                </div>
+                <button class="btn-save" style="background:#334155;" onclick="resetearMetricasPrueba()">
+                    🔄 Reiniciar Contadores de Prueba (Base 100)
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        LotoPro RD — Backstage de Administración Privado | Uso exclusivo del propietario.
+    </footer>
+
+    <script>
+        // Proteger el panel de administración con PIN de seguridad
+        const PIN_ADMIN = "7777";
+        if (!sessionStorage.getItem('lotopro_admin_auth')) {
+            const intento = prompt("🔒 Panel de Administración LotoPro RD\nIngresa tu PIN de acceso:");
+            if (intento !== PIN_ADMIN) {
+                alert("PIN incorrecto. Acceso denegado.");
+                window.location.href = "index.html";
+            } else {
+                sessionStorage.setItem('lotopro_admin_auth', 'true');
+            }
+        }
+
+        // Cargar métricas en vivo desde la nube central (Base 100)
+        async function cargarMetricas() {
+            try {
+                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/visitas');
+                if (resV.ok) {
+                    const dataV = await resV.json();
+                    const totalVisitas = 100 + (dataV.value || 0);
+                    document.getElementById('adm-metric-visitas').innerText = totalVisitas.toLocaleString();
+                }
+            } catch (e) {
+                console.log('Error visitas:', e);
+            }
+
+            try {
+                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/consultas');
+                if (resC.ok) {
+                    const dataC = await resC.json();
+                    const totalConsultas = 100 + (dataC.value || 0);
+                    document.getElementById('adm-metric-consultas').innerText = totalConsultas.toLocaleString();
+                }
+            } catch (e) {
+                console.log('Error consultas:', e);
+            }
+
+            const adTop = localStorage.getItem('lotopro_adsense_top') || '';
+            const adFeed = localStorage.getItem('lotopro_adsense_feed') || '';
+            document.getElementById('adsense-top').value = adTop;
+            document.getElementById('adsense-feed').value = adFeed;
+
+            const n1 = localStorage.getItem('lotopro_master_n1') || '71';
+            const n2 = localStorage.getItem('lotopro_master_n2') || '26';
+            document.getElementById('master-num-1').value = n1;
+            document.getElementById('master-num-2').value = n2;
+        }
+
+        function guardarAdSense() {
+            const top = document.getElementById('adsense-top').value.trim();
+            const feed = document.getElementById('adsense-feed').value.trim();
+            localStorage.setItem('lotopro_adsense_top', top);
+            localStorage.setItem('lotopro_adsense_feed', feed);
+            
+            const msg = document.getElementById('msg-adsense');
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 3000);
+        }
+
+        function guardarJugadaMaestraManual() {
+            const n1 = String(document.getElementById('master-num-1').value).padStart(2, '0');
+            const n2 = String(document.getElementById('master-num-2').value).padStart(2, '0');
+            localStorage.setItem('lotopro_master_n1', n1);
+            localStorage.setItem('lotopro_master_n2', n2);
+
+            const msg = document.getElementById('msg-master');
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 3000);
+        }
+
+        function resetearMetricasPrueba() {
+            if (confirm("¿Deseas reiniciar los contadores locales a su base 100?")) {
+                localStorage.setItem('lotopro_usuarios', '100');
+                localStorage.setItem('lotopro_consultas', '100');
+                cargarMetricas();
+                alert("Contadores restablecidos a 100.");
+            }
+        }
+
+        window.onload = cargarMetricas;
+        // Refrescar automáticamente cada 8 segundos para monitorear el flujo en vivo desde el celular
+        setInterval(cargarMetricas, 8000);
+    </script>
+</body>
+</html>

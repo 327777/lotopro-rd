@@ -1,0 +1,196 @@
+from datetime import timedelta
+import pandas as pd
+
+print("--- INICIANDO LECTURA DIRECTA DE LA COPIA ---")
+
+nombre_copia = "copia_analizador_loterias.xlsx"
+
+try:
+  # Leer todas las hojas forzando todo a texto para evitar conversiones raras de pandas
+  hojas_dict = pd.read_excel(nombre_copia, sheet_name=None, dtype=str)
+  print(f"Se leyeron {len(hojas_dict)} pestañas correctamente.")
+except Exception as e:
+  print(f"Error al abrir el archivo de Excel: {e}")
+  exit()
+
+df_list = []
+for nombre_hoja, df_hoja in hojas_dict.items():
+  if df_hoja.empty:
+    continue
+  df_hoja.columns = df_hoja.columns.str.strip().str.upper()
+
+  if len(df_hoja.columns) > 0:
+    col_fecha = df_hoja.columns[0]
+    df_temp = pd.DataFrame()
+    # Tomar la fecha directamente como texto limpio
+    df_temp["FECHA_RAW"] = df_hoja[col_fecha].astype(str).str.strip()
+    df_temp["LOTERIA"] = str(nombre_hoja).strip()
+
+    for col in ["1ER", "2DO", "3ER", "3RO"]:
+      if col in df_hoja.columns:
+        nombre_pos = "3RO" if col in ["3ER", "3RO"] else col
+        df_temp[nombre_pos] = df_hoja[col]
+
+    df_list.append(df_temp)
+
+if not df_list:
+  print("No se encontraron datos.")
+  exit()
+
+df = pd.concat(df_list, ignore_index=True)
+
+# Convertir explícitamente usando el formato exacto DD/MM/YYYY para que no falle
+df["FECHA_PARSED"] = pd.to_datetime(
+    df["FECHA_RAW"], format="%d/%m/%Y", errors="coerce"
+)
+df = df.dropna(subset=["FECHA_PARSED"])
+
+fecha_ref = df["FECHA_PARSED"].max()
+print(
+    "¡Fecha máxima real detectada en el sistema:"
+    f" {fecha_ref.strftime('%d/%m/%Y')}!"
+)
+
+# Ventanas de tiempo basadas en la fecha real
+f_48h = fecha_ref - timedelta(days=2)
+f_7d = fecha_ref - timedelta(days=7)
+
+
+def obtener_detalles_concordancia(df_filtrado):
+  registros = []
+  cols_premios = ["1ER", "2DO", "3RO"]
+
+  for _, fila in df_filtrado.iterrows():
+    fecha_str = pd.to_datetime(fila["FECHA_PARSED"]).strftime("%d/%m/%Y")
+    loteria_str = str(fila["LOTERIA"])
+
+    for col_p in cols_premios:
+      if col_p in df_filtrado.columns and pd.notnull(fila[col_p]):
+        val = fila[col_p]
+        try:
+          num = int(float(val))
+          if 0 <= num <= 99:
+            registros.append({
+                "NUMERO": f"{num:02d}",
+                "FECHA": fecha_str,
+                "LOTERIA": loteria_str,
+                "POSICION": (
+                    "1RO"
+                    if col_p == "1ER"
+                    else ("2DO" if col_p == "2DO" else "3RO")
+                ),
+            })
+        except:
+          continue
+  return pd.DataFrame(registros)
+
+
+df_48h = df[
+    (df["FECHA_PARSED"] >= f_48h) & (df["FECHA_PARSED"] <= fecha_ref)
+]
+df_7d = df[(df["FECHA_PARSED"] >= f_7d) & (df["FECHA_PARSED"] <= fecha_ref)]
+
+df_det_48h = obtener_detalles_concordancia(df_48h)
+df_det_7d = obtener_detalles_concordancia(df_7d)
+
+
+def generar_filas_html_concordancia(df_det):
+  if df_det.empty:
+    return (
+        "<tr><td colspan='3' style='padding:10px; text-align:center;"
+        " color:#94a3b8;'>Sin registros en este rango de fechas</td></tr>"
+    )
+
+  html = ""
+  conteo_freq = df_det["NUMERO"].value_counts()
+
+  for num, freq in conteo_freq.items():
+    apariciones = df_det[df_det["NUMERO"] == num]
+    detalles_str = ""
+    for _, ap in apariciones.iterrows():
+      detalles_str += f"<span style='display:inline-block; background:#f1f5f9; border:1px solid #cbd5e1; padding:3px 8px; margin:3px; border-radius:4px; font-size:11px;'><b>{ap['FECHA']}</b> | <span style='color:#0284c7; font-weight:bold;'>{ap['LOTERIA']}</span> <span style='color:#64748b;'>({ap['POSICION']})</span></span>"
+
+    html += f"""
+        <tr>
+            <td style='padding: 10px; border-bottom: 1px solid #e2e8f0; vertical-align: middle;'><strong style='color:#0284c7; font-size:15px;'>{num}</strong></td>
+            <td style='padding: 10px; border-bottom: 1px solid #e2e8f0; text-align: center; vertical-align: middle;'><span style='background:#0284c7; color:#fff; padding:3px 10px; border-radius:10px; font-weight:bold;'>{freq} veces</span></td>
+            <td style='padding: 10px; border-bottom: 1px solid #e2e8f0; vertical-align: middle;'>{detalles_str}</td>
+        </tr>
+        """
+  return html
+
+
+html_filas_48h = generar_filas_html_concordancia(df_det_48h)
+html_filas_7d = generar_filas_html_concordancia(df_det_7d)
+
+html_completo = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz de Concordancia y Cruce de Loterías</title>
+    <style>
+        body {{ font-family: Arial, sans-serif; background-color: #f8fafc; color: #1e293b; padding: 20px; max-width: 1000px; margin: auto; }}
+        .card {{ background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 16px; margin-bottom: 25px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+        .header-p1 {{ border-bottom: 2px solid #0284c7; padding-bottom: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }}
+        .header-p2 {{ border-bottom: 2px solid #7e22ce; padding-bottom: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }}
+        table {{ width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }}
+        th {{ background: #f8fafc; border-bottom: 2px solid #e2e8f0; color: #475569; font-size: 11px; padding: 10px; }}
+    </style>
+</head>
+<body>
+
+    <h2 style="color: #0f172a; text-align: center; margin-bottom: 10px;">🔍 MATRICES DE CONCORDANCIA Y CRUCE ENTRE LOTERÍAS</h2>
+    <p style="text-align: center; color: #64748b; font-size: 12px; margin-bottom: 30px;">Análisis de repeticiones cruzadas por fecha, lotería y posición en ventanas de 48 horas y 7 días.</p>
+
+    <!-- PANEL 1: CONCORDANCIA 48 HORAS -->
+    <div class="card">
+        <div class="header-p1">
+            <h3 style="margin: 0; color: #0284c7; font-size: 14px; text-transform: uppercase; font-weight: bold;">
+                ⏱️ CONCORDANCIA CRUZADA (ÚLTIMAS 48 HORAS)
+            </h3>
+            <span style="font-size: 11px; color: #64748b; font-weight: 500;">[PANEL 1 DE 2]</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;">NÚMERO</th>
+                    <th style="width: 15%; text-align: center;">REPETICIONES</th>
+                    <th style="width: 75%;">CONCORDANCIA (FECHA, LOTERÍA Y POSICIÓN)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {html_filas_48h}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PANEL 2: CONCORDANCIA 7 DÍAS -->
+    <div class="card">
+        <div class="header-p2">
+            <h3 style="margin: 0; color: #7e22ce; font-size: 14px; text-transform: uppercase; font-weight: bold;">
+                📅 CONCORDANCIA CRUZADA (ÚLTIMOS 7 DÍAS)
+            </h3>
+            <span style="font-size: 11px; color: #64748b; font-weight: 500;">[PANEL 2 DE 2]</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;">NÚMERO</th>
+                    <th style="width: 15%; text-align: center;">REPETICIONES</th>
+                    <th style="width: 75%;">CONCORDANCIA (FECHA, LOTERÍA Y POSICIÓN)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {html_filas_7d}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+"""
+
+with open("reporte_externo_48h_7d.html", "w", encoding="utf-8") as f:
+  f.write(html_completo)
+
+print("\n¡PROCESO TERMINADO CON ÉXITO! El reporte HTML ya tiene el año 2026.")
