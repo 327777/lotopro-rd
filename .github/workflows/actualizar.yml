@@ -35,4 +35,4 @@ jobs:
           git config --global user.name "LotoPro Bot"
           git config --global user.email "bot@lotopro.rd"
           git add "Loteria ag/datos_en_vivo.js" "Loteria ag/sorteos_hoy.json" "Loteria ag/historial_loterias.json" "Loteria ag/datos_historial.js" "Loteria ag/Recientes.xlsx"
-          git diff --staged --quiet || (git commit -m "Auto-actualizacion de sorteos en vivo [skip ci]" && git push)
+          git diff --staged --quiet || (git commit -m "Auto-actualizacion de sorteos en vivo" && git push)
