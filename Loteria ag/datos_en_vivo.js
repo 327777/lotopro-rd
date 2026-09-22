@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-22",
   "fecha_ayer": "2026-09-21",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "10:11 PM",
   "estadisticas_portal": {
     "usuarios_base": 100,
     "consultas_base": 100,
@@ -345,8 +345,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        22,
+        58,
+        36
+      ]
     },
     {
       "id": "quiniela_loteka",
