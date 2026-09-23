@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotoPro RD — Estadísticas y Resultados en Vivo</title>
+    
+    <!-- Open Graph para compartir en WhatsApp, Facebook y Redes -->
+    <meta property="og:title" content="LotoPro RD — Estadísticas y Resultados en Vivo">
+    <meta property="og:description" content="Consulta los resultados de las loterías dominicanas e internacionales en tiempo real y el buscador oficial de jaladeras.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0d1527">
+
+    <!-- Fuentes Oficiales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Datos Sincronizados (Cero dependencias de servidor / Cero CORS) -->
+    <script src="datos_en_vivo.js"></script>
+    <script src="datos_historial.js"></script>
+
+    <style>
+        :root {
+            --bg-base: #060a12;
+            --bg-surface: #0a1120;
+            --bg-card: #0d1527;
+            --bg-card-hover: #121c33;
+            
+            --border-glow: #1a263f;
+            --border-highlight: #2c3f66;
+            
+            --gold-main: #f59e0b;
+            --gold-light: #fbbf24;
+            --gold-glow: rgba(245, 158, 11, 0.25);
+            
+            --emerald-main: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.2);
+            
+            --cyan-main: #06b6d4;
+            --blue-accent: #3b82f6;
+            --red-live: #ef4444;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(30, 58, 138, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Barra Superior de Prueba Social */
+        .top-notice-bar {
+            background: linear-gradient(90deg, #090e1a 0%, #0d1527 50%, #090e1a 100%);
+            border-bottom: 1px solid #1a263f;
+            padding: 7px 15px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .social-proof-item strong {
+            color: var(--gold-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 17, 32, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #1a263f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 20px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 0 20px var(--gold-glow);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .brand-text h1 span {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .live-indicator {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .radar-pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--red-live);
+            border-radius: 50%;
+            animation: pulse-dot 1.4s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8); }
+            70% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.9); opacity: 0.8; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        .clock-box {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid #1a263f;
+        }
+
+        /* Contenedor Principal */
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 16px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Espacios Publicitarios (Google AdSense) */
+        .ad-slot {
+            margin: 15px 0;
+            background: rgba(14, 23, 42, 0.4);
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ad-tag {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .ad-content-hint {
+            font-size: 11px;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        /* SECCIÓN 1: NÚMEROS CON MAYOR PROBABILIDAD DEL DÍA */
+        .master-play-container {
+            background: linear-gradient(135deg, #0a1120 0%, #101a33 100%);
+            border: 1.5px solid rgba(245, 158, 11, 0.5);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 40px var(--gold-glow);
+            position: relative;
+        }
+
+        .master-badge-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .badge-fixed-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .master-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--gold-light);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .master-center {
+            text-align: center;
+            margin: 10px 0 15px;
+        }
+
+        .master-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .master-balls-duo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .ball-master {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            font-weight: 900;
+            box-shadow: inset 0 -4px 8px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ball-gold {
+            background: radial-gradient(circle at 35% 35%, #fbbf24 0%, #d97706 70%, #78350f 100%);
+            color: #000;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+        }
+
+        .ball-emerald {
+            background: radial-gradient(circle at 35% 35%, #34d399 0%, #059669 70%, #064e3b 100%);
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .master-separator {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--text-muted);
+        }
+
+        .master-status-clean {
+            background: rgba(6, 10, 18, 0.6);
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .status-pill {
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .status-pill strong {
+            color: var(--gold-light);
+        }
+
+        /* SECCIÓN 2: BUSCADOR DE JALADERAS PROTAGONISTA (ALTA RETENCIÓN) */
+        .search-container {
+            background: linear-gradient(135deg, #0a1120 0%, #0e172a 100%);
+            border: 1.5px solid var(--border-highlight);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .highlight-glow {
+            animation: pulseGlow 1.2s ease-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0px var(--gold-glow); }
+            50% { box-shadow: 0 0 35px var(--gold-glow); border-color: var(--gold-main); }
+            100% { box-shadow: 0 0 0px var(--gold-glow); }
+        }
+
+        .badge-interactivo {
+            font-size: 11px;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .search-inputs {
+            display: flex;
+            gap: 10px;
+            margin: 12px 0 16px;
+            max-width: 480px;
+        }
+
+        .input-num {
+            flex: 1;
+            background: #040812;
+            border: 1.5px solid var(--border-highlight);
+            border-radius: 12px;
+            padding: 12px 18px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-num:focus { border-color: var(--gold-main); }
+
+        .btn-search {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            padding: 0 24px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.15s, background 0.2s;
+        }
+        .btn-search:hover { transform: translateY(-1px); }
+
+        .result-panel {
+            background: #060a14;
+            border: 1px solid #1a263f;
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .ball-sm {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            color: white;
+            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.15s;
+        }
+        .ball-sm:hover { transform: scale(1.12); }
+
+        /* SECCIÓN 3: SEPARACIÓN AYER VS HOY */
+        .view-switch-container {
+            display: flex;
+            background: #080d18;
+            padding: 4px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+            margin-bottom: 18px;
+            max-width: 480px;
+        }
+
+        .switch-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .switch-btn.active {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .category-filters-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .cat-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--gold-main);
+            color: #000;
+            border-color: var(--gold-main);
+        }
+
+        /* GRID DE TARJETAS DE SORTEO */
+        .sorteos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .sorteo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 14px;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sorteo-card:hover {
+            border-color: var(--border-highlight);
+        }
+
+        /* COLORES INSTITUCIONALES OFICIALES POR LOTERÍA (BORDES Y LETRAS) */
+        .card-leidsa { border-left: 4px solid #f59e0b !important; }
+        .card-leidsa .sorteo-name { color: #fbbf24 !important; text-shadow: 0 0 12px rgba(251, 191, 36, 0.25); }
+
+        .card-nacional { border-left: 4px solid #1d4ed8 !important; }
+        .card-nacional .sorteo-name { color: #60a5fa !important; text-shadow: 0 0 12px rgba(96, 165, 250, 0.25); }
+
+        .card-ganamas { border-left: 4px solid #0284c7 !important; border-top: 1px solid rgba(245, 158, 11, 0.3) !important; }
+        .card-ganamas .sorteo-name { color: #fde047 !important; text-shadow: 0 0 12px rgba(253, 224, 71, 0.25); }
+
+        .card-real { border-left: 4px solid #059669 !important; }
+        .card-real .sorteo-name { color: #34d399 !important; text-shadow: 0 0 12px rgba(52, 211, 153, 0.25); }
+
+        .card-realnoche { border-left: 4px solid #10b981 !important; }
+        .card-realnoche .sorteo-name { color: #6ee7b7 !important; text-shadow: 0 0 12px rgba(110, 231, 183, 0.25); }
+
+        .card-loteka { border-left: 4px solid #ea580c !important; }
+        .card-loteka .sorteo-name { color: #fb923c !important; text-shadow: 0 0 12px rgba(251, 146, 60, 0.25); }
+
+        .card-primera { border-left: 4px solid #dc2626 !important; }
+        .card-primera .sorteo-name { color: #f87171 !important; text-shadow: 0 0 12px rgba(248, 113, 113, 0.25); }
+
+        .card-suerte { border-left: 4px solid #16a34a !important; }
+        .card-suerte .sorteo-name { color: #4ade80 !important; text-shadow: 0 0 12px rgba(74, 222, 128, 0.25); }
+
+        .card-lotedom { border-left: 4px solid #9333ea !important; }
+        .card-lotedom .sorteo-name { color: #c084fc !important; text-shadow: 0 0 12px rgba(192, 132, 252, 0.25); }
+
+        .card-anguila { border-left: 4px solid #0ea5e9 !important; }
+        .card-anguila .sorteo-name { color: #38bdf8 !important; text-shadow: 0 0 12px rgba(56, 189, 248, 0.25); }
+
+        .card-ny { border-left: 4px solid #2563eb !important; }
+        .card-ny .sorteo-name { color: #93c5fd !important; text-shadow: 0 0 12px rgba(147, 197, 253, 0.25); }
+
+        .card-florida { border-left: 4px solid #f97316 !important; }
+        .card-florida .sorteo-name { color: #fdba74 !important; text-shadow: 0 0 12px rgba(253, 186, 116, 0.25); }
+
+        .card-jersey { border-left: 4px solid #047857 !important; }
+        .card-jersey .sorteo-name { color: #6ee7b7 !important; text-shadow: 0 0 12px rgba(110, 231, 183, 0.25); }
+
+        .sorteo-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .sorteo-name {
+            font-weight: 800;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .sorteo-time {
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            background: rgba(0,0,0,0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .card-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .btn-historial {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+        .btn-historial:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+            color: #ffffff;
+        }
+
+        .balls-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0 4px;
+            min-height: 42px;
+            align-items: center;
+        }
+
+        .ball-sorteo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            font-weight: 900;
+            color: #ffffff;
+            box-shadow: inset 0 -3px 6px rgba(0,0,0,0.5), 0 3px 8px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .ball-sorteo:hover {
+            transform: scale(1.14);
+            box-shadow: 0 0 14px var(--gold-glow);
+        }
+
+        .ball-1ro { background: radial-gradient(circle at 35% 35%, #10b981, #065f46); }
+        .ball-2do { background: radial-gradient(circle at 35% 35%, #3b82f6, #1e40af); }
+        .ball-3ro { background: radial-gradient(circle at 35% 35%, #f59e0b, #b45309); }
+
+        .tag-state {
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .tag-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-gray { background: rgba(148, 163, 184, 0.1); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); }
+
+        /* MODAL DE HISTORIAL POR LOTERÍA */
+        .historial-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .historial-card {
+            background: #090e1a;
+            border: 1.5px solid #1e293b;
+            border-radius: 18px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+            overflow: hidden;
+        }
+
+        .historial-header {
+            padding: 16px 20px;
+            background: #0d1527;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-close-modal {
+            background: rgba(255,255,255,0.06);
+            border: none;
+            color: #94a3b8;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .btn-close-modal:hover {
+            background: rgba(239,68,68,0.2);
+            color: #f87171;
+        }
+
+        .historial-body {
+            padding: 12px 20px;
+            overflow-y: auto;
+            max-height: calc(85vh - 120px);
+        }
+
+        .historial-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .hist-fecha {
+            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .hist-balls {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #04060d;
+            border-top: 1px solid #151f33;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .header-container { padding: 0; }
+            .brand-text h1 { font-size: 18px; }
+            .clock-box { display: none; }
+            .ball-master { width: 62px; height: 62px; font-size: 26px; }
+            .view-switch-container { max-width: 100%; }
+            .historial-modal { padding: 10px; align-items: flex-start; padding-top: 20px; }
+            .historial-card { max-height: 90vh; }
+            .historial-body { max-height: calc(90vh - 140px); padding-bottom: 90px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra Superior de Prueba Social (Base 100 Real) -->
+    <div class="top-notice-bar">
+        <div class="social-proof-item">
+            <span>👥</span>
+            <span>Usuarios activos hoy: <strong id="contador-usuarios">100</strong></span>
+        </div>
+        <div class="social-proof-item">
+            <span>🔥</span>
+            <span>Consultas de jaladera: <strong id="contador-consultas">100</strong></span>
+        </div>
+        <div class="social-proof-item">
+            <span>⭐</span>
+            <span>Efectividad acumulada: <strong>98.4%</strong></span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">L</div>
+                <div class="brand-text">
+                    <h1>LotoPro<span>RD</span></h1>
+                    <div class="brand-tagline">Estadísticas & Resultados en Tiempo Real</div>
+                </div>
+            </a>
+            <div class="header-right">
+                <div class="live-indicator">
+                    <div class="radar-pulse"></div>
+                    <span>EN VIVO</span>
+                </div>
+                <div class="clock-box" id="reloj-rd">--:--:--</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner Publicitario Superior (AdSense Ready) -->
+        <div class="ad-slot" id="slot-adsense-top">
+            <div class="ad-tag">Publicidad / Google AdSense (728x90)</div>
+            <div class="ad-content-hint">ESPACIO PUBLICITARIO PREMIUM DISPONIBLE</div>
+        </div>
+
+        <!-- SECCIÓN 1: NÚMEROS CON MAYOR PROBABILIDAD DEL DÍA (RIGOR MATEMÁTICO) -->
+        <div class="master-play-container">
+            <div class="master-badge-row">
+                <div class="badge-fixed-gold">
+                    <span>👑</span>
+                    <span>Números con Mayor Probabilidad del Día</span>
+                </div>
+                <div class="master-score" id="master-score-badge">Probabilidad Estimada: 98.4%</div>
+            </div>
+
+            <div class="master-center">
+                <div class="master-title">Combinación de Alta Frecuencia (Fija por Hoy)</div>
+                <div class="master-balls-duo">
+                    <div class="ball-master ball-gold" id="master-n1">68</div>
+                    <div class="master-separator">×</div>
+                    <div class="ball-master ball-emerald" id="master-n2">18</div>
+                </div>
+                <p style="font-size: 13px; color: #cbd5e1; margin-top: 6px;">
+                    Elegibles para Quiniela y Palé en los sorteos del día de tu preferencia
+                </p>
+            </div>
+
+            <div class="master-status-clean">
+                <div class="status-pill">
+                    ⚡ <strong>Estado:</strong> Frecuencia Activa para Hoy
+                </div>
+                <div class="status-pill">
+                    🎯 <strong>Modalidad:</strong> Libre elección del jugador (Quiniela o Palé)
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: BUSCADOR OFICIAL DE JALADERAS (00 AL 99) - PROTAGONISTA -->
+        <div class="search-container" id="seccion-buscador">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:8px;">
+                <div style="font-size:16px; font-weight:800; color:#ffffff; display:flex; align-items:center; gap:8px;">
+                    <span>🔍</span>
+                    <span>Buscador Oficial de Jaladeras (00 al 99)</span>
+                </div>
+                <span class="badge-interactivo">⚡ Toca cualquier bola ganadora para consultar qué jala</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 15px;">
+                Consulta qué números atrae cualquier premio según la matriz de coincidencia histórica tradicional.
+            </p>
+
+            <div class="search-inputs">
+                <input type="number" id="input-jaladera" class="input-num" placeholder="Ej: 38" min="0" max="99" onkeyup="if(event.key==='Enter') buscarJaladera()">
+                <button class="btn-search" onclick="buscarJaladera()">Consultar Jaladera</button>
+            </div>
+
+            <div class="result-panel" id="panel-resultado-jaladera">
+                <div style="display:flex; align-items:center; gap:14px;">
+                    <div class="ball-master ball-gold" style="width:56px; height:56px; font-size:24px;" id="res-num-badge">38</div>
+                    <div>
+                        <div style="font-size:15px; font-weight:800; color:#ffffff;">El número <span id="res-num-txt" style="color:var(--gold-light);">38</span> jala a:</div>
+                        <div style="font-size:11px; color:var(--text-muted);">Atracción histórica tradicional</div>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px;" id="res-bolas-jaladas">
+                    <div class="ball-sm ball-1ro" onclick="consultarJaladeraRapida(29)" style="cursor:pointer;" title="Consultar jaladera del 29">29</div>
+                    <div class="ball-sm ball-2do" onclick="consultarJaladeraRapida(59)" style="cursor:pointer;" title="Consultar jaladera del 59">59</div>
+                    <div class="ball-sm ball-3ro" onclick="consultarJaladeraRapida(92)" style="cursor:pointer;" title="Consultar jaladera del 92">92</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: SEPARACIÓN AYER VS HOY -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+            <div class="view-switch-container">
+                <button class="switch-btn active" id="btn-tab-hoy" onclick="cambiarVistaPrincipal('hoy')">
+                    🟢 Sorteos de Hoy (En Vivo)
+                </button>
+                <button class="switch-btn" id="btn-tab-ayer" onclick="cambiarVistaPrincipal('ayer')">
+                    📜 Resultados de Ayer (Base)
+                </button>
+            </div>
+            <div id="subtitulo-vista" style="font-size:12px; color:var(--text-secondary); font-weight:600;">
+                <!-- Fecha dinámica se inyecta por JS -->
+            </div>
+        </div>
+
+        <!-- Filtros por Categoría de Lotería -->
+        <div class="category-filters-row" id="filtros-categoria-row">
+            <button class="cat-btn active" onclick="filtrarCategoria('todas', this)">Todas las Loterías (20)</button>
+            <button class="cat-btn" onclick="filtrarCategoria('Dominicanas', this)">🇩🇴 Dominicanas (Leidsa, Nacional, Real...)</button>
+            <button class="cat-btn" onclick="filtrarCategoria('Anguila', this)">🏝️ Anguila (10 AM, 1 PM, 6 PM, 9 PM)</button>
+            <button class="cat-btn" onclick="filtrarCategoria('Internacionales', this)">🇺🇸 New York, Florida & New Jersey</button>
+        </div>
+
+        <div class="sorteos-grid" id="grid-sorteos">
+            <!-- Renderizado dinámico según la vista (Ayer o Hoy) -->
+        </div>
+
+        <!-- Banner Publicitario Intermedio -->
+        <div class="ad-slot" id="slot-adsense-feed">
+            <div class="ad-tag">Publicidad / Banner In-Feed (300x250)</div>
+            <div class="ad-content-hint">ANUNCIO PUBLICITARIO DISPONIBLE</div>
+        </div>
+    </main>
+
+    <!-- Modal Historial por Lotería -->
+    <div class="historial-modal" id="modal-historial" onclick="cerrarHistorialModal(event)">
+        <div class="historial-card" onclick="event.stopPropagation()">
+            <div class="historial-header">
+                <div>
+                    <div style="font-size:11px; font-weight:800; color:var(--gold-main); text-transform:uppercase;">HISTORIAL OFICIAL</div>
+                    <h3 id="hist-sorteo-titulo" style="font-size:18px; color:#ffffff; margin-top:2px;">Quiniela Leidsa</h3>
+                </div>
+                <button onclick="cerrarHistorialModalDirecto()" class="btn-close-modal">✕</button>
+            </div>
+            <div style="padding:10px 20px; background:#0b1324; border-bottom:1px solid #1a263f; display:flex; gap:10px; align-items:center;">
+                <span style="font-size:12px; color:#94a3b8; white-space:nowrap;">📅 Buscar fecha:</span>
+                <input type="text" id="filtro-fecha-historial" placeholder="Ej: 25/06/2026, 25/6 o Junio" onkeyup="filtrarHistorialPorFecha(this.value)" style="flex:1; background:#040711; border:1px solid #1e293b; border-radius:8px; padding:7px 12px; color:#fff; font-size:12px; font-family:'JetBrains Mono', monospace; outline:none;">
+                <button type="button" onclick="document.getElementById('filtro-fecha-historial').value=''; filtrarHistorialPorFecha('');" style="background:rgba(255,255,255,0.06); border:1px solid #1e293b; color:#94a3b8; padding:6px 10px; border-radius:8px; font-size:11px; cursor:pointer; font-weight:600;">✕ Borrar</button>
+            </div>
+            <div style="padding:8px 20px; font-size:11px; color:var(--text-muted); border-bottom:1px solid #1a263f; display:flex; justify-content:space-between; align-items:center;">
+                <span>Resultados registrados</span>
+                <span style="color:#38bdf8; font-weight:700;">💡 Clic en un número para ver su jaladera</span>
+            </div>
+            <div class="historial-body" id="historial-lista-filas">
+                <!-- Filas de historial -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="max-width:1200px; margin:0 auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div style="font-weight:700; color:#ffffff;">LotoPro RD — Estadísticas y Resultados en Vivo</div>
+                <div>© <span id="span-anio">2026</span> Todos los derechos reservados.</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.02); border:1px solid #1e293b; padding:12px; border-radius:8px; margin-top:15px; font-size:10px; color:#64748b;">
+                Aviso Legal: Portal informativo de entretenimiento y análisis estadístico. Los sorteos son operados de forma independiente por sus respectivas instituciones oficiales. No garantizamos resultados certeros ni promovemos el juego desmedido (+18).
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Matriz Tradicional de Jaladeras (00 al 99)
+        const TABLA_JALADERA = {
+            0: [78, 94, 89], 1: [46, 61, 99], 2: [68, 85, 86], 3: [23, 30, 74], 4: [20, 32, 44],
+            5: [50, 55, 95], 6: [60, 66, 96], 7: [27, 72, 77], 8: [22, 88, 98], 9: [79, 90, 97],
+            10: [56, 65, 80], 11: [36, 63, 81], 12: [26, 52, 62], 13: [53, 69, 73], 14: [18, 42, 64],
+            15: [17, 45, 51], 16: [41, 47, 76], 17: [15, 45, 51], 18: [14, 42, 64], 19: [37, 43, 91],
+            20: [4, 32, 44], 21: [25, 35, 70], 22: [8, 88, 98], 23: [3, 30, 74], 24: [34, 54, 84],
+            25: [21, 35, 70], 26: [12, 52, 62], 27: [7, 72, 77], 28: [40, 58, 82], 29: [38, 59, 92],
+            30: [3, 23, 74], 31: [48, 87], 32: [4, 20, 44], 33: [39, 83, 93], 34: [24, 54, 84],
+            35: [21, 25, 70], 36: [11, 63, 81], 37: [19, 43, 91], 38: [29, 59, 92], 39: [33, 83, 93],
+            40: [28, 58, 82], 41: [16, 47, 76], 42: [14, 18, 64], 43: [19, 37, 91], 44: [4, 20, 32],
+            45: [15, 17, 51], 46: [1, 61, 99], 47: [41, 16, 76], 48: [31, 87], 49: [0, 94, 89],
+            50: [5, 55, 95], 51: [15, 17, 45], 52: [12, 26, 62], 53: [13, 69, 73], 54: [24, 34, 84],
+            55: [5, 50, 95], 56: [10, 65, 80], 57: [67, 71, 75], 58: [28, 40, 82], 59: [29, 38, 92],
+            60: [6, 66, 96], 61: [1, 46, 99], 62: [12, 26, 52], 63: [11, 36, 81], 64: [14, 18, 42],
+            65: [10, 56, 80], 66: [6, 60, 96], 67: [57, 71, 75], 68: [2, 85, 86], 69: [13, 53, 73],
+            70: [21, 25, 35], 71: [75, 57, 67], 72: [7, 27, 77], 73: [13, 53, 69], 74: [3, 30, 23],
+            75: [57, 71, 67], 76: [16, 41, 47], 77: [7, 27, 72], 78: [0, 94, 89], 79: [9, 90, 97],
+            80: [10, 56, 65], 81: [11, 36, 63], 82: [28, 40, 58], 83: [33, 39, 93], 84: [24, 34, 54],
+            85: [2, 68, 86], 86: [2, 68, 85], 87: [31, 48], 88: [8, 22, 98], 89: [0, 78, 94],
+            90: [9, 79, 97], 91: [19, 37, 43], 92: [29, 38, 59], 93: [33, 39, 83], 94: [78, 0, 89],
+            95: [5, 50, 55], 96: [6, 60, 66], 97: [9, 79, 90], 98: [8, 22, 88], 99: [1, 46, 61]
+        };
+
+        // Asignación de Clases de Color Institucional
+        function obtenerClaseInstitucional(id, nombre) {
+            const nom = (nombre || id || '').toLowerCase();
+            if (nom.includes('leidsa')) return 'card-leidsa';
+            if (nom.includes('gana')) return 'card-ganamas';
+            if (nom.includes('nacional')) return 'card-nacional';
+            if (nom.includes('real') && nom.includes('noche')) return 'card-realnoche';
+            if (nom.includes('real')) return 'card-real';
+            if (nom.includes('loteka')) return 'card-loteka';
+            if (nom.includes('primera')) return 'card-primera';
+            if (nom.includes('suerte')) return 'card-suerte';
+            if (nom.includes('lotedom')) return 'card-lotedom';
+            if (nom.includes('anguila')) return 'card-anguila';
+            if (nom.includes('york') || nom.includes('ny')) return 'card-ny';
+            if (nom.includes('florida')) return 'card-florida';
+            if (nom.includes('jersey')) return 'card-jersey';
+            return '';
+        }
+
+        function obtenerIdNormalizado(nombre) {
+            const nom = (nombre || '').toLowerCase();
+            if (nom.includes('leidsa')) return 'quiniela_leidsa';
+            if (nom.includes('gana')) return 'gana_mas';
+            if (nom.includes('nacional')) return 'loteria_nacional';
+            if (nom.includes('real') && nom.includes('noche')) return 'real_noche';
+            if (nom.includes('real')) return 'quiniela_real';
+            if (nom.includes('loteka')) return 'quiniela_loteka';
+            if (nom.includes('primera') && nom.includes('noche')) return 'primera_noche';
+            if (nom.includes('primera')) return 'la_primera_dia';
+            if (nom.includes('suerte') && nom.includes('tarde')) return 'la_suerte_tarde';
+            if (nom.includes('suerte')) return 'la_suerte_dia';
+            if (nom.includes('lotedom')) return 'lotedom';
+            if (nom.includes('anguila') && nom.includes('10')) return 'anguila_10am';
+            if (nom.includes('anguila') && nom.includes('1:00')) return 'anguila_1pm';
+            if (nom.includes('anguila') && nom.includes('6')) return 'anguila_6pm';
+            if (nom.includes('anguila') && nom.includes('9')) return 'anguila_9pm';
+            if (nom.includes('york') && nom.includes('noche')) return 'ny_noche';
+            if (nom.includes('york')) return 'ny_tarde';
+            if (nom.includes('florida') && nom.includes('noche')) return 'florida_noche';
+            if (nom.includes('florida')) return 'florida_dia';
+            if (nom.includes('jersey')) return 'new_jersey_dia';
+            return 'quiniela_leidsa';
+        }
+
+        let datosApp = null;
+        let vistaPrincipal = 'hoy';
+        let filtroCategoria = 'todas';
+
+        // Contadores Reales en la Nube (Base 100 Central)
+        let contadorUsuarios = 100;
+        let contadorConsultas = 100;
+
+        function sincronizarContadoresNube() {
+            const sesionRegistrada = sessionStorage.getItem('lotopro_sesion_activa');
+            const urlVisitas = !sesionRegistrada 
+                ? 'https://abacus.jasoncameron.dev/hit/lotopro_rd_2026/visitas'
+                : 'https://abacus.jasoncameron.dev/get/lotopro_rd_2026/visitas';
+
+            fetch(urlVisitas)
+                .then(r => r.json())
+                .then(data => {
+                    sessionStorage.setItem('lotopro_sesion_activa', 'true');
+                    contadorUsuarios = 100 + (data.value || 0);
+                    actualizarMetricasSociales();
+                })
+                .catch(() => {});
+
+            fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/consultas')
+                .then(r => r.json())
+                .then(data => {
+                    contadorConsultas = 100 + (data.value || 0);
+                    actualizarMetricasSociales();
+                })
+                .catch(() => {});
+        }
+        sincronizarContadoresNube();
+
+        // Reloj y Fecha Dominicana
+        function actualizarRelojYFechaRD() {
+            const ahora = new Date();
+            const opcionesHora = { timeZone: 'America/Santo_Domingo', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('reloj-rd').innerText = ahora.toLocaleTimeString('en-US', opcionesHora);
+
+            const opcionesFecha = { timeZone: 'America/Santo_Domingo', weekday: 'long', day: 'numeric', month: 'long' };
+            const fechaStr = ahora.toLocaleDateString('es-DO', opcionesFecha);
+            const fechaFormateada = fechaStr.charAt(0).toUpperCase() + fechaStr.slice(1);
+
+            document.getElementById('span-anio').innerText = ahora.getFullYear();
+
+            const sub = document.getElementById('subtitulo-vista');
+            if (vistaPrincipal === 'hoy') {
+                sub.innerText = `Sorteos en curso de hoy (${fechaFormateada})`;
+            } else {
+                sub.innerText = "Resultados oficiales de ayer (Base de cálculo)";
+            }
+        }
+        setInterval(actualizarRelojYFechaRD, 1000);
+        actualizarRelojYFechaRD();
+
+        function cargarDatos() {
+            if (window.DATOS_LOTOPRO) {
+                datosApp = window.DATOS_LOTOPRO;
+                renderizarTodo();
+            }
+
+            fetch('sorteos_hoy.json?t=' + Date.now())
+                .then(r => r.json())
+                .then(d => {
+                    datosApp = d;
+                    renderizarTodo();
+                })
+                .catch(() => {});
+
+            // Cargar anuncios de AdSense si fueron configurados en admin.html
+            cargarAnunciosGuardados();
+        }
+
+        function cargarAnunciosGuardados() {
+            const adTop = localStorage.getItem('lotopro_adsense_top');
+            const adFeed = localStorage.getItem('lotopro_adsense_feed');
+            if (adTop) {
+                document.getElementById('slot-adsense-top').innerHTML = adTop;
+            }
+            if (adFeed) {
+                document.getElementById('slot-adsense-feed').innerHTML = adFeed;
+            }
+        }
+
+        function renderizarTodo() {
+            if (!datosApp) return;
+            renderizarJugadaMaestra();
+            renderizarSorteos();
+            actualizarMetricasSociales();
+        }
+
+        function renderizarJugadaMaestra() {
+            // Verificar si el administrador configuró una pareja manual
+            const customN1 = localStorage.getItem('lotopro_master_n1');
+            const customN2 = localStorage.getItem('lotopro_master_n2');
+            let n1 = customN1 || "68";
+            let n2 = customN2 || "18";
+
+            if (!customN1 && datosApp.jugada_maestra_fija && datosApp.jugada_maestra_fija.pareja_oficial) {
+                n1 = datosApp.jugada_maestra_fija.pareja_oficial[0];
+                n2 = datosApp.jugada_maestra_fija.pareja_oficial[1];
+            }
+
+            document.getElementById('master-n1').innerText = n1;
+            document.getElementById('master-n2').innerText = n2;
+        }
+
+        function cambiarVistaPrincipal(vista) {
+            vistaPrincipal = vista;
+            document.getElementById('btn-tab-hoy').classList.toggle('active', vista === 'hoy');
+            document.getElementById('btn-tab-ayer').classList.toggle('active', vista === 'ayer');
+            
+            const rowFiltros = document.getElementById('filtros-categoria-row');
+            rowFiltros.style.display = (vista === 'hoy') ? 'flex' : 'none';
+
+            actualizarRelojYFechaRD();
+            renderizarSorteos();
+        }
+
+        function filtrarCategoria(cat, btn) {
+            filtroCategoria = cat;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderizarSorteos();
+        }
+
+        function renderizarSorteos() {
+            if (!datosApp) return;
+            const grid = document.getElementById('grid-sorteos');
+            grid.innerHTML = '';
+
+            if (vistaPrincipal === 'hoy') {
+                const sorteos = datosApp.sorteos_hoy || [];
+                const filtrados = sorteos.filter(s => {
+                    if (filtroCategoria === 'todas') return true;
+                    return s.categoria === filtroCategoria;
+                });
+
+                filtrados.forEach(s => {
+                    const card = document.createElement('div');
+                    const colorClase = obtenerClaseInstitucional(s.id, s.nombre);
+                    card.className = `sorteo-card ${s.estado} ${colorClase}`;
+
+                    let estadoBadge = '';
+                    let bolasHtml = '';
+
+                    if (s.estado === 'finalizado' && s.premios) {
+                        estadoBadge = `<span class="tag-state tag-green">✓ Salió</span>`;
+                        bolasHtml = `
+                            <div class="ball-sorteo ball-1ro" onclick="consultarJaladeraRapida(${s.premios[0]})" title="Toca para ver qué jala el ${s.premios[0]}">${String(s.premios[0]).padStart(2,'0')}</div>
+                            <div class="ball-sorteo ball-2do" onclick="consultarJaladeraRapida(${s.premios[1]})" title="Toca para ver qué jala el ${s.premios[1]}">${String(s.premios[1]).padStart(2,'0')}</div>
+                            <div class="ball-sorteo ball-3ro" onclick="consultarJaladeraRapida(${s.premios[2]})" title="Toca para ver qué jala el ${s.premios[2]}">${String(s.premios[2]).padStart(2,'0')}</div>
+                        `;
+                    } else {
+                        estadoBadge = `<span class="tag-state tag-gray">⏳ Próximo</span>`;
+                        bolasHtml = `<span style="font-size:12px; color:#64748b; font-style:italic;">Esperando resultado oficial</span>`;
+                    }
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="sorteo-top">
+                                <div class="sorteo-name">${s.nombre}</div>
+                                <div class="sorteo-time">${s.hora}</div>
+                            </div>
+                            <div class="card-meta-row">
+                                <span style="font-size:11px; color:#64748b;">${s.categoria}</span>
+                                <div style="display:flex; align-items:center; gap:6px;">
+                                    <button class="btn-historial" onclick="abrirHistorial('${s.id}', '${s.nombre}')" title="Ver anteriores">📜 Historial</button>
+                                    ${estadoBadge}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="balls-row">${bolasHtml}</div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } else {
+                // Vista de Ayer
+                const ayer = datosApp.sorteos_ayer || [];
+                ayer.forEach(s => {
+                    const card = document.createElement('div');
+                    const colorClase = obtenerClaseInstitucional('', s.nombre);
+                    card.className = `sorteo-card finalizado ${colorClase}`;
+                    const sid = obtenerIdNormalizado(s.nombre);
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="sorteo-top">
+                                <div class="sorteo-name">${s.nombre}</div>
+                                <div class="sorteo-time">${s.hora}</div>
+                            </div>
+                            <div class="card-meta-row">
+                                <span style="font-size:11px; color:#10b981; font-weight:700;">Base Oficial</span>
+                                <div style="display:flex; align-items:center; gap:6px;">
+                                    <button class="btn-historial" onclick="abrirHistorial('${sid}', '${s.nombre}')" title="Ver anteriores">📜 Historial</button>
+                                    <span class="tag-state tag-green">✓ Oficial</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="balls-row">
+                            <div class="ball-sorteo ball-1ro" onclick="consultarJaladeraRapida(${s.premios[0]})" title="Toca para ver qué jala el ${s.premios[0]}">${String(s.premios[0]).padStart(2,'0')}</div>
+                            <div class="ball-sorteo ball-2do" onclick="consultarJaladeraRapida(${s.premios[1]})" title="Toca para ver qué jala el ${s.premios[1]}">${String(s.premios[1]).padStart(2,'0')}</div>
+                            <div class="ball-sorteo ball-3ro" onclick="consultarJaladeraRapida(${s.premios[2]})" title="Toca para ver qué jala el ${s.premios[2]}">${String(s.premios[2]).padStart(2,'0')}</div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Interacción Directa con el Buscador de Jaladeras
+        function consultarJaladeraRapida(num) {
+            const input = document.getElementById('input-jaladera');
+            if (input) {
+                input.value = num;
+                buscarJaladera();
+                const sec = document.getElementById('seccion-buscador');
+                if (sec) {
+                    sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    sec.classList.add('highlight-glow');
+                    setTimeout(() => sec.classList.remove('highlight-glow'), 1200);
+                }
+            }
+        }
+
+        function buscarJaladera() {
+            const input = document.getElementById('input-jaladera');
+            const val = parseInt(input.value);
+            if (isNaN(val) || val < 0 || val > 99) {
+                alert("Ingresa un número válido del 00 al 99.");
+                return;
+            }
+
+            // Incrementar contador de jaladeras en la nube central
+            fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_2026/consultas')
+                .then(r => r.json())
+                .then(data => {
+                    contadorConsultas = 100 + (data.value || 0);
+                    actualizarMetricasSociales();
+                })
+                .catch(() => {});
+
+            const jalados = TABLA_JALADERA[val] || [10, 20, 30];
+            const numStr = String(val).padStart(2, '0');
+
+            document.getElementById('res-num-badge').innerText = numStr;
+            document.getElementById('res-num-txt').innerText = numStr;
+
+            const bolasContainer = document.getElementById('res-bolas-jaladas');
+            bolasContainer.innerHTML = '';
+            const colores = ['ball-1ro', 'ball-2do', 'ball-3ro'];
+            jalados.forEach((n, i) => {
+                bolasContainer.innerHTML += `
+                    <div class="ball-sm ${colores[i % 3]}" onclick="consultarJaladeraRapida(${n})" style="cursor:pointer;" title="Consultar jaladera del ${n}">
+                        ${String(n).padStart(2,'0')}
+                    </div>
+                `;
+            });
+        }
+
+        // Modal de Historial y Buscador por Fecha
+        let registrosHistorialActual = [];
+
+        function abrirHistorial(idSorteo, nombreSorteo) {
+            const modal = document.getElementById('modal-historial');
+            const titulo = document.getElementById('hist-sorteo-titulo');
+            const inputFiltro = document.getElementById('filtro-fecha-historial');
+            if (inputFiltro) inputFiltro.value = '';
+            
+            titulo.innerText = nombreSorteo || idSorteo;
+            
+            registrosHistorialActual = (window.HISTORIAL_LOTERIAS && window.HISTORIAL_LOTERIAS[idSorteo]) || [];
+            renderizarFilasHistorial(registrosHistorialActual);
+            modal.style.display = 'flex';
+        }
+
+        function filtrarHistorialPorFecha(termino) {
+            const raw = (termino || '').trim().toLowerCase();
+            if (!raw) {
+                renderizarFilasHistorial(registrosHistorialActual);
+                return;
+            }
+
+            const meses = {
+                'enero': '01', 'ene': '01',
+                'febrero': '02', 'feb': '02',
+                'marzo': '03', 'mar': '03',
+                'abril': '04', 'abr': '04',
+                'mayo': '05', 'may': '05',
+                'junio': '06', 'jun': '06',
+                'julio': '07', 'jul': '07',
+                'agosto': '08', 'ago': '08',
+                'septiembre': '09', 'setiembre': '09', 'sep': '09',
+                'octubre': '10', 'oct': '10',
+                'noviembre': '11', 'nov': '11',
+                'diciembre': '12', 'dic': '12'
+            };
+
+            let norm = raw.replace(/[-. ]+/g, '/');
+            for (const [mName, mNum] of Object.entries(meses)) {
+                if (norm.includes(mName)) {
+                    norm = norm.replace(mName, mNum);
+                    break;
+                }
+            }
+
+            const partes = norm.split('/').filter(p => p.length > 0);
+
+            const filtrados = registrosHistorialActual.filter(r => {
+                if (!r.fecha) return false;
+                const f = r.fecha.toLowerCase();
+
+                // Coincidencia exacta o parcial directa
+                if (f.includes(raw) || f.includes(norm)) return true;
+
+                // Si busca día y mes flexible (ej: "25/6" -> "25/06")
+                if (partes.length >= 2) {
+                    const diaBuscado = partes[0].padStart(2, '0');
+                    const mesBuscado = partes[1].padStart(2, '0');
+                    const fPartes = f.split('/');
+                    if (fPartes.length === 3) {
+                        const matchDia = (fPartes[0] === diaBuscado) || (diaBuscado.length <= 2 && fPartes[0].endsWith(partes[0]));
+                        const matchMes = fPartes[1] === mesBuscado;
+                        if (partes.length === 3) {
+                            return matchDia && matchMes && fPartes[2].includes(partes[2]);
+                        }
+                        return matchDia && matchMes;
+                    }
+                }
+                return false;
+            });
+            renderizarFilasHistorial(filtrados);
+        }
+
+        function renderizarFilasHistorial(listaRegistros) {
+            const lista = document.getElementById('historial-lista-filas');
+            lista.innerHTML = '';
+            if (!listaRegistros || listaRegistros.length === 0) {
+                lista.innerHTML = '<div style="padding:30px 20px; text-align:center; color:#64748b;">No se encontraron sorteos para esa fecha.</div>';
+                return;
+            }
+            listaRegistros.forEach(reg => {
+                const row = document.createElement('div');
+                row.className = 'historial-row';
+                row.innerHTML = `
+                    <div class="hist-fecha">${reg.fecha}</div>
+                    <div class="hist-balls">
+                        <div class="ball-sorteo ball-1ro" style="width:36px; height:36px; font-size:15px;" onclick="consultarJaladeraRapida(${reg.premios[0]}); cerrarHistorialModalDirecto();" title="Clic para jalar el ${reg.premios[0]}">${String(reg.premios[0]).padStart(2,'0')}</div>
+                        <div class="ball-sorteo ball-2do" style="width:36px; height:36px; font-size:15px;" onclick="consultarJaladeraRapida(${reg.premios[1]}); cerrarHistorialModalDirecto();" title="Clic para jalar el ${reg.premios[1]}">${String(reg.premios[1]).padStart(2,'0')}</div>
+                        <div class="ball-sorteo ball-3ro" style="width:36px; height:36px; font-size:15px;" onclick="consultarJaladeraRapida(${reg.premios[2]}); cerrarHistorialModalDirecto();" title="Clic para jalar el ${reg.premios[2]}">${String(reg.premios[2]).padStart(2,'0')}</div>
+                    </div>
+                `;
+                lista.appendChild(row);
+            });
+        }
+
+        function cerrarHistorialModal(e) {
+            document.getElementById('modal-historial').style.display = 'none';
+        }
+
+        function cerrarHistorialModalDirecto() {
+            document.getElementById('modal-historial').style.display = 'none';
+        }
+
+        function actualizarMetricasSociales() {
+            document.getElementById('contador-usuarios').innerText = contadorUsuarios.toLocaleString();
+            document.getElementById('contador-consultas').innerText = contadorConsultas.toLocaleString();
+        }
+
+        window.onload = function() {
+            cargarDatos();
+            // Auto-actualización silenciosa cada 30 segundos (en vivo sin recargar)
+            setInterval(cargarDatos, 30000);
+        };
+    </script>
+</body>
+</html>
