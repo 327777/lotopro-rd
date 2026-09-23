@@ -5,11 +5,17 @@ import ssl
 import json
 import urllib.request
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from motor_jugada_maestra import calcular_jugada_maestra
 
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
+
+# Zona Horaria Fija de República Dominicana (UTC-4) sin importar dónde corra el servidor (Londres, EE.UU., etc.)
+TZ_RD = timezone(timedelta(hours=-4))
+
+def ahora_rd():
+    return datetime.now(TZ_RD)
 
 DIR_ACTUAL = os.path.dirname(os.path.abspath(__file__))
 ARCHIVO_JSON = os.path.join(DIR_ACTUAL, "sorteos_hoy.json")
@@ -17,34 +23,116 @@ ARCHIVO_JS = os.path.join(DIR_ACTUAL, "datos_en_vivo.js")
 ARCHIVO_HIST = os.path.join(DIR_ACTUAL, "historial_loterias.json")
 ARCHIVO_HIST_JS = os.path.join(DIR_ACTUAL, "datos_historial.js")
 
+# Mapeo exhaustivo de nombres web a IDs internos.
+# Las búsquedas se ordenan de mayor longitud a menor para evitar colisiones (ej: 'la suerte 6pm' antes de 'la suerte').
 MAPA_LOTERIAS = {
+    # Anguila
     "anguilla 10am": "anguila_10am",
-    "la primera": "la_primera_dia",
-    "la suerte": "la_suerte_dia",
-    "real": "quiniela_real",
+    "anguila 10am": "anguila_10am",
+    "anguilla 10:00": "anguila_10am",
     "anguilla 1pm": "anguila_1pm",
-    "new jersey tarde": "new_jersey_dia",
-    "florida tarde": "florida_dia",
-    "lotedom": "lotedom",
-    "nacional gana más": "gana_mas",
-    "gana más": "gana_mas",
-    "new york tarde": "ny_tarde",
-    "la suerte 6pm": "la_suerte_tarde",
+    "anguila 1pm": "anguila_1pm",
+    "anguilla 1:00": "anguila_1pm",
     "anguilla 6pm": "anguila_6pm",
-    "loteka": "quiniela_loteka",
-    "la primera noche": "primera_noche",
-    "leidsa": "quiniela_leidsa",
-    "nacional noche": "loteria_nacional",
-    "real noche": "real_noche",
+    "anguila 6pm": "anguila_6pm",
+    "anguilla 6:00": "anguila_6pm",
     "anguilla 9pm": "anguila_9pm",
+    "anguila 9pm": "anguila_9pm",
+    "anguilla 9:00": "anguila_9pm",
+    # Primera
+    "la primera noche": "primera_noche",
+    "primera noche": "primera_noche",
+    "la primera 8pm": "primera_noche",
+    "la primera 8:00": "primera_noche",
+    "la primera dia": "la_primera_dia",
+    "la primera 12pm": "la_primera_dia",
+    "la primera 12:00": "la_primera_dia",
+    "la primera": "la_primera_dia",
+    # Suerte
+    "la suerte 6pm": "la_suerte_tarde",
+    "la suerte 6:00": "la_suerte_tarde",
+    "suerte 6pm": "la_suerte_tarde",
+    "la suerte tarde": "la_suerte_tarde",
+    "la suerte 12:30": "la_suerte_dia",
+    "la suerte 12pm": "la_suerte_dia",
+    "la suerte dia": "la_suerte_dia",
+    "la suerte": "la_suerte_dia",
+    # Real
+    "real noche": "real_noche",
+    "real 9pm": "real_noche",
+    "real 9:00": "real_noche",
+    "quiniela real": "quiniela_real",
+    "real 1pm": "quiniela_real",
+    "real 1:00": "quiniela_real",
+    "real": "quiniela_real",
+    # New Jersey
+    "new jersey tarde": "new_jersey_dia",
+    "new jersey 1pm": "new_jersey_dia",
+    "new jersey 1:00": "new_jersey_dia",
+    "new jersey": "new_jersey_dia",
+    # Florida
     "florida noche": "florida_noche",
-    "new york noche": "ny_noche"
+    "florida 10pm": "florida_noche",
+    "florida 10:00": "florida_noche",
+    "florida tarde": "florida_dia",
+    "florida 1:30": "florida_dia",
+    "florida 1pm": "florida_dia",
+    "florida": "florida_dia",
+    # Lotedom
+    "lotedom": "lotedom",
+    # Nacional / Gana Más
+    "nacional gana más": "gana_mas",
+    "nacional gana mas": "gana_mas",
+    "gana más": "gana_mas",
+    "gana mas": "gana_mas",
+    "gana mas 2:30": "gana_mas",
+    "nacional noche": "loteria_nacional",
+    "loteria nacional": "loteria_nacional",
+    "nacional 9pm": "loteria_nacional",
+    # New York
+    "new york noche": "ny_noche",
+    "new york 10:30": "ny_noche",
+    "new york tarde": "ny_tarde",
+    "new york 2:30": "ny_tarde",
+    # Loteka
+    "quiniela loteka": "quiniela_loteka",
+    "loteka 7:55": "quiniela_loteka",
+    "loteka": "quiniela_loteka",
+    # Leidsa
+    "quiniela leidsa": "quiniela_leidsa",
+    "leidsa 8:55": "quiniela_leidsa",
+    "leidsa": "quiniela_leidsa"
+}
+
+# URLs individuales por si alguna lotería requiere consulta directa de respaldo
+URLS_RESPALDO = {
+    "anguila_10am": ("https://enloteria.com/resultados-anguilla-10am", "Anguilla 10AM"),
+    "la_primera_dia": ("https://enloteria.com/resultados-la-primera", "La Primera"),
+    "la_suerte_dia": ("https://enloteria.com/resultados-la-suerte", "La Suerte"),
+    "quiniela_real": ("https://enloteria.com/resultados-real", "Real"),
+    "anguila_1pm": ("https://enloteria.com/resultados-anguilla-1pm", "Anguilla 1PM"),
+    "new_jersey_dia": ("https://enloteria.com/resultados-new-jersey-tarde", "New Jersey Tarde"),
+    "florida_dia": ("https://enloteria.com/resultados-florida-tarde", "Florida Tarde"),
+    "lotedom": ("https://enloteria.com/resultados-lotedom", "LoteDom"),
+    "gana_mas": ("https://enloteria.com/resultados-gana-mas", "Nacional Gana"),
+    "ny_tarde": ("https://enloteria.com/resultados-new-york-tarde", "New York Tarde"),
+    "la_suerte_tarde": ("https://enloteria.com/resultados-la-suerte-6pm", "La Suerte 6PM"),
+    "anguila_6pm": ("https://enloteria.com/resultados-anguilla-6pm", "Anguilla 6PM"),
+    "quiniela_loteka": ("https://enloteria.com/resultados-loteka", "Loteka"),
+    "primera_noche": ("https://enloteria.com/resultados-la-primera-noche", "La Primera Noche"),
+    "quiniela_leidsa": ("https://enloteria.com/resultados-leidsa", "Leidsa"),
+    "loteria_nacional": ("https://enloteria.com/resultados-nacional-noche", "Nacional Noche"),
+    "real_noche": ("https://enloteria.com/resultados-real-noche", "Real Noche"),
+    "anguila_9pm": ("https://enloteria.com/resultados-anguilla-9pm", "Anguilla 9PM"),
+    "florida_noche": ("https://enloteria.com/resultados-florida-noche", "Florida Noche"),
+    "ny_noche": ("https://enloteria.com/resultados-new-york-noche", "New York Noche")
 }
 
 def hora_ha_pasado(hora_str):
     try:
-        ahora = datetime.now()
+        ahora = ahora_rd()
         t = datetime.strptime(hora_str.strip(), "%I:%M %p")
+        # El sorteo ya debió salir si la hora actual en RD es mayor o igual
         return (ahora.hour * 60 + ahora.minute) >= (t.hour * 60 + t.minute)
     except Exception:
         return True
@@ -57,16 +145,16 @@ def sincronizar_excel_recientes(sid, nombre_sorteo, fecha_dmy, premios):
         import openpyxl
         wb = openpyxl.load_workbook(archivo_excel)
         hoja_match = None
-        nom_clean = nombre_sorteo.lower()
+        nom_clean = nombre_sorteo.lower().replace(":", ".").replace(" ", "")
         for h in wb.sheetnames:
-            h_clean = h.lower()
-            if h_clean in nom_clean or nom_clean in h_clean:
+            h_clean = h.lower().replace(":", ".").replace(" ", "")
+            if h_clean == nom_clean:
                 hoja_match = h
                 break
-        if not hoja_match and wb.sheetnames:
-            pref = sid.split('_')[0]
+        if not hoja_match:
             for h in wb.sheetnames:
-                if pref in h.lower():
+                h_clean = h.lower().replace(":", ".").replace(" ", "")
+                if h_clean in nom_clean or nom_clean in h_clean:
                     hoja_match = h
                     break
         if hoja_match:
@@ -87,18 +175,21 @@ def sincronizar_excel_recientes(sid, nombre_sorteo, fecha_dmy, premios):
         print(f"Nota sincronizando Recientes.xlsx: {e}")
 
 def actualizar_todo():
-    print(f"[{datetime.now().strftime('%I:%M:%S %p')}] 📡 Consultando resultados oficiales en vivo...")
+    hora_actual_str = ahora_rd().strftime('%I:%M:%S %p')
+    print(f"[{hora_actual_str} RD] 📡 Consultando resultados oficiales en vivo...")
     
     # 1. Cargar datos locales
     with open(ARCHIVO_JSON, "r", encoding="utf-8") as f:
         datos = json.load(f)
 
-    # 2. Verificar cambio de día
-    hoy_iso = datetime.now().strftime("%Y-%m-%d")
-    hoy_dmy = datetime.now().strftime("%d/%m/%Y")
+    # 2. Verificar cambio de día con HORA DE REPÚBLICA DOMINICANA (UTC-4)
+    ahora = ahora_rd()
+    hoy_iso = ahora.strftime("%Y-%m-%d")
+    hoy_dmy = ahora.strftime("%d/%m/%Y")
+    hubo_cambios = False
     
     if datos.get("fecha_hoy") != hoy_iso:
-        print(f"🌅 ¡Nuevo día detectado ({hoy_iso})! Archivando sorteos de ayer...")
+        print(f"🌅 ¡Nuevo día detectado en RD ({hoy_iso})! Archivando sorteos de ayer...")
         sorteos_ayer = []
         for s in datos.get("sorteos_hoy", []):
             if s.get("premios"):
@@ -107,7 +198,7 @@ def actualizar_todo():
                     "hora": s["hora"],
                     "premios": s["premios"]
                 })
-        if sorteos_ayer:
+        if len(sorteos_ayer) >= 15:
             datos["sorteos_ayer"] = sorteos_ayer
             
         datos["fecha_ayer"] = datos.get("fecha_hoy", "")
@@ -119,12 +210,10 @@ def actualizar_todo():
             if "alerta_cascada" in s:
                 del s["alerta_cascada"]
 
-        with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
-            json.dump(datos, f, indent=2, ensure_ascii=False)
-            
         nueva_pareja = calcular_jugada_maestra()
         datos["jugada_maestra_fija"]["pareja_oficial"] = nueva_pareja
-        print(f"🎯 Nueva Pareja Maestra Calculada: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+        print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+        hubo_cambios = True
 
     # 3. Descargar resultados de enloteria.com
     ctx = ssl.create_default_context()
@@ -142,46 +231,51 @@ def actualizar_todo():
 
     soup = BeautifulSoup(html, "html.parser")
     
-    with open(ARCHIVO_HIST, "r", encoding="utf-8") as f:
-        hist = json.load(f)
+    hist = {}
+    if os.path.exists(ARCHIVO_HIST):
+        with open(ARCHIVO_HIST, "r", encoding="utf-8") as f:
+            hist = json.load(f)
 
-    hubo_cambios = False
+    # Ordenar claves de búsqueda por longitud descendente para evitar colisiones
+    claves_ordenadas = sorted(MAPA_LOTERIAS.keys(), key=len, reverse=True)
+
+    # 4. Procesar tarjetas de resultados de la página principal
+    dia_num = str(ahora.day)
     
-    # 4. Procesar tarjetas de resultados
     for card in soup.find_all("div", class_="result-card"):
         name_el = card.find(class_="lottery-name")
         if not name_el:
             continue
         nom_web = name_el.get_text(strip=True).lower()
         
-        # Encontrar ID correspondiente
+        # Encontrar ID correspondiente sin colisiones
         sid = None
-        for k, v in MAPA_LOTERIAS.items():
+        for k in claves_ordenadas:
             if k in nom_web:
-                sid = v
+                sid = MAPA_LOTERIAS[k]
                 break
         if not sid:
             continue
 
         # Extraer bolos
         balls = card.find_all(class_="result-number")
-        if len(balls) < 3:
+        nums = [int(b.get_text(strip=True)) for b in balls if b.get_text(strip=True).isdigit()]
+        if len(nums) < 3:
             continue
-        nums = [int(b.get_text(strip=True)) for b in balls[:3]]
+        nums = nums[:3]
 
         # Extraer fecha de la tarjeta
         date_el = card.find(class_="result-date")
         date_txt = date_el.get_text(strip=True).lower() if date_el else ""
 
-        # Verificar si la tarjeta es de hoy
-        dia_num = str(datetime.now().day)
+        # Verificar si la tarjeta es de hoy en RD
         if dia_num not in date_txt:
-            continue # Tarjeta vieja, descartar
+            continue
 
         # Buscar sorteo en sorteos_hoy
         for s in datos.get("sorteos_hoy", []):
             if s.get("id") == sid:
-                # Candado de reloj
+                # Candado de reloj basado en hora dominicana
                 if not hora_ha_pasado(s.get("hora", "")):
                     continue
 
@@ -197,11 +291,12 @@ def actualizar_todo():
                         hist[sid][0]["premios"] = nums
                     else:
                         hist[sid].insert(0, {"fecha": hoy_dmy, "premios": nums})
+                        
                     hubo_cambios = True
                     sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
 
     if hubo_cambios:
-        datos["actualizado_a_las"] = datetime.now().strftime("%I:%M %p")
+        datos["actualizado_a_las"] = ahora.strftime("%I:%M %p")
         with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
             json.dump(datos, f, indent=2, ensure_ascii=False)
         with open(ARCHIVO_JS, "w", encoding="utf-8") as f:
@@ -218,7 +313,7 @@ def actualizar_todo():
 
 if __name__ == "__main__":
     print("==========================================================")
-    print("   LOTOPRO RD — ACTUALIZADOR AUTOMÁTICO DE RESULTADOS")
+    print("   LOTOPRO RD — ACTUALIZADOR AUTÓNOMO 24/7 (ZONA HORARIA RD)")
     print("==========================================================")
     if "--bucle" in sys.argv:
         print("🚀 Modo Autónomo Continuo Activo (Rastrea cada 3 minutos)...")
