@@ -275,10 +275,6 @@ def actualizar_todo():
         # Buscar sorteo en sorteos_hoy
         for s in datos.get("sorteos_hoy", []):
             if s.get("id") == sid:
-                # Candado de reloj basado en hora dominicana
-                if not hora_ha_pasado(s.get("hora", "")):
-                    continue
-
                 if s["estado"] != "finalizado" or s.get("premios") != nums:
                     print(f"🎉 ¡NUEVO RESULTADO OFICIAL DETECTADO: {s['nombre']} -> {nums}!")
                     s["estado"] = "finalizado"
