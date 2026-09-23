@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-23",
   "fecha_ayer": "2026-09-22",
-  "actualizado_a_las": "12:36 PM",
+  "actualizado_a_las": "01:18 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -245,8 +245,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        74,
+        30,
+        63
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -254,8 +258,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        34,
+        2,
+        53
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -263,8 +271,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        75,
+        18,
+        90
+      ]
     },
     {
       "id": "florida_dia",
