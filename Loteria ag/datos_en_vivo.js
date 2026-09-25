@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-24",
   "fecha_ayer": "2026-09-23",
-  "actualizado_a_las": "08:48 PM",
+  "actualizado_a_las": "09:14 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -384,8 +384,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        73,
+        36,
+        62
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -415,8 +419,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        35,
+        38,
+        31
+      ]
     },
     {
       "id": "florida_noche",
