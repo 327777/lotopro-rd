@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
-  "fecha_hoy": "2026-09-25",
-  "fecha_ayer": "2026-09-24",
-  "actualizado_a_las": "11:56 PM",
+  "fecha_hoy": "2026-09-26",
+  "fecha_ayer": "2026-09-25",
+  "actualizado_a_las": "12:10 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -9,8 +9,8 @@ window.DATOS_LOTOPRO = {
   },
   "jugada_maestra_fija": {
     "pareja_oficial": [
-      "47",
-      "09"
+      "02",
+      "68"
     ],
     "clasificacion": "Números con Mayor Probabilidad del Día",
     "indice_inercia": "98.4%",
@@ -22,26 +22,26 @@ window.DATOS_LOTOPRO = {
       "nombre": "Anguila 10:00 AM",
       "hora": "10:00 AM",
       "premios": [
-        39,
-        66,
-        2
+        53,
+        7,
+        51
       ]
     },
     {
       "nombre": "La Primera 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        63,
-        70,
-        72
+        64,
+        71,
+        54
       ]
     },
     {
       "nombre": "La Suerte 12:30 PM",
       "hora": "12:30 PM",
       "premios": [
-        41,
-        46,
+        30,
+        73,
         2
       ]
     },
@@ -49,135 +49,153 @@ window.DATOS_LOTOPRO = {
       "nombre": "Quiniela Real 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        67,
-        85,
-        37
+        17,
+        96,
+        91
       ]
     },
     {
       "nombre": "Anguila 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        13,
-        65,
-        86
+        57,
+        36,
+        80
       ]
     },
     {
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        97,
-        18,
-        55
+        43,
+        30,
+        16
       ]
     },
     {
       "nombre": "Florida 1:30 PM",
       "hora": "1:30 PM",
       "premios": [
-        59,
-        18,
-        2
+        28,
+        66,
+        28
       ]
     },
     {
       "nombre": "LoteDom 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        51,
-        98,
-        0
+        68,
+        74,
+        75
+      ]
+    },
+    {
+      "nombre": "Gana Más 2:30 PM",
+      "hora": "2:30 PM",
+      "premios": [
+        22,
+        73,
+        70
       ]
     },
     {
       "nombre": "New York 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        39,
-        1,
-        41
+        98,
+        79,
+        66
       ]
     },
     {
       "nombre": "La Suerte 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        70,
-        24,
-        35
+        59,
+        19,
+        67
       ]
     },
     {
       "nombre": "Anguila 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        55,
-        6,
-        9
+        17,
+        66,
+        32
       ]
     },
     {
       "nombre": "Quiniela Loteka 7:55 PM",
       "hora": "7:55 PM",
       "premios": [
-        53,
-        85,
-        36
+        75,
+        83,
+        85
       ]
     },
     {
       "nombre": "La Primera 8:00 PM",
       "hora": "8:00 PM",
       "premios": [
-        20,
-        68,
-        74
+        57,
+        85,
+        47
       ]
     },
     {
       "nombre": "Quiniela Leidsa 8:55 PM",
       "hora": "8:55 PM",
       "premios": [
-        73,
-        36,
-        62
+        81,
+        10,
+        82
+      ]
+    },
+    {
+      "nombre": "Lotería Nacional 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        13,
+        18,
+        87
       ]
     },
     {
       "nombre": "Real 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        86,
-        97,
-        1
+        27,
+        16,
+        94
       ]
     },
     {
       "nombre": "Anguila 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        35,
-        38,
-        31
+        1,
+        12,
+        50
       ]
     },
     {
       "nombre": "Florida 10:00 PM",
       "hora": "10:00 PM",
       "premios": [
-        63,
-        68,
-        88
+        6,
+        85,
+        90
       ]
     },
     {
       "nombre": "New York 10:30 PM",
       "hora": "10:30 PM",
       "premios": [
-        30,
-        29,
-        69
+        58,
+        95,
+        41
       ]
     }
   ],
