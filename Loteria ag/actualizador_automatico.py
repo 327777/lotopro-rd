@@ -215,6 +215,77 @@ def actualizar_todo():
         print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
         hubo_cambios = True
 
+    hist = {}
+    if os.path.exists(ARCHIVO_HIST):
+        with open(ARCHIVO_HIST, "r", encoding="utf-8") as f:
+            hist = json.load(f)
+
+    # 2.5 Orden Oficial Cronológico Estricto (10:00 AM -> 10:30 PM)
+    ORDEN_OFICIAL_IDS = [
+        "anguila_10am",      # 10:00 AM
+        "la_primera_dia",    # 12:00 PM
+        "lotedom",           # 12:00 PM (Ubicado en su orden exacto del mediodía)
+        "la_suerte_dia",     # 12:30 PM
+        "quiniela_real",     # 1:00 PM
+        "anguila_1pm",       # 1:00 PM
+        "new_jersey_dia",    # 1:00 PM
+        "florida_dia",       # 1:30 PM
+        "gana_mas",          # 2:30 PM
+        "ny_tarde",          # 2:30 PM
+        "la_suerte_tarde",   # 6:00 PM
+        "anguila_6pm",       # 6:00 PM
+        "quiniela_loteka",   # 7:55 PM
+        "primera_noche",     # 8:00 PM
+        "quiniela_leidsa",   # 8:55 PM
+        "loteria_nacional",  # 9:00 PM
+        "real_noche",        # 9:00 PM
+        "anguila_9pm",       # 9:00 PM
+        "florida_noche",     # 10:00 PM
+        "ny_noche"           # 10:30 PM
+    ]
+    ORDEN_OFICIAL_NOMBRES = [
+        "Anguila 10:00 AM",
+        "La Primera 12:00 PM",
+        "LoteDom 12:00 PM",
+        "La Suerte 12:30 PM",
+        "Quiniela Real 1:00 PM",
+        "Anguila 1:00 PM",
+        "New Jersey 1:00 PM",
+        "Florida 1:30 PM",
+        "Gana Más 2:30 PM",
+        "New York 2:30 PM",
+        "La Suerte 6:00 PM",
+        "Anguila 6:00 PM",
+        "Quiniela Loteka 7:55 PM",
+        "La Primera 8:00 PM",
+        "Quiniela Leidsa 8:55 PM",
+        "Lotería Nacional 9:00 PM",
+        "Real 9:00 PM",
+        "Anguila 9:00 PM",
+        "Florida 10:00 PM",
+        "New York 10:30 PM"
+    ]
+
+    if "sorteos_hoy" in datos:
+        orden_actual_hoy = [s.get("id") for s in datos["sorteos_hoy"]]
+        hoy_ordenado = sorted(
+            datos["sorteos_hoy"],
+            key=lambda s: ORDEN_OFICIAL_IDS.index(s.get("id")) if s.get("id") in ORDEN_OFICIAL_IDS else 999
+        )
+        if [s.get("id") for s in hoy_ordenado] != orden_actual_hoy:
+            datos["sorteos_hoy"] = hoy_ordenado
+            hubo_cambios = True
+
+    if "sorteos_ayer" in datos:
+        orden_actual_ayer = [s.get("nombre") for s in datos["sorteos_ayer"]]
+        ayer_ordenado = sorted(
+            datos["sorteos_ayer"],
+            key=lambda s: ORDEN_OFICIAL_NOMBRES.index(s.get("nombre")) if s.get("nombre") in ORDEN_OFICIAL_NOMBRES else 999
+        )
+        if [s.get("nombre") for s in ayer_ordenado] != orden_actual_ayer:
+            datos["sorteos_ayer"] = ayer_ordenado
+            hubo_cambios = True
+
     # 3. Descargar resultados de enloteria.com
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
@@ -229,18 +300,19 @@ def actualizar_todo():
         print(f"⚠️ Error conectando a la fuente: {e}")
         return False
 
+    # Cortar estrictamente antes del bloque de "Ayer" para no mezclar nunca sorteos del día anterior
+    if 'aria-label="Ayer' in html:
+        html = html.split('aria-label="Ayer')[0]
+
     soup = BeautifulSoup(html, "html.parser")
-    
-    hist = {}
-    if os.path.exists(ARCHIVO_HIST):
-        with open(ARCHIVO_HIST, "r", encoding="utf-8") as f:
-            hist = json.load(f)
 
     # Ordenar claves de búsqueda por longitud descendente para evitar colisiones
     claves_ordenadas = sorted(MAPA_LOTERIAS.keys(), key=len, reverse=True)
 
     # 4. Procesar tarjetas de resultados de la página principal
-    dia_num = str(ahora.day)
+    import re
+    sorteos_vistos_hoy = set()
+    tarjetas_hoy_detectadas = 0
     
     for card in soup.find_all("div", class_="result-card"):
         name_el = card.find(class_="lottery-name")
@@ -248,13 +320,22 @@ def actualizar_todo():
             continue
         nom_web = name_el.get_text(strip=True).lower()
         
+        # Extraer fecha de la tarjeta y validar el número exacto del día (inmune a 2026, 2027, 2028...)
+        date_el = card.find(class_="result-date")
+        date_txt = date_el.get_text(strip=True).lower() if date_el else ""
+        m_dia = re.match(r"^\s*(\d+)", date_txt)
+        if not m_dia or int(m_dia.group(1)) != ahora.day:
+            continue
+            
+        tarjetas_hoy_detectadas += 1
+
         # Encontrar ID correspondiente sin colisiones
         sid = None
         for k in claves_ordenadas:
             if k in nom_web:
                 sid = MAPA_LOTERIAS[k]
                 break
-        if not sid:
+        if not sid or sid in sorteos_vistos_hoy:
             continue
 
         # Extraer bolos
@@ -264,17 +345,11 @@ def actualizar_todo():
             continue
         nums = nums[:3]
 
-        # Extraer fecha de la tarjeta
-        date_el = card.find(class_="result-date")
-        date_txt = date_el.get_text(strip=True).lower() if date_el else ""
-
-        # Verificar si la tarjeta es de hoy en RD
-        if dia_num not in date_txt:
-            continue
+        sorteos_vistos_hoy.add(sid)
 
         # Buscar sorteo en sorteos_hoy
         for s in datos.get("sorteos_hoy", []):
-            if s.get("id") == sid:
+            if s.get("id") == sid and hora_ha_pasado(s.get("hora", "")):
                 if s["estado"] != "finalizado" or s.get("premios") != nums:
                     print(f"🎉 ¡NUEVO RESULTADO OFICIAL DETECTADO: {s['nombre']} -> {nums}!")
                     s["estado"] = "finalizado"
@@ -290,6 +365,20 @@ def actualizar_todo():
                         
                     hubo_cambios = True
                     sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
+
+    # 5. Auto-limpieza de seguridad: cualquier sorteo cuya hora aún no ha llegado hoy en RD
+    # o que aún no tiene bolos publicados hoy en la fuente oficial se mantiene en "proximo"
+    for s in datos.get("sorteos_hoy", []):
+        sid_clean = s.get("id")
+        sin_bolos_hoy = (tarjetas_hoy_detectadas >= 10 and sid_clean not in sorteos_vistos_hoy)
+        if not hora_ha_pasado(s.get("hora", "")) or sin_bolos_hoy:
+            if s.get("estado") != "proximo" or s.get("premios") is not None:
+                s["estado"] = "proximo"
+                s["premios"] = None
+                hubo_cambios = True
+            if sid_clean in hist and hist[sid_clean] and hist[sid_clean][0].get("fecha") == hoy_dmy:
+                hist[sid_clean].pop(0)
+                hubo_cambios = True
 
     if hubo_cambios:
         datos["actualizado_a_las"] = ahora.strftime("%I:%M %p")
@@ -317,9 +406,8 @@ if __name__ == "__main__":
         while True:
             try:
                 actualizar_todo()
-                time.sleep(180)
-            except KeyboardInterrupt:
-                print("\n🛑 Proceso detenido por el usuario.")
-                break
+            except Exception as e:
+                print(f"Error en ciclo: {e}")
+            time.sleep(180)
     else:
         actualizar_todo()
