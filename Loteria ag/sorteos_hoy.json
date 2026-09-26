@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-26",
   "fecha_ayer": "2026-09-25",
-  "actualizado_a_las": "02:48 PM",
+  "actualizado_a_las": "06:04 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -345,8 +345,12 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        0,
+        95,
+        42
+      ]
     },
     {
       "id": "quiniela_loteka",
