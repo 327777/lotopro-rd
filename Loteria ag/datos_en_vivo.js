@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-25",
   "fecha_ayer": "2026-09-24",
-  "actualizado_a_las": "11:24 PM",
+  "actualizado_a_las": "11:37 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
