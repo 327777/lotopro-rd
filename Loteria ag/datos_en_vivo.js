@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-25",
   "fecha_ayer": "2026-09-24",
-  "actualizado_a_las": "07:09 PM",
+  "actualizado_a_las": "08:08 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -344,8 +344,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        75,
+        83,
+        85
+      ]
     },
     {
       "id": "primera_noche",
@@ -384,8 +388,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        27,
+        16,
+        94
+      ]
     },
     {
       "id": "anguila_9pm",
