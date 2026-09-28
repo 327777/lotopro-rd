@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
-  "fecha_hoy": "2026-09-27",
-  "fecha_ayer": "2026-09-26",
-  "actualizado_a_las": "11:23 PM",
+  "fecha_hoy": "2026-09-28",
+  "fecha_ayer": "2026-09-27",
+  "actualizado_a_las": "12:05 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -9,8 +9,8 @@ window.DATOS_LOTOPRO = {
   },
   "jugada_maestra_fija": {
     "pareja_oficial": [
-      "71",
-      "60"
+      "92",
+      "39"
     ],
     "clasificacion": "Números con Mayor Probabilidad del Día",
     "indice_inercia": "98.4%",
@@ -22,180 +22,180 @@ window.DATOS_LOTOPRO = {
       "nombre": "Anguila 10:00 AM",
       "hora": "10:00 AM",
       "premios": [
-        54,
-        54,
-        37
+        62,
+        41,
+        99
       ]
     },
     {
       "nombre": "La Primera 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        35,
-        83,
-        83
+        62,
+        9,
+        77
       ]
     },
     {
       "nombre": "LoteDom 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        72,
-        93,
-        27
+        15,
+        82,
+        75
       ]
     },
     {
       "nombre": "La Suerte 12:30 PM",
       "hora": "12:30 PM",
       "premios": [
-        82,
-        59,
-        69
+        47,
+        93,
+        24
       ]
     },
     {
       "nombre": "Quiniela Real 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        62,
-        50,
-        79
+        68,
+        69,
+        21
       ]
     },
     {
       "nombre": "Anguila 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        50,
-        87,
-        96
+        26,
+        96,
+        53
       ]
     },
     {
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        81,
-        72,
-        71
+        17,
+        59,
+        73
       ]
     },
     {
       "nombre": "Florida 1:30 PM",
       "hora": "1:30 PM",
       "premios": [
-        29,
-        69,
-        20
+        2,
+        92,
+        75
       ]
     },
     {
       "nombre": "Gana Más 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        53,
-        25,
-        43
+        5,
+        4,
+        86
       ]
     },
     {
       "nombre": "New York 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        3,
-        99,
-        61
+        80,
+        90,
+        75
       ]
     },
     {
       "nombre": "La Suerte 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        38,
-        47,
-        58
+        78,
+        60,
+        68
       ]
     },
     {
       "nombre": "Anguila 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        0,
-        95,
-        42
+        82,
+        18,
+        58
       ]
     },
     {
       "nombre": "Quiniela Loteka 7:55 PM",
       "hora": "7:55 PM",
       "premios": [
-        9,
         30,
-        19
+        78,
+        62
       ]
     },
     {
       "nombre": "La Primera 8:00 PM",
       "hora": "8:00 PM",
       "premios": [
-        61,
         29,
-        62
+        30,
+        9
       ]
     },
     {
       "nombre": "Quiniela Leidsa 8:55 PM",
       "hora": "8:55 PM",
       "premios": [
-        32,
-        99,
-        0
+        58,
+        59,
+        85
       ]
     },
     {
       "nombre": "Lotería Nacional 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        56,
-        50,
-        76
+        83,
+        30,
+        73
       ]
     },
     {
       "nombre": "Real 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        93,
-        34,
-        20
+        19,
+        67,
+        70
       ]
     },
     {
       "nombre": "Anguila 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        62,
-        32,
-        59
+        79,
+        78,
+        53
       ]
     },
     {
       "nombre": "Florida 10:00 PM",
       "hora": "10:00 PM",
       "premios": [
-        61,
-        92,
-        24
+        47,
+        91,
+        86
       ]
     },
     {
       "nombre": "New York 10:30 PM",
       "hora": "10:30 PM",
       "premios": [
-        43,
-        18,
-        4
+        82,
+        96,
+        49
       ]
     }
   ],
@@ -206,12 +206,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "finalizado",
-      "premios": [
-        62,
-        41,
-        99
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_primera_dia",
@@ -219,12 +215,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        62,
-        9,
-        77
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "lotedom",
@@ -232,12 +224,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        15,
-        82,
-        75
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_dia",
@@ -245,12 +233,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        47,
-        93,
-        24
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_real",
@@ -258,12 +242,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        68,
-        69,
-        21
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_1pm",
@@ -271,12 +251,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        26,
-        96,
-        53
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "new_jersey_dia",
@@ -284,12 +260,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        17,
-        59,
-        73
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_dia",
@@ -297,12 +269,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        2,
-        92,
-        75
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "gana_mas",
@@ -310,12 +278,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        5,
-        4,
-        86
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_tarde",
@@ -323,12 +287,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        80,
-        90,
-        75
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_tarde",
@@ -336,12 +296,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        78,
-        60,
-        68
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_6pm",
@@ -349,12 +305,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        82,
-        18,
-        58
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_loteka",
@@ -362,12 +314,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        30,
-        78,
-        62
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "primera_noche",
@@ -375,12 +323,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        29,
-        30,
-        9
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_leidsa",
@@ -388,12 +332,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        58,
-        59,
-        85
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "loteria_nacional",
@@ -401,12 +341,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        83,
-        30,
-        73
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "real_noche",
@@ -414,12 +350,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        19,
-        67,
-        70
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_9pm",
@@ -427,12 +359,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        79,
-        78,
-        53
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_noche",
@@ -440,12 +368,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        47,
-        91,
-        86
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_noche",
@@ -453,12 +377,8 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        82,
-        96,
-        49
-      ]
+      "estado": "proximo",
+      "premios": null
     }
   ]
 };
