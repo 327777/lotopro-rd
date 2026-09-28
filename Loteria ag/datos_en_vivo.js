@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-28",
   "fecha_ayer": "2026-09-27",
-  "actualizado_a_las": "01:10 PM",
+  "actualizado_a_las": "01:46 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        88,
+        91,
+        68
+      ]
     },
     {
       "id": "gana_mas",
