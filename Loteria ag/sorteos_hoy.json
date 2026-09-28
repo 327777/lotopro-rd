@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-27",
   "fecha_ayer": "2026-09-26",
-  "actualizado_a_las": "06:11 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -362,8 +362,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        30,
+        78,
+        62
+      ]
     },
     {
       "id": "primera_noche",
@@ -371,8 +375,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        29,
+        30,
+        9
+      ]
     },
     {
       "id": "quiniela_leidsa",
