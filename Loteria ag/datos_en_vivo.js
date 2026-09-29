@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-09-29",
   "fecha_ayer": "2026-09-28",
-  "actualizado_a_las": "03:01 PM",
+  "actualizado_a_las": "03:02 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -9,8 +9,8 @@ window.DATOS_LOTOPRO = {
   },
   "jugada_maestra_fija": {
     "pareja_oficial": [
-      "28",
-      "85"
+      "38",
+      "93"
     ],
     "clasificacion": "Números con Mayor Probabilidad del Día",
     "indice_inercia": "98.4%",

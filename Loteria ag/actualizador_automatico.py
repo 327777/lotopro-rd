@@ -210,6 +210,9 @@ def actualizar_todo():
             if "alerta_cascada" in s:
                 del s["alerta_cascada"]
 
+        with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
+            json.dump(datos, f, indent=2, ensure_ascii=False)
+
         nueva_pareja = calcular_jugada_maestra()
         datos["jugada_maestra_fija"]["pareja_oficial"] = nueva_pareja
         print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
@@ -406,8 +409,9 @@ if __name__ == "__main__":
         while True:
             try:
                 actualizar_todo()
-            except Exception as e:
-                print(f"Error en ciclo: {e}")
-            time.sleep(180)
+                time.sleep(180)
+            except KeyboardInterrupt:
+                print("\n🛑 Proceso detenido por el usuario.")
+                break
     else:
         actualizar_todo()

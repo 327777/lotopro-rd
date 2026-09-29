@@ -939,6 +939,258 @@
         </div>
     </div>
 
+    <!-- ASISTENTE FLOTANTE DE GEMELAS POR LOTERÍA (ESTILO WHATSAPP - OPCIÓN 1) -->
+    <style>
+        .fab-gemelas-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 22px;
+            z-index: 9990;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #060a12;
+            border: 2px solid #fde68a;
+            border-radius: 999px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.45), 0 0 0 4px rgba(245, 158, 11, 0.15);
+            font-weight: 900;
+            font-size: 13.5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fab-bounce 3s infinite ease-in-out;
+        }
+        .fab-gemelas-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 35px rgba(245, 158, 11, 0.65);
+        }
+        @keyframes fab-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .fab-gemelas-badge {
+            background: #10b981;
+            color: #022c22;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .gemelas-floating-panel {
+            position: fixed;
+            right: 20px;
+            bottom: 82px;
+            width: 365px;
+            max-width: calc(100vw - 32px);
+            max-height: 82vh;
+            overflow-y: auto;
+            z-index: 9995;
+            background: linear-gradient(160deg, #0b1325 0%, #111c38 100%);
+            border: 1.5px solid rgba(245, 158, 11, 0.55);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(245, 158, 11, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        .gemelas-floating-panel.open {
+            display: flex;
+            animation: panel-slide-up 0.22s ease-out;
+        }
+        @keyframes panel-slide-up {
+            from { opacity: 0; transform: translateY(14px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .gem-panel-header {
+            background: linear-gradient(90deg, #13203d 0%, #1e293b 100%);
+            padding: 14px 16px;
+            border-bottom: 1px solid #2c3f66;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gem-panel-body {
+            padding: 14px 16px;
+        }
+        .gem-next-suggest {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #d1fae5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .gem-next-suggest:hover {
+            background: rgba(16, 185, 129, 0.22);
+        }
+        .gem-lot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+            margin-bottom: 14px;
+        }
+        .gem-lot-btn {
+            background: #0d1629;
+            border: 1px solid #243556;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .gem-lot-btn small {
+            font-size: 9.5px;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .gem-lot-btn:hover {
+            border-color: #f59e0b;
+            background: #13203c;
+        }
+        .gem-lot-btn.active {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(16, 185, 129, 0.15));
+            border-color: #f59e0b;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+        }
+        .gem-result-box {
+            background: #070c18;
+            border: 1px solid #263859;
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+        .gem-balls-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin: 12px 0 8px 0;
+        }
+        .gem-ball-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .gem-ball-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+        }
+        .gem-ball-circle.b1 {
+            background: radial-gradient(circle at 30% 30%, #fde047, #f59e0b 65%, #b45309);
+            color: #060a12;
+            border: 2px solid #fef08a;
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
+        }
+        .gem-ball-circle.b2 {
+            background: radial-gradient(circle at 30% 30%, #6ee7b7, #10b981 65%, #047857);
+            color: #022c22;
+            border: 2px solid #a7f3d0;
+            box-shadow: 0 0 18px rgba(16, 185, 129, 0.45);
+        }
+        .gem-vir-tag {
+            font-size: 10.5px;
+            color: #94a3b8;
+            font-weight: 700;
+        }
+        .gem-disclaimer {
+            margin-top: 10px;
+            padding: 8px 10px;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            border-radius: 9px;
+            font-size: 10.5px;
+            line-height: 1.4;
+            color: #cbd5e1;
+            text-align: left;
+        }
+    </style>
+
+    <button class="fab-gemelas-btn" onclick="togglePanelGemelas()" id="btn-fab-gemelas" title="Consultar los 2 números estadísticos de tu lotería">
+        <span style="font-size:18px;">🎯</span>
+        <span>¿Qué lotería vas a jugar?</span>
+        <span class="fab-gemelas-badge">2 Números</span>
+    </button>
+
+    <div class="gemelas-floating-panel" id="panel-flotante-gemelas">
+        <div class="gem-panel-header">
+            <div>
+                <div style="font-size:10px; font-weight:800; color:#fbbf24; text-transform:uppercase; letter-spacing:0.6px;">⚡ ASISTENTE DE PROBABILIDAD POR SORTEO</div>
+                <div style="font-size:15px; font-weight:900; color:#ffffff;">¿Qué lotería vas a jugar hoy?</div>
+            </div>
+            <button onclick="togglePanelGemelas()" class="btn-close-modal" style="width:28px;height:28px;font-size:14px;">✕</button>
+        </div>
+        <div class="gem-panel-body">
+            <!-- Sugerencia automática del próximo sorteo por hora -->
+            <div class="gem-next-suggest" id="gem-sugerencia-hora" onclick="seleccionarGemelaSugerida()">
+                <div>
+                    <div style="font-size:10px; color:#6ee7b7; font-weight:800; text-transform:uppercase;">⏰ Sorteo más cercano por la hora:</div>
+                    <div id="gem-next-nombre" style="font-size:13px; font-weight:900; color:#ffffff;">Cargando próximo sorteo...</div>
+                </div>
+                <span style="background:#10b981; color:#022c22; font-weight:900; font-size:11px; padding:4px 9px; border-radius:8px; white-space:nowrap;">Ver ➔</span>
+            </div>
+
+            <div style="font-size:11.5px; color:#94a3b8; font-weight:700; margin-bottom:8px;">
+                👇 Toca la lotería que vas a jugar para ver solo sus 2 números:
+            </div>
+
+            <div class="gem-lot-grid" id="grid-botones-gemelas">
+                <!-- Se llena dinámicamente con las 8 Gemelas -->
+            </div>
+
+            <div class="gem-result-box" id="gem-resultado-box">
+                <div id="gem-res-titulo" style="font-size:13px; font-weight:900; color:#fbbf24;">Selecciona una lotería arriba</div>
+                <div id="gem-res-horario" style="font-size:11px; color:#94a3b8; margin-top:2px;">Verás únicamente los 2 números más probables de ese circuito</div>
+                <div id="gem-res-hit-hoy" style="margin-top:6px;"></div>
+
+                <div class="gem-balls-wrap">
+                    <div class="gem-ball-item">
+                        <div class="gem-ball-circle b1" id="gem-bola-1">--</div>
+                        <div class="gem-vir-tag" id="gem-vir-1">Virado: --</div>
+                    </div>
+                    <div style="font-size:18px; font-weight:900; color:#64748b;">×</div>
+                    <div class="gem-ball-item">
+                        <div class="gem-ball-circle b2" id="gem-bola-2">--</div>
+                        <div class="gem-vir-tag" id="gem-vir-2">Virado: --</div>
+                    </div>
+                </div>
+
+                <div style="font-size:11px; color:#38bdf8; font-weight:800; margin-top:4px;" id="gem-pale-txt">
+                    Palé Estadístico del Circuito: --
+                </div>
+
+                <div class="gem-disclaimer">
+                    📊 <strong style="color:#fde68a;">Esta es la probabilidad para esta lotería:</strong> Basada en su circuito gemelo (Día ↔ Noche). <strong>Esto es estadística matemática, no es 100% real ni seguro.</strong> Juega con moderación.
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div style="max-width:1200px; margin:0 auto;">
@@ -1110,6 +1362,7 @@
             renderizarJugadaMaestra();
             renderizarSorteos();
             actualizarMetricasSociales();
+            actualizarAsistenteGemelas();
         }
 
         function renderizarJugadaMaestra() {
@@ -1388,6 +1641,277 @@
         function actualizarMetricasSociales() {
             document.getElementById('contador-usuarios').innerText = contadorUsuarios.toLocaleString();
             document.getElementById('contador-consultas').innerText = contadorConsultas.toLocaleString();
+        }
+
+        // =========================================================================
+        // MOTOR INDEPENDIENTE DEL ASISTENTE FLOTANTE DE GEMELAS POR LOTERÍA
+        // (100% separado de la matriz principal de LotoPro RD)
+        // =========================================================================
+        let catalogoGemelasHoy = {};
+        let gemelaSeleccionadaActual = 'la_suerte';
+        let gemelaSugeridaPorHora = 'la_suerte';
+
+        function virarNumGem(n) {
+            const v = ((parseInt(n, 10) % 100) + 100) % 100;
+            return (v % 10) * 10 + Math.floor(v / 10);
+        }
+
+        function fmt2Gem(n) {
+            const v = ((parseInt(n, 10) % 100) + 100) % 100;
+            return String(v).padStart(2, '0');
+        }
+
+        function togglePanelGemelas() {
+            const panel = document.getElementById('panel-flotante-gemelas');
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) {
+                actualizarAsistenteGemelas();
+            }
+        }
+
+        function calcularGemelasEnVivo() {
+            const mapaAyer = {};
+            if (datosApp && Array.isArray(datosApp.sorteos_ayer)) {
+                datosApp.sorteos_ayer.forEach(s => {
+                    const sid = obtenerIdNormalizado(s.nombre);
+                    if (Array.isArray(s.premios) && s.premios.length >= 3) {
+                        mapaAyer[sid] = s.premios.map(x => parseInt(x, 10));
+                    }
+                });
+            }
+
+            const p1d = mapaAyer['la_primera_dia'] || [59, 93, 82];
+            const p1n = mapaAyer['primera_noche'] || [92, 58, 40];
+            const jalP1 = TABLA_JALADERA[p1d[0]] || [29, 38, 92];
+
+            const s1d = mapaAyer['la_suerte_dia'] || [74, 56, 9];
+            const s1n = mapaAyer['la_suerte_tarde'] || [39, 65, 85];
+            const jalS1 = TABLA_JALADERA[s1d[0]] || [3, 30, 23];
+
+            const g1d = mapaAyer['gana_mas'] || [85, 27, 60];
+            const n1n = mapaAyer['loteria_nacional'] || [50, 34, 62];
+
+            const ltk = mapaAyer['quiniela_loteka'] || [83, 33, 64];
+            const lds = mapaAyer['quiniela_leidsa'] || [2, 33, 72];
+
+            const ltd = mapaAyer['lotedom'] || [61, 54, 3];
+            const qrl = mapaAyer['quiniela_real'] || [8, 67, 31];
+            const jalRl = TABLA_JALADERA[qrl[1]] || [57, 71, 75];
+
+            const nyd = mapaAyer['ny_tarde'] || [13, 91, 41];
+            const nyn = mapaAyer['ny_noche'] || [73, 48, 7];
+            const jalNy = TABLA_JALADERA[nyn[0]] || [13, 53, 69];
+
+            const fld = mapaAyer['florida_dia'] || [88, 91, 68];
+            const fln = mapaAyer['florida_noche'] || [76, 3, 99];
+            const jalFl = TABLA_JALADERA[fln[1]] || [23, 30, 74];
+
+            const a10 = mapaAyer['anguila_10am'] || [73, 61, 27];
+            const a6p = mapaAyer['anguila_6pm'] || [28, 72, 71];
+
+            catalogoGemelasHoy = {
+                'la_primera': {
+                    id: 'la_primera',
+                    icono: '🇩🇴',
+                    nombreCorto: 'La Primera',
+                    horario: '12:00 PM y 8:00 PM',
+                    tituloCompleto: 'Circuito Gemelo La Primera (12:00 PM ↔ 8:00 PM)',
+                    idsSorteos: ['la_primera_dia', 'primera_noche'],
+                    n1: (p1n[2] - 1 + 100) % 100,
+                    n2: jalP1[jalP1.length - 1]
+                },
+                'la_suerte': {
+                    id: 'la_suerte',
+                    icono: '🍀',
+                    nombreCorto: 'La Suerte',
+                    horario: '12:30 PM y 6:00 PM',
+                    tituloCompleto: 'Circuito Gemelo La Suerte (12:30 PM ↔ 6:00 PM)',
+                    idsSorteos: ['la_suerte_dia', 'la_suerte_tarde'],
+                    n1: s1n[1],
+                    n2: jalS1[0]
+                },
+                'nacional': {
+                    id: 'nacional',
+                    icono: '🏛️',
+                    nombreCorto: 'Nacional / Gana Más',
+                    horario: '2:30 PM y 9:00 PM',
+                    tituloCompleto: 'Circuito Gemelo Gana Más (2:30 PM) ↔ Nacional (9:00 PM)',
+                    idsSorteos: ['gana_mas', 'loteria_nacional'],
+                    n1: virarNumGem(n1n[1]),
+                    n2: (g1d[0] - 1 + 100) % 100
+                },
+                'loteka_leidsa': {
+                    id: 'loteka_leidsa',
+                    icono: '🌙',
+                    nombreCorto: 'Loteka / Leidsa',
+                    horario: '7:55 PM y 8:55 PM',
+                    tituloCompleto: 'Circuito Gemelo Nocturno Loteka (7:55 PM) ↔ Leidsa (8:55 PM)',
+                    idsSorteos: ['quiniela_loteka', 'quiniela_leidsa'],
+                    n1: lds[1],
+                    n2: ltk[0]
+                },
+                'real_lotedom': {
+                    id: 'real_lotedom',
+                    icono: '👑',
+                    nombreCorto: 'Real / LoteDom',
+                    horario: '12:00 PM, 1:00 PM y 9:00 PM',
+                    tituloCompleto: 'Circuito Gemelo LoteDom (12:00 PM) ↔ Quiniela Real (1:00 PM / 9:00 PM)',
+                    idsSorteos: ['lotedom', 'quiniela_real', 'real_noche'],
+                    n1: (ltd[1] - 7 + 100) % 100,
+                    n2: jalRl[1] || 71
+                },
+                'new_york': {
+                    id: 'new_york',
+                    icono: '🗽',
+                    nombreCorto: 'New York',
+                    horario: '2:30 PM y 10:30 PM',
+                    tituloCompleto: 'Circuito Gemelo New York Tarde (2:30 PM) ↔ Noche (10:30 PM)',
+                    idsSorteos: ['ny_tarde', 'ny_noche'],
+                    n1: (nyn[0] + 1) % 100,
+                    n2: jalNy[0]
+                },
+                'florida': {
+                    id: 'florida',
+                    icono: '🌴',
+                    nombreCorto: 'Florida',
+                    horario: '1:30 PM y 10:00 PM',
+                    tituloCompleto: 'Circuito Gemelo Florida Tarde (1:30 PM) ↔ Noche (10:00 PM)',
+                    idsSorteos: ['florida_dia', 'florida_noche'],
+                    n1: fln[0],
+                    n2: jalFl[jalFl.length - 1]
+                },
+                'anguila': {
+                    id: 'anguila',
+                    icono: '🏝️',
+                    nombreCorto: 'Anguila',
+                    horario: '10 AM, 1 PM, 6 PM y 9 PM',
+                    tituloCompleto: 'Circuito Gemelo Anguila (10:00 AM / 1:00 PM ↔ 6:00 PM / 9:00 PM)',
+                    idsSorteos: ['anguila_10am', 'anguila_1pm', 'anguila_6pm', 'anguila_9pm'],
+                    n1: a6p[1],
+                    n2: (a10[0] + 1) % 100
+                }
+            };
+        }
+
+        function detectarProximaGemelaPorHora() {
+            const mapaSorteoAGemela = {
+                'anguila_10am': 'anguila',
+                'la_primera_dia': 'la_primera',
+                'lotedom': 'real_lotedom',
+                'la_suerte_dia': 'la_suerte',
+                'quiniela_real': 'real_lotedom',
+                'anguila_1pm': 'anguila',
+                'florida_dia': 'florida',
+                'gana_mas': 'nacional',
+                'ny_tarde': 'new_york',
+                'la_suerte_tarde': 'la_suerte',
+                'anguila_6pm': 'anguila',
+                'quiniela_loteka': 'loteka_leidsa',
+                'primera_noche': 'la_primera',
+                'quiniela_leidsa': 'loteka_leidsa',
+                'loteria_nacional': 'nacional',
+                'real_noche': 'real_lotedom',
+                'anguila_9pm': 'anguila',
+                'florida_noche': 'florida',
+                'ny_noche': 'new_york'
+            };
+
+            if (datosApp && Array.isArray(datosApp.sorteos_hoy)) {
+                for (const s of datosApp.sorteos_hoy) {
+                    if (s.estado === 'proximo' && mapaSorteoAGemela[s.id]) {
+                        gemelaSugeridaPorHora = mapaSorteoAGemela[s.id];
+                        const elNom = document.getElementById('gem-next-nombre');
+                        if (elNom) {
+                            elNom.innerText = `${s.nombre} (${s.hora})`;
+                        }
+                        return;
+                    }
+                }
+            }
+            gemelaSugeridaPorHora = 'loteka_leidsa';
+            const elNom = document.getElementById('gem-next-nombre');
+            if (elNom) {
+                elNom.innerText = 'Sorteos Nocturnos / Próxima Tanda';
+            }
+        }
+
+        function seleccionarGemelaSugerida() {
+            seleccionarGemela(gemelaSugeridaPorHora);
+        }
+
+        function actualizarAsistenteGemelas() {
+            calcularGemelasEnVivo();
+            detectarProximaGemelaPorHora();
+
+            const grid = document.getElementById('grid-botones-gemelas');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            Object.values(catalogoGemelasHoy).forEach(g => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'gem-lot-btn' + (g.id === gemelaSeleccionadaActual ? ' active' : '');
+                btn.onclick = () => seleccionarGemela(g.id);
+                btn.innerHTML = `
+                    <span>${g.icono} ${g.nombreCorto}</span>
+                    <small>${g.horario}</small>
+                `;
+                grid.appendChild(btn);
+            });
+
+            seleccionarGemela(gemelaSeleccionadaActual || gemelaSugeridaPorHora);
+        }
+
+        function seleccionarGemela(idGemela) {
+            const g = catalogoGemelasHoy[idGemela];
+            if (!g) return;
+            gemelaSeleccionadaActual = idGemela;
+
+            document.querySelectorAll('.gem-lot-btn').forEach(b => {
+                b.classList.toggle('active', b.innerText.includes(g.nombreCorto));
+            });
+
+            const b1Str = fmt2Gem(g.n1);
+            const b2Str = fmt2Gem(g.n2);
+            const v1Str = fmt2Gem(virarNumGem(g.n1));
+            const v2Str = fmt2Gem(virarNumGem(g.n2));
+
+            document.getElementById('gem-res-titulo').innerText = `${g.icono} ${g.tituloCompleto}`;
+            document.getElementById('gem-res-horario').innerText = `Probabilidad calculada para hoy en ${g.nombreCorto}`;
+
+            const elB1 = document.getElementById('gem-bola-1');
+            const elB2 = document.getElementById('gem-bola-2');
+            elB1.innerText = b1Str;
+            elB2.innerText = b2Str;
+            elB1.onclick = () => consultarJaladeraRapida(g.n1);
+            elB2.onclick = () => consultarJaladeraRapida(g.n2);
+
+            document.getElementById('gem-vir-1').innerText = `Virado: ${v1Str}`;
+            document.getElementById('gem-vir-2').innerText = `Virado: ${v2Str}`;
+            document.getElementById('gem-pale-txt').innerText = `Palé Estadístico del Circuito: ${b1Str} × ${b2Str}`;
+
+            // Verificar si ya conectó hoy en alguno de los sorteos de este circuito
+            const hitsHoy = [];
+            const familia = [g.n1, g.n2, virarNumGem(g.n1), virarNumGem(g.n2)];
+            if (datosApp && Array.isArray(datosApp.sorteos_hoy)) {
+                datosApp.sorteos_hoy.forEach(s => {
+                    if (g.idsSorteos.includes(s.id) && s.estado === 'finalizado' && Array.isArray(s.premios)) {
+                        s.premios.forEach((p, idx) => {
+                            const pInt = parseInt(p, 10);
+                            if (familia.includes(pInt)) {
+                                hitsHoy.push(`${s.nombre}: [${fmt2Gem(pInt)}] en ${idx + 1}ra`);
+                            }
+                        });
+                    }
+                });
+            }
+
+            const hitContainer = document.getElementById('gem-res-hit-hoy');
+            if (hitsHoy.length > 0) {
+                hitContainer.innerHTML = `<div style="background:rgba(16,185,129,0.18);border:1px solid #10b981;color:#6ee7b7;font-size:11px;font-weight:800;padding:5px 10px;border-radius:8px;display:inline-block;">✅ ¡Ya conectó hoy: ${hitsHoy.join(' | ')}!</div>`;
+            } else {
+                hitContainer.innerHTML = '';
+            }
         }
 
         window.onload = function() {
