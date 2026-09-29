@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-28",
   "fecha_ayer": "2026-09-27",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "09:04 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -406,8 +406,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        31,
+        26,
+        29
+      ]
     },
     {
       "id": "anguila_9pm",
