@@ -2723,16 +2723,20 @@
                 const premiosHoy = mapaHoy[item.id];
                 const fam = [item.n1, item.n2, virarNumGem(item.n1), virarNumGem(item.n2)];
                 const aciertos = [];
+                const posiciones = [];
                 if (Array.isArray(premiosHoy)) {
                     premiosHoy.forEach((pInt, idx) => {
                         if (fam.includes(pInt)) {
-                            aciertos.push(`[${fmt2Gem(pInt)}] en ${idx + 1}ra`);
+                            const posStr = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
+                            aciertos.push(`[${fmt2Gem(pInt)}] en ${posStr}`);
+                            if (!posiciones.includes(posStr)) posiciones.push(posStr);
                         }
                     });
                 }
                 item.estadoSorteo = estadoHoy[item.id] || 'proximo';
                 item.conectoHoy = aciertos.length > 0;
                 item.detalleConecto = aciertos.join(' y ');
+                item.posicionesConecto = posiciones.join(' y ') || 'hoy';
                 item.desbloqueada = desbloqueadasSet.has(item.id);
                 catalogoGemelasHoy[item.id] = item;
             });
@@ -2828,8 +2832,9 @@
             const b2Str = g.desbloqueada ? fmt2Gem(g.n2) : '🔒';
 
             let etiquetaInferior = `<span style="color:#94a3b8;">🔒 Nivel ${g.ordenNivel} (${g.metaPts} pts)</span>`;
-            if (g.desbloqueada && g.conectoHoy) {
-                etiquetaInferior = `<span style="color:#10b981;font-weight:900;">✅ ¡Conectó hoy!</span>`;
+            if (g.conectoHoy) {
+                // Mostrar afuera que conectó en 1ra, 2da o 3ra aunque las bolas sigan con candado 🔒🔒
+                etiquetaInferior = `<span style="color:#10b981;font-weight:900;">✅ ¡Conectó en ${g.posicionesConecto}!</span>`;
             } else if (g.desbloqueada && g.ajustado) {
                 etiquetaInferior = `<span style="color:#fbbf24;font-weight:800;">⚡ Ajustada</span>`;
             } else if (g.desbloqueada) {
@@ -2861,8 +2866,8 @@
 
             const candadoIcon = g.desbloqueada ? '🔓' : '🔒';
             let etiquetaEstado = `<span style="color:#94a3b8;">${candadoIcon} ${g.metaPts} pts</span>`;
-            if (g.desbloqueada && g.conectoHoy) {
-                etiquetaEstado = `<span style="color:#10b981;font-weight:900;">🔓 ✅ Conectó</span>`;
+            if (g.conectoHoy) {
+                etiquetaEstado = `<span style="color:#10b981;font-weight:900;">${candadoIcon} ✅ Conectó en ${g.posicionesConecto}</span>`;
             } else if (g.desbloqueada && g.ajustado) {
                 etiquetaEstado = `<span style="color:#fbbf24;font-weight:800;">🔓 ⚡ Ajustada</span>`;
             } else if (g.desbloqueada) {
@@ -2942,10 +2947,13 @@
                 regBox.style.display = 'block';
             }
 
-            // Solo mostrar aviso de conexión si la lotería está realmente desbloqueada
+            // Mostrar que conectó en 1ra, 2da o 3ra incluso con candado (sin revelar el número si está bloqueada)
             const hitContainer = document.getElementById('gem-res-hit-hoy');
-            if (g.desbloqueada && g.conectoHoy) {
-                hitContainer.innerHTML = `<div style="background:rgba(16,185,129,0.18);border:1px solid #10b981;color:#6ee7b7;font-size:12px;font-weight:900;padding:5px 12px;border-radius:8px;display:inline-block;">✅ ¡Conectó hoy en este sorteo!</div>`;
+            if (g.conectoHoy) {
+                const txtHit = g.desbloqueada
+                    ? `✅ ¡Conectó hoy (${g.detalleConecto}) en este sorteo!`
+                    : `✅ ¡Conectó hoy en ${g.posicionesConecto} en este sorteo!`;
+                hitContainer.innerHTML = `<div style="background:rgba(16,185,129,0.18);border:1px solid #10b981;color:#6ee7b7;font-size:12px;font-weight:900;padding:5px 12px;border-radius:8px;display:inline-block;">${txtHit}</div>`;
             } else {
                 hitContainer.innerHTML = '';
             }
