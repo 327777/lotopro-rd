@@ -1504,9 +1504,14 @@
             <div class="gem-panel-body">
                 <!-- BARRA DE NIVELES POR COLORES LOTOPRON -->
                 <div class="lotopron-level-card">
-                    <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; flex-wrap:wrap;">
                         <span id="gem-nivel-badge" style="font-size:12px; font-weight:900; color:#cbd5e1;">⚪ LotoPron Pálido</span>
-                        <span id="gem-codigo-jugador" onclick="mostrarFormularioCodigo()" style="font-size:11px; font-weight:800; color:#fbbf24; cursor:pointer; text-decoration:underline;">🔑 Ingresar / Crear Clave</span>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span id="gem-codigo-jugador" onclick="mostrarFormularioCodigo()" style="font-size:11px; font-weight:800; color:#fbbf24; cursor:pointer; text-decoration:underline;">🔑 Ingresar / Crear Clave</span>
+                            <button type="button" id="btn-cerrar-clave-lotopron" onclick="cerrarSesionClaveLotoPron()" style="display:none; background:rgba(244,63,94,0.2); border:1px solid #f43f5e; color:#fda4af; border-radius:6px; padding:3px 8px; font-size:10.5px; font-weight:900; cursor:pointer;">
+                                🔒 Cerrar / Modo Normal
+                            </button>
+                        </div>
                     </div>
                     <div class="lotopron-bar-track">
                         <div class="lotopron-bar-fill" id="gem-bar-fill"></div>
@@ -1547,9 +1552,14 @@
                         <input type="tel" id="inp-code-numeros" class="gem-code-inp" placeholder="123" maxlength="3" inputmode="numeric" autocomplete="off" oninput="manejarInputNumerosClave(this)">
                     </div>
                     <div id="gem-code-error" style="font-size:11px; color:#f43f5e; font-weight:800; margin-bottom:7px; display:none;"></div>
-                    <button type="button" onclick="guardarCodigoJugadorLotoPron()" style="width:100%; background:linear-gradient(90deg,#10b981,#059669); color:#022c22; border:none; border-radius:9px; padding:10px; font-weight:900; font-size:12.5px; cursor:pointer;">
-                        ✅ Guardar Clave y Activar Nivel
-                    </button>
+                    <div style="display:flex; gap:7px; flex-wrap:wrap;">
+                        <button type="button" onclick="guardarCodigoJugadorLotoPron()" style="flex:1; background:linear-gradient(90deg,#10b981,#059669); color:#022c22; border:none; border-radius:9px; padding:10px; font-weight:900; font-size:12.5px; cursor:pointer;">
+                            ✅ Guardar Clave y Activar
+                        </button>
+                        <button type="button" onclick="cerrarSesionClaveLotoPron()" style="background:rgba(244,63,94,0.18); color:#fda4af; border:1px solid #f43f5e; border-radius:9px; padding:10px 12px; font-weight:900; font-size:11.5px; cursor:pointer;">
+                            🔒 Bloquear Todo (Modo Normal)
+                        </button>
+                    </div>
                 </div>
 
                 <!-- CAJA PRINCIPAL DE LA LOTERÍA SELECCIONADA -->
@@ -2518,15 +2528,24 @@
             sincronizarVisibilidadCondiciones();
 
             let perfil = obtenerPerfilLotoPron();
+            const veniaDeOtraClave = perfil.codigo && perfil.codigo !== codigoCompleto;
 
             const guardadoPrevio = localStorage.getItem('lotopron_cuenta_' + codigoCompleto);
             if (guardadoPrevio) {
                 try {
                     const prev = JSON.parse(guardadoPrevio);
-                    perfil.entradas = Math.max(perfil.entradas, prev.entradas || 1);
-                    perfil.desbloqueadas = Array.isArray(prev.desbloqueadas) ? prev.desbloqueadas : perfil.desbloqueadas;
+                    perfil.entradas = veniaDeOtraClave
+                        ? (Number(prev.entradas) || 1)
+                        : Math.max(perfil.entradas, Number(prev.entradas) || 1);
+                    perfil.desbloqueadas = Array.isArray(prev.desbloqueadas) ? prev.desbloqueadas : [];
+                    perfil.segundosJugados = Number(prev.segundosJugados) || 0;
                 } catch (e) {}
             } else {
+                if (veniaDeOtraClave) {
+                    perfil.entradas = 1;
+                    perfil.desbloqueadas = [];
+                    perfil.segundosJugados = 0;
+                }
                 registrarEventoAdminLotoPron('nuevo_usuario', { codigo: codigoCompleto, entradas: perfil.entradas, desbloqueadas: perfil.desbloqueadas });
             }
 
@@ -2546,6 +2565,28 @@
             if (regBox) regBox.style.display = 'none';
             actualizarAsistenteGemelas();
             return true;
+        }
+
+        function cerrarSesionClaveLotoPron(ev) {
+            if (ev && typeof ev.stopPropagation === 'function') {
+                ev.stopPropagation();
+            }
+            const perfilNormal = {
+                codigo: '',
+                entradas: 1,
+                aceptoAviso: false,
+                desbloqueadas: [],
+                segundosJugados: 0
+            };
+            localStorage.setItem('lotopron_perfil_activo_v2', JSON.stringify(perfilNormal));
+            localStorage.removeItem('lotopro_perfil_jugador_v3');
+            slitherCestaPendiente = 0;
+            guardarEstadoSlitherLocal();
+            actualizarAsistenteGemelas();
+            actualizarBotonesYCestaSlitherUI();
+            if (typeof mostrarAvisoPuntoGanadoSinJugar === 'function') {
+                mostrarAvisoPuntoGanadoSinJugar('🔒 Sesión cerrada: Vista de Usuario Normal activada (18 Loterías bloqueadas)');
+            }
         }
 
         function desbloquearLoteriaConNivel(idLoteria) {
@@ -2782,8 +2823,13 @@
             // NUNCA mostrar la clave escrita en pantalla para que nadie la copie
             if (elCodigo) {
                 elCodigo.innerText = perfil.codigo
-                    ? `🔐 Clave Protegida (•••-•••) | Cambiar`
+                    ? `🔐 Clave Activa | Cambiar`
                     : '🔑 Crear Clave (3 Letras + 3 Números)';
+            }
+            const btnCerrarClave = document.getElementById('btn-cerrar-clave-lotopron');
+            const tieneSesionODesbloqueo = Boolean(perfil.codigo) || (perfil.entradas >= 30) || (perfil.desbloqueadas && perfil.desbloqueadas.length > 0);
+            if (btnCerrarClave) {
+                btnCerrarClave.style.display = tieneSesionODesbloqueo ? 'inline-block' : 'none';
             }
             if (elAviso) {
                 if (disponibles > 0) {
@@ -2816,9 +2862,11 @@
                     rFill.style.background = info.gradiente;
                 }
                 if (rFalta) {
-                    rFalta.innerText = perfil.codigo
-                        ? `🔐 Sesión Activa • Faltan ${fmtPts(faltan)} LotoPron`
-                        : `🔑 Toca cualquier lotería para crear tu clave`;
+                    if (tieneSesionODesbloqueo) {
+                        rFalta.innerHTML = `<span>🔐 Clave Activa</span> <button type="button" onclick="cerrarSesionClaveLotoPron(event)" style="margin-left:6px;background:rgba(244,63,94,0.25);border:1px solid #f43f5e;color:#fda4af;border-radius:6px;padding:2px 7px;font-size:9.5px;font-weight:900;cursor:pointer;">🔒 Cerrar / Modo Normal</button>`;
+                    } else {
+                        rFalta.innerText = `🔑 Toca cualquier lotería para crear tu clave`;
+                    }
                 }
             });
         }
