@@ -344,8 +344,137 @@
             </div>
             <div class="metric-card">
                 <div class="metric-label">Loterías en Rastreo</div>
-                <div class="metric-value">20</div>
-                <div class="metric-hint">Nacionales, Anguila, NY, FL, NJ</div>
+                <div class="metric-value">18</div>
+                <div class="metric-hint">9 Mañana + 9 Noche (Con Reto LotoPron)</div>
+            </div>
+        </div>
+
+        <!-- MONITOR DEL RETO LOTOPRON, CONTADOR GENERAL DE HORAS Y RECUPERADOR DE CLAVES -->
+        <div class="config-card" style="margin-bottom: 30px; border-color: rgba(139, 92, 246, 0.4); background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, rgba(10, 15, 29, 0.98) 100%);">
+            <div class="card-header" style="justify-content: space-between; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 22px;">🎮</span>
+                    <div>
+                        <h3 style="color: #c4b5fd;">Monitor del Reto LotoPron, Contador de Horas (30 min) y Recuperación de Claves</h3>
+                        <p style="font-size: 11px; color: #94a3b8;">Control general de horas jugadas, buscador de claves de clientes (3 Letras ↔ 3 Números) y respaldo de niveles.</p>
+                    </div>
+                </div>
+                <span style="background: rgba(139, 92, 246, 0.18); border: 1px solid rgba(167, 139, 250, 0.45); color: #ddd6fe; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px;">
+                    🔐 Clave Maestra Admin: LPX - 947
+                </span>
+            </div>
+
+            <div class="metrics-grid" style="margin-bottom: 14px; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));">
+                <div class="metric-card" style="background: #090e1a; border-color: #1e293b;">
+                    <div class="metric-label" style="color: #93c5fd;">👤 Clientes con Clave (3L+3N)</div>
+                    <div class="metric-value" id="adm-lotopron-usuarios" style="color: #60a5fa;">0</div>
+                    <div class="metric-hint">Claves registradas en el sistema</div>
+                </div>
+                <div class="metric-card" style="background: #090e1a; border-color: rgba(16, 185, 129, 0.45);">
+                    <div class="metric-label" style="color: #6ee7b7;">⏱️ Contador General de Horas</div>
+                    <div class="metric-value" id="adm-lotopron-horas" style="color: #10b981; font-size: 24px;">00h 00m 00s</div>
+                    <div class="metric-hint" id="adm-lotopron-tandas-hint">🔋 0 tandas de 30 min • 0 partidas</div>
+                </div>
+                <div class="metric-card" style="background: #090e1a; border-color: #1e293b;">
+                    <div class="metric-label" style="color: #fcd34d;">🎯 Puntos Escondidos (+0.25)</div>
+                    <div class="metric-value" id="adm-lotopron-puntos" style="color: #fbbf24;">0</div>
+                    <div class="metric-hint" id="adm-lotopron-tokens-hint">Equivalente a 0.00 Tokens otorgados</div>
+                </div>
+                <div class="metric-card" style="background: #090e1a; border-color: #1e293b;">
+                    <div class="metric-label" style="color: #c4b5fd;">🔓 Loterías Desbloqueadas</div>
+                    <div class="metric-value" id="adm-lotopron-desbloqueos" style="color: #a78bfa;">0</div>
+                    <div class="metric-hint">De las 18 loterías en los 1,000 niveles</div>
+                </div>
+            </div>
+
+            <!-- HERRAMIENTA DE RECUPERACIÓN DE CLAVES Y RESTAURACIÓN DE NIVEL (CASI REY) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                <!-- Buscador por Letras o Números -->
+                <div style="background: #060a14; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 12px; padding: 14px;">
+                    <div style="font-size: 12px; font-weight: 900; color: #38bdf8; margin-bottom: 6px;">
+                        🔍 Recuperador de Claves de Clientes (Letras ↔ Números)
+                    </div>
+                    <p style="font-size: 11px; color: #94a3b8; margin-bottom: 10px;">
+                        Si el cliente recuerda sus <strong>3 Letras</strong> (ej. <code>ADA</code>) te dará sus <strong>3 Números</strong>, o si recuerda sus <strong>3 Números</strong> (ej. <code>123</code>) te dará sus <strong>3 Letras</strong>:
+                    </p>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="adm-buscar-clave-inp" class="form-control" placeholder="Escribe las 3 Letras (ej. ADA) o los 3 Números (ej. 123)..." oninput="filtrarYRecuperarClaveCliente()" style="text-transform: uppercase; font-family: 'JetBrains Mono', monospace; font-weight: 800;">
+                        <button type="button" class="btn-save" style="width: auto; margin-top: 0; padding: 10px 14px; white-space: nowrap;" onclick="filtrarYRecuperarClaveCliente()">
+                            🔎 Buscar
+                        </button>
+                    </div>
+                    <div id="adm-resultado-recuperacion" style="margin-top: 10px; font-size: 12px; color: #cbd5e1; background: rgba(15, 23, 42, 0.85); border: 1px dashed #334155; border-radius: 8px; padding: 8px 10px;">
+                        💡 Escribe arriba las letras o números que recuerde el cliente para ver su clave completa.
+                    </div>
+                </div>
+
+                <!-- Restaurador / Asignador Manual de Nivel a Cliente -->
+                <div style="background: #060a14; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 12px; padding: 14px;">
+                    <div style="font-size: 12px; font-weight: 900; color: #fbbf24; margin-bottom: 6px;">
+                        👑 Restaurar o Asignar Nivel a un Cliente (Respaldo Rey)
+                    </div>
+                    <p style="font-size: 11px; color: #94a3b8; margin-bottom: 10px;">
+                        Si un cliente perdió su teléfono o estaba casi en Rey, ingresa o crea su clave aquí y asígnale sus puntos LotoPron:
+                    </p>
+                    <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="adm-restaurar-letras" class="form-control" maxlength="3" placeholder="3 Letras (ADA)" style="width: 110px; text-transform: uppercase; text-align: center; font-family: 'JetBrains Mono', monospace; font-weight: 800;">
+                        <span style="color: #64748b; font-weight: 900;">-</span>
+                        <input type="text" id="adm-restaurar-numeros" class="form-control" maxlength="3" placeholder="3 Núm (123)" style="width: 110px; text-align: center; font-family: 'JetBrains Mono', monospace; font-weight: 800;">
+                        <input type="number" id="adm-restaurar-pts" class="form-control" min="0" max="1000" step="0.25" placeholder="Puntos (ej. 850)" style="flex: 1; min-width: 110px; font-family: 'JetBrains Mono', monospace; font-weight: 800;">
+                        <button type="button" class="btn-save btn-gold" style="width: auto; margin-top: 0; padding: 10px 14px;" onclick="restaurarPuntosClienteAdmin()">
+                            💾 Guardar Nivel
+                        </button>
+                    </div>
+                    <div id="adm-msg-restaurar" style="margin-top: 8px; font-size: 11.5px; color: #10b981; font-weight: 800; display: none;"></div>
+                </div>
+            </div>
+
+            <!-- CONTROL DE ETAPA: PRIMEROS 100 SUSCRIPTORES VS MODO ESTRICTO -->
+            <div style="background: #060a14; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <div id="adm-etapa-100-titulo" style="font-size: 12px; font-weight: 900; color: #10b981;">
+                        🟢 ETAPA ACTUAL: PRIMEROS 100 SUSCRIPTORES (0 / 100) — Acumulación Abierta
+                    </div>
+                    <div id="adm-etapa-100-desc" style="font-size: 11px; color: #94a3b8; margin-top: 2px;">
+                        Sin jugar suma: <strong>+1.00</strong> por entrada (c/1h) • <strong>+0.25</strong> por buscar en Jaladera • <strong>+0.25</strong> cada 3 min leyendo. Al pasar de 100 suscriptores se bloquea automáticamente a Modo Estricto.
+                    </div>
+                </div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button type="button" onclick="cambiarModoEtapa100Admin('auto')" style="background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:800; cursor:pointer;">
+                        🤖 Automático (100 Suscriptores)
+                    </button>
+                    <button type="button" onclick="cambiarModoEtapa100Admin('facil')" style="background:rgba(16,185,129,0.18); border:1px solid #10b981; color:#6ee7b7; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:800; cursor:pointer;">
+                        🟢 Abrir Primeros 100
+                    </button>
+                    <button type="button" onclick="cambiarModoEtapa100Admin('dificil')" style="background:rgba(244,63,94,0.18); border:1px solid #f43f5e; color:#fda4af; border-radius:8px; padding:6px 10px; font-size:11px; font-weight:800; cursor:pointer;">
+                        🔒 Bloquear (Modo Estricto)
+                    </button>
+                </div>
+            </div>
+
+            <div style="background: #060a14; border: 1px solid #1e293b; border-radius: 12px; padding: 14px; overflow-x: auto;">
+                <div style="font-size: 12px; font-weight: 800; color: #e2e8f0; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                    <span>📋 Directorio Completo de Claves de Clientes (Letras + Números Visibles para Administración)</span>
+                    <span style="font-size: 10px; color: #64748b;">Actualización automática cada 8 seg</span>
+                </div>
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #1e293b; color: #94a3b8; font-size: 11px; text-transform: uppercase;">
+                            <th style="padding: 8px;">Clave Completa</th>
+                            <th style="padding: 8px;">3 Letras</th>
+                            <th style="padding: 8px;">3 Números</th>
+                            <th style="padding: 8px;">Puntos / Nivel</th>
+                            <th style="padding: 8px;">Loterías Abiertas</th>
+                            <th style="padding: 8px;">Tiempo Jugado (30m)</th>
+                            <th style="padding: 8px;">Acción Rápida</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adm-tabla-cuentas-lotopron">
+                        <tr>
+                            <td colspan="7" style="padding: 12px; text-align: center; color: #64748b;">Sin registros locales aún. Haz una prueba en el portal público para ver la actividad en vivo.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -450,7 +579,216 @@
             }
         }
 
-        // Cargar métricas en vivo desde la nube central (Base 100)
+        const UMBRALES_ADMIN_18 = [30, 70, 115, 160, 210, 260, 315, 370, 425, 485, 545, 605, 670, 735, 800, 865, 930, 1000];
+
+        function formatearSegundosAHorasAdmin(segTotales) {
+            const s = Math.max(0, Math.floor(Number(segTotales) || 0));
+            const h = Math.floor(s / 3600);
+            const m = Math.floor((s % 3600) / 60);
+            const r = s % 60;
+            return `${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(r).padStart(2, '0')}s`;
+        }
+
+        function obtenerCatalogoCuentasAdmin() {
+            let dbCuentas = {};
+            try {
+                const rawDb = localStorage.getItem('lotopro_cuentas_db_v3');
+                if (rawDb) dbCuentas = JSON.parse(rawDb);
+            } catch (e) {}
+
+            try {
+                const rawStats = localStorage.getItem('lotopro_admin_stats_v1');
+                if (rawStats) {
+                    const st = JSON.parse(rawStats);
+                    if (st && st.directorioClavesCompletas) {
+                        Object.keys(st.directorioClavesCompletas).forEach(k => {
+                            const item = st.directorioClavesCompletas[k];
+                            if (!dbCuentas[k]) {
+                                dbCuentas[k] = {
+                                    codigo: k,
+                                    letras: item.letras || k.split('-')[0] || '',
+                                    numeros: item.numeros || k.split('-')[1] || '',
+                                    visitas: Number(item.entradas) || 1,
+                                    desbloqueadas: Array(Number(item.desbloqueadas) || 0).fill('lot'),
+                                    segundosJugados: Number(item.segundosJugados) || 0,
+                                    ultimoDia: item.ultimaActividad || 'Hoy'
+                                };
+                            } else if ((Number(item.segundosJugados) || 0) > (Number(dbCuentas[k].segundosJugados) || 0)) {
+                                dbCuentas[k].segundosJugados = Number(item.segundosJugados);
+                            }
+                        });
+                    }
+                }
+            } catch (e) {}
+
+            return dbCuentas;
+        }
+
+        function filtrarYRecuperarClaveCliente() {
+            const inp = document.getElementById('adm-buscar-clave-inp');
+            const out = document.getElementById('adm-resultado-recuperacion');
+            if (!inp || !out) return;
+            const q = inp.value.trim().toUpperCase();
+            const dbCuentas = obtenerCatalogoCuentasAdmin();
+            const claves = Object.keys(dbCuentas);
+
+            if (!q) {
+                out.innerHTML = `💡 Escribe arriba las <strong>3 Letras</strong> o los <strong>3 Números</strong> que recuerde el cliente para ver su clave completa.`;
+                renderizarTablaCuentasAdmin(dbCuentas, '');
+                return;
+            }
+
+            const coincidencias = claves.filter(codigo => {
+                const partes = codigo.split('-');
+                const letras = partes[0] || '';
+                const numeros = partes[1] || '';
+                return codigo.includes(q) || letras.includes(q) || numeros.includes(q);
+            });
+
+            if (coincidencias.length === 0) {
+                out.innerHTML = `<span style="color:#f43f5e;font-weight:800;">⚠️ No se encontró ninguna clave con "${q}".</span> Puedes registrarla o restaurarle sus puntos en el cuadro de al lado.`;
+            } else {
+                out.innerHTML = coincidencias.map(codigo => {
+                    const c = dbCuentas[codigo];
+                    const partes = codigo.split('-');
+                    const letras = partes[0] || '---';
+                    const numeros = partes[1] || '---';
+                    const pts = Number(c.visitas) || 0;
+                    const desb = UMBRALES_ADMIN_18.filter(u => pts >= u).length;
+                    return `<div style="padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+                        ✅ <strong>Clave Encontrada:</strong> <span style="color:#fde047;font-family:'JetBrains Mono',monospace;font-weight:900;">${codigo}</span>
+                        → Si sabe las Letras (<strong>${letras}</strong>), dale sus Números: <strong style="color:#38bdf8;">${numeros}</strong>
+                        | Si sabe los Números (<strong>${numeros}</strong>), dale sus Letras: <strong style="color:#10b981;">${letras}</strong>
+                        • Nivel: <strong>${pts.toFixed(2)} pts (${desb}/18 loterías)</strong>
+                    </div>`;
+                }).join('');
+            }
+
+            renderizarTablaCuentasAdmin(dbCuentas, q);
+        }
+
+        function cargarEnFormularioRestaurar(codigo, ptsActuales) {
+            const partes = String(codigo).split('-');
+            const inpL = document.getElementById('adm-restaurar-letras');
+            const inpN = document.getElementById('adm-restaurar-numeros');
+            const inpP = document.getElementById('adm-restaurar-pts');
+            if (inpL) inpL.value = partes[0] || '';
+            if (inpN) inpN.value = partes[1] || '';
+            if (inpP) inpP.value = Number(ptsActuales) || 0;
+            if (inpP) inpP.focus();
+        }
+
+        function restaurarPuntosClienteAdmin() {
+            const inpL = document.getElementById('adm-restaurar-letras');
+            const inpN = document.getElementById('adm-restaurar-numeros');
+            const inpP = document.getElementById('adm-restaurar-pts');
+            const msg = document.getElementById('adm-msg-restaurar');
+
+            const letras = (inpL ? inpL.value : '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+            const numeros = (inpN ? inpN.value : '').replace(/[^0-9]/g, '').slice(0, 3);
+            const pts = Math.min(1000, Math.max(0, Number(inpP ? inpP.value : 0) || 0));
+
+            if (letras.length !== 3 || numeros.length !== 3) {
+                alert('Por favor ingresa exactamente 3 Letras (ej. ADA) y 3 Números (ej. 123).');
+                return;
+            }
+
+            const codigo = `${letras}-${numeros}`;
+            try {
+                const rawDb = localStorage.getItem('lotopro_cuentas_db_v3');
+                const db = rawDb ? JSON.parse(rawDb) : {};
+                const existente = db[codigo] || {};
+                db[codigo] = {
+                    codigo: codigo,
+                    letras: letras,
+                    numeros: numeros,
+                    visitas: pts,
+                    ultimoDia: existente.ultimoDia || new Date().toLocaleDateString('es-DO'),
+                    desbloqueadas: Array.isArray(existente.desbloqueadas) ? existente.desbloqueadas : [],
+                    segundosJugados: Number(existente.segundosJugados) || 0
+                };
+                localStorage.setItem('lotopro_cuentas_db_v3', JSON.stringify(db));
+
+                // Si esa misma clave está activa en este navegador, actualizarla también
+                const rawPerfil = localStorage.getItem('lotopro_perfil_jugador_v3');
+                if (rawPerfil) {
+                    const p = JSON.parse(rawPerfil);
+                    if (p && p.codigo === codigo) {
+                        p.entradas = pts;
+                        localStorage.setItem('lotopro_perfil_jugador_v3', JSON.stringify(p));
+                    }
+                }
+
+                if (msg) {
+                    msg.style.display = 'block';
+                    msg.innerText = `✅ Clave ${codigo} actualizada con ${pts.toFixed(2)} LotoPron (${UMBRALES_ADMIN_18.filter(u => pts >= u).length}/18 loterías).`;
+                    setTimeout(() => { msg.style.display = 'none'; }, 4500);
+                }
+                cargarMetricas();
+            } catch (e) {
+                alert('Error al guardar en la base local: ' + e.message);
+            }
+        }
+
+        function renderizarTablaCuentasAdmin(dbCuentas, filtro) {
+            const tbody = document.getElementById('adm-tabla-cuentas-lotopron');
+            if (!tbody) return;
+            const q = (filtro || '').trim().toUpperCase();
+            const claves = Object.keys(dbCuentas).filter(codigo => {
+                if (!q) return true;
+                return codigo.includes(q);
+            });
+
+            if (claves.length === 0) {
+                tbody.innerHTML = `<tr>
+                    <td colspan="7" style="padding: 12px; text-align: center; color: #64748b;">Sin registros que coincidan.</td>
+                </tr>`;
+                return;
+            }
+
+            tbody.innerHTML = claves.map(codigo => {
+                const c = dbCuentas[codigo];
+                const partes = codigo.split('-');
+                const letras = c.letras || partes[0] || '---';
+                const numeros = c.numeros || partes[1] || '---';
+                const pts = Number(c.visitas) || 0;
+                const desb = UMBRALES_ADMIN_18.filter(u => pts >= u).length;
+                const segJugados = Number(c.segundosJugados) || 0;
+                const tandas30m = (segJugados / 1800).toFixed(1);
+                const esMaster = codigo === 'LPX-947';
+                const esCasiRey = pts >= 700 && !esMaster;
+
+                return `<tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 8px; font-family: 'JetBrains Mono', monospace; font-weight: 900; color: ${esMaster ? '#fbbf24' : '#f8fafc'};">
+                        🔑 ${codigo}
+                        ${esMaster ? '<span style="font-size:10px; background:rgba(245,158,11,0.2); color:#fcd34d; padding:2px 6px; border-radius:4px; margin-left:6px;">ADMIN MASTER</span>' : ''}
+                        ${esCasiRey ? '<span style="font-size:10px; background:rgba(16,185,129,0.2); color:#6ee7b7; padding:2px 6px; border-radius:4px; margin-left:6px;">👑 CASI REY</span>' : ''}
+                    </td>
+                    <td style="padding: 8px; font-family: 'JetBrains Mono', monospace; color: #10b981; font-weight: 900;">
+                        ${letras}
+                    </td>
+                    <td style="padding: 8px; font-family: 'JetBrains Mono', monospace; color: #38bdf8; font-weight: 900;">
+                        ${numeros}
+                    </td>
+                    <td style="padding: 8px; font-family: 'JetBrains Mono', monospace; color: #fde047; font-weight: 800;">
+                        ${pts.toFixed(2)} pts
+                    </td>
+                    <td style="padding: 8px; color: #a78bfa; font-weight: 700;">
+                        🔓 ${desb} / 18
+                    </td>
+                    <td style="padding: 8px; font-family: 'JetBrains Mono', monospace; color: #6ee7b7; font-size: 11px;">
+                        ⏱️ ${formatearSegundosAHorasAdmin(segJugados)} <span style="color:#64748b;">(${tandas30m} tandas)</span>
+                    </td>
+                    <td style="padding: 8px;">
+                        <button type="button" onclick="cargarEnFormularioRestaurar('${codigo}', ${pts})" style="background:rgba(245,158,11,0.18); border:1px solid rgba(245,158,11,0.45); color:#fde047; border-radius:6px; padding:4px 8px; font-size:11px; font-weight:800; cursor:pointer;">
+                            ✏️ Editar Nivel
+                        </button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        // Cargar métricas en vivo desde la nube central (Base 100) y estadísticas del Reto LotoPron
         async function cargarMetricas() {
             try {
                 const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/visitas');
@@ -474,6 +812,92 @@
                 console.log('Error consultas:', e);
             }
 
+            // Cargar métricas del Reto LotoPron y Juego Culebrita (local + nube)
+            let statsLocal = {
+                usuariosRegistrados: 0,
+                partidasCulebrita: 0,
+                puntosOcultosEncontrados: 0,
+                loteriasDesbloqueadasMax: 0,
+                segundos_totales_jugados: 0,
+                tandas_30m_completadas: 0,
+                listaCodigosEnmascarados: []
+            };
+            try {
+                const rawStats = localStorage.getItem('lotopro_admin_stats_v1');
+                if (rawStats) statsLocal = Object.assign(statsLocal, JSON.parse(rawStats));
+            } catch (e) {}
+
+            const dbCuentas = obtenerCatalogoCuentasAdmin();
+            const clavesCuentas = Object.keys(dbCuentas);
+            let maxDesbloqueosLocal = statsLocal.loteriasDesbloqueadasMax || 0;
+            let sumaSegundosCuentas = 0;
+            clavesCuentas.forEach(k => {
+                const pts = Number(dbCuentas[k].visitas) || 0;
+                const desb = UMBRALES_ADMIN_18.filter(u => pts >= u).length;
+                if (desb > maxDesbloqueosLocal) maxDesbloqueosLocal = desb;
+                sumaSegundosCuentas += Number(dbCuentas[k].segundosJugados) || 0;
+            });
+
+            let cloudUsuarios = 0, cloudSnake = 0, cloudDesbloqueos = 0, cloudMinutos = 0, cloudTandas30m = 0;
+            try {
+                const [rU, rS, rD, rM, rT] = await Promise.all([
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/usuarios_nivel').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/juego_snake').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/desbloqueos').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/minutos_juego').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/tandas_30m').catch(() => null)
+                ]);
+                if (rU && rU.ok) { const d = await rU.json(); cloudUsuarios = d.value || 0; }
+                if (rS && rS.ok) { const d = await rS.json(); cloudSnake = d.value || 0; }
+                if (rD && rD.ok) { const d = await rD.json(); cloudDesbloqueos = d.value || 0; }
+                if (rM && rM.ok) { const d = await rM.json(); cloudMinutos = d.value || 0; }
+                if (rT && rT.ok) { const d = await rT.json(); cloudTandas30m = d.value || 0; }
+            } catch (e) {}
+
+            const totalUsuariosClave = Math.max(clavesCuentas.length, statsLocal.usuariosRegistrados || 0, cloudUsuarios);
+            const totalPartidas = Math.max(statsLocal.partidasCulebrita || 0, cloudSnake);
+            const totalPuntosOcultos = statsLocal.puntosOcultosEncontrados || 0;
+            const totalDesbloqueos = Math.max(maxDesbloqueosLocal, cloudDesbloqueos);
+
+            const segundosTotalesGeneral = Math.max(
+                Number(statsLocal.segundos_totales_jugados) || 0,
+                sumaSegundosCuentas,
+                cloudMinutos * 60
+            );
+            const tandas30mGeneral = Math.max(
+                Number(statsLocal.tandas_30m_completadas) || 0,
+                Math.floor(segundosTotalesGeneral / 1800),
+                cloudTandas30m
+            );
+
+            document.getElementById('adm-lotopron-usuarios').innerText = totalUsuariosClave.toLocaleString();
+            document.getElementById('adm-lotopron-horas').innerText = formatearSegundosAHorasAdmin(segundosTotalesGeneral);
+            document.getElementById('adm-lotopron-tandas-hint').innerText = `🔋 ${tandas30mGeneral} tandas de 30m • 🐍 ${totalPartidas} partidas`;
+            document.getElementById('adm-lotopron-puntos').innerText = totalPuntosOcultos.toLocaleString();
+            document.getElementById('adm-lotopron-tokens-hint').innerText = `Equivalente a +${(totalPuntosOcultos * 0.25).toFixed(2)} Tokens otorgados`;
+            document.getElementById('adm-lotopron-desbloqueos').innerText = `${totalDesbloqueos} / 18`;
+
+            // Actualizar estado de la Etapa Primeros 100 Suscriptores vs Modo Estricto
+            const modoManual = localStorage.getItem('lotopro_modo_dificultad') || 'auto';
+            const enEtapa100 = (modoManual === 'facil') ? true : (modoManual === 'dificil' ? false : (totalUsuariosClave <= 100));
+            const elEtapaTit = document.getElementById('adm-etapa-100-titulo');
+            const elEtapaDesc = document.getElementById('adm-etapa-100-desc');
+            if (elEtapaTit && elEtapaDesc) {
+                if (enEtapa100) {
+                    elEtapaTit.style.color = '#10b981';
+                    elEtapaTit.innerText = `🟢 ETAPA ACTUAL: PRIMEROS 100 SUSCRIPTORES (${totalUsuariosClave} / 100) — Acumulación Abierta (${modoManual.toUpperCase()})`;
+                    elEtapaDesc.innerHTML = `Sin jugar suma: <strong>+1.00</strong> por entrada (c/1h) • <strong>+0.25</strong> por buscar en Jaladera • <strong>+0.25</strong> cada 3 min leyendo. Al pasar de 100 suscriptores pasa a Modo Estricto.`;
+                } else {
+                    elEtapaTit.style.color = '#f43f5e';
+                    elEtapaTit.innerText = `🔒 ETAPA ACTUAL: MODO ESTRICTO ACTIVADO (${totalUsuariosClave} Suscriptores • Modo: ${modoManual.toUpperCase()})`;
+                    elEtapaDesc.innerHTML = `Bloqueados los bonos rápidos de Jaladera y lectura pasiva; entradas limitadas cada 4h (+0.50) y juego Slither en dificultad alta (5 obstáculos).`;
+                }
+            }
+
+            const inpBuscar = document.getElementById('adm-buscar-clave-inp');
+            const filtroActual = inpBuscar ? inpBuscar.value : '';
+            renderizarTablaCuentasAdmin(dbCuentas, filtroActual);
+
             const adTop = localStorage.getItem('lotopro_adsense_top') || '';
             const adFeed = localStorage.getItem('lotopro_adsense_feed') || '';
             document.getElementById('adsense-top').value = adTop;
@@ -483,6 +907,15 @@
             const n2 = localStorage.getItem('lotopro_master_n2') || '26';
             document.getElementById('master-num-1').value = n1;
             document.getElementById('master-num-2').value = n2;
+        }
+
+        function cambiarModoEtapa100Admin(modo) {
+            if (modo === 'auto') {
+                localStorage.removeItem('lotopro_modo_dificultad');
+            } else {
+                localStorage.setItem('lotopro_modo_dificultad', modo);
+            }
+            cargarMetricas();
         }
 
         function guardarAdSense() {
