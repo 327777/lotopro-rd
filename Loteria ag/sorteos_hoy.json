@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-30",
   "fecha_ayer": "2026-09-29",
-  "actualizado_a_las": "01:22 PM",
+  "actualizado_a_las": "01:53 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        74,
+        95,
+        27
+      ]
     },
     {
       "id": "gana_mas",
