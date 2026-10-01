@@ -1852,7 +1852,7 @@
                 ? 'https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/visitas'
                 : 'https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas';
 
-            fetch(urlVisitas)
+            fetch(urlVisitas + '?t=' + Date.now(), { cache: 'no-store' })
                 .then(r => r.json())
                 .then(data => {
                     sessionStorage.setItem('lotopro_sesion_activa', 'true');
@@ -1861,23 +1861,28 @@
                     actualizarMetricasSociales();
                 })
                 .catch(() => {
-                    contadorUsuarios = 100;
-                    actualizarMetricasSociales();
+                    // Fallback directo a GET si el hit falló
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas?t=' + Date.now(), { cache: 'no-store' })
+                        .then(r => r.json())
+                        .then(data => {
+                            const val = (data && typeof data.value === 'number') ? data.value : 0;
+                            contadorUsuarios = 100 + val;
+                            actualizarMetricasSociales();
+                        })
+                        .catch(() => {});
                 });
 
-            fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas')
+            fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas?t=' + Date.now(), { cache: 'no-store' })
                 .then(r => r.json())
                 .then(data => {
                     const val = (data && typeof data.value === 'number') ? data.value : 0;
                     contadorConsultas = 100 + val;
                     actualizarMetricasSociales();
                 })
-                .catch(() => {
-                    contadorConsultas = 100;
-                    actualizarMetricasSociales();
-                });
+                .catch(() => {});
         }
         sincronizarContadoresNube();
+        setInterval(sincronizarContadoresNube, 8000);
 
         // Reloj y Fecha Dominicana
         function actualizarRelojYFechaRD() {

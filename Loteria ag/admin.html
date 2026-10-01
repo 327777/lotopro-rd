@@ -1048,7 +1048,7 @@
         // Cargar métricas en vivo desde la nube central (Base 100) y estadísticas del Reto LotoPron
         async function cargarMetricas() {
             try {
-                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas');
+                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas?t=' + Date.now(), { cache: 'no-store' });
                 if (resV.ok) {
                     const dataV = await resV.json();
                     const totalVisitas = 100 + ((dataV && typeof dataV.value === 'number') ? dataV.value : 0);
@@ -1061,7 +1061,7 @@
             }
 
             try {
-                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas');
+                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas?t=' + Date.now(), { cache: 'no-store' });
                 if (resC.ok) {
                     const dataC = await resC.json();
                     const totalConsultas = 100 + ((dataC && typeof dataC.value === 'number') ? dataC.value : 0);
