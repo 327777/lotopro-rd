@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-01",
   "fecha_ayer": "2026-09-30",
-  "actualizado_a_las": "02:49 PM",
+  "actualizado_a_las": "06:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -336,8 +336,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        12,
+        54,
+        14
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -345,8 +349,12 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        41,
+        25,
+        79
+      ]
     },
     {
       "id": "quiniela_loteka",
