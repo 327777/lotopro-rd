@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-30",
   "fecha_ayer": "2026-09-29",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "09:11 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -388,8 +388,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        56,
+        46,
+        7
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -397,8 +401,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        30,
+        37,
+        92
+      ]
     },
     {
       "id": "real_noche",
@@ -406,8 +414,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        67,
+        6,
+        89
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -415,8 +427,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        73,
+        31,
+        4
+      ]
     },
     {
       "id": "florida_noche",
