@@ -500,14 +500,33 @@
                             </div>
                         </div>
 
-                        <!-- Resumen de Efectividad -->
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 9px 12px; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">Efectividad Candados:</span>
+                        <!-- Resumen de Efectividad Directa Oficial (Lo que ve el público) -->
+                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">🎯 Directo Oficial (Público):</span>
                             <div style="text-align: right;">
                                 <span id="adm-candados-ratio" style="font-size: 13px; font-weight: 900; color: #f8fafc;">0 / 18</span>
                                 <span id="adm-candados-porcentaje" style="font-size: 13px; font-weight: 900; color: #10b981; margin-left: 6px;">(0.0%)</span>
                             </div>
                         </div>
+
+                        <!-- Resumen de Atracción al Revés (Uso Interno Gerente) -->
+                        <div style="background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span style="font-size: 11px; color: #d8b4fe; font-weight: 700;">🔄 Al Revés (Virados Gerente):</span>
+                            <div style="text-align: right;">
+                                <span id="adm-candados-reves-ratio" style="font-size: 13px; font-weight: 900; color: #f3e8ff;">0 / 18</span>
+                                <span id="adm-candados-reves-porcentaje" style="font-size: 13px; font-weight: 900; color: #c084fc; margin-left: 6px;">(0.0%)</span>
+                            </div>
+                        </div>
+
+                        <!-- Fuerza Total de Atracción de la Jaladera -->
+                        <div style="background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 11px; color: #93c5fd; font-weight: 800;">🔥 Fuerza Total (Directo + Revés):</span>
+                            <div style="text-align: right;">
+                                <span id="adm-candados-total-ratio" style="font-size: 13px; font-weight: 900; color: #60a5fa;">0 / 18</span>
+                                <span id="adm-candados-total-porcentaje" style="font-size: 13px; font-weight: 900; color: #38bdf8; margin-left: 6px;">(0.0%)</span>
+                            </div>
+                        </div>
+
                         <div id="adm-candados-detalle-hits" style="margin-top: 8px; font-size: 10.5px; color: #94a3b8; max-height: 52px; overflow-y: auto; line-height: 1.4;">
                             Esperando resultados oficiales de hoy...
                         </div>
@@ -527,10 +546,10 @@
                                 <tr style="border-bottom: 1px solid #1e293b; color: #94a3b8; font-size: 10.5px; text-transform: uppercase;">
                                     <th style="padding: 7px 8px;">Fecha</th>
                                     <th style="padding: 7px 8px;">Sorteos</th>
-                                    <th style="padding: 7px 8px;">Maestra Directa [1ra / 2da / 3ra]</th>
-                                    <th style="padding: 7px 8px;">Efectividad Maestra</th>
-                                    <th style="padding: 7px 8px;">Candados Directos [1ra / 2da / 3ra]</th>
-                                    <th style="padding: 7px 8px;">Efectividad Candados</th>
+                                    <th style="padding: 7px 8px;">Maestra Directa</th>
+                                    <th style="padding: 7px 8px;">Candados Directos</th>
+                                    <th style="padding: 7px 8px;">Al Revés (Virados)</th>
+                                    <th style="padding: 7px 8px;">Fuerza Total Jaladera</th>
                                     <th style="padding: 7px 8px;">Diagnóstico Gerente</th>
                                 </tr>
                             </thead>
@@ -1413,43 +1432,70 @@
             // Variables acumuladoras para la Auditoría y Eficiencia Gerencial (Solo Pareja Oficial Directa)
             let candados1ra = 0, candados2da = 0, candados3ra = 0;
             let candadosLoteriasConHit = 0;
+            // Variables acumuladoras para la Auditoría y Eficiencia Gerencial
+            let candados1ra = 0, candados2da = 0, candados3ra = 0;
+            let candadosLoteriasConHit = 0;
             let totalLoteriasFinalizadas = 0;
             const candadosHitsDetalle = [];
+
+            // Monitoreo exclusivo de Reversos / Virados (Uso Interno de la Gerencia)
+            let candadosReves1ra = 0, candadosReves2da = 0, candadosReves3ra = 0;
+            let candadosLoteriasConHitReves = 0;
+            const candadosRevesHitsDetalle = [];
 
             cont.innerHTML = filtradas.map(item => {
                 const premiosHoy = mapaHoy[item.id];
                 const finalizado = estadoHoy[item.id] === 'finalizado' && Array.isArray(premiosHoy) && premiosHoy.length >= 3;
                 
-                // REGLA ESTRICTA GERENCIAL: Solo Pareja Oficial Directa (Sin Reversos)
-                const fam = [item.n1, item.n2];
-                const aciertos = [];
+                const famDirecta = [item.n1, item.n2];
+                const revN1 = virarNumAdm(item.n1);
+                const revN2 = virarNumAdm(item.n2);
+                
+                const aciertosDirectos = [];
+                const aciertosReves = [];
 
                 if (finalizado) {
                     totalLoteriasFinalizadas++;
-                    let loteriaTieneHit = false;
+                    let loteriaTieneHitDirecto = false;
+                    let loteriaTieneHitReves = false;
 
                     premiosHoy.forEach((p, idx) => {
-                        if (fam.includes(p)) {
-                            const pos = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
-                            aciertos.push({ num: p, pos: pos });
-                            loteriaTieneHit = true;
+                        const pos = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
+                        if (famDirecta.includes(p)) {
+                            aciertosDirectos.push({ num: p, pos: pos });
+                            loteriaTieneHitDirecto = true;
                             if (idx === 0) candados1ra++;
                             else if (idx === 1) candados2da++;
                             else if (idx === 2) candados3ra++;
+                        } else if (p === revN1 || p === revN2) {
+                            const origen = (p === revN1) ? item.n1 : item.n2;
+                            aciertosReves.push({ num: p, pos: pos, origen: origen });
+                            loteriaTieneHitReves = true;
+                            if (idx === 0) candadosReves1ra++;
+                            else if (idx === 1) candadosReves2da++;
+                            else if (idx === 2) candadosReves3ra++;
                         }
                     });
 
-                    if (loteriaTieneHit) {
+                    if (loteriaTieneHitDirecto) {
                         candadosLoteriasConHit++;
-                        candadosHitsDetalle.push(`${item.nombre}: [${aciertos.map(a => fmt2Adm(a.num) + ' en ' + a.pos).join(', ')}]`);
+                        candadosHitsDetalle.push(`${item.nombre}: [${aciertosDirectos.map(a => fmt2Adm(a.num) + ' en ' + a.pos).join(', ')}]`);
+                    } else if (loteriaTieneHitReves) {
+                        candadosLoteriasConHitReves++;
+                        candadosRevesHitsDetalle.push(`${item.nombre}: [${aciertosReves.map(a => fmt2Adm(a.num) + ' (virao de ' + fmt2Adm(a.origen) + ') en ' + a.pos).join(', ')}]`);
                     }
                 }
 
                 let badgeHit = '';
-                if (aciertos.length > 0) {
-                    const txt = aciertos.map(a => `[${fmt2Adm(a.num)}] en ${a.pos}`).join(' y ');
+                if (aciertosDirectos.length > 0) {
+                    const txt = aciertosDirectos.map(a => `[${fmt2Adm(a.num)}] en ${a.pos}`).join(' y ');
                     badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(16,185,129,0.25),rgba(245,158,11,0.2)); border:1.5px solid #10b981; color:#6ee7b7; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(16,185,129,0.3);">
                         🎯 ✅ ¡CONECTÓ DIRECTO HOY! → ${txt}
+                    </div>`;
+                } else if (aciertosReves.length > 0) {
+                    const txtR = aciertosReves.map(a => `[${fmt2Adm(a.num)}] (Revés de ${fmt2Adm(a.origen)}) en ${a.pos}`).join(' y ');
+                    badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(168,85,247,0.25),rgba(59,130,246,0.18)); border:1.5px solid #a855f7; color:#e9d5ff; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(168,85,247,0.3);">
+                        🔄 ⚡ ¡CONECTÓ AL REVÉS (VIRADO)! → ${txtR}
                     </div>`;
                 } else if (finalizado) {
                     badgeHit = `<div style="margin-top:8px; background:rgba(255,255,255,0.03); border:1px solid #334155; color:#94a3b8; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
@@ -1475,7 +1521,9 @@
                     resultadosHtml = `<span style="font-size:11px; color:#64748b; font-style:italic;">Esperando resultado oficial (${item.hora})</span>`;
                 }
 
-                const borderBox = aciertos.length > 0 ? 'border: 1.5px solid #10b981; box-shadow: 0 0 18px rgba(16,185,129,0.2);' : 'border: 1px solid #1e293b;';
+                const borderBox = aciertosDirectos.length > 0 
+                    ? 'border: 1.5px solid #10b981; box-shadow: 0 0 18px rgba(16,185,129,0.2);' 
+                    : (aciertosReves.length > 0 ? 'border: 1.5px solid #a855f7; box-shadow: 0 0 18px rgba(168,85,247,0.2);' : 'border: 1px solid #1e293b;');
 
                 return `
                     <div style="background:#090e1a; ${borderBox} border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
@@ -1485,7 +1533,7 @@
                                 <span style="font-size:10px; font-weight:800; background:rgba(59,130,246,0.18); color:#93c5fd; padding:2px 7px; border-radius:99px; font-family:'JetBrains Mono',monospace;">${item.hora}</span>
                             </div>
 
-                            <!-- Jugada Secreta con Candado (Solo Directa) -->
+                            <!-- Jugada Secreta con Candado -->
                             <div style="background:rgba(245,158,11,0.08); border:1px dashed rgba(245,158,11,0.45); border-radius:9px; padding:9px; margin-bottom:8px;">
                                 <div style="display:flex; justify-content:space-between; align-items:center; font-size:10.5px; font-weight:900; color:#fbbf24; margin-bottom:5px;">
                                     <span>🔒 JUGADA CON CANDADO (ADMIN)</span>
@@ -1497,8 +1545,9 @@
                                         <span style="color:#fbbf24; font-weight:900;">×</span>
                                         <div style="background:#131c31; border:1.5px solid #f59e0b; color:#fde047; font-size:16px; font-weight:900; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px;">${fmt2Adm(item.n2)}</div>
                                     </div>
-                                    <div style="font-size:10.5px; color:#cbd5e1; font-family:'JetBrains Mono',monospace;">
-                                        🎯 Pareja Oficial: <strong style="color:#fde047;">${fmt2Adm(item.n1)} × ${fmt2Adm(item.n2)}</strong>
+                                    <div style="font-size:10px; color:#cbd5e1; font-family:'JetBrains Mono',monospace;">
+                                        Oficial: <strong style="color:#fde047;">${fmt2Adm(item.n1)} × ${fmt2Adm(item.n2)}</strong>
+                                        <span style="color:#a855f7; margin-left:4px;">(Revés: ${fmt2Adm(revN1)} × ${fmt2Adm(revN2)})</span>
                                     </div>
                                 </div>
                             </div>
@@ -1515,12 +1564,15 @@
                 `;
             }).join('');
 
-            // Ejecutar Auditoría y Eficiencia Gerencial (Calcula Maestra + Candados)
+            // Ejecutar Auditoría y Eficiencia Gerencial (Calcula Maestra + Candados Directos + Candados Revés)
             actualizarAuditoriaEficienciaGerencial(lista18, mapaHoy, estadoHoy, {
                 candados1ra, candados2da, candados3ra,
                 candadosLoteriasConHit,
+                candadosReves1ra, candadosReves2da, candadosReves3ra,
+                candadosLoteriasConHitReves,
                 totalLoteriasFinalizadas,
-                candadosHitsDetalle
+                candadosHitsDetalle,
+                candadosRevesHitsDetalle
             });
         }
 
@@ -1583,6 +1635,9 @@
             const evalCount = totalSorteosFinalizadosCount > 0 ? totalSorteosFinalizadosCount : 0;
             const maestraPct = evalCount > 0 ? ((maestraSorteosConHit / evalCount) * 100).toFixed(1) : '0.0';
             const candadosPct = evalCount > 0 ? ((datosCandados.candadosLoteriasConHit / evalCount) * 100).toFixed(1) : '0.0';
+            const candadosRevesPct = evalCount > 0 ? ((datosCandados.candadosLoteriasConHitReves / evalCount) * 100).toFixed(1) : '0.0';
+            const candadosTotalHits = (datosCandados.candadosLoteriasConHit || 0) + (datosCandados.candadosLoteriasConHitReves || 0);
+            const candadosTotalPct = evalCount > 0 ? ((candadosTotalHits / evalCount) * 100).toFixed(1) : '0.0';
 
             // Actualizar UI Maestra
             const elM1ra = document.getElementById('adm-maestra-aciertos-1ra');
@@ -1614,6 +1669,10 @@
             const elC3ra = document.getElementById('adm-candados-aciertos-3ra');
             const elCRatio = document.getElementById('adm-candados-ratio');
             const elCPct = document.getElementById('adm-candados-porcentaje');
+            const elCRevRatio = document.getElementById('adm-candados-reves-ratio');
+            const elCRevPct = document.getElementById('adm-candados-reves-porcentaje');
+            const elCTotRatio = document.getElementById('adm-candados-total-ratio');
+            const elCTotPct = document.getElementById('adm-candados-total-porcentaje');
             const elCDet = document.getElementById('adm-candados-detalle-hits');
 
             if (elCEval) elCEval.innerText = `${evalCount} / 18 Sorteos`;
@@ -1622,11 +1681,25 @@
             if (elC3ra) elC3ra.innerText = datosCandados.candados3ra;
             if (elCRatio) elCRatio.innerText = `${datosCandados.candadosLoteriasConHit} / ${evalCount} finalizadas (de 18)`;
             if (elCPct) elCPct.innerText = `(${candadosPct}%)`;
+
+            if (elCRevRatio) elCRevRatio.innerText = `${datosCandados.candadosLoteriasConHitReves} / ${evalCount} finalizadas`;
+            if (elCRevPct) elCRevPct.innerText = `(${candadosRevesPct}%)`;
+
+            if (elCTotRatio) elCTotRatio.innerText = `${candadosTotalHits} / ${evalCount} con atracción`;
+            if (elCTotPct) elCTotPct.innerText = `(${candadosTotalPct}%)`;
+
             if (elCDet) {
-                if (datosCandados.candadosHitsDetalle.length > 0) {
-                    elCDet.innerHTML = `🎯 <strong>Conexiones Candado:</strong> ` + datosCandados.candadosHitsDetalle.map(h => `<span style="color:#6ee7b7;">${h}</span>`).join(' • ');
+                let htmlHits = [];
+                if (datosCandados.candadosHitsDetalle && datosCandados.candadosHitsDetalle.length > 0) {
+                    htmlHits.push(`🎯 <strong>Directos (Público):</strong> ` + datosCandados.candadosHitsDetalle.map(h => `<span style="color:#6ee7b7;">${h}</span>`).join(' • '));
+                }
+                if (datosCandados.candadosRevesHitsDetalle && datosCandados.candadosRevesHitsDetalle.length > 0) {
+                    htmlHits.push(`🔄 <strong style="color:#d8b4fe;">Virados (Uso Gerente):</strong> ` + datosCandados.candadosRevesHitsDetalle.map(h => `<span style="color:#c084fc;">${h}</span>`).join(' • '));
+                }
+                if (htmlHits.length > 0) {
+                    elCDet.innerHTML = htmlHits.join('<div style="height:4px;"></div>');
                 } else if (evalCount > 0) {
-                    elCDet.innerHTML = `<span style="color:#94a3b8;">${evalCount} loterías completadas hoy. Sin conexión directa en su propio sorteo aún.</span>`;
+                    elCDet.innerHTML = `<span style="color:#94a3b8;">${evalCount} loterías completadas hoy. Sin conexión directa ni revés aún.</span>`;
                 } else {
                     elCDet.innerHTML = `<span style="color:#64748b;">Esperando resultados oficiales de hoy...</span>`;
                 }
@@ -1638,11 +1711,14 @@
             const totalHits = maestraSorteosConHit + datosCandados.candadosLoteriasConHit;
             if (evalCount >= 3) {
                 if (totalHits >= 4 || parseFloat(candadosPct) >= 25 || parseFloat(maestraPct) >= 20) {
-                    diagTexto = '🟢 Alta Eficiencia (Fórmula Firme)';
+                    diagTexto = '🟢 Alta Eficiencia Directa (Fórmula Firme)';
                     diagClase = 'color:#6ee7b7; font-weight:800;';
                 } else if (totalHits >= 1) {
-                    diagTexto = '🟡 Rendimiento Estable';
+                    diagTexto = '🟡 Rendimiento Estable Directo';
                     diagClase = 'color:#fde047; font-weight:800;';
+                } else if (datosCandados.candadosLoteriasConHitReves >= 1) {
+                    diagTexto = '🔄 Fuerte Jaladera al Revés (Jalando Virados)';
+                    diagClase = 'color:#c084fc; font-weight:800;';
                 } else {
                     diagTexto = '⚠️ En Observación Gerencial';
                     diagClase = 'color:#fda4af; font-weight:800;';
@@ -1654,9 +1730,23 @@
 
             // Guardar estado actual en memoria
             const hoyFechaStr = (datosAppAdmin && datosAppAdmin.fecha_hoy) ? datosAppAdmin.fecha_hoy : (new Date().toISOString().split('T')[0]);
+            let fechaFormato = hoyFechaStr;
+            try {
+                const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+                const partes = hoyFechaStr.split('-');
+                if (partes.length === 3) {
+                    const dia = partes[2];
+                    const mes = meses[parseInt(partes[1], 10) - 1];
+                    const anio = partes[0];
+                    fechaFormato = `${dia} ${mes} ${anio}`;
+                }
+            } catch(e) {}
+            const elBadgeFecha = document.getElementById('badge-fecha-auditoria');
+            if (elBadgeFecha) elBadgeFecha.innerText = `📅 ${fechaFormato}`;
+
             auditoriaActualGerencial = {
                 fecha: hoyFechaStr,
-                fechaFormato: '01 Octubre 2026',
+                fechaFormato: fechaFormato,
                 sorteosEvaluados: `${evalCount} / 18`,
                 parejaMaestra: `[${fmt2Adm(mN1)} × ${fmt2Adm(mN2)}]`,
                 maestra1ra, maestra2da, maestra3ra,
@@ -1667,6 +1757,13 @@
                 candados3ra: datosCandados.candados3ra,
                 candadosRatio: `${datosCandados.candadosLoteriasConHit} / ${evalCount}`,
                 candadosPct: `${candadosPct}%`,
+                candadosReves1ra: datosCandados.candadosReves1ra,
+                candadosReves2da: datosCandados.candadosReves2da,
+                candadosReves3ra: datosCandados.candadosReves3ra,
+                candadosRevesRatio: `${datosCandados.candadosLoteriasConHitReves} / ${evalCount}`,
+                candadosRevesPct: `${candadosRevesPct}%`,
+                candadosTotalRatio: `${candadosTotalHits} / ${evalCount}`,
+                candadosTotalPct: `${candadosTotalPct}%`,
                 diagnostico: diagTexto,
                 diagClase: diagClase
             };
@@ -1707,16 +1804,17 @@
                         </td>
                         <td style="padding:8px; color:#f8fafc; font-family:monospace;">${auditoriaActualGerencial.sorteosEvaluados}</td>
                         <td style="padding:8px; color:#fde047; font-family:monospace;">
-                            ${auditoriaActualGerencial.parejaMaestra} → 🥇${auditoriaActualGerencial.maestra1ra} | 🥈${auditoriaActualGerencial.maestra2da} | 🥉${auditoriaActualGerencial.maestra3ra}
+                            ${auditoriaActualGerencial.parejaMaestra} → <strong style="color:#fbbf24;">${auditoriaActualGerencial.maestraRatio}</strong> (${auditoriaActualGerencial.maestraPct})
                         </td>
-                        <td style="padding:8px; color:#fbbf24; font-weight:900;">
-                            ${auditoriaActualGerencial.maestraRatio} (${auditoriaActualGerencial.maestraPct})
+                        <td style="padding:8px; color:#6ee7b7; font-weight:900;">
+                            ${auditoriaActualGerencial.candadosRatio} <span style="color:#10b981;">(${auditoriaActualGerencial.candadosPct})</span>
+                            <div style="font-size:10px; color:#94a3b8; font-family:monospace; font-weight:normal;">🥇${auditoriaActualGerencial.candados1ra} | 🥈${auditoriaActualGerencial.candados2da} | 🥉${auditoriaActualGerencial.candados3ra}</div>
                         </td>
-                        <td style="padding:8px; color:#6ee7b7; font-family:monospace;">
-                            🥇${auditoriaActualGerencial.candados1ra} | 🥈${auditoriaActualGerencial.candados2da} | 🥉${auditoriaActualGerencial.candados3ra}
+                        <td style="padding:8px; color:#c084fc; font-weight:900;">
+                            ${auditoriaActualGerencial.candadosRevesRatio} <span style="color:#d8b4fe;">(${auditoriaActualGerencial.candadosRevesPct})</span>
                         </td>
-                        <td style="padding:8px; color:#10b981; font-weight:900;">
-                            ${auditoriaActualGerencial.candadosRatio} (${auditoriaActualGerencial.candadosPct})
+                        <td style="padding:8px; color:#60a5fa; font-weight:900;">
+                            ${auditoriaActualGerencial.candadosTotalRatio} <span style="color:#38bdf8;">(${auditoriaActualGerencial.candadosTotalPct})</span>
                         </td>
                         <td style="padding:8px; ${auditoriaActualGerencial.diagClase}">${auditoriaActualGerencial.diagnostico}</td>
                     </tr>
@@ -1730,23 +1828,24 @@
                         <td style="padding:8px; color:#cbd5e1;">📅 ${h.fechaFormato || h.fecha}</td>
                         <td style="padding:8px; color:#94a3b8; font-family:monospace;">${h.sorteosEvaluados}</td>
                         <td style="padding:8px; color:#fde047; font-family:monospace;">
-                            ${h.parejaMaestra} → 🥇${h.maestra1ra} | 🥈${h.maestra2da} | 🥉${h.maestra3ra}
+                            ${h.parejaMaestra || ''} → <strong style="color:#fbbf24;">${h.maestraRatio || ''}</strong> (${h.maestraPct || ''})
                         </td>
-                        <td style="padding:8px; color:#fbbf24; font-weight:800;">
-                            ${h.maestraRatio} (${h.maestraPct})
+                        <td style="padding:8px; color:#6ee7b7; font-weight:800;">
+                            ${h.candadosRatio} <span style="color:#10b981;">(${h.candadosPct})</span>
+                            <div style="font-size:10px; color:#64748b; font-family:monospace;">🥇${h.candados1ra || 0} | 🥈${h.candados2da || 0} | 🥉${h.candados3ra || 0}</div>
                         </td>
-                        <td style="padding:8px; color:#6ee7b7; font-family:monospace;">
-                            🥇${h.candados1ra} | 🥈${h.candados2da} | 🥉${h.candados3ra}
+                        <td style="padding:8px; color:#c084fc; font-weight:800;">
+                            ${h.candadosRevesRatio || '0 / ' + (h.sorteosEvaluados ? h.sorteosEvaluados.split('/')[0].trim() : '0')} <span style="color:#d8b4fe;">(${h.candadosRevesPct || '0.0%'})</span>
                         </td>
-                        <td style="padding:8px; color:#10b981; font-weight:800;">
-                            ${h.candadosRatio} (${h.candadosPct})
+                        <td style="padding:8px; color:#60a5fa; font-weight:800;">
+                            ${h.candadosTotalRatio || h.candadosRatio} <span style="color:#38bdf8;">(${h.candadosTotalPct || h.candadosPct})</span>
                         </td>
                         <td style="padding:8px; ${h.diagClase || 'color:#94a3b8;'}">${h.diagnostico}</td>
                     </tr>
                 `;
             }).join('');
 
-            tbody.innerHTML = filaHoy + filasHist;
+            tbody.innerHTML = (filaHoy || filasHist.length > 0) ? (filaHoy + filasHist) : `<tr><td colspan="7" style="padding: 10px; text-align: center; color: #64748b;">No hay registros archivados aún.</td></tr>`;
         }
 
         function archivarJornadaHoyGerencial() {
@@ -1763,7 +1862,7 @@
             }
             guardarHistorialAuditoriaGerencial(hist);
             renderizarCuadernoDiarioGerencial();
-            alert(`✅ ¡JORNADA ARCHIVADA CON ÉXITO EN EL CUADERNO GERENCIAL!\n\n• Fecha: ${auditoriaActualGerencial.fechaFormato}\n• Sorteos: ${auditoriaActualGerencial.sorteosEvaluados}\n• Maestra Directa: ${auditoriaActualGerencial.maestraRatio} (${auditoriaActualGerencial.maestraPct})\n• Candados Directos: ${auditoriaActualGerencial.candadosRatio} (${auditoriaActualGerencial.candadosPct})\n\nEl registro queda guardado de forma permanente en tu panel.`);
+            alert(`✅ ¡JORNADA ARCHIVADA CON ÉXITO EN EL CUADERNO GERENCIAL!\n\n• Fecha: ${auditoriaActualGerencial.fechaFormato}\n• Sorteos: ${auditoriaActualGerencial.sorteosEvaluados}\n• Maestra Directa: ${auditoriaActualGerencial.maestraRatio} (${auditoriaActualGerencial.maestraPct})\n• Candados Directos: ${auditoriaActualGerencial.candadosRatio} (${auditoriaActualGerencial.candadosPct})\n• Al Revés (Virados): ${auditoriaActualGerencial.candadosRevesRatio} (${auditoriaActualGerencial.candadosRevesPct})\n• Fuerza Total Jaladera: ${auditoriaActualGerencial.candadosTotalRatio} (${auditoriaActualGerencial.candadosTotalPct})\n\nEl registro queda guardado de forma permanente en tu panel.`);
         }
 
         function descargarInformeCSVGerencial() {
@@ -1783,9 +1882,9 @@
                 return;
             }
 
-            let csv = "\uFEFFFecha,Sorteos Evaluados,Pareja Maestra,Maestra 1ra,Maestra 2da,Maestra 3ra,Eficiencia Maestra,Candados 1ra,Candados 2da,Candados 3ra,Eficiencia Candados,Diagnostico\n";
+            let csv = "\uFEFFFecha,Sorteos Evaluados,Pareja Maestra,Maestra 1ra,Maestra 2da,Maestra 3ra,Eficiencia Maestra Directa,Candados 1ra,Candados 2da,Candados 3ra,Eficiencia Candados Directa,Al Reves (Virados),Eficiencia Reves,Fuerza Total Jaladera,Diagnostico Gerente\n";
             registros.forEach(r => {
-                csv += `"${r.fechaFormato || r.fecha}","${r.sorteosEvaluados}","${r.parejaMaestra}",${r.maestra1ra},${r.maestra2da},${r.maestra3ra},"${r.maestraPct}",${r.candados1ra},${r.candados2da},${r.candados3ra},"${r.candadosPct}","${r.diagnostico.replace(/"/g, '""')}"\n`;
+                csv += `"${r.fechaFormato || r.fecha}","${r.sorteosEvaluados}","${r.parejaMaestra}",${r.maestra1ra || 0},${r.maestra2da || 0},${r.maestra3ra || 0},"${r.maestraPct}",${r.candados1ra || 0},${r.candados2da || 0},${r.candados3ra || 0},"${r.candadosPct}","${r.candadosRevesRatio || '0 / 0'}","${r.candadosRevesPct || '0.0%'}","${r.candadosTotalRatio || r.candadosRatio} (${r.candadosTotalPct || r.candadosPct})","${(r.diagnostico || '').replace(/"/g, '""')}"\n`;
             });
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
