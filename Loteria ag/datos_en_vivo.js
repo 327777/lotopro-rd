@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-01",
   "fecha_ayer": "2026-09-30",
-  "actualizado_a_las": "12:13 AM",
+  "actualizado_a_las": "10:13 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -206,8 +206,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        98,
+        94,
+        82
+      ]
     },
     {
       "id": "la_primera_dia",
