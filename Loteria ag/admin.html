@@ -542,20 +542,24 @@
         </div>
 
         <!-- Módulo de Utilidades del Servidor -->
-        <div class="config-card" style="margin-bottom:30px;">
+        <!-- MODO LANZAMIENTO OFICIAL Y MANTENIMIENTO -->
+        <div class="config-card" style="margin-bottom:30px; border-color: rgba(16, 185, 129, 0.45); background: linear-gradient(180deg, rgba(6, 78, 59, 0.15) 0%, rgba(10, 15, 29, 0.98) 100%);">
             <div class="card-header">
-                <span style="font-size: 20px;">🛠️</span>
+                <span style="font-size: 22px;">🚀</span>
                 <div>
-                    <h3>Mantenimiento y Datos en Vivo</h3>
-                    <p style="font-size: 11px; color: #64748b;">Herramientas para sincronizar la base de datos.</p>
+                    <h3 style="color: #6ee7b7;">Control de Lanzamiento Oficial y Modo Limpio</h3>
+                    <p style="font-size: 11px; color: #94a3b8;">Pon todos los contadores listos para comenzar a enviar los enlaces a tus contactos y grupos.</p>
                 </div>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-                <div style="font-size:12px; color:#cbd5e1;">
-                    • Archivos enlazados: <code>sorteos_hoy.json</code>, <code>datos_en_vivo.js</code>, <code>historial_loterias.json</code>.
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; background: rgba(0,0,0,0.3); padding: 12px 14px; border-radius: 10px; border: 1px dashed rgba(16,185,129,0.3);">
+                <div style="font-size:12px; color:#cbd5e1; line-height: 1.5;">
+                    • <strong>Entradas / Visitas:</strong> Marca en <strong style="color:#fde047;">100</strong> (Base oficial de inicio)<br>
+                    • <strong>Interacción / Consultas:</strong> Marca en <strong style="color:#6ee7b7;">100</strong> (Base oficial de inicio)<br>
+                    • <strong>Loterías con Candado Abiertas:</strong> En <strong style="color:#c4b5fd;">0 / 18</strong> (Limpio para ver interacción real)<br>
+                    • <strong>Clientes con Clave y Horas Jugadas:</strong> En <strong style="color:#38bdf8;">0</strong> (Directorio listo para nuevos usuarios)
                 </div>
-                <button class="btn-save" style="background:#334155;" onclick="resetearMetricasPrueba()">
-                    🔄 Reiniciar Contadores de Prueba (Base 100)
+                <button class="btn-save btn-gold" style="padding: 12px 18px; font-size: 12px; font-weight: 900;" onclick="reiniciarAModoLanzamientoOficial()">
+                    🚀 Poner Todo en Modo Lanzamiento (100 Visitas / 100 Consultas / 0 Candados)
                 </button>
             </div>
         </div>
@@ -791,25 +795,29 @@
         // Cargar métricas en vivo desde la nube central (Base 100) y estadísticas del Reto LotoPron
         async function cargarMetricas() {
             try {
-                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/visitas');
+                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/visitas');
                 if (resV.ok) {
                     const dataV = await resV.json();
-                    const totalVisitas = 100 + (dataV.value || 0);
+                    const totalVisitas = 100 + ((dataV && typeof dataV.value === 'number') ? dataV.value : 0);
                     document.getElementById('adm-metric-visitas').innerText = totalVisitas.toLocaleString();
+                } else {
+                    document.getElementById('adm-metric-visitas').innerText = "100";
                 }
             } catch (e) {
-                console.log('Error visitas:', e);
+                document.getElementById('adm-metric-visitas').innerText = "100";
             }
 
             try {
-                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/consultas');
+                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/consultas');
                 if (resC.ok) {
                     const dataC = await resC.json();
-                    const totalConsultas = 100 + (dataC.value || 0);
+                    const totalConsultas = 100 + ((dataC && typeof dataC.value === 'number') ? dataC.value : 0);
                     document.getElementById('adm-metric-consultas').innerText = totalConsultas.toLocaleString();
+                } else {
+                    document.getElementById('adm-metric-consultas').innerText = "100";
                 }
             } catch (e) {
-                console.log('Error consultas:', e);
+                document.getElementById('adm-metric-consultas').innerText = "100";
             }
 
             // Cargar métricas del Reto LotoPron y Juego Culebrita (local + nube)
@@ -841,17 +849,17 @@
             let cloudUsuarios = 0, cloudSnake = 0, cloudDesbloqueos = 0, cloudMinutos = 0, cloudTandas30m = 0;
             try {
                 const [rU, rS, rD, rM, rT] = await Promise.all([
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/usuarios_nivel').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/juego_snake').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/desbloqueos').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/minutos_juego').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_2026/tandas_30m').catch(() => null)
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/usuarios_nivel').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/juego_snake').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/desbloqueos').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/minutos_juego').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/tandas_30m').catch(() => null)
                 ]);
-                if (rU && rU.ok) { const d = await rU.json(); cloudUsuarios = d.value || 0; }
-                if (rS && rS.ok) { const d = await rS.json(); cloudSnake = d.value || 0; }
-                if (rD && rD.ok) { const d = await rD.json(); cloudDesbloqueos = d.value || 0; }
-                if (rM && rM.ok) { const d = await rM.json(); cloudMinutos = d.value || 0; }
-                if (rT && rT.ok) { const d = await rT.json(); cloudTandas30m = d.value || 0; }
+                if (rU && rU.ok) { const d = await rU.json(); cloudUsuarios = (d && typeof d.value === 'number') ? d.value : 0; }
+                if (rS && rS.ok) { const d = await rS.json(); cloudSnake = (d && typeof d.value === 'number') ? d.value : 0; }
+                if (rD && rD.ok) { const d = await rD.json(); cloudDesbloqueos = (d && typeof d.value === 'number') ? d.value : 0; }
+                if (rM && rM.ok) { const d = await rM.json(); cloudMinutos = (d && typeof d.value === 'number') ? d.value : 0; }
+                if (rT && rT.ok) { const d = await rT.json(); cloudTandas30m = (d && typeof d.value === 'number') ? d.value : 0; }
             } catch (e) {}
 
             const totalUsuariosClave = Math.max(clavesCuentas.length, statsLocal.usuariosRegistrados || 0, cloudUsuarios);
@@ -940,13 +948,36 @@
             setTimeout(() => msg.style.display = 'none', 3000);
         }
 
-        function resetearMetricasPrueba() {
-            if (confirm("¿Deseas reiniciar los contadores locales a su base 100?")) {
+        function reiniciarAModoLanzamientoOficial() {
+            if (confirm("¿Estás seguro de poner todo en MODO LANZAMIENTO OFICIAL?\n\n• Usuarios / Visitas: 100 (Base oficial de inicio)\n• Interacción / Consultas: 100 (Base oficial de inicio)\n• Loterías con candado abiertas: 0 / 18 (Limpio para ver interacción real)\n• Clientes registrados: 0 (Limpio)\n• Horas jugadas de prueba: 0h 00m (Limpio)\n\nSe limpiarán las pruebas previas para empezar el conteo 100% real de tus enlaces.")) {
+                localStorage.removeItem('lotopro_admin_stats_v1');
+                localStorage.removeItem('lotopro_cuentas_db_v3');
+                localStorage.removeItem('lotopron_perfil_activo_v2');
+                localStorage.removeItem('lotopro_perfil_jugador_v3');
+                localStorage.removeItem('lotopro_condiciones_aceptadas');
+                localStorage.removeItem('lotopro_ultima_entrada_ts');
+                localStorage.removeItem('lotopro_bonus_jaladera_v1');
+                localStorage.removeItem('lotopro_modo_dificultad');
+                
+                // Limpiar cualquier clave local de prueba que empiece por lotopron_cuenta_
+                try {
+                    const keys = Object.keys(localStorage);
+                    keys.forEach(k => {
+                        if (k.startsWith('lotopron_cuenta_') || k.startsWith('lotopro_test_')) {
+                            localStorage.removeItem(k);
+                        }
+                    });
+                } catch (e) {}
+
                 localStorage.setItem('lotopro_usuarios', '100');
                 localStorage.setItem('lotopro_consultas', '100');
                 cargarMetricas();
-                alert("Contadores restablecidos a 100.");
+                alert("✅ ¡SISTEMA LISTO PARA LANZAMIENTO OFICIAL!\n\n• Visitas marcadas en: 100\n• Consultas de Jaladera en: 100\n• Loterías con candado abiertas: 0 / 18\n• Clientes con clave: 0\n• Horas jugadas: 0h 00m\n\n¡Ya puedes compartir el enlace con tus contactos!");
             }
+        }
+
+        function resetearMetricasPrueba() {
+            reiniciarAModoLanzamientoOficial();
         }
 
         window.onload = cargarMetricas;
