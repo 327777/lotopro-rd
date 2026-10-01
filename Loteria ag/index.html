@@ -807,8 +807,8 @@
             <span>Consultas de jaladera: <strong id="contador-consultas">100</strong></span>
         </div>
         <div class="social-proof-item">
-            <span>⭐</span>
-            <span>Efectividad acumulada: <strong>98.4%</strong></span>
+            <span>📊</span>
+            <span>Análisis estadístico: <strong>Probabilidad Teórica</strong></span>
         </div>
     </div>
 
@@ -846,7 +846,7 @@
                     <span>👑</span>
                     <span>Números con Mayor Probabilidad del Día</span>
                 </div>
-                <div class="master-score" id="master-score-badge">Probabilidad Estimada: 98.4%</div>
+                <div class="master-score" id="master-score-badge" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.45); color: #fde047; font-size: 11px;">⚠️ Cálculo de Probabilidad (No Seguro)</div>
             </div>
 
             <div class="master-center">
@@ -859,6 +859,9 @@
                 <p style="font-size: 13px; color: #cbd5e1; margin-top: 6px;">
                     Elegibles para Quiniela y Palé en los sorteos del día de tu preferencia
                 </p>
+                <div style="margin: 8px auto 0; max-width: 580px; background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 6px 12px; font-size: 11.5px; color: #fde047; text-align: center; font-weight: 700;">
+                    ⚠️ Aviso al Jugador: Esta combinación es solo un cálculo de probabilidad estadística basada en historial. No son números oficiales reales ni garantiza aciertos. Juegue con moderación y responsabilidad.
+                </div>
             </div>
 
             <div class="master-status-clean">
@@ -1884,6 +1887,27 @@
         sincronizarContadoresNube();
         setInterval(sincronizarContadoresNube, 8000);
 
+        // Detector y Rastreador de Origen del Tráfico (Google vs WhatsApp/Redes vs Directo)
+        function registrarOrigenTrafico() {
+            const yaRegistrado = sessionStorage.getItem('lotopro_origen_contado');
+            if (yaRegistrado) return;
+            sessionStorage.setItem('lotopro_origen_contado', 'true');
+
+            const ref = (document.referrer || '').toLowerCase();
+            let endpoint = 'origen_directo';
+
+            if (ref.includes('google.') || ref.includes('bing.') || ref.includes('yahoo.') || ref.includes('duckduckgo.')) {
+                endpoint = 'origen_google';
+            } else if (ref.includes('whatsapp') || ref.includes('facebook') || ref.includes('instagram') || ref.includes('t.co') || ref.includes('twitter') || ref.includes('tiktok') || ref.includes('telegram')) {
+                endpoint = 'origen_redes';
+            } else if (!ref || ref.includes(window.location.hostname)) {
+                endpoint = 'origen_directo';
+            }
+
+            fetch(`https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/${endpoint}`).catch(() => {});
+        }
+        registrarOrigenTrafico();
+
         // Reloj y Fecha Dominicana
         function actualizarRelojYFechaRD() {
             const ahora = new Date();
@@ -1947,6 +1971,7 @@
             // Verificar si el administrador configuró una pareja manual
             const customN1 = localStorage.getItem('lotopro_master_n1');
             const customN2 = localStorage.getItem('lotopro_master_n2');
+            const customLabel = localStorage.getItem('lotopro_master_label');
             let n1 = customN1 || "68";
             let n2 = customN2 || "18";
 
@@ -1957,6 +1982,11 @@
 
             document.getElementById('master-n1').innerText = n1;
             document.getElementById('master-n2').innerText = n2;
+
+            const elBadge = document.getElementById('master-score-badge');
+            if (elBadge && customLabel) {
+                elBadge.innerText = customLabel;
+            }
         }
 
         function cambiarVistaPrincipal(vista) {
@@ -2708,8 +2738,10 @@
                 localStorage.setItem('lotopro_solicitudes_soporte', JSON.stringify(prev));
             } catch (e) {}
 
-            // 2. Correo de soporte configurado
-            const correoSoporteOficial = localStorage.getItem('lotopro_correo_soporte') || 'lotoproamericaxtc@gmail.com';
+            // 2. Token verificado de FormSubmit (Protege el correo contra spam y despacha directo)
+            const tokenFormSubmit = '6858261ef4a6902ecd57e9b705a97196';
+            const correoPersonalizado = localStorage.getItem('lotopro_correo_soporte');
+            const destinoFormSubmit = (correoPersonalizado && correoPersonalizado.includes('@')) ? correoPersonalizado : tokenFormSubmit;
 
             // 3. Enviar por FormSubmit (despacho directo a la bandeja de correo)
             try {
@@ -2724,7 +2756,7 @@
                     "Portal": "LotoPro RD Oficial (https://lotoprord.americaxtc.com)"
                 };
 
-                await fetch(`https://formsubmit.co/ajax/${correoSoporteOficial}`, {
+                await fetch(`https://formsubmit.co/ajax/${destinoFormSubmit}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

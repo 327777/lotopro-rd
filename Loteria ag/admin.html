@@ -381,6 +381,33 @@
                 <div class="metric-label">Loterías en Rastreo</div>
                 <div class="metric-value">18</div>
                 <div class="metric-hint">9 Mañana + 9 Noche (Con Reto LotoPron)</div>
+        </div>
+
+        <!-- RASTREADOR DE ORIGEN DEL TRÁFICO EN VIVO (GOOGLE VS REDES VS DIRECTO) -->
+        <div style="background: rgba(15, 23, 42, 0.75); border: 1px solid #1e293b; border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 22px;">🧭</span>
+                <div>
+                    <div style="font-size: 13px; font-weight: 800; color: #f8fafc;">Rastreador de Origen del Tráfico en Vivo</div>
+                    <div style="font-size: 11px; color: #94a3b8;">Monitoreo en tiempo real de procedencia: Motores de Google, WhatsApp/Redes o enlaces directos.</div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <div style="background: rgba(59, 130, 246, 0.12); border: 1.5px solid rgba(59, 130, 246, 0.45); border-radius: 9px; padding: 7px 14px; text-align: center; min-width: 115px;">
+                    <div style="font-size: 10px; color: #93c5fd; font-weight: 800; text-transform: uppercase;">🔍 Desde Google</div>
+                    <div id="adm-trafico-google" style="font-size: 18px; font-weight: 900; color: #60a5fa; font-family: 'JetBrains Mono', monospace;">0</div>
+                    <div style="font-size: 9.5px; color: #64748b;">Buscadores</div>
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.12); border: 1.5px solid rgba(16, 185, 129, 0.45); border-radius: 9px; padding: 7px 14px; text-align: center; min-width: 115px;">
+                    <div style="font-size: 10px; color: #6ee7b7; font-weight: 800; text-transform: uppercase;">💬 WhatsApp / Redes</div>
+                    <div id="adm-trafico-redes" style="font-size: 18px; font-weight: 900; color: #10b981; font-family: 'JetBrains Mono', monospace;">0</div>
+                    <div style="font-size: 9.5px; color: #64748b;">Compartidos</div>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.12); border: 1.5px solid rgba(245, 158, 11, 0.45); border-radius: 9px; padding: 7px 14px; text-align: center; min-width: 115px;">
+                    <div style="font-size: 10px; color: #fde047; font-weight: 800; text-transform: uppercase;">🌐 Enlace Directo</div>
+                    <div id="adm-trafico-directo" style="font-size: 18px; font-weight: 900; color: #fbbf24; font-family: 'JetBrains Mono', monospace;">0</div>
+                    <div style="font-size: 9.5px; color: #64748b;">Navegador</div>
+                </div>
             </div>
         </div>
 
@@ -781,7 +808,7 @@
 
                 <div class="form-group">
                     <label>Etiqueta de Efectividad:</label>
-                    <input type="text" id="master-label" class="form-control" value="Probabilidad Estimada: 98.4%">
+                    <input type="text" id="master-label" class="form-control" value="⚠️ Cálculo de Probabilidad (No Seguro)">
                 </div>
 
                 <button class="btn-save btn-gold" onclick="guardarJugadaMaestraManual()">
@@ -1072,6 +1099,30 @@
             } catch (e) {
                 document.getElementById('adm-metric-consultas').innerText = "100";
             }
+
+            // Cargar origen de tráfico (Google vs Redes vs Directo)
+            try {
+                const [resG, resR, resD] = await Promise.all([
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/origen_google?t=' + Date.now(), { cache: 'no-store' }),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/origen_redes?t=' + Date.now(), { cache: 'no-store' }),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/origen_directo?t=' + Date.now(), { cache: 'no-store' })
+                ]);
+                if (resG.ok) {
+                    const dG = await resG.json();
+                    const elG = document.getElementById('adm-trafico-google');
+                    if (elG) elG.innerText = (dG && typeof dG.value === 'number') ? dG.value : 0;
+                }
+                if (resR.ok) {
+                    const dR = await resR.json();
+                    const elR = document.getElementById('adm-trafico-redes');
+                    if (elR) elR.innerText = (dR && typeof dR.value === 'number') ? dR.value : 0;
+                }
+                if (resD.ok) {
+                    const dD = await resD.json();
+                    const elD = document.getElementById('adm-trafico-directo');
+                    if (elD) elD.innerText = (dD && typeof dD.value === 'number') ? dD.value : 0;
+                }
+            } catch (e) {}
 
             // Cargar métricas del Reto LotoPron y Juego Culebrita (local + nube)
             let statsLocal = {
