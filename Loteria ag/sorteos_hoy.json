@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-09-30",
   "fecha_ayer": "2026-09-29",
-  "actualizado_a_las": "10:42 PM",
+  "actualizado_a_las": "11:08 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        25,
-        88,
-        47
+        21,
+        7,
+        80
       ]
     },
     {
