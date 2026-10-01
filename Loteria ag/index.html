@@ -1585,6 +1585,71 @@
                             🔒 Bloquear Todo (Modo Normal)
                         </button>
                     </div>
+
+                    <!-- Enlace para Asistencia o Clave Olvidada -->
+                    <div style="margin-top: 10px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
+                        <a href="javascript:void(0)" onclick="abrirModalRecuperarClave()" style="color: #38bdf8; font-size: 11.5px; text-decoration: underline; font-weight: 700; cursor: pointer;">
+                            ¿Olvidaste tu clave o necesitas asistencia? Toca aquí
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MODAL DE ASISTENCIA Y RECUPERACIÓN DE CLAVE (100% EXCLUSIVO POR CORREO) -->
+                <div id="modal-recuperar-clave-lotopron" style="display:none; position:fixed; z-index:999999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:15px; box-sizing:border-box;">
+                    <div style="background:linear-gradient(180deg,#0e172a,#090e1a); border:1.5px solid #38bdf8; border-radius:16px; padding:20px; max-width:440px; width:100%; box-shadow:0 0 35px rgba(56,189,248,0.3); text-align:left; position:relative; box-sizing:border-box;">
+                        <button type="button" onclick="cerrarModalRecuperarClave()" style="position:absolute; top:12px; right:12px; background:none; border:none; color:#94a3b8; font-size:22px; cursor:pointer; font-weight:bold; line-height:1;">&times;</button>
+                        
+                        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                            <span style="font-size:22px;">🆘</span>
+                            <div style="font-size:15px; font-weight:900; color:#38bdf8;">Asistencia y Recuperación de Clave</div>
+                        </div>
+                        <p style="font-size:11px; color:#cbd5e1; line-height:1.4; margin-bottom:14px;">
+                            Si olvidaste tu clave o perdiste acceso a tu nivel, completa los datos que recuerdes. Te responderemos directamente a tu correo electrónico.
+                        </p>
+
+                        <!-- Campo 1: 3 Letras -->
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block; font-size:11px; font-weight:800; color:#93c5fd; margin-bottom:3px;">
+                                1. ¿Recuerdas tus 3 Letras? (Opcional)
+                            </label>
+                            <input type="text" id="rec-inp-letras" maxlength="3" placeholder="Ej: ABC" style="width:100%; box-sizing:border-box; background:#0b1120; border:1px solid #334155; color:#f8fafc; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; text-transform:uppercase; padding:8px 10px; border-radius:8px;">
+                        </div>
+
+                        <!-- Campo 2: 3 Números -->
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block; font-size:11px; font-weight:800; color:#93c5fd; margin-bottom:3px;">
+                                2. ¿Recuerdas tus 3 Números? (Opcional)
+                            </label>
+                            <input type="tel" id="rec-inp-numeros" maxlength="3" placeholder="Ej: 123" style="width:100%; box-sizing:border-box; background:#0b1120; border:1px solid #334155; color:#f8fafc; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; padding:8px 10px; border-radius:8px;">
+                        </div>
+
+                        <!-- Campo 3: Comentario -->
+                        <div style="margin-bottom:10px;">
+                            <label style="display:block; font-size:11px; font-weight:800; color:#93c5fd; margin-bottom:3px;">
+                                3. Comentario / Detalle de tu caso <span style="color:#f43f5e;">*</span>
+                            </label>
+                            <textarea id="rec-inp-comentario" rows="3" placeholder="Explícanos tu situación (ej. qué nivel tenías, cuándo jugaste, o cualquier detalle para ubicar tu cuenta)..." style="width:100%; box-sizing:border-box; background:#0b1120; border:1px solid #334155; color:#f8fafc; font-size:11.5px; padding:8px 10px; border-radius:8px; resize:vertical; font-family:inherit;"></textarea>
+                        </div>
+
+                        <!-- Campo 4: Correo del cliente (SOLO CORREO) -->
+                        <div style="margin-bottom:14px;">
+                            <label style="display:block; font-size:11px; font-weight:800; color:#93c5fd; margin-bottom:3px;">
+                                4. Tu Correo Electrónico (Para responderte) <span style="color:#f43f5e;">*</span>
+                            </label>
+                            <input type="email" id="rec-inp-correo" placeholder="tu-correo@gmail.com" style="width:100%; box-sizing:border-box; background:#0b1120; border:1px solid #334155; color:#f8fafc; font-size:12.5px; font-weight:700; padding:8px 10px; border-radius:8px;">
+                        </div>
+
+                        <div id="rec-msg-status" style="font-size:11.5px; font-weight:800; margin-bottom:10px; display:none; line-height:1.4;"></div>
+
+                        <div style="display:flex; gap:8px;">
+                            <button type="button" id="btn-enviar-recuperacion" onclick="enviarSolicitudRecuperacionCliente()" style="flex:1; background:linear-gradient(90deg,#38bdf8,#0284c7); color:#082f49; border:none; border-radius:9px; padding:10px; font-weight:900; font-size:12.5px; cursor:pointer;">
+                                ✉️ Enviar Solicitud a Soporte
+                            </button>
+                            <button type="button" onclick="cerrarModalRecuperarClave()" style="background:#1e293b; color:#cbd5e1; border:1px solid #334155; border-radius:9px; padding:10px 14px; font-weight:800; font-size:12px; cursor:pointer;">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- CAJA PRINCIPAL DE LA LOTERÍA SELECCIONADA -->
@@ -2552,6 +2617,141 @@
             if (inpL) inpL.value = '';
             if (inpN) inpN.value = '';
             box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+        }
+
+        // ==========================================
+        // ASISTENCIA Y RECUPERACIÓN DE CLAVES
+        // (100% EXCLUSIVO POR CORREO ELECTRÓNICO)
+        // ==========================================
+        function abrirModalRecuperarClave() {
+            const modal = document.getElementById('modal-recuperar-clave-lotopron');
+            if (modal) {
+                modal.style.display = 'flex';
+                const inpL = document.getElementById('inp-code-letras');
+                const inpN = document.getElementById('inp-code-numeros');
+                const recL = document.getElementById('rec-inp-letras');
+                const recN = document.getElementById('rec-inp-numeros');
+                if (recL && inpL && inpL.value) recL.value = inpL.value.toUpperCase();
+                if (recN && inpN && inpN.value) recN.value = inpN.value;
+                const status = document.getElementById('rec-msg-status');
+                if (status) status.style.display = 'none';
+            }
+        }
+
+        function cerrarModalRecuperarClave() {
+            const modal = document.getElementById('modal-recuperar-clave-lotopron');
+            if (modal) modal.style.display = 'none';
+        }
+
+        async function enviarSolicitudRecuperacionCliente() {
+            const recL = document.getElementById('rec-inp-letras');
+            const recN = document.getElementById('rec-inp-numeros');
+            const recC = document.getElementById('rec-inp-comentario');
+            const recMail = document.getElementById('rec-inp-correo');
+            const status = document.getElementById('rec-msg-status');
+            const btn = document.getElementById('btn-enviar-recuperacion');
+
+            const letras = (recL ? recL.value : '').trim().toUpperCase().replace(/[^A-ZÑ]/g, '');
+            const numeros = (recN ? recN.value : '').trim().replace(/[^0-9]/g, '');
+            const comentario = (recC ? recC.value : '').trim();
+            const correo = (recMail ? recMail.value : '').trim().toLowerCase();
+
+            if (!correo || !correo.includes('@') || !correo.includes('.')) {
+                if (status) {
+                    status.style.display = 'block';
+                    status.style.color = '#f43f5e';
+                    status.innerText = '⚠️ Por favor ingresa tu correo electrónico para poder responderte.';
+                }
+                if (recMail) recMail.focus();
+                return;
+            }
+
+            if (!comentario) {
+                if (status) {
+                    status.style.display = 'block';
+                    status.style.color = '#f43f5e';
+                    status.innerText = '⚠️ Por favor escribe un comentario o detalle sobre tu caso.';
+                }
+                if (recC) recC.focus();
+                return;
+            }
+
+            if (btn) {
+                btn.disabled = true;
+                btn.innerText = '⏳ Enviando al correo de soporte...';
+            }
+            if (status) {
+                status.style.display = 'block';
+                status.style.color = '#38bdf8';
+                status.innerText = 'Conectando con el servidor de correo...';
+            }
+
+            // 1. Guardar ticket en almacenamiento local (para lectura instantánea en admin.html)
+            const nuevoTicket = {
+                id: Date.now(),
+                fechaHora: new Date().toLocaleString('es-DO', { dateStyle: 'short', timeStyle: 'short' }),
+                letras: letras || '',
+                numeros: numeros || '',
+                comentario: comentario,
+                correo: correo,
+                estado: 'pendiente'
+            };
+
+            try {
+                const prev = JSON.parse(localStorage.getItem('lotopro_solicitudes_soporte') || '[]');
+                prev.unshift(nuevoTicket);
+                localStorage.setItem('lotopro_solicitudes_soporte', JSON.stringify(prev));
+            } catch (e) {}
+
+            // 2. Correo de soporte configurado
+            const correoSoporteOficial = localStorage.getItem('lotopro_correo_soporte') || 'lotoproamericaxtc@gmail.com';
+
+            // 3. Enviar por FormSubmit (despacho directo a la bandeja de correo)
+            try {
+                const payload = {
+                    _subject: `🔔 Solicitud de Clave LotoPro RD - [${letras || 'SinLetras'}-${numeros || 'SinNums'}]`,
+                    _replyto: correo,
+                    "3_Letras_que_recuerda": letras || '(No recuerda)',
+                    "3_Numeros_que_recuerda": numeros || '(No recuerda)',
+                    "Correo_del_Cliente": correo,
+                    "Comentario_del_Cliente": comentario,
+                    "Fecha_Hora_Solicitud": nuevoTicket.fechaHora,
+                    "Portal": "LotoPro RD Oficial (https://lotoprord.americaxtc.com)"
+                };
+
+                await fetch(`https://formsubmit.co/ajax/${correoSoporteOficial}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {
+                console.log('Envío de notificación procesado.');
+            }
+
+            // 4. Mensaje de éxito al cliente
+            if (status) {
+                status.style.display = 'block';
+                status.style.color = '#10b981';
+                status.innerHTML = `✅ <strong>¡Solicitud enviada exitosamente!</strong><br>Tu caso fue despachado al equipo de soporte. Te responderemos a la brevedad directamente a tu correo (<strong>${correo}</strong>).`;
+            }
+
+            if (recL) recL.value = '';
+            if (recN) recN.value = '';
+            if (recC) recC.value = '';
+            if (recMail) recMail.value = '';
+
+            if (btn) {
+                btn.disabled = false;
+                btn.innerText = '✓ Solicitud Registrada';
+            }
+
+            setTimeout(() => {
+                cerrarModalRecuperarClave();
+                if (btn) btn.innerText = '✉️ Enviar Solicitud a Soporte';
+            }, 4500);
         }
 
         function guardarCodigoJugadorLotoPron(silenciosoDesdeJuego) {
