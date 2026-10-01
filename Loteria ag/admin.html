@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LotoPro RD — Panel de Control Interno (Admin)</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script src="datos_en_vivo.js"></script>
     <style>
         :root {
             --bg-base: #060a12;
@@ -286,6 +287,40 @@
             gap: 6px;
         }
 
+        .btn-filtro-monitor {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-filtro-monitor.active, .btn-filtro-monitor:hover {
+            background: #f59e0b;
+            color: #060a12;
+            border-color: #f59e0b;
+        }
+        .ball-adm {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13.5px;
+            font-weight: 900;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: inset 0 -2px 5px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .ball-adm-1 { background: radial-gradient(circle at 35% 35%, #10b981, #065f46); }
+        .ball-adm-2 { background: radial-gradient(circle at 35% 35%, #3b82f6, #1e40af); }
+        .ball-adm-3 { background: radial-gradient(circle at 35% 35%, #f59e0b, #b45309); }
+
         footer {
             border-top: 1px solid var(--border-line);
             padding: 20px;
@@ -346,6 +381,31 @@
                 <div class="metric-label">Loterías en Rastreo</div>
                 <div class="metric-value">18</div>
                 <div class="metric-hint">9 Mañana + 9 Noche (Con Reto LotoPron)</div>
+            </div>
+        </div>
+
+        <!-- MONITOR MAESTRO DE JUGADAS OCULTAS (CON CANDADO) Y RESULTADOS EN VIVO (MODO DUEÑO) -->
+        <div class="config-card" style="margin-bottom: 30px; border-color: rgba(245, 158, 11, 0.45); background: linear-gradient(180deg, rgba(20, 26, 46, 0.95) 0%, rgba(10, 16, 31, 0.98) 100%);">
+            <div class="card-header" style="justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 24px;">👁️</span>
+                    <div>
+                        <h3 style="color: #fbbf24;">Monitor Maestro: 18 Jugadas con Candado y Resultados en Vivo</h3>
+                        <p style="font-size: 11px; color: #94a3b8;">
+                            Visualización exclusiva del Administrador: Consulta las jugadas que están con candado en la web pública, los números que van saliendo hoy y los aciertos en tiempo real sin salir de este panel.
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+                    <button type="button" class="btn-filtro-monitor active" onclick="filtrarMonitorAdmin('todas', this)">📋 Todas (18)</button>
+                    <button type="button" class="btn-filtro-monitor" onclick="filtrarMonitorAdmin('dia', this)">☀️ Mañana (9)</button>
+                    <button type="button" class="btn-filtro-monitor" onclick="filtrarMonitorAdmin('noche', this)">🌙 Noche (9)</button>
+                </div>
+            </div>
+
+            <!-- Grid de las 18 Loterías -->
+            <div id="grid-monitor-admin" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; margin-top: 14px;">
+                <!-- Se llena automáticamente con datos en vivo -->
             </div>
         </div>
 
@@ -573,6 +633,7 @@
     <script>
         // Proteger el panel de administración con PIN de seguridad
         const PIN_ADMIN = "7777";
+        localStorage.setItem('lotopro_es_admin', 'true');
         if (!sessionStorage.getItem('lotopro_admin_auth')) {
             const intento = prompt("🔒 Panel de Administración LotoPro RD\nIngresa tu PIN de acceso:");
             if (intento !== PIN_ADMIN) {
@@ -580,6 +641,7 @@
                 window.location.href = "index.html";
             } else {
                 sessionStorage.setItem('lotopro_admin_auth', 'true');
+                localStorage.setItem('lotopro_es_admin', 'true');
             }
         }
 
@@ -795,7 +857,7 @@
         // Cargar métricas en vivo desde la nube central (Base 100) y estadísticas del Reto LotoPron
         async function cargarMetricas() {
             try {
-                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/visitas');
+                const resV = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas');
                 if (resV.ok) {
                     const dataV = await resV.json();
                     const totalVisitas = 100 + ((dataV && typeof dataV.value === 'number') ? dataV.value : 0);
@@ -808,7 +870,7 @@
             }
 
             try {
-                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/consultas');
+                const resC = await fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas');
                 if (resC.ok) {
                     const dataC = await resC.json();
                     const totalConsultas = 100 + ((dataC && typeof dataC.value === 'number') ? dataC.value : 0);
@@ -849,11 +911,11 @@
             let cloudUsuarios = 0, cloudSnake = 0, cloudDesbloqueos = 0, cloudMinutos = 0, cloudTandas30m = 0;
             try {
                 const [rU, rS, rD, rM, rT] = await Promise.all([
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/usuarios_nivel').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/juego_snake').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/desbloqueos').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/minutos_juego').catch(() => null),
-                    fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/tandas_30m').catch(() => null)
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/usuarios_nivel').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/juego_snake').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/desbloqueos').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/minutos_juego').catch(() => null),
+                    fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/tandas_30m').catch(() => null)
                 ]);
                 if (rU && rU.ok) { const d = await rU.json(); cloudUsuarios = (d && typeof d.value === 'number') ? d.value : 0; }
                 if (rS && rS.ok) { const d = await rS.json(); cloudSnake = (d && typeof d.value === 'number') ? d.value : 0; }
@@ -980,9 +1042,295 @@
             reiniciarAModoLanzamientoOficial();
         }
 
-        window.onload = cargarMetricas;
-        // Refrescar automáticamente cada 8 segundos para monitorear el flujo en vivo desde el celular
+        // =========================================================================
+        // MONITOR MAESTRO DE LAS 18 JUGADAS OCULTAS (CON CANDADO) Y RESULTADOS EN VIVO
+        // =========================================================================
+        let filtroMonitorActual = 'todas';
+        let datosAppAdmin = (typeof window.DATOS_LOTOPRO !== 'undefined') ? window.DATOS_LOTOPRO : null;
+
+        const TABLA_JALADERA_ADMIN = {
+            0: [78, 94, 89], 1: [46, 61, 99], 2: [68, 85, 86], 3: [23, 30, 74], 4: [20, 32, 44],
+            5: [50, 55, 95], 6: [60, 66, 96], 7: [27, 72, 77], 8: [22, 88, 98], 9: [79, 90, 97],
+            10: [56, 65, 80], 11: [36, 63, 81], 12: [26, 52, 62], 13: [53, 69, 73], 14: [18, 42, 64],
+            15: [17, 45, 51], 16: [41, 47, 76], 17: [15, 45, 51], 18: [14, 42, 64], 19: [37, 43, 91],
+            20: [4, 32, 44], 21: [25, 35, 70], 22: [8, 88, 98], 23: [3, 30, 74], 24: [34, 54, 84],
+            25: [21, 35, 70], 26: [12, 52, 62], 27: [7, 72, 77], 28: [40, 58, 82], 29: [38, 59, 92],
+            30: [3, 23, 74], 31: [48, 87], 32: [4, 20, 44], 33: [39, 83, 93], 34: [24, 54, 84],
+            35: [21, 25, 70], 36: [11, 63, 81], 37: [19, 43, 91], 38: [29, 59, 92], 39: [33, 83, 93],
+            40: [28, 58, 82], 41: [16, 47, 76], 42: [14, 18, 64], 43: [19, 37, 91], 44: [4, 20, 32],
+            45: [15, 17, 51], 46: [1, 61, 99], 47: [41, 16, 76], 48: [31, 87], 49: [0, 94, 89],
+            50: [5, 55, 95], 51: [15, 17, 45], 52: [12, 26, 62], 53: [13, 69, 73], 54: [24, 34, 84],
+            55: [5, 50, 95], 56: [10, 65, 80], 57: [67, 71, 75], 58: [28, 40, 82], 59: [29, 38, 92],
+            60: [6, 66, 96], 61: [1, 46, 99], 62: [12, 26, 52], 63: [11, 36, 81], 64: [14, 18, 42],
+            65: [10, 56, 80], 66: [6, 60, 96], 67: [57, 71, 75], 68: [2, 85, 86], 69: [13, 53, 73],
+            70: [21, 25, 35], 71: [75, 57, 67], 72: [7, 27, 77], 73: [13, 53, 69], 74: [3, 30, 23],
+            75: [57, 71, 67], 76: [16, 41, 47], 77: [7, 27, 72], 78: [0, 94, 89], 79: [9, 90, 97],
+            80: [10, 56, 65], 81: [11, 36, 63], 82: [28, 40, 58], 83: [33, 39, 93], 84: [24, 34, 54],
+            85: [2, 68, 86], 86: [2, 68, 85], 87: [31, 48], 88: [8, 22, 98], 89: [0, 78, 94],
+            90: [9, 79, 97], 91: [19, 37, 43], 92: [29, 38, 59], 93: [33, 39, 83], 94: [78, 0, 89],
+            95: [5, 50, 55], 96: [6, 60, 66], 97: [9, 79, 90], 98: [8, 22, 88], 99: [1, 46, 61]
+        };
+
+        function virarNumAdm(n) {
+            const v = ((parseInt(n, 10) % 100) + 100) % 100;
+            return (v % 10) * 10 + Math.floor(v / 10);
+        }
+
+        function fmt2Adm(n) {
+            const v = ((parseInt(n, 10) % 100) + 100) % 100;
+            return String(v).padStart(2, '0');
+        }
+
+        function obtenerIdNormalizadoAdm(nombre) {
+            const nom = (nombre || '').toLowerCase();
+            if (nom.includes('gana m') || nom.includes('gana mas')) return 'gana_mas';
+            if (nom.includes('nacional') && (nom.includes('noche') || nom.includes('loteria nacional'))) return 'loteria_nacional';
+            if (nom.includes('nacional')) return 'loteria_nacional';
+            if (nom.includes('leidsa')) return 'quiniela_leidsa';
+            if (nom.includes('real')) return 'quiniela_real';
+            if (nom.includes('loteka')) return 'quiniela_loteka';
+            if (nom.includes('primera') && nom.includes('noche')) return 'primera_noche';
+            if (nom.includes('primera')) return 'la_primera_dia';
+            if (nom.includes('suerte') && (nom.includes('tarde') || nom.includes('6pm') || nom.includes('6:00'))) return 'la_suerte_tarde';
+            if (nom.includes('suerte')) return 'la_suerte_dia';
+            if (nom.includes('lotedom')) return 'lotedom';
+            if (nom.includes('anguila') && (nom.includes('10am') || nom.includes('10:00'))) return 'anguila_10am';
+            if (nom.includes('anguila') && (nom.includes('1pm') || nom.includes('1:00') || nom.includes('mediod'))) return 'anguila_1pm';
+            if (nom.includes('anguila') && (nom.includes('6pm') || nom.includes('6:00') || nom.includes('tarde'))) return 'anguila_6pm';
+            if (nom.includes('anguila') && (nom.includes('9pm') || nom.includes('9:00') || nom.includes('noche'))) return 'anguila_9pm';
+            if (nom.includes('florida') && nom.includes('noche')) return 'florida_noche';
+            if (nom.includes('florida')) return 'florida_dia';
+            if (nom.includes('york') && nom.includes('noche')) return 'ny_noche';
+            if (nom.includes('york')) return 'ny_tarde';
+            return 'quiniela_leidsa';
+        }
+
+        async function cargarSorteosAdmin() {
+            try {
+                const res = await fetch('sorteos_hoy.json?t=' + Date.now());
+                if (res.ok) {
+                    datosAppAdmin = await res.json();
+                }
+            } catch (e) {}
+            renderizarMonitorMaestro18();
+        }
+
+        function filtrarMonitorAdmin(cat, btn) {
+            filtroMonitorActual = cat;
+            document.querySelectorAll('.btn-filtro-monitor').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            renderizarMonitorMaestro18();
+        }
+
+        function renderizarMonitorMaestro18() {
+            const cont = document.getElementById('grid-monitor-admin');
+            if (!cont) return;
+
+            const mapaAyer = {};
+            if (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_ayer)) {
+                datosAppAdmin.sorteos_ayer.forEach(s => {
+                    const sid = obtenerIdNormalizadoAdm(s.nombre);
+                    if (Array.isArray(s.premios) && s.premios.length >= 3) {
+                        mapaAyer[sid] = s.premios.map(x => parseInt(x, 10));
+                    }
+                });
+            }
+
+            const mapaHoy = {};
+            const estadoHoy = {};
+            if (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) {
+                datosAppAdmin.sorteos_hoy.forEach(s => {
+                    estadoHoy[s.id] = s.estado;
+                    if (s.estado === 'finalizado' && Array.isArray(s.premios) && s.premios.length >= 3) {
+                        mapaHoy[s.id] = s.premios.map(x => parseInt(x, 10));
+                    }
+                });
+            }
+
+            const p1d = mapaAyer['la_primera_dia'] || [59, 93, 82];
+            const p1n = mapaAyer['primera_noche'] || [92, 58, 40];
+            const jalP1 = TABLA_JALADERA_ADMIN[p1d[0]] || [29, 38, 92];
+
+            const s1d = mapaAyer['la_suerte_dia'] || [74, 56, 9];
+            const s1n = mapaAyer['la_suerte_tarde'] || [39, 65, 85];
+            const jalS1 = TABLA_JALADERA_ADMIN[s1d[0]] || [3, 30, 23];
+
+            const g1d = mapaAyer['gana_mas'] || [85, 27, 60];
+            const n1n = mapaAyer['loteria_nacional'] || [50, 34, 62];
+            const jalGm = TABLA_JALADERA_ADMIN[g1d[0]] || [2, 68, 86];
+
+            const ltk = mapaAyer['quiniela_loteka'] || [83, 33, 64];
+            const lds = mapaAyer['quiniela_leidsa'] || [2, 33, 72];
+            const jalLds = TABLA_JALADERA_ADMIN[lds[1]] || [39, 83, 93];
+
+            const ltd = mapaAyer['lotedom'] || [61, 54, 3];
+            const qrl = mapaAyer['quiniela_real'] || [8, 67, 31];
+            const jalRl = TABLA_JALADERA_ADMIN[qrl[1]] || [57, 71, 75];
+            const jalLtd = TABLA_JALADERA_ADMIN[ltd[0]] || [1, 46, 99];
+
+            const nyd = mapaAyer['ny_tarde'] || [13, 91, 41];
+            const nyn = mapaAyer['ny_noche'] || [73, 48, 7];
+            const jalNy = TABLA_JALADERA_ADMIN[nyn[0]] || [13, 53, 69];
+            const jalNyd2 = TABLA_JALADERA_ADMIN[nyd[1]] || [19, 37, 43];
+
+            const fln = mapaAyer['florida_noche'] || [76, 3, 99];
+            const jalFl = TABLA_JALADERA_ADMIN[fln[1]] || [23, 30, 74];
+
+            const a10 = mapaAyer['anguila_10am'] || [73, 61, 27];
+            const a6p = mapaAyer['anguila_6pm'] || [28, 72, 71];
+
+            const hoySuerte12 = mapaHoy['la_suerte_dia'];
+            const suerte6N1 = hoySuerte12 ? jalS1[0] : s1n[1];
+            const suerte6N2 = hoySuerte12 ? s1n[0] : jalS1[0];
+
+            const hoyAng1pm = mapaHoy['anguila_1pm'];
+            const ang6N1 = hoyAng1pm ? (a10[0] + 1) % 100 : a6p[1];
+            const ang6N2 = hoyAng1pm ? virarNumAdm(a6p[0]) : (a10[0] + 1) % 100;
+
+            const hoyPrim12 = mapaHoy['la_primera_dia'];
+            const prim8N1 = (p1n[2] - 1 + 100) % 100;
+            const prim8N2 = hoyPrim12 ? jalP1[2] : jalP1[1];
+
+            const hoyLoteka = mapaHoy['quiniela_loteka'];
+            const leidsaN1 = hoyLoteka ? ((hoyLoteka[0] === lds[1]) ? ltk[0] : lds[1]) : lds[1];
+            const leidsaN2 = jalLds[2];
+
+            const hoyGanaMas = mapaHoy['gana_mas'];
+            const nac9N1 = hoyGanaMas ? (g1d[0] - 1 + 100) % 100 : virarNumAdm(n1n[1]);
+            const nac9N2 = hoyGanaMas ? virarNumAdm(g1d[1]) : (g1d[0] - 1 + 100) % 100;
+
+            const hoyAng6pm = mapaHoy['anguila_6pm'];
+            const ang9N1 = hoyAng6pm ? hoyAng6pm[1] : virarNumAdm(a6p[0]);
+            const ang9N2 = hoyAng6pm ? (hoyAng6pm[0] - 1 + 100) % 100 : a6p[1];
+
+            const hoyFla130 = mapaHoy['florida_dia'];
+            const fla10N1 = hoyFla130 ? jalFl[2] : fln[0];
+            const fla10N2 = hoyFla130 ? (fln[1] + 50) % 100 : jalFl[2];
+
+            const hoyNy230 = mapaHoy['ny_tarde'];
+            const ny10N1 = hoyNy230 ? jalNy[0] : (nyn[0] + 1) % 100;
+            const ny10N2 = hoyNy230 ? jalNyd2[1] : jalNy[0];
+
+            const lista18 = [
+                { id: 'anguila_10am', tanda: 'dia', icono: '🏝️', nombre: 'Anguila 10:00 AM', hora: '10:00 AM', n1: a6p[1], n2: (a10[0] + 1) % 100 },
+                { id: 'la_primera_dia', tanda: 'dia', icono: '🎯', nombre: 'La Primera 12:00 PM', hora: '12:00 PM', n1: (p1n[2] - 1 + 100) % 100, n2: jalP1[1] },
+                { id: 'lotedom', tanda: 'dia', icono: '☀️', nombre: 'LoteDom 12:00 PM', hora: '12:00 PM', n1: (ltd[1] - 7 + 100) % 100, n2: jalGm[1] },
+                { id: 'la_suerte_dia', tanda: 'dia', icono: '🍀', nombre: 'La Suerte 12:30 PM', hora: '12:30 PM', n1: s1n[1], n2: jalS1[0] },
+                { id: 'quiniela_real', tanda: 'dia', icono: '👑', nombre: 'Quiniela Real 1:00 PM', hora: '1:00 PM', n1: jalLtd[2], n2: jalRl[1] || 71 },
+                { id: 'anguila_1pm', tanda: 'dia', icono: '🏝️', nombre: 'Anguila 1:00 PM', hora: '1:00 PM', n1: a6p[1], n2: jalS1[0] },
+                { id: 'florida_dia', tanda: 'dia', icono: '🌴', nombre: 'Florida 1:30 PM', hora: '1:30 PM', n1: fln[0], n2: jalFl[2] },
+                { id: 'gana_mas', tanda: 'dia', icono: '🏛️', nombre: 'Gana Más 2:30 PM', hora: '2:30 PM', n1: virarNumAdm(n1n[1]), n2: (g1d[0] - 1 + 100) % 100 },
+                { id: 'ny_tarde', tanda: 'dia', icono: '🗽', nombre: 'New York 2:30 PM', hora: '2:30 PM', n1: (nyn[0] + 1) % 100, n2: jalNy[0] },
+
+                { id: 'la_suerte_tarde', tanda: 'noche', icono: '🍀', nombre: 'La Suerte 6:00 PM', hora: '6:00 PM', n1: suerte6N1, n2: suerte6N2 },
+                { id: 'anguila_6pm', tanda: 'noche', icono: '🏝️', nombre: 'Anguila 6:00 PM', hora: '6:00 PM', n1: ang6N1, n2: ang6N2 },
+                { id: 'quiniela_loteka', tanda: 'noche', icono: '🌙', nombre: 'Loteka 7:55 PM', hora: '7:55 PM', n1: lds[1], n2: ltk[0] },
+                { id: 'primera_noche', tanda: 'noche', icono: '🎯', nombre: 'La Primera 8:00 PM', hora: '8:00 PM', n1: prim8N1, n2: prim8N2 },
+                { id: 'quiniela_leidsa', tanda: 'noche', icono: '💎', nombre: 'Leidsa 8:55 PM', hora: '8:55 PM', n1: leidsaN1, n2: leidsaN2 },
+                { id: 'loteria_nacional', tanda: 'noche', icono: '🏛️', nombre: 'Nacional 9:00 PM', hora: '9:00 PM', n1: nac9N1, n2: nac9N2 },
+                { id: 'anguila_9pm', tanda: 'noche', icono: '🏝️', nombre: 'Anguila 9:00 PM', hora: '9:00 PM', n1: ang9N1, n2: ang9N2 },
+                { id: 'florida_noche', tanda: 'noche', icono: '🌴', nombre: 'Florida 10:00 PM', hora: '10:00 PM', n1: fla10N1, n2: fla10N2 },
+                { id: 'ny_noche', tanda: 'noche', icono: '🗽', nombre: 'New York 10:30 PM', hora: '10:30 PM', n1: ny10N1, n2: ny10N2 }
+            ];
+
+            const filtradas = lista18.filter(item => {
+                if (filtroMonitorActual === 'todas') return true;
+                return item.tanda === filtroMonitorActual;
+            });
+
+            cont.innerHTML = filtradas.map(item => {
+                const premiosHoy = mapaHoy[item.id];
+                const finalizado = estadoHoy[item.id] === 'finalizado' && Array.isArray(premiosHoy) && premiosHoy.length >= 3;
+                const fam = [item.n1, item.n2, virarNumAdm(item.n1), virarNumAdm(item.n2)];
+                const aciertos = [];
+
+                if (finalizado) {
+                    premiosHoy.forEach((p, idx) => {
+                        if (fam.includes(p)) {
+                            const pos = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
+                            aciertos.push({ num: p, pos: pos });
+                        }
+                    });
+                }
+
+                let badgeHit = '';
+                if (aciertos.length > 0) {
+                    const txt = aciertos.map(a => `[${fmt2Adm(a.num)}] en ${a.pos}`).join(' y ');
+                    badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(16,185,129,0.25),rgba(245,158,11,0.2)); border:1.5px solid #10b981; color:#6ee7b7; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(16,185,129,0.3);">
+                        🎯 ✅ ¡CONECTÓ HOY! → ${txt}
+                    </div>`;
+                } else if (finalizado) {
+                    badgeHit = `<div style="margin-top:8px; background:rgba(255,255,255,0.03); border:1px solid #334155; color:#94a3b8; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
+                        ✓ Sorteo completado hoy
+                    </div>`;
+                } else {
+                    badgeHit = `<div style="margin-top:8px; background:rgba(59,130,246,0.1); border:1px dashed #3b82f6; color:#93c5fd; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
+                        ⏳ En seguimiento • Esperando hora de sorteo
+                    </div>`;
+                }
+
+                let resultadosHtml = '';
+                if (finalizado) {
+                    resultadosHtml = `
+                        <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
+                            <div class="ball-adm ball-adm-1" title="1ra">${fmt2Adm(premiosHoy[0])}</div>
+                            <div class="ball-adm ball-adm-2" title="2da">${fmt2Adm(premiosHoy[1])}</div>
+                            <div class="ball-adm ball-adm-3" title="3ra">${fmt2Adm(premiosHoy[2])}</div>
+                            <span style="font-size:10px; color:#10b981; font-weight:800; margin-left:4px;">✓ Salió</span>
+                        </div>
+                    `;
+                } else {
+                    resultadosHtml = `<span style="font-size:11px; color:#64748b; font-style:italic;">Esperando resultado oficial (${item.hora})</span>`;
+                }
+
+                const borderBox = aciertos.length > 0 ? 'border: 1.5px solid #10b981; box-shadow: 0 0 18px rgba(16,185,129,0.2);' : 'border: 1px solid #1e293b;';
+
+                return `
+                    <div style="background:#090e1a; ${borderBox} border-radius:12px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <span style="font-weight:900; font-size:13px; color:#f8fafc;">${item.icono} ${item.nombre}</span>
+                                <span style="font-size:10px; font-weight:800; background:rgba(59,130,246,0.18); color:#93c5fd; padding:2px 7px; border-radius:99px; font-family:'JetBrains Mono',monospace;">${item.hora}</span>
+                            </div>
+
+                            <!-- Jugada Secreta con Candado -->
+                            <div style="background:rgba(245,158,11,0.08); border:1px dashed rgba(245,158,11,0.45); border-radius:9px; padding:9px; margin-bottom:8px;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; font-size:10.5px; font-weight:900; color:#fbbf24; margin-bottom:5px;">
+                                    <span>🔒 JUGADA CON CANDADO (ADMIN)</span>
+                                    <span style="background:rgba(245,158,11,0.2); padding:1px 6px; border-radius:4px; font-size:9.5px;">SOLO DUEÑO</span>
+                                </div>
+                                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
+                                    <div style="display:flex; gap:6px; align-items:center;">
+                                        <div style="background:#131c31; border:1.5px solid #f59e0b; color:#fde047; font-size:16px; font-weight:900; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px;">${fmt2Adm(item.n1)}</div>
+                                        <span style="color:#fbbf24; font-weight:900;">×</span>
+                                        <div style="background:#131c31; border:1.5px solid #f59e0b; color:#fde047; font-size:16px; font-weight:900; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px;">${fmt2Adm(item.n2)}</div>
+                                    </div>
+                                    <div style="font-size:10px; color:#94a3b8; font-family:'JetBrains Mono',monospace;">
+                                        Revés: <strong style="color:#cbd5e1;">${fmt2Adm(virarNumAdm(item.n1))}</strong> - <strong style="color:#cbd5e1;">${fmt2Adm(virarNumAdm(item.n2))}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Resultado Oficial -->
+                            <div style="background:rgba(15,23,42,0.7); border:1px solid #1e293b; border-radius:8px; padding:8px;">
+                                <div style="font-size:9.5px; font-weight:800; color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;">Resultado Oficial Hoy:</div>
+                                ${resultadosHtml}
+                            </div>
+                        </div>
+
+                        ${badgeHit}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.onload = () => {
+            cargarMetricas();
+            cargarSorteosAdmin();
+        };
+        // Refrescar automáticamente cada 8 segundos métricas sociales y cada 15 segundos sorteos
         setInterval(cargarMetricas, 8000);
+        setInterval(cargarSorteosAdmin, 15000);
     </script>
 </body>
 </html>

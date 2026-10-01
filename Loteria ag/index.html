@@ -1781,10 +1781,11 @@
         let contadorConsultas = 100;
 
         function sincronizarContadoresNube() {
+            const esAdmin = localStorage.getItem('lotopro_es_admin') === 'true' || sessionStorage.getItem('lotopro_admin_auth') === 'true' || localStorage.getItem('lotopro_master_activo') === '1';
             const sesionRegistrada = sessionStorage.getItem('lotopro_sesion_activa');
-            const urlVisitas = !sesionRegistrada 
-                ? 'https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/visitas'
-                : 'https://abacus.jasoncameron.dev/get/lotopro_rd_prod/visitas';
+            const urlVisitas = (!sesionRegistrada && !esAdmin)
+                ? 'https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/visitas'
+                : 'https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/visitas';
 
             fetch(urlVisitas)
                 .then(r => r.json())
@@ -1799,7 +1800,7 @@
                     actualizarMetricasSociales();
                 });
 
-            fetch('https://abacus.jasoncameron.dev/get/lotopro_rd_prod/consultas')
+            fetch('https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas')
                 .then(r => r.json())
                 .then(data => {
                     const val = (data && typeof data.value === 'number') ? data.value : 0;
@@ -2014,8 +2015,13 @@
                 return;
             }
 
-            // Incrementar contador de jaladeras en la nube central
-            fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/consultas')
+            // Incrementar contador de jaladeras en la nube central (solo usuarios reales, no admin)
+            const esAdmin = localStorage.getItem('lotopro_es_admin') === 'true' || sessionStorage.getItem('lotopro_admin_auth') === 'true';
+            const urlHit = esAdmin
+                ? 'https://abacus.jasoncameron.dev/get/lotopro_oficial_rd/consultas'
+                : 'https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/consultas';
+
+            fetch(urlHit)
                 .then(r => r.json())
                 .then(data => {
                     const val = (data && typeof data.value === 'number') ? data.value : 0;
@@ -2200,25 +2206,30 @@
                 stats.tandas_30m_completadas = stats.tandas_30m_completadas || 0;
                 stats.historial_cuentas = stats.historial_cuentas || {};
 
+                const esAdmin = localStorage.getItem('lotopro_es_admin') === 'true' || sessionStorage.getItem('lotopro_admin_auth') === 'true' || (detalleExtra && detalleExtra.codigo === 'LPX-947');
+                if (esAdmin) {
+                    return;
+                }
+
                 if (tipo === 'nuevo_usuario') {
                     stats.usuarios_registrados++;
-                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/usuarios_nivel').catch(() => {});
+                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/usuarios_nivel').catch(() => {});
                 } else if (tipo === 'interaccion_juego') {
                     stats.interacciones_juego++;
-                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/juego_snake').catch(() => {});
+                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/juego_snake').catch(() => {});
                 } else if (tipo === 'punto_oculto') {
                     stats.puntos_ocultos_hallados++;
                 } else if (tipo === 'desbloqueo_loteria') {
                     stats.loterias_desbloqueadas++;
-                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/desbloqueos').catch(() => {});
+                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/desbloqueos').catch(() => {});
                 } else if (tipo === 'segundo_jugado') {
                     stats.segundos_totales_jugados++;
                     if (stats.segundos_totales_jugados % 60 === 0) {
-                        fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/minutos_juego').catch(() => {});
+                        fetch('https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/minutos_juego').catch(() => {});
                     }
                 } else if (tipo === 'tanda_30m') {
                     stats.tandas_30m_completadas++;
-                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_rd_prod/tandas_30m').catch(() => {});
+                    fetch('https://abacus.jasoncameron.dev/hit/lotopro_oficial_rd/tandas_30m').catch(() => {});
                 }
 
                 if (detalleExtra && detalleExtra.codigo) {
