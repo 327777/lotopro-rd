@@ -3027,7 +3027,8 @@
             catalogoGemelasHoy = {};
             listaDefiniciones.forEach(item => {
                 const premiosHoy = mapaHoy[item.id];
-                const fam = [item.n1, item.n2, virarNumGem(item.n1), virarNumGem(item.n2)];
+                // REGLA ESTRICTA DE LA GERENCIA: Solo Pareja Oficial Directa Principal (CERO Reversos)
+                const fam = [item.n1, item.n2];
                 const aciertos = [];
                 const posiciones = [];
                 if (Array.isArray(premiosHoy)) {
