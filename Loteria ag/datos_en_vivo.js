@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-01",
   "fecha_ayer": "2026-09-30",
-  "actualizado_a_las": "10:13 AM",
+  "actualizado_a_las": "12:23 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -219,8 +219,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        82,
+        93,
+        86
+      ]
     },
     {
       "id": "lotedom",
@@ -228,8 +232,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        84,
+        25,
+        19
+      ]
     },
     {
       "id": "la_suerte_dia",
