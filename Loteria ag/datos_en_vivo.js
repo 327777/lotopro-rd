@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-01",
   "fecha_ayer": "2026-09-30",
-  "actualizado_a_las": "07:58 PM",
+  "actualizado_a_las": "08:09 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -364,9 +364,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        59,
-        51,
-        60
+        12,
+        3,
+        98
       ]
     },
     {
@@ -375,8 +375,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        9,
+        89,
+        93
+      ]
     },
     {
       "id": "quiniela_leidsa",
