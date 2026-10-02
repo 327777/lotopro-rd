@@ -1817,25 +1817,38 @@
 
         function obtenerIdNormalizado(nombre) {
             const nom = (nombre || '').toLowerCase();
-            if (nom.includes('leidsa')) return 'quiniela_leidsa';
+            if (nom.includes('anguila')) {
+                if (nom.includes('10')) return 'anguila_10am';
+                if (nom.includes('1:') || nom.includes('1pm') || nom.includes('mediod')) return 'anguila_1pm';
+                if (nom.includes('6:') || nom.includes('6pm')) return 'anguila_6pm';
+                if (nom.includes('9:') || nom.includes('9pm')) return 'anguila_9pm';
+                return 'anguila_10am';
+            }
+            if (nom.includes('primera')) {
+                if (nom.includes('8:') || nom.includes('8pm') || nom.includes('noche')) return 'primera_noche';
+                return 'la_primera_dia';
+            }
+            if (nom.includes('suerte')) {
+                if (nom.includes('6:') || nom.includes('6pm') || nom.includes('tarde') || nom.includes('noche')) return 'la_suerte_tarde';
+                return 'la_suerte_dia';
+            }
+            if (nom.includes('florida')) {
+                if (nom.includes('10:') || nom.includes('10pm') || nom.includes('noche')) return 'florida_noche';
+                return 'florida_dia';
+            }
+            if (nom.includes('york') || nom.includes('ny')) {
+                if (nom.includes('10:') || nom.includes('10pm') || nom.includes('noche')) return 'ny_noche';
+                return 'ny_tarde';
+            }
+            if (nom.includes('real')) {
+                if (nom.includes('9:') || nom.includes('9pm') || nom.includes('noche')) return 'real_noche';
+                return 'quiniela_real';
+            }
             if (nom.includes('gana')) return 'gana_mas';
             if (nom.includes('nacional')) return 'loteria_nacional';
-            if (nom.includes('real') && nom.includes('noche')) return 'real_noche';
-            if (nom.includes('real')) return 'quiniela_real';
             if (nom.includes('loteka')) return 'quiniela_loteka';
-            if (nom.includes('primera') && nom.includes('noche')) return 'primera_noche';
-            if (nom.includes('primera')) return 'la_primera_dia';
-            if (nom.includes('suerte') && nom.includes('tarde')) return 'la_suerte_tarde';
-            if (nom.includes('suerte')) return 'la_suerte_dia';
+            if (nom.includes('leidsa')) return 'quiniela_leidsa';
             if (nom.includes('lotedom')) return 'lotedom';
-            if (nom.includes('anguila') && nom.includes('10')) return 'anguila_10am';
-            if (nom.includes('anguila') && nom.includes('1:00')) return 'anguila_1pm';
-            if (nom.includes('anguila') && nom.includes('6')) return 'anguila_6pm';
-            if (nom.includes('anguila') && nom.includes('9')) return 'anguila_9pm';
-            if (nom.includes('york') && nom.includes('noche')) return 'ny_noche';
-            if (nom.includes('york')) return 'ny_tarde';
-            if (nom.includes('florida') && nom.includes('noche')) return 'florida_noche';
-            if (nom.includes('florida')) return 'florida_dia';
             if (nom.includes('jersey')) return 'new_jersey_dia';
             return 'quiniela_leidsa';
         }
@@ -1984,8 +1997,8 @@
             document.getElementById('master-n2').innerText = n2;
 
             const elBadge = document.getElementById('master-score-badge');
-            if (elBadge && customLabel) {
-                elBadge.innerText = customLabel;
+            if (elBadge) {
+                elBadge.innerText = customLabel || "⚠️ Cálculo de Probabilidad (No Seguro)";
             }
         }
 
@@ -2965,37 +2978,37 @@
                 });
             }
 
-            const p1d = mapaAyer['la_primera_dia'] || [59, 93, 82];
-            const p1n = mapaAyer['primera_noche'] || [92, 58, 40];
+            const p1d = mapaAyer['la_primera_dia'] || [82, 93, 86];
+            const p1n = mapaAyer['primera_noche'] || [9, 89, 93];
             const jalP1 = TABLA_JALADERA[p1d[0]] || [29, 38, 92];
 
-            const s1d = mapaAyer['la_suerte_dia'] || [74, 56, 9];
-            const s1n = mapaAyer['la_suerte_tarde'] || [39, 65, 85];
+            const s1d = mapaAyer['la_suerte_dia'] || [11, 27, 98];
+            const s1n = mapaAyer['la_suerte_tarde'] || [12, 54, 14];
             const jalS1 = TABLA_JALADERA[s1d[0]] || [3, 30, 23];
 
-            const g1d = mapaAyer['gana_mas'] || [85, 27, 60];
-            const n1n = mapaAyer['loteria_nacional'] || [50, 34, 62];
+            const g1d = mapaAyer['gana_mas'] || [31, 29, 49];
+            const n1n = mapaAyer['loteria_nacional'] || [98, 53, 75];
             const jalGm = TABLA_JALADERA[g1d[0]] || [2, 68, 86];
 
-            const ltk = mapaAyer['quiniela_loteka'] || [83, 33, 64];
-            const lds = mapaAyer['quiniela_leidsa'] || [2, 33, 72];
+            const ltk = mapaAyer['quiniela_loteka'] || [12, 3, 98];
+            const lds = mapaAyer['quiniela_leidsa'] || [28, 57, 48];
             const jalLds = TABLA_JALADERA[lds[1]] || [39, 83, 93];
 
-            const ltd = mapaAyer['lotedom'] || [61, 54, 3];
-            const qrl = mapaAyer['quiniela_real'] || [8, 67, 31];
+            const ltd = mapaAyer['lotedom'] || [84, 25, 19];
+            const qrl = mapaAyer['quiniela_real'] || [40, 19, 5];
             const jalRl = TABLA_JALADERA[qrl[1]] || [57, 71, 75];
             const jalLtd = TABLA_JALADERA[ltd[0]] || [1, 46, 99];
 
-            const nyd = mapaAyer['ny_tarde'] || [13, 91, 41];
-            const nyn = mapaAyer['ny_noche'] || [73, 48, 7];
+            const nyd = mapaAyer['ny_tarde'] || [1, 34, 65];
+            const nyn = mapaAyer['ny_noche'] || [46, 78, 15];
             const jalNy = TABLA_JALADERA[nyn[0]] || [13, 53, 69];
             const jalNyd2 = TABLA_JALADERA[nyd[1]] || [19, 37, 43];
 
-            const fln = mapaAyer['florida_noche'] || [76, 3, 99];
+            const fln = mapaAyer['florida_noche'] || [28, 15, 57];
             const jalFl = TABLA_JALADERA[fln[1]] || [23, 30, 74];
 
-            const a10 = mapaAyer['anguila_10am'] || [73, 61, 27];
-            const a6p = mapaAyer['anguila_6pm'] || [28, 72, 71];
+            const a10 = mapaAyer['anguila_10am'] || [98, 94, 82];
+            const a6p = mapaAyer['anguila_6pm'] || [41, 25, 79];
 
             // --- AJUSTES AUTOMÁTICOS INTRADÍA PARA LAS 9 DE LA TARDE / NOCHE ---
             const hoySuerte12 = mapaHoy['la_suerte_dia'];

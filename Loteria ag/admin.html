@@ -791,31 +791,45 @@
                 <div class="card-header">
                     <span style="font-size: 20px;">👑</span>
                     <div>
-                        <h3>Control Manual de la Jugada Maestra</h3>
-                        <p style="font-size: 11px; color: #64748b;">Ajuste o fijación de los 2 números maestros de mayor probabilidad.</p>
+                        <h3>Control de la Jugada Maestra Fija</h3>
+                        <p style="font-size: 11px; color: #64748b;">Monitorea los 2 números oficiales de la fórmula o sobrescríbelos manualmente si deseas.</p>
+                    </div>
+                </div>
+
+                <div id="master-status-box" style="margin-bottom: 14px; padding: 10px 12px; border-radius: 8px; font-size: 12px; line-height: 1.4; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7;">
+                    <div style="font-weight: 800; display:flex; align-items:center; gap:6px;">
+                        <span id="master-status-dot">🟢</span> <span id="master-status-title">MODO AUTOMÁTICO ACTIVO</span>
+                    </div>
+                    <div id="master-status-desc" style="font-size: 11px; color: #cbd5e1; margin-top: 4px;">
+                        La plataforma está utilizando los números calculados por la fórmula matemática central de hoy.
                     </div>
                 </div>
 
                 <div style="display: flex; gap: 15px;">
                     <div class="form-group" style="flex:1;">
                         <label>Primer Número:</label>
-                        <input type="number" id="master-num-1" class="form-control" min="0" max="99" value="57">
+                        <input type="number" id="master-num-1" class="form-control" min="0" max="99" placeholder="Automático">
                     </div>
                     <div class="form-group" style="flex:1;">
                         <label>Segundo Número:</label>
-                        <input type="number" id="master-num-2" class="form-control" min="0" max="99" value="06">
+                        <input type="number" id="master-num-2" class="form-control" min="0" max="99" placeholder="Automático">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Etiqueta de Efectividad:</label>
+                    <label>Etiqueta de Probabilidad:</label>
                     <input type="text" id="master-label" class="form-control" value="⚠️ Cálculo de Probabilidad (No Seguro)">
                 </div>
 
-                <button class="btn-save btn-gold" onclick="guardarJugadaMaestraManual()">
-                    <span>🎯 Fijar Pareja Maestra</span>
-                </button>
-                <div id="msg-master" style="font-size:12px; color:#fbbf24; display:none;">✅ Pareja maestra actualizada.</div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button type="button" class="btn-save btn-gold" style="flex:1; min-width:160px;" onclick="guardarJugadaMaestraManual()">
+                        <span>🎯 Fijar Manualmente</span>
+                    </button>
+                    <button type="button" class="btn-save" style="flex:1; min-width:160px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8;" onclick="restaurarModoAutomaticoMaestra()">
+                        <span>🔄 Restaurar Automático</span>
+                    </button>
+                </div>
+                <div id="msg-master" style="font-size:12px; color:#fbbf24; display:none; margin-top:10px;">✅ Configuración actualizada.</div>
             </div>
 
         </div>
@@ -1216,10 +1230,7 @@
             document.getElementById('adsense-top').value = adTop;
             document.getElementById('adsense-feed').value = adFeed;
 
-            const n1 = localStorage.getItem('lotopro_master_n1') || '71';
-            const n2 = localStorage.getItem('lotopro_master_n2') || '26';
-            document.getElementById('master-num-1').value = n1;
-            document.getElementById('master-num-2').value = n2;
+            actualizarCamposJugadaMaestra();
         }
 
         function cambiarModoEtapa100Admin(modo) {
@@ -1242,15 +1253,93 @@
             setTimeout(() => msg.style.display = 'none', 3000);
         }
 
+        function actualizarCamposJugadaMaestra() {
+            const customN1 = localStorage.getItem('lotopro_master_n1');
+            const customN2 = localStorage.getItem('lotopro_master_n2');
+            const customLabel = localStorage.getItem('lotopro_master_label');
+
+            let autoN1 = '89';
+            let autoN2 = '94';
+            if (typeof datosAppAdmin !== 'undefined' && datosAppAdmin && datosAppAdmin.jugada_maestra_fija && Array.isArray(datosAppAdmin.jugada_maestra_fija.pareja_oficial)) {
+                autoN1 = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[0] || '89').padStart(2, '0');
+                autoN2 = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[1] || '94').padStart(2, '0');
+            }
+
+            const inpN1 = document.getElementById('master-num-1');
+            const inpN2 = document.getElementById('master-num-2');
+            const inpLabel = document.getElementById('master-label');
+            const boxStatus = document.getElementById('master-status-box');
+            const dotStatus = document.getElementById('master-status-dot');
+            const titStatus = document.getElementById('master-status-title');
+            const descStatus = document.getElementById('master-status-desc');
+
+            if (customN1 && customN2) {
+                if (inpN1) inpN1.value = customN1;
+                if (inpN2) inpN2.value = customN2;
+                if (inpLabel && customLabel) inpLabel.value = customLabel;
+
+                if (boxStatus) {
+                    boxStatus.style.background = 'rgba(245, 158, 11, 0.15)';
+                    boxStatus.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+                    boxStatus.style.color = '#fbbf24';
+                }
+                if (dotStatus) dotStatus.innerText = '🟠';
+                if (titStatus) titStatus.innerText = `MODO MANUAL FIJO ACTIVO (${customN1} × ${customN2})`;
+                if (descStatus) descStatus.innerHTML = `Sobrescrito manualmente por ti. La combinación calculada por la fórmula central de hoy es <strong style="color:#6ee7b7;">[${autoN1} × ${autoN2}]</strong>.`;
+            } else {
+                if (inpN1) inpN1.value = autoN1;
+                if (inpN2) inpN2.value = autoN2;
+                if (inpLabel) inpLabel.value = customLabel || '⚠️ Cálculo de Probabilidad (No Seguro)';
+
+                if (boxStatus) {
+                    boxStatus.style.background = 'rgba(16, 185, 129, 0.12)';
+                    boxStatus.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+                    boxStatus.style.color = '#6ee7b7';
+                }
+                if (dotStatus) dotStatus.innerText = '🟢';
+                if (titStatus) titStatus.innerText = `MODO AUTOMÁTICO ACTIVO (${autoN1} × ${autoN2})`;
+                if (descStatus) descStatus.innerHTML = `Mostrando la combinación calculada automáticamente por el algoritmo central para hoy.`;
+            }
+        }
+
         function guardarJugadaMaestraManual() {
-            const n1 = String(document.getElementById('master-num-1').value).padStart(2, '0');
-            const n2 = String(document.getElementById('master-num-2').value).padStart(2, '0');
+            const v1 = document.getElementById('master-num-1').value;
+            const v2 = document.getElementById('master-num-2').value;
+            if (v1 === '' || v2 === '') {
+                alert('Por favor ingresa ambos números de la pareja.');
+                return;
+            }
+            const n1 = String(v1).padStart(2, '0');
+            const n2 = String(v2).padStart(2, '0');
+            const lbl = document.getElementById('master-label').value.trim() || '⚠️ Cálculo de Probabilidad (No Seguro)';
+
             localStorage.setItem('lotopro_master_n1', n1);
             localStorage.setItem('lotopro_master_n2', n2);
+            localStorage.setItem('lotopro_master_label', lbl);
+
+            actualizarCamposJugadaMaestra();
 
             const msg = document.getElementById('msg-master');
-            msg.style.display = 'block';
-            setTimeout(() => msg.style.display = 'none', 3000);
+            if (msg) {
+                msg.innerHTML = `✅ Pareja fija manual activada: <strong>[${n1} × ${n2}]</strong>. Mostrándose en el portal.`;
+                msg.style.display = 'block';
+                setTimeout(() => msg.style.display = 'none', 3500);
+            }
+        }
+
+        function restaurarModoAutomaticoMaestra() {
+            localStorage.removeItem('lotopro_master_n1');
+            localStorage.removeItem('lotopro_master_n2');
+            localStorage.removeItem('lotopro_master_label');
+
+            actualizarCamposJugadaMaestra();
+
+            const msg = document.getElementById('msg-master');
+            if (msg) {
+                msg.innerHTML = `🔄 Modo Automático restaurado. Ahora el portal muestra la fórmula central oficial.`;
+                msg.style.display = 'block';
+                setTimeout(() => msg.style.display = 'none', 3500);
+            }
         }
 
         function reiniciarAModoLanzamientoOficial() {
@@ -1326,25 +1415,39 @@
 
         function obtenerIdNormalizadoAdm(nombre) {
             const nom = (nombre || '').toLowerCase();
-            if (nom.includes('gana m') || nom.includes('gana mas')) return 'gana_mas';
-            if (nom.includes('nacional') && (nom.includes('noche') || nom.includes('loteria nacional'))) return 'loteria_nacional';
+            if (nom.includes('anguila')) {
+                if (nom.includes('10')) return 'anguila_10am';
+                if (nom.includes('1:') || nom.includes('1pm') || nom.includes('mediod')) return 'anguila_1pm';
+                if (nom.includes('6:') || nom.includes('6pm')) return 'anguila_6pm';
+                if (nom.includes('9:') || nom.includes('9pm')) return 'anguila_9pm';
+                return 'anguila_10am';
+            }
+            if (nom.includes('primera')) {
+                if (nom.includes('8:') || nom.includes('8pm') || nom.includes('noche')) return 'primera_noche';
+                return 'la_primera_dia';
+            }
+            if (nom.includes('suerte')) {
+                if (nom.includes('6:') || nom.includes('6pm') || nom.includes('tarde') || nom.includes('noche')) return 'la_suerte_tarde';
+                return 'la_suerte_dia';
+            }
+            if (nom.includes('florida')) {
+                if (nom.includes('10:') || nom.includes('10pm') || nom.includes('noche')) return 'florida_noche';
+                return 'florida_dia';
+            }
+            if (nom.includes('york') || nom.includes('ny')) {
+                if (nom.includes('10:') || nom.includes('10pm') || nom.includes('noche')) return 'ny_noche';
+                return 'ny_tarde';
+            }
+            if (nom.includes('real')) {
+                if (nom.includes('9:') || nom.includes('9pm') || nom.includes('noche')) return 'real_noche';
+                return 'quiniela_real';
+            }
+            if (nom.includes('gana')) return 'gana_mas';
             if (nom.includes('nacional')) return 'loteria_nacional';
-            if (nom.includes('leidsa')) return 'quiniela_leidsa';
-            if (nom.includes('real')) return 'quiniela_real';
             if (nom.includes('loteka')) return 'quiniela_loteka';
-            if (nom.includes('primera') && nom.includes('noche')) return 'primera_noche';
-            if (nom.includes('primera')) return 'la_primera_dia';
-            if (nom.includes('suerte') && (nom.includes('tarde') || nom.includes('6pm') || nom.includes('6:00'))) return 'la_suerte_tarde';
-            if (nom.includes('suerte')) return 'la_suerte_dia';
+            if (nom.includes('leidsa')) return 'quiniela_leidsa';
             if (nom.includes('lotedom')) return 'lotedom';
-            if (nom.includes('anguila') && (nom.includes('10am') || nom.includes('10:00'))) return 'anguila_10am';
-            if (nom.includes('anguila') && (nom.includes('1pm') || nom.includes('1:00') || nom.includes('mediod'))) return 'anguila_1pm';
-            if (nom.includes('anguila') && (nom.includes('6pm') || nom.includes('6:00') || nom.includes('tarde'))) return 'anguila_6pm';
-            if (nom.includes('anguila') && (nom.includes('9pm') || nom.includes('9:00') || nom.includes('noche'))) return 'anguila_9pm';
-            if (nom.includes('florida') && nom.includes('noche')) return 'florida_noche';
-            if (nom.includes('florida')) return 'florida_dia';
-            if (nom.includes('york') && nom.includes('noche')) return 'ny_noche';
-            if (nom.includes('york')) return 'ny_tarde';
+            if (nom.includes('jersey')) return 'new_jersey_dia';
             return 'quiniela_leidsa';
         }
 
@@ -1355,6 +1458,7 @@
                     datosAppAdmin = await res.json();
                 }
             } catch (e) {}
+            actualizarCamposJugadaMaestra();
             renderizarMonitorMaestro18();
         }
 
@@ -1390,37 +1494,37 @@
                 });
             }
 
-            const p1d = mapaAyer['la_primera_dia'] || [59, 93, 82];
-            const p1n = mapaAyer['primera_noche'] || [92, 58, 40];
+            const p1d = mapaAyer['la_primera_dia'] || [82, 93, 86];
+            const p1n = mapaAyer['primera_noche'] || [9, 89, 93];
             const jalP1 = TABLA_JALADERA_ADMIN[p1d[0]] || [29, 38, 92];
 
-            const s1d = mapaAyer['la_suerte_dia'] || [74, 56, 9];
-            const s1n = mapaAyer['la_suerte_tarde'] || [39, 65, 85];
+            const s1d = mapaAyer['la_suerte_dia'] || [11, 27, 98];
+            const s1n = mapaAyer['la_suerte_tarde'] || [12, 54, 14];
             const jalS1 = TABLA_JALADERA_ADMIN[s1d[0]] || [3, 30, 23];
 
-            const g1d = mapaAyer['gana_mas'] || [85, 27, 60];
-            const n1n = mapaAyer['loteria_nacional'] || [50, 34, 62];
+            const g1d = mapaAyer['gana_mas'] || [31, 29, 49];
+            const n1n = mapaAyer['loteria_nacional'] || [98, 53, 75];
             const jalGm = TABLA_JALADERA_ADMIN[g1d[0]] || [2, 68, 86];
 
-            const ltk = mapaAyer['quiniela_loteka'] || [83, 33, 64];
-            const lds = mapaAyer['quiniela_leidsa'] || [2, 33, 72];
+            const ltk = mapaAyer['quiniela_loteka'] || [12, 3, 98];
+            const lds = mapaAyer['quiniela_leidsa'] || [28, 57, 48];
             const jalLds = TABLA_JALADERA_ADMIN[lds[1]] || [39, 83, 93];
 
-            const ltd = mapaAyer['lotedom'] || [61, 54, 3];
-            const qrl = mapaAyer['quiniela_real'] || [8, 67, 31];
+            const ltd = mapaAyer['lotedom'] || [84, 25, 19];
+            const qrl = mapaAyer['quiniela_real'] || [40, 19, 5];
             const jalRl = TABLA_JALADERA_ADMIN[qrl[1]] || [57, 71, 75];
             const jalLtd = TABLA_JALADERA_ADMIN[ltd[0]] || [1, 46, 99];
 
-            const nyd = mapaAyer['ny_tarde'] || [13, 91, 41];
-            const nyn = mapaAyer['ny_noche'] || [73, 48, 7];
+            const nyd = mapaAyer['ny_tarde'] || [1, 34, 65];
+            const nyn = mapaAyer['ny_noche'] || [46, 78, 15];
             const jalNy = TABLA_JALADERA_ADMIN[nyn[0]] || [13, 53, 69];
             const jalNyd2 = TABLA_JALADERA_ADMIN[nyd[1]] || [19, 37, 43];
 
-            const fln = mapaAyer['florida_noche'] || [76, 3, 99];
+            const fln = mapaAyer['florida_noche'] || [28, 15, 57];
             const jalFl = TABLA_JALADERA_ADMIN[fln[1]] || [23, 30, 74];
 
-            const a10 = mapaAyer['anguila_10am'] || [73, 61, 27];
-            const a6p = mapaAyer['anguila_6pm'] || [28, 72, 71];
+            const a10 = mapaAyer['anguila_10am'] || [98, 94, 82];
+            const a6p = mapaAyer['anguila_6pm'] || [41, 25, 79];
 
             const hoySuerte12 = mapaHoy['la_suerte_dia'];
             const suerte6N1 = hoySuerte12 ? jalS1[0] : s1n[1];
