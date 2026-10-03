@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-02",
   "fecha_ayer": "2026-10-01",
-  "actualizado_a_las": "09:34 PM",
+  "actualizado_a_las": "10:11 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -427,8 +427,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        27,
+        28,
+        38
+      ]
     },
     {
       "id": "florida_noche",
@@ -436,8 +440,12 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        53,
+        56,
+        91
+      ]
     },
     {
       "id": "ny_noche",
