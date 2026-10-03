@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-02",
   "fecha_ayer": "2026-10-01",
-  "actualizado_a_las": "09:03 PM",
+  "actualizado_a_las": "09:34 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -388,8 +388,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        45,
+        76,
+        70
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -397,8 +401,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        78,
+        87,
+        74
+      ]
     },
     {
       "id": "real_noche",
