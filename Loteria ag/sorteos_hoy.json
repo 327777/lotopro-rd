@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-02",
   "fecha_ayer": "2026-10-01",
-  "actualizado_a_las": "10:11 PM",
+  "actualizado_a_las": "10:58 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -453,8 +453,12 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        56,
+        80,
+        50
+      ]
     }
   ]
 }
