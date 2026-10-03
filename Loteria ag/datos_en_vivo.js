@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-02",
   "fecha_ayer": "2026-10-01",
-  "actualizado_a_las": "08:09 PM",
+  "actualizado_a_las": "09:03 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -406,8 +406,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        94,
+        70,
+        17
+      ]
     },
     {
       "id": "anguila_9pm",
