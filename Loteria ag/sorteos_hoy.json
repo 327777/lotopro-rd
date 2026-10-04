@@ -1,7 +1,7 @@
 {
-  "fecha_hoy": "2026-10-03",
-  "fecha_ayer": "2026-10-02",
-  "actualizado_a_las": "11:05 PM",
+  "fecha_hoy": "2026-10-04",
+  "fecha_ayer": "2026-10-03",
+  "actualizado_a_las": "01:16 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -9,8 +9,8 @@
   },
   "jugada_maestra_fija": {
     "pareja_oficial": [
-      "35",
-      "15"
+      "75",
+      "47"
     ],
     "clasificacion": "Números con Mayor Probabilidad del Día",
     "indice_inercia": "98.4%",
@@ -22,144 +22,144 @@
       "nombre": "Anguila 10:00 AM",
       "hora": "10:00 AM",
       "premios": [
-        52,
-        24,
-        16
+        54,
+        64,
+        59
       ]
     },
     {
       "nombre": "La Primera 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        72,
-        86,
-        25
+        74,
+        6,
+        63
       ]
     },
     {
       "nombre": "LoteDom 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        19,
-        47,
-        80
+        49,
+        62,
+        70
       ]
     },
     {
       "nombre": "La Suerte 12:30 PM",
       "hora": "12:30 PM",
       "premios": [
-        24,
-        22,
-        60
+        35,
+        67,
+        94
       ]
     },
     {
       "nombre": "Quiniela Real 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        46,
-        77,
-        1
+        48,
+        73,
+        44
       ]
     },
     {
       "nombre": "Anguila 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        97,
-        1,
-        20
+        71,
+        29,
+        37
       ]
     },
     {
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        25,
-        38,
-        85
+        72,
+        31,
+        57
       ]
     },
     {
       "nombre": "Florida 1:30 PM",
       "hora": "1:30 PM",
       "premios": [
-        6,
-        92,
-        52
+        85,
+        83,
+        23
       ]
     },
     {
       "nombre": "Gana Más 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        13,
-        97,
-        69
+        16,
+        49,
+        36
       ]
     },
     {
       "nombre": "New York 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
+        77,
         21,
-        5,
-        53
+        2
       ]
     },
     {
       "nombre": "La Suerte 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        7,
-        5,
-        38
+        43,
+        39,
+        3
       ]
     },
     {
       "nombre": "Anguila 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        7,
-        43,
-        32
+        25,
+        76,
+        20
       ]
     },
     {
       "nombre": "Quiniela Loteka 7:55 PM",
       "hora": "7:55 PM",
       "premios": [
-        51,
-        71,
-        84
+        49,
+        10,
+        98
       ]
     },
     {
       "nombre": "La Primera 8:00 PM",
       "hora": "8:00 PM",
       "premios": [
-        65,
-        51,
-        93
+        53,
+        16,
+        64
       ]
     },
     {
       "nombre": "Quiniela Leidsa 8:55 PM",
       "hora": "8:55 PM",
       "premios": [
-        45,
-        76,
-        70
+        43,
+        59,
+        27
       ]
     },
     {
       "nombre": "Lotería Nacional 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        78,
-        87,
-        74
+        95,
+        29,
+        64
       ]
     },
     {
@@ -167,35 +167,35 @@
       "hora": "9:00 PM",
       "premios": [
         94,
-        70,
-        17
+        20,
+        12
       ]
     },
     {
       "nombre": "Anguila 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        27,
-        28,
-        38
+        44,
+        74,
+        23
       ]
     },
     {
       "nombre": "Florida 10:00 PM",
       "hora": "10:00 PM",
       "premios": [
-        53,
-        56,
-        91
+        90,
+        50,
+        0
       ]
     },
     {
       "nombre": "New York 10:30 PM",
       "hora": "10:30 PM",
       "premios": [
-        56,
-        80,
-        50
+        57,
+        6,
+        16
       ]
     }
   ],
@@ -206,12 +206,8 @@
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "finalizado",
-      "premios": [
-        54,
-        64,
-        59
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_primera_dia",
@@ -219,12 +215,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        74,
-        6,
-        63
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "lotedom",
@@ -232,12 +224,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        49,
-        62,
-        70
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_dia",
@@ -245,12 +233,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        35,
-        67,
-        94
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_real",
@@ -258,12 +242,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        48,
-        73,
-        44
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_1pm",
@@ -271,12 +251,8 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        71,
-        29,
-        37
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "new_jersey_dia",
@@ -284,12 +260,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        72,
-        31,
-        57
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_dia",
@@ -297,12 +269,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        85,
-        83,
-        23
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "gana_mas",
@@ -310,12 +278,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        16,
-        49,
-        36
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_tarde",
@@ -323,12 +287,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        77,
-        21,
-        2
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_tarde",
@@ -336,12 +296,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        43,
-        39,
-        3
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_6pm",
@@ -349,12 +305,8 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        25,
-        76,
-        20
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_loteka",
@@ -362,12 +314,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        49,
-        10,
-        98
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "primera_noche",
@@ -375,12 +323,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        53,
-        16,
-        64
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_leidsa",
@@ -388,12 +332,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        43,
-        59,
-        27
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "loteria_nacional",
@@ -401,12 +341,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        95,
-        29,
-        64
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "real_noche",
@@ -414,12 +350,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        94,
-        20,
-        12
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_9pm",
@@ -427,12 +359,8 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        44,
-        74,
-        23
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_noche",
@@ -440,12 +368,8 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        90,
-        50,
-        0
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_noche",
@@ -453,12 +377,8 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        57,
-        6,
-        16
-      ]
+      "estado": "proximo",
+      "premios": null
     }
   ]
 }
