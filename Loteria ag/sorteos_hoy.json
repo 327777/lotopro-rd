@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-04",
   "fecha_ayer": "2026-10-03",
-  "actualizado_a_las": "01:16 AM",
+  "actualizado_a_las": "02:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -206,8 +206,12 @@
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        34,
+        11,
+        26
+      ]
     },
     {
       "id": "la_primera_dia",
@@ -215,8 +219,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        80,
+        97,
+        52
+      ]
     },
     {
       "id": "lotedom",
@@ -224,8 +232,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        36,
+        16,
+        84
+      ]
     },
     {
       "id": "la_suerte_dia",
@@ -233,8 +245,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        50,
+        86,
+        28
+      ]
     },
     {
       "id": "quiniela_real",
@@ -242,8 +258,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        48,
+        25,
+        8
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -251,8 +271,12 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        12,
+        34,
+        70
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -260,8 +284,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        89,
+        26,
+        22
+      ]
     },
     {
       "id": "florida_dia",
@@ -269,8 +297,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        24,
+        78,
+        11
+      ]
     },
     {
       "id": "gana_mas",
