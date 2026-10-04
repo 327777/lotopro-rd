@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-03",
   "fecha_ayer": "2026-10-02",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "11:05 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -364,9 +364,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        11,
-        86,
-        15
+        49,
+        10,
+        98
       ]
     },
     {
@@ -388,8 +388,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        43,
+        59,
+        27
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -397,8 +401,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        95,
+        29,
+        64
+      ]
     },
     {
       "id": "real_noche",
@@ -406,8 +414,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        94,
+        20,
+        12
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -415,8 +427,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        44,
+        74,
+        23
+      ]
     },
     {
       "id": "florida_noche",
@@ -424,8 +440,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        90,
+        50,
+        0
+      ]
     },
     {
       "id": "ny_noche",
@@ -433,8 +453,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        57,
+        6,
+        16
+      ]
     }
   ]
 };
