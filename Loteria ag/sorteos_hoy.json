@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-05",
   "fecha_ayer": "2026-10-04",
-  "actualizado_a_las": "01:58 PM",
+  "actualizado_a_las": "02:51 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -310,8 +310,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        67,
+        24,
+        5
+      ]
     },
     {
       "id": "ny_tarde",
@@ -319,8 +323,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        82,
+        34,
+        34
+      ]
     },
     {
       "id": "la_suerte_tarde",
