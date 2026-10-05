@@ -503,67 +503,34 @@
                         </div>
                     </div>
 
-                    <!-- TARJETA 2: COMBINACIONES CON CANDADO (18 LOTERÍAS) -->
+                    <!-- TARJETA 2: DÓNDE PEGÓ LA ALTA FRECUENCIA HOY (EN VIVO) -->
                     <div style="background: #090e1a; border: 1.5px solid rgba(16, 185, 129, 0.45); border-radius: 12px; padding: 14px; position: relative;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                             <div>
-                                <span style="font-size: 12px; font-weight: 900; color: #10b981; text-transform: uppercase;">🔒 18 Jugadas con Candado</span>
-                                <div style="font-size: 10.5px; color: #94a3b8;">Jaladera individual por sorteo (Solo Directa)</div>
+                                <span style="font-size: 12px; font-weight: 900; color: #10b981; text-transform: uppercase;">🎯 Impacto de Alta Frecuencia (Dónde Pegó Hoy)</span>
+                                <div style="font-size: 10.5px; color: #94a3b8;">Monitoreo en vivo sorteo a sorteo</div>
                             </div>
-                            <div id="adm-candados-evaluados-tag" style="background: #064e3b; border: 1.5px solid #10b981; color: #6ee7b7; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 900; padding: 3px 10px; border-radius: 6px;">
-                                0 / 18 Sorteos
-                            </div>
-                        </div>
-
-                        <!-- Desglose de Premios -->
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; margin-bottom: 12px;">
-                            <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 8px 4px;">
-                                <div style="font-size: 10px; font-weight: 800; color: #6ee7b7;">🥇 EN 1RA</div>
-                                <div id="adm-candados-aciertos-1ra" style="font-size: 22px; font-weight: 900; color: #10b981; font-family: 'JetBrains Mono', monospace;">0</div>
-                            </div>
-                            <div style="background: rgba(148, 163, 184, 0.12); border: 1px solid rgba(148, 163, 184, 0.35); border-radius: 8px; padding: 8px 4px;">
-                                <div style="font-size: 10px; font-weight: 800; color: #cbd5e1;">🥈 EN 2DA</div>
-                                <div id="adm-candados-aciertos-2da" style="font-size: 22px; font-weight: 900; color: #e2e8f0; font-family: 'JetBrains Mono', monospace;">0</div>
-                            </div>
-                            <div style="background: rgba(217, 119, 6, 0.12); border: 1px solid rgba(217, 119, 6, 0.35); border-radius: 8px; padding: 8px 4px;">
-                                <div style="font-size: 10px; font-weight: 800; color: #f59e0b;">🥉 EN 3RA</div>
-                                <div id="adm-candados-aciertos-3ra" style="font-size: 22px; font-weight: 900; color: #d97706; font-family: 'JetBrains Mono', monospace;">0</div>
+                            <div id="adm-maestra-evaluados-tag" style="background: #064e3b; border: 1.5px solid #10b981; color: #6ee7b7; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 900; padding: 3px 10px; border-radius: 6px;">
+                                0 / 20 Sorteos
                             </div>
                         </div>
 
-                        <!-- Resumen de Efectividad Directa Oficial (Lo que ve el público) -->
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">🎯 Directo Oficial (Público):</span>
-                            <div style="text-align: right;">
-                                <span id="adm-candados-ratio" style="font-size: 13px; font-weight: 900; color: #f8fafc;">0 / 18</span>
-                                <span id="adm-candados-porcentaje" style="font-size: 13px; font-weight: 900; color: #10b981; margin-left: 6px;">(0.0%)</span>
+                        <!-- Desglose de Estado -->
+                        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px;">
+                            <div style="font-size: 10.5px; font-weight: 800; color: #6ee7b7; margin-bottom: 4px; display: flex; align-items: center; gap: 5px;">
+                                <span>🏆</span>
+                                <span>Loterías Ganadoras Detectadas Hoy:</span>
+                            </div>
+                            <div id="adm-maestra-hits-vivo-box" style="font-size: 11.5px; color: #f8fafc; font-family: 'JetBrains Mono', monospace; line-height: 1.5; min-height: 48px;">
+                                ⏳ Esperando resultados oficiales de hoy...
                             </div>
                         </div>
 
-                        <!-- Resumen de Atracción al Revés (Uso Interno Gerente) -->
-                        <div style="background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <span style="font-size: 11px; color: #d8b4fe; font-weight: 700;">🔄 Al Revés (Virados Gerente):</span>
-                            <div style="text-align: right;">
-                                <span id="adm-candados-reves-ratio" style="font-size: 13px; font-weight: 900; color: #f3e8ff;">0 / 18</span>
-                                <span id="adm-candados-reves-porcentaje" style="font-size: 13px; font-weight: 900; color: #c084fc; margin-left: 6px;">(0.0%)</span>
-                            </div>
-                        </div>
-
-                        <!-- Fuerza Total de Atracción de la Jaladera -->
-                        <div style="background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 8px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-size: 11px; color: #93c5fd; font-weight: 800;">🔥 Fuerza Total (Directo + Revés):</span>
-                            <div style="text-align: right;">
-                                <span id="adm-candados-total-ratio" style="font-size: 13px; font-weight: 900; color: #60a5fa;">0 / 18</span>
-                                <span id="adm-candados-total-porcentaje" style="font-size: 13px; font-weight: 900; color: #38bdf8; margin-left: 6px;">(0.0%)</span>
-                            </div>
-                        </div>
-
-                        <div id="adm-candados-detalle-hits" style="margin-top: 8px; font-size: 10.5px; color: #94a3b8; max-height: 52px; overflow-y: auto; line-height: 1.4;">
-                            Esperando resultados oficiales de hoy...
+                        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 12px;">
+                            <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">Estado de Cierre Hoy:</span>
+                            <span id="adm-maestra-estado-cierre" style="font-size: 11.5px; font-weight: 900; color: #38bdf8;">Iniciando jornada</span>
                         </div>
                     </div>
-
-                </div>
 
                 <!-- REGISTRO HISTÓRICO GERENCIAL (INFORME DÍA A DÍA) -->
                 <div style="background: #060a14; border: 1px solid #1e293b; border-radius: 10px; padding: 12px;">
@@ -575,13 +542,11 @@
                         <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
                             <thead>
                                 <tr style="border-bottom: 1px solid #1e293b; color: #94a3b8; font-size: 10.5px; text-transform: uppercase;">
-                                    <th style="padding: 7px 8px; width: 14%;">Fecha</th>
-                                    <th style="padding: 7px 8px; width: 9%;">Sorteos</th>
-                                    <th style="padding: 7px 8px; width: 23%;">👑 Pareja Maestra (1ra + Dónde Pegó)</th>
-                                    <th style="padding: 7px 8px; width: 20%;">🔒 18 Candados (Directos)</th>
-                                    <th style="padding: 7px 8px; width: 14%;">🔄 Virados (Revés)</th>
-                                    <th style="padding: 7px 8px; width: 8%;">🔥 Fuerza Total</th>
-                                    <th style="padding: 7px 8px; width: 12%;">Diagnóstico Gerente</th>
+                                    <th style="padding: 8px 10px; width: 16%;">Fecha</th>
+                                    <th style="padding: 8px 10px; width: 10%;">Sorteos</th>
+                                    <th style="padding: 8px 10px; width: 18%;">👑 Alta Frecuencia</th>
+                                    <th style="padding: 8px 10px; width: 36%;">🎯 Dónde Pegó (Loterías Ganadoras)</th>
+                                    <th style="padding: 8px 10px; width: 20%;">Diagnóstico Gerente</th>
                                 </tr>
                             </thead>
                             <tbody id="adm-tabla-registro-diario">
@@ -590,6 +555,37 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+
+                    <!-- BOTÓN PARA VER HISTÓRICO DE GEMELAS / CANDADOS EN MODO ARCHIVO -->
+                    <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                        <button type="button" onclick="toggleArchivoCandados()" id="btn-toggle-candados" style="background: #131c31; border: 1.5px solid #334155; color: #cbd5e1; border-radius: 8px; padding: 7px 14px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                            📂 Ver Registro Histórico de Gemelas / Candados (Modo Archivo)
+                        </button>
+                        <span style="font-size: 10px; color: #64748b;">Datos guardados y respaldados para consulta gerencial</span>
+                    </div>
+
+                    <!-- TABLA ARCHIVADA DE GEMELAS / CANDADOS (INICIALMENTE COLAPSADA) -->
+                    <div id="seccion-archivo-candados" style="display: none; margin-top: 14px; background: rgba(10, 15, 29, 0.9); border: 1px dashed #334155; border-radius: 10px; padding: 12px;">
+                        <div style="font-size: 11.5px; font-weight: 800; color: #fbbf24; margin-bottom: 8px;">
+                            📁 Bitácora Archivada: Rendimiento de las Gemelas por Lotería Afín (01 al 04 Octubre)
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid #1e293b; color: #94a3b8; font-size: 10px; text-transform: uppercase;">
+                                        <th style="padding: 6px;">Fecha</th>
+                                        <th style="padding: 6px;">Directo en 1ra</th>
+                                        <th style="padding: 6px;">Detalle Directos</th>
+                                        <th style="padding: 6px;">Virados (Revés)</th>
+                                        <th style="padding: 6px;">Total %</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody-archivo-candados">
+                                    <!-- Se llena con los datos históricos de candados -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -1603,6 +1599,8 @@
                 const premiosHoy = mapaHoy[item.id];
                 const finalizado = estadoHoy[item.id] === 'finalizado' && Array.isArray(premiosHoy) && premiosHoy.length >= 3;
                 
+                // Pareja Maestra Oficial de Alta Frecuencia para hoy
+                const famMaestra = [mN1, mN2];
                 const famDirecta = [item.n1, item.n2];
                 const revN1 = virarNumAdm(item.n1);
                 const revN2 = virarNumAdm(item.n2);
@@ -1643,23 +1641,43 @@
                 }
 
                 let badgeHit = '';
-                if (aciertosDirectos.length > 0) {
-                    const txt = aciertosDirectos.map(a => `[${fmt2Adm(a.num)}] en ${a.pos}`).join(' y ');
-                    badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(16,185,129,0.25),rgba(245,158,11,0.2)); border:1.5px solid #10b981; color:#6ee7b7; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(16,185,129,0.3);">
-                        🎯 ✅ ¡CONECTÓ DIRECTO HOY! → ${txt}
-                    </div>`;
-                } else if (aciertosReves.length > 0) {
-                    const txtR = aciertosReves.map(a => `[${fmt2Adm(a.num)}] (Revés de ${fmt2Adm(a.origen)}) en ${a.pos}`).join(' y ');
-                    badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(168,85,247,0.25),rgba(59,130,246,0.18)); border:1.5px solid #a855f7; color:#e9d5ff; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(168,85,247,0.3);">
-                        🔄 ⚡ ¡CONECTÓ AL REVÉS (VIRADO)! → ${txtR}
-                    </div>`;
-                } else if (finalizado) {
-                    badgeHit = `<div style="margin-top:8px; background:rgba(255,255,255,0.03); border:1px solid #334155; color:#94a3b8; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
-                        ✓ Sorteo completado hoy
-                    </div>`;
+                // Verificar si la Pareja Maestra de Alta Frecuencia salió en esta lotería
+                if (finalizado && Array.isArray(premiosHoy)) {
+                    // Obtener la pareja maestra oficial
+                    let m1 = 38, m2 = 93;
+                    if (datosAppAdmin && datosAppAdmin.jugada_maestra_fija && Array.isArray(datosAppAdmin.jugada_maestra_fija.pareja_oficial)) {
+                        m1 = parseInt(datosAppAdmin.jugada_maestra_fija.pareja_oficial[0], 10);
+                        m2 = parseInt(datosAppAdmin.jugada_maestra_fija.pareja_oficial[1], 10);
+                    } else if (window.DATOS_LOTOPRO && window.DATOS_LOTOPRO.jugada_maestra_fija && Array.isArray(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial)) {
+                        m1 = parseInt(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[0], 10);
+                        m2 = parseInt(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[1], 10);
+                    }
+                    const hitsMaestra = [];
+                    premiosHoy.forEach((p, idx) => {
+                        const pos = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
+                        if (p === m1 || p === m2) {
+                            hitsMaestra.push({ num: p, pos: pos });
+                        }
+                    });
+                    if (hitsMaestra.length >= 2) {
+                        badgeHit = `<div style="margin-top:8px; background:linear-gradient(135deg,rgba(245,158,11,0.35),rgba(16,185,129,0.35)); border:2px solid #f59e0b; color:#fde047; padding:7px 10px; border-radius:8px; font-size:12px; font-weight:900; text-align:center; box-shadow:0 0 16px rgba(245,158,11,0.4);">
+                            👑 🏆 ¡PALÉ OFICIAL ALTA FRECUENCIA AQUÍ! → [${hitsMaestra.map(a => fmt2Adm(a.num)).join(' × ')}]
+                        </div>`;
+                    } else if (hitsMaestra.length === 1) {
+                        const h = hitsMaestra[0];
+                        const bgCol = (h.pos === '1ra') ? 'rgba(16,185,129,0.3)' : 'rgba(59,130,246,0.25)';
+                        const borderCol = (h.pos === '1ra') ? '#10b981' : '#3b82f6';
+                        badgeHit = `<div style="margin-top:8px; background:${bgCol}; border:1.5px solid ${borderCol}; color:#6ee7b7; padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:900; text-align:center; box-shadow:0 0 14px rgba(16,185,129,0.25);">
+                            🎯 ✅ ¡ALTA FRECUENCIA CONECTÓ AQUÍ! → [${fmt2Adm(h.num)}] en ${h.pos}
+                        </div>`;
+                    } else {
+                        badgeHit = `<div style="margin-top:8px; background:rgba(255,255,255,0.03); border:1px solid #334155; color:#94a3b8; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
+                            ✓ Sorteo completado hoy
+                        </div>`;
+                    }
                 } else {
                     badgeHit = `<div style="margin-top:8px; background:rgba(59,130,246,0.1); border:1px dashed #3b82f6; color:#93c5fd; padding:4px 8px; border-radius:6px; font-size:10.5px; font-weight:700; text-align:center;">
-                        ⏳ En seguimiento • Esperando hora de sorteo
+                        ⏳ En seguimiento • Esperando hora de sorteo (${item.hora})
                     </div>`;
                 }
 
@@ -1687,25 +1705,6 @@
                             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                                 <span style="font-weight:900; font-size:13px; color:#f8fafc;">${item.icono} ${item.nombre}</span>
                                 <span style="font-size:10px; font-weight:800; background:rgba(59,130,246,0.18); color:#93c5fd; padding:2px 7px; border-radius:99px; font-family:'JetBrains Mono',monospace;">${item.hora}</span>
-                            </div>
-
-                            <!-- Jugada Secreta con Candado -->
-                            <div style="background:rgba(245,158,11,0.08); border:1px dashed rgba(245,158,11,0.45); border-radius:9px; padding:9px; margin-bottom:8px;">
-                                <div style="display:flex; justify-content:space-between; align-items:center; font-size:10.5px; font-weight:900; color:#fbbf24; margin-bottom:5px;">
-                                    <span>🔒 JUGADA CON CANDADO (ADMIN)</span>
-                                    <span style="background:rgba(245,158,11,0.2); padding:1px 6px; border-radius:4px; font-size:9.5px;">SOLO DUEÑO</span>
-                                </div>
-                                <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
-                                    <div style="display:flex; gap:6px; align-items:center;">
-                                        <div style="background:#131c31; border:1.5px solid #f59e0b; color:#fde047; font-size:16px; font-weight:900; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px;">${fmt2Adm(item.n1)}</div>
-                                        <span style="color:#fbbf24; font-weight:900;">×</span>
-                                        <div style="background:#131c31; border:1.5px solid #f59e0b; color:#fde047; font-size:16px; font-weight:900; font-family:'JetBrains Mono',monospace; padding:3px 8px; border-radius:6px;">${fmt2Adm(item.n2)}</div>
-                                    </div>
-                                    <div style="font-size:10px; color:#cbd5e1; font-family:'JetBrains Mono',monospace;">
-                                        Oficial: <strong style="color:#fde047;">${fmt2Adm(item.n1)} × ${fmt2Adm(item.n2)}</strong>
-                                        <span style="color:#a855f7; margin-left:4px;">(Revés: ${fmt2Adm(revN1)} × ${fmt2Adm(revN2)})</span>
-                                    </div>
-                                </div>
                             </div>
 
                             <!-- Resultado Oficial -->
@@ -2140,35 +2139,36 @@
             guardarHistorialAuditoriaGerencial(hist);
         }
 
+        function toggleArchivoCandados() {
+            const sec = document.getElementById('seccion-archivo-candados');
+            const btn = document.getElementById('btn-toggle-candados');
+            if (!sec) return;
+            if (sec.style.display === 'none') {
+                sec.style.display = 'block';
+                if (btn) btn.innerText = '📁 Ocultar Registro de Gemelas / Candados (Modo Archivo)';
+            } else {
+                sec.style.display = 'none';
+                if (btn) btn.innerText = '📂 Ver Registro Histórico de Gemelas / Candados (Modo Archivo)';
+            }
+        }
+
         function renderizarCuadernoDiarioGerencial() {
             const tbody = document.getElementById('adm-tabla-registro-diario');
             if (!tbody) return;
 
             const hist = obtenerHistorialAuditoriaGerencial();
             
-            // Fila de hoy en vivo
+            // Fila de hoy en vivo (5 columnas limpias)
             let filaHoy = '';
             if (auditoriaActualGerencial) {
                 const hitsM = (auditoriaActualGerencial.maestraHitsDetalle && auditoriaActualGerencial.maestraHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#93c5fd; background:rgba(30,58,138,0.25); padding:4px 6px; border-radius:4px; border:1px solid rgba(59,130,246,0.3);">
-                         🎯 <strong>Dónde pegó (Informativo):</strong><br>${auditoriaActualGerencial.maestraHitsDetalle.map(h => '• ' + h).join('<br>')}
+                    ? `<div style="font-size:11px; color:#93c5fd; background:rgba(30,58,138,0.25); padding:6px 8px; border-radius:6px; border:1px solid rgba(59,130,246,0.3); line-height:1.45;">
+                         ${auditoriaActualGerencial.maestraHitsDetalle.map(h => '• ' + h).join('<br>')}
                        </div>`
-                    : `<div style="font-size:9.5px; color:#64748b; margin-top:2px;">Sin impacto aún</div>`;
-
-                const hitsC = (auditoriaActualGerencial.candadosHitsDetalle && auditoriaActualGerencial.candadosHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#6ee7b7; background:rgba(6,78,59,0.25); padding:4px 6px; border-radius:4px; border:1px solid rgba(16,185,129,0.3);">
-                         🎯 <strong>Directos en 1ra:</strong><br>${auditoriaActualGerencial.candadosHitsDetalle.map(h => '• ' + h).join('<br>')}
-                       </div>`
-                    : '';
-
-                const hitsRev = (auditoriaActualGerencial.candadosRevesHitsDetalle && auditoriaActualGerencial.candadosRevesHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#d8b4fe; background:rgba(88,28,135,0.25); padding:4px 6px; border-radius:4px; border:1px solid rgba(168,85,247,0.3);">
-                         🔄 <strong>Virados:</strong><br>${auditoriaActualGerencial.candadosRevesHitsDetalle.map(h => '• ' + h).join('<br>')}
-                       </div>`
-                    : '';
+                    : `<div style="font-size:10px; color:#64748b; font-style:italic;">Esperando impacto en las próximas loterías...</div>`;
 
                 const badge1raM = auditoriaActualGerencial.maestra1ra === 0
-                    ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">❌ 0 en 1ra (${auditoriaActualGerencial.maestraPct})</span>`
+                    ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">0 en 1ra (${auditoriaActualGerencial.maestraPct})</span>`
                     : `<span style="font-size:10px; color:#34d399; background:rgba(16,185,129,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(16,185,129,0.3);">🏆 ${auditoriaActualGerencial.maestra1ra} en 1ra (${auditoriaActualGerencial.maestraPct})</span>`;
 
                 filaHoy = `
@@ -2179,50 +2179,28 @@
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; color:#f8fafc; font-family:monospace; font-weight:800;">${auditoriaActualGerencial.sorteosEvaluados}</td>
                         <td style="padding:10px 8px; vertical-align:top; color:#fde047;">
-                            <div style="font-family:monospace; font-size:12px; font-weight:900;">${auditoriaActualGerencial.parejaMaestra}</div>
+                            <div style="font-family:monospace; font-size:13px; font-weight:900;">${auditoriaActualGerencial.parejaMaestra}</div>
                             <div style="margin:3px 0;">${badge1raM}</div>
                             <div style="font-size:10px; color:#cbd5e1; font-family:monospace;">🥇${auditoriaActualGerencial.maestra1ra} | 🥈${auditoriaActualGerencial.maestra2da} | 🥉${auditoriaActualGerencial.maestra3ra}</div>
+                        </td>
+                        <td style="padding:10px 8px; vertical-align:top;">
                             ${hitsM}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#6ee7b7;">
-                            <div style="font-weight:900;">${auditoriaActualGerencial.candadosRatio} <span style="color:#10b981;">(${auditoriaActualGerencial.candadosPct})</span></div>
-                            <div style="font-size:10px; color:#94a3b8; font-family:monospace; margin-top:2px;">🥇${auditoriaActualGerencial.candados1ra} | 🥈${auditoriaActualGerencial.candados2da} | 🥉${auditoriaActualGerencial.candados3ra}</div>
-                            ${hitsC}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#c084fc; font-weight:900;">
-                            <div>${auditoriaActualGerencial.candadosRevesRatio} <span style="color:#d8b4fe;">(${auditoriaActualGerencial.candadosRevesPct})</span></div>
-                            ${hitsRev}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#60a5fa; font-weight:900;">
-                            <div>${auditoriaActualGerencial.candadosTotalRatio} <span style="color:#38bdf8;">(${auditoriaActualGerencial.candadosTotalPct})</span></div>
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; ${auditoriaActualGerencial.diagClase}">${auditoriaActualGerencial.diagnostico}</td>
                     </tr>
                 `;
             }
 
-            // Filas archivadas anteriores
+            // Filas archivadas anteriores (5 columnas limpias)
             const filasHist = hist.filter(h => !auditoriaActualGerencial || h.fecha !== auditoriaActualGerencial.fecha).map(h => {
                 const hitsM = (h.maestraHitsDetalle && h.maestraHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#93c5fd; background:rgba(30,58,138,0.2); padding:4px 6px; border-radius:4px; border:1px solid rgba(59,130,246,0.25);">
-                         🎯 <strong>Dónde pegó (Informativo):</strong><br>${h.maestraHitsDetalle.map(item => '• ' + item).join('<br>')}
+                    ? `<div style="font-size:11px; color:#93c5fd; background:rgba(30,58,138,0.2); padding:6px 8px; border-radius:6px; border:1px solid rgba(59,130,246,0.25); line-height:1.45;">
+                         ${h.maestraHitsDetalle.map(item => '• ' + item).join('<br>')}
                        </div>`
-                    : `<div style="font-size:9.5px; color:#64748b; margin-top:2px;">Sin impacto</div>`;
-
-                const hitsC = (h.candadosHitsDetalle && h.candadosHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#6ee7b7; background:rgba(6,78,59,0.2); padding:4px 6px; border-radius:4px; border:1px solid rgba(16,185,129,0.25);">
-                         🎯 <strong>Directos en 1ra:</strong><br>${h.candadosHitsDetalle.map(item => '• ' + item).join('<br>')}
-                       </div>`
-                    : '';
-
-                const hitsRev = (h.candadosRevesHitsDetalle && h.candadosRevesHitsDetalle.length > 0)
-                    ? `<div style="margin-top:4px; font-size:9.5px; color:#d8b4fe; background:rgba(88,28,135,0.2); padding:4px 6px; border-radius:4px; border:1px solid rgba(168,85,247,0.25);">
-                         🔄 <strong>Virados:</strong><br>${h.candadosRevesHitsDetalle.map(item => '• ' + item).join('<br>')}
-                       </div>`
-                    : '';
+                    : `<div style="font-size:10px; color:#64748b; font-style:italic;">Sin impacto</div>`;
 
                 const badge1raM = (h.maestra1ra === 0 || !h.maestra1ra)
-                    ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">❌ 0 en 1ra (${h.maestraPct || '0.0%'})</span>`
+                    ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">0 en 1ra (${h.maestraPct || '0.0%'})</span>`
                     : `<span style="font-size:10px; color:#34d399; background:rgba(16,185,129,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(16,185,129,0.3);">🏆 ${h.maestra1ra} en 1ra (${h.maestraPct})</span>`;
 
                 return `
@@ -2233,29 +2211,37 @@
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; color:#94a3b8; font-family:monospace; font-weight:800;">${h.sorteosEvaluados}</td>
                         <td style="padding:10px 8px; vertical-align:top; color:#fde047;">
-                            <div style="font-family:monospace; font-size:12px; font-weight:900;">${h.parejaMaestra || ''}</div>
+                            <div style="font-family:monospace; font-size:13px; font-weight:900;">${h.parejaMaestra || ''}</div>
                             <div style="margin:3px 0;">${badge1raM}</div>
                             <div style="font-size:10px; color:#94a3b8; font-family:monospace;">🥇${h.maestra1ra || 0} | 🥈${h.maestra2da || 0} | 🥉${h.maestra3ra || 0}</div>
+                        </td>
+                        <td style="padding:10px 8px; vertical-align:top;">
                             ${hitsM}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#6ee7b7; font-weight:800;">
-                            <div>${h.candadosRatio} <span style="color:#10b981;">(${h.candadosPct})</span></div>
-                            <div style="font-size:10px; color:#64748b; font-family:monospace; margin-top:2px;">🥇${h.candados1ra || 0} | 🥈${h.candados2da || 0} | 🥉${h.candados3ra || 0}</div>
-                            ${hitsC}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#c084fc; font-weight:800;">
-                            <div>${h.candadosRevesRatio || '0 / 0'} <span style="color:#d8b4fe;">(${h.candadosRevesPct || '0.0%'})</span></div>
-                            ${hitsRev}
-                        </td>
-                        <td style="padding:10px 8px; vertical-align:top; color:#60a5fa; font-weight:800;">
-                            <div>${h.candadosTotalRatio || h.candadosRatio} <span style="color:#38bdf8;">(${h.candadosTotalPct || h.candadosPct})</span></div>
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; ${h.diagClase || 'color:#94a3b8;'}">${h.diagnostico}</td>
                     </tr>
                 `;
             }).join('');
 
-            tbody.innerHTML = (filaHoy || filasHist.length > 0) ? (filaHoy + filasHist) : `<tr><td colspan="7" style="padding: 10px; text-align: center; color: #64748b;">No hay registros archivados aún.</td></tr>`;
+            tbody.innerHTML = (filaHoy || filasHist.length > 0) ? (filaHoy + filasHist) : `<tr><td colspan="5" style="padding: 10px; text-align: center; color: #64748b;">No hay registros archivados aún.</td></tr>`;
+
+            // Llenar tabla de archivo de Candados
+            const tbodyCandados = document.getElementById('tbody-archivo-candados');
+            if (tbodyCandados) {
+                tbodyCandados.innerHTML = hist.map(h => {
+                    const hitsC = (h.candadosHitsDetalle && h.candadosHitsDetalle.length > 0) ? h.candadosHitsDetalle.join(', ') : 'Ninguno';
+                    const hitsRev = (h.candadosRevesHitsDetalle && h.candadosRevesHitsDetalle.length > 0) ? h.candadosRevesHitsDetalle.join(', ') : 'Ninguno';
+                    return `
+                        <tr style="border-bottom:1px solid #1e293b;">
+                            <td style="padding:6px; color:#cbd5e1; font-weight:700;">${h.fechaFormato || h.fecha}</td>
+                            <td style="padding:6px; color:#6ee7b7; font-weight:800;">${h.candadosRatio || '0 / 18'} (${h.candadosPct || '0.0%'})</td>
+                            <td style="padding:6px; color:#94a3b8; font-size:10px;">${hitsC}</td>
+                            <td style="padding:6px; color:#c084fc; font-size:10px;">${hitsRev}</td>
+                            <td style="padding:6px; color:#60a5fa; font-weight:800;">${h.candadosTotalRatio || '0 / 18'} (${h.candadosTotalPct || '0.0%'})</td>
+                        </tr>
+                    `;
+                }).join('');
+            }
         }
 
         function archivarJornadaHoyGerencial() {
