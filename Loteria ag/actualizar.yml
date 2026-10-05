@@ -1,0 +1,68 @@
+name: Actualizador Autonomo 24/7 LotoPro RD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Loteria ag/admin.html'
+      - 'Loteria ag/index.html'
+      - 'Loteria ag/app.js'
+      - 'Loteria ag/style.css'
+      - '.github/workflows/**'
+  schedule:
+    # Horario oficial de sorteos en RD (13:00 a 04:00 UTC = 9:00 AM a 12:00 AM Dominicana)
+    - cron: '*/15 13-23 * * *'
+    - cron: '*/15 0-4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  actualizar:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          pip install beautifulsoup4 openpyxl pandas
+
+      - name: Ejecutar Rastreador
+        working-directory: ./Loteria ag
+        run: |
+          python actualizador_automatico.py
+
+      - name: Guardar cambios si hay sorteos nuevos
+        run: |
+          git config --global user.name "LotoPro Bot"
+          git add "Loteria ag/datos_en_vivo.js" "Loteria ag/sorteos_hoy.json" "Loteria ag/historial_loterias.json" "Loteria ag/datos_historial.js" "Loteria ag/Recientes.xlsx" || true
+          git diff --staged --quiet || (git commit -m "Auto-actualizacion de sorteos en vivo" && (git pull --rebase origin main && git push || git push || echo "Push omitido por concurrencia"))
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir a GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './Loteria ag'
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

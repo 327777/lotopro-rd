@@ -198,7 +198,8 @@ def actualizar_todo():
                     "hora": s["hora"],
                     "premios": s["premios"]
                 })
-        if len(sorteos_ayer) >= 15:
+        # Archivar siempre que haya al menos 1 sorteo finalizado (inmune a feriados y días con pocos sorteos)
+        if len(sorteos_ayer) > 0:
             datos["sorteos_ayer"] = sorteos_ayer
             
         datos["fecha_ayer"] = datos.get("fecha_hoy", "")
@@ -369,19 +370,15 @@ def actualizar_todo():
                     hubo_cambios = True
                     sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
 
-    # 5. Auto-limpieza de seguridad: cualquier sorteo cuya hora aún no ha llegado hoy en RD
-    # o que aún no tiene bolos publicados hoy en la fuente oficial se mantiene en "proximo"
+    # 5. Seguridad: Solo sorteos que NO hayan finalizado y cuya hora aún no haya llegado se aseguran en "proximo"
+    # UN SORTEO QUE YA FINALIZÓ HOY NUNCA SE BORRA NI SE REGRESA A "PROXIMO" (INMUNE A FERIADOS Y HORARIOS ESPECIALES)
     for s in datos.get("sorteos_hoy", []):
-        sid_clean = s.get("id")
-        sin_bolos_hoy = (tarjetas_hoy_detectadas >= 10 and sid_clean not in sorteos_vistos_hoy)
-        if not hora_ha_pasado(s.get("hora", "")) or sin_bolos_hoy:
-            if s.get("estado") != "proximo" or s.get("premios") is not None:
-                s["estado"] = "proximo"
-                s["premios"] = None
-                hubo_cambios = True
-            if sid_clean in hist and hist[sid_clean] and hist[sid_clean][0].get("fecha") == hoy_dmy:
-                hist[sid_clean].pop(0)
-                hubo_cambios = True
+        if s.get("estado") != "finalizado":
+            if not hora_ha_pasado(s.get("hora", "")):
+                if s.get("estado") != "proximo" or s.get("premios") is not None:
+                    s["estado"] = "proximo"
+                    s["premios"] = None
+                    hubo_cambios = True
 
     if hubo_cambios:
         datos["actualizado_a_las"] = ahora.strftime("%I:%M %p")

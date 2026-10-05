@@ -1947,6 +1947,110 @@
         // ==========================================
         const HISTORIAL_OFICIAL_BASE = [
             {
+                fecha: "2026-10-04",
+                fechaFormato: "04 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[00 × 94]",
+                maestra1ra: 2,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: [
+                    "New York 2:30 PM: 94 en 1ra",
+                    "Quiniela Loteka 7:55 PM: 94 en 1ra",
+                    "Quiniela Loteka 7:55 PM: 00 en 3ra (¡Palé 94×00!)"
+                ],
+                maestraRatio: "2 / 20",
+                maestraPct: "10.0%",
+                candados1ra: 0,
+                candados2da: 1,
+                candados3ra: 0,
+                candadosHitsDetalle: [
+                    "La Primera 8:00 PM: 73 en 2da"
+                ],
+                candadosRatio: "0 / 18",
+                candadosPct: "0.0%",
+                candadosReves1ra: 1,
+                candadosReves2da: 1,
+                candadosReves3ra: 0,
+                candadosRevesHitsDetalle: [
+                    "Quiniela Loteka 7:55 PM: 94 (virao) en 1ra",
+                    "New York 10:30 PM: 53 (virao) en 2da"
+                ],
+                candadosRevesRatio: "2 / 18",
+                candadosRevesPct: "11.1%",
+                candadosTotalRatio: "3 / 18",
+                candadosTotalPct: "16.7%",
+                diagnostico: "🏆 Alta Eficiencia Maestra (2 en 1ra + Palé 94×00 en Loteka)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-03",
+                fechaFormato: "03 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[77 × 27]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: [
+                    "New York 2:30 PM: 77 en 1ra",
+                    "Quiniela Leidsa 8:55 PM: 27 en 3ra"
+                ],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                candados1ra: 0,
+                candados2da: 0,
+                candados3ra: 0,
+                candadosHitsDetalle: [],
+                candadosRatio: "0 / 18",
+                candadosPct: "0.0%",
+                candadosReves1ra: 0,
+                candadosReves2da: 0,
+                candadosReves3ra: 0,
+                candadosRevesHitsDetalle: [],
+                candadosRevesRatio: "0 / 18",
+                candadosRevesPct: "0.0%",
+                candadosTotalRatio: "0 / 18",
+                candadosTotalPct: "0.0%",
+                diagnostico: "🟡 Rendimiento Firme Maestra (1 en 1ra Mayor en NY 2:30 PM)",
+                diagClase: "color:#fde047; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-02",
+                fechaFormato: "02 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[89 × 94]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [
+                    "Real 9:00 PM: 94 en 1ra"
+                ],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                candados1ra: 0,
+                candados2da: 0,
+                candados3ra: 0,
+                candadosHitsDetalle: [],
+                candadosRatio: "0 / 18",
+                candadosPct: "0.0%",
+                candadosReves1ra: 1,
+                candadosReves2da: 1,
+                candadosReves3ra: 0,
+                candadosRevesHitsDetalle: [
+                    "Anguila 10:00 AM: 52 (virao) en 1ra",
+                    "Florida 10:00 PM: 56 (virao) en 2da"
+                ],
+                candadosRevesRatio: "2 / 18",
+                candadosRevesPct: "11.1%",
+                candadosTotalRatio: "2 / 18",
+                candadosTotalPct: "11.1%",
+                diagnostico: "🟡 Rendimiento Firme Maestra (1 en 1ra en Real 9:00 PM)",
+                diagClase: "color:#fde047; font-weight:800;",
+                cerrado: true
+            },
+            {
                 fecha: "2026-10-01",
                 fechaFormato: "01 Octubre 2026",
                 sorteosEvaluados: "20 / 20",
@@ -1987,18 +2091,33 @@
 
         function obtenerHistorialAuditoriaGerencial() {
             try {
+                const cloudHist = (datosAppAdmin && Array.isArray(datosAppAdmin.auditoria_historica)) 
+                    ? datosAppAdmin.auditoria_historica 
+                    : (window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.auditoria_historica) ? window.DATOS_LOTOPRO.auditoria_historica : []);
+                
                 const raw = localStorage.getItem('lotopro_auditoria_historica');
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        HISTORIAL_OFICIAL_BASE.forEach(baseItem => {
-                            if (!parsed.some(p => p.fecha === baseItem.fecha)) {
-                                parsed.push(baseItem);
-                            }
-                        });
-                        return parsed;
+                let lista = raw ? JSON.parse(raw) : [];
+                if (!Array.isArray(lista)) lista = [];
+
+                HISTORIAL_OFICIAL_BASE.forEach(b => {
+                    const idx = lista.findIndex(x => x.fecha === b.fecha);
+                    if (idx < 0) {
+                        lista.push(b);
+                    } else if (!lista[idx].cerrado && b.cerrado) {
+                        lista[idx] = b;
                     }
+                });
+
+                if (cloudHist && cloudHist.length > 0) {
+                    cloudHist.forEach(c => {
+                        const idx = lista.findIndex(x => x.fecha === c.fecha);
+                        if (idx < 0) lista.push(c);
+                        else if (c.cerrado) lista[idx] = c;
+                    });
                 }
+
+                lista.sort((a, b) => (b.fecha || '').localeCompare(a.fecha || ''));
+                return lista;
             } catch (e) {}
             return [...HISTORIAL_OFICIAL_BASE];
         }
