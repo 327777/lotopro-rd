@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-05",
   "fecha_ayer": "2026-10-04",
-  "actualizado_a_las": "10:20 AM",
+  "actualizado_a_las": "12:17 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -219,8 +219,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        77,
+        19,
+        94
+      ]
     },
     {
       "id": "lotedom",
@@ -228,8 +232,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        26,
+        29,
+        96
+      ]
     },
     {
       "id": "la_suerte_dia",
