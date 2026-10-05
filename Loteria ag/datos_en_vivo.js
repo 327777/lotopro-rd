@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-05",
   "fecha_ayer": "2026-10-04",
-  "actualizado_a_las": "01:14 PM",
+  "actualizado_a_las": "01:35 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -245,8 +245,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        9,
+        33,
+        65
+      ]
     },
     {
       "id": "quiniela_real",
