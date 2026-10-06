@@ -2301,21 +2301,33 @@
                 return;
             }
 
-            // Instrucción sep=; para que Excel en Windows/Español abra automáticamente cada dato en su columna independiente
-            let csv = "sep=;\r\n";
-            csv += "\uFEFFFecha;Sorteos Evaluados;Pareja Maestra;Aciertos 1ra (Mayor);Aciertos 2da;Aciertos 3ra;Efectividad 1ra (%);Dónde Pegó (Detalle de Loterías);Diagnóstico Oficial\r\n";
+            // BOM UTF-8 en el byte 0 exacto para que Excel reconozca codificación limpia sin ï»¿ ni caracteres raros
+            let csv = "\uFEFFsep=;\r\n";
+            csv += "Fecha;Sorteos Evaluados;Pareja Maestra;Aciertos 1ra (Mayor);Aciertos 2da;Aciertos 3ra;Efectividad 1ra (%);Donde Pego (Detalle de Loterias);Diagnostico Oficial\r\n";
 
             registros.forEach(r => {
                 const detM = (r.maestraHitsDetalle && r.maestraHitsDetalle.length > 0) ? r.maestraHitsDetalle.join(' | ') : 'Sin conexiones en 1ra';
                 const fecha = (r.fechaFormato || r.fecha || '').replace(/;/g, ',');
                 const sorteos = (r.sorteosEvaluados || '20 / 20').replace(/;/g, ',');
-                const pareja = (r.parejaMaestra || '').replace(/;/g, ',');
+                // Limpiar el símbolo de multiplicación para que sea 'x' estándar compatible con Excel
+                const pareja = (r.parejaMaestra || '').replace(/×/g, 'x').replace(/;/g, ',');
                 const p1ra = r.maestra1ra || 0;
                 const p2da = r.maestra2da || 0;
                 const p3ra = r.maestra3ra || 0;
                 const pct = (r.maestraPct || '0.0%').replace(/;/g, ',');
-                const detalle = detM.replace(/;/g, ' - ').replace(/"/g, '""');
-                const diag = (r.diagnostico || '').replace(/;/g, ' - ').replace(/"/g, '""');
+                const detalle = detM.replace(/×/g, 'x').replace(/;/g, ' - ').replace(/"/g, '""');
+                
+                // Sanitizar emojis para que no se deformen en Excel
+                let diag = (r.diagnostico || '')
+                    .replace(/🏆/g, '[EXITO]')
+                    .replace(/🔵/g, '[INERCIA]')
+                    .replace(/🟡/g, '[FIRME]')
+                    .replace(/⚠️/g, '[AVISO]')
+                    .replace(/🔒/g, '')
+                    .replace(/×/g, 'x')
+                    .replace(/;/g, ' - ')
+                    .replace(/"/g, '""')
+                    .trim();
 
                 csv += `"${fecha}";"${sorteos}";"${pareja}";${p1ra};${p2da};${p3ra};"${pct}";"${detalle}";"${diag}"\r\n`;
             });
