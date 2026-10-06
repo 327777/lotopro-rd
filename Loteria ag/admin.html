@@ -1958,6 +1958,24 @@
         // ==========================================
         const HISTORIAL_OFICIAL_BASE = [
             {
+                fecha: "2026-10-05",
+                fechaFormato: "05 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[19 × 56]",
+                maestra1ra: 0,
+                maestra2da: 2,
+                maestra3ra: 0,
+                maestraHitsDetalle: [
+                    "La Primera 12:00 PM: 19 en 2da",
+                    "Quiniela Real 1:00 PM: 19 en 2da"
+                ],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Inercia en 2da Posición (2 aciertos en La Primera y Real)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
                 fecha: "2026-10-04",
                 fechaFormato: "04 Octubre 2026",
                 sorteosEvaluados: "20 / 20",
@@ -2283,20 +2301,30 @@
                 return;
             }
 
-            let csv = "\uFEFFFecha,Sorteos Evaluados,Pareja Maestra,Maestra 1ra (Mayor),Maestra 2da,Maestra 3ra,Eficiencia Maestra 1ra,Detalle Conexiones Maestra (Dónde Pegó),Candados 1ra Directo,Candados 2da,Candados 3ra,Eficiencia Candados Directa,Detalle Candados Directos,Al Revés (Virados),Eficiencia Virados,Detalle Virados,Fuerza Total Jaladera,Diagnostico Gerente\n";
-            registros.forEach(r => {
-                const detM = (r.maestraHitsDetalle && r.maestraHitsDetalle.length > 0) ? r.maestraHitsDetalle.join(' ; ') : 'Sin conexiones';
-                const detC = (r.candadosHitsDetalle && r.candadosHitsDetalle.length > 0) ? r.candadosHitsDetalle.join(' ; ') : 'Sin directos';
-                const detRev = (r.candadosRevesHitsDetalle && r.candadosRevesHitsDetalle.length > 0) ? r.candadosRevesHitsDetalle.join(' ; ') : 'Sin virados';
+            // Instrucción sep=; para que Excel en Windows/Español abra automáticamente cada dato en su columna independiente
+            let csv = "sep=;\r\n";
+            csv += "\uFEFFFecha;Sorteos Evaluados;Pareja Maestra;Aciertos 1ra (Mayor);Aciertos 2da;Aciertos 3ra;Efectividad 1ra (%);Dónde Pegó (Detalle de Loterías);Diagnóstico Oficial\r\n";
 
-                csv += `"${r.fechaFormato || r.fecha}","${r.sorteosEvaluados}","${r.parejaMaestra}",${r.maestra1ra || 0},${r.maestra2da || 0},${r.maestra3ra || 0},"${r.maestraPct || '0.0%'}","${detM.replace(/"/g, '""')}",${r.candados1ra || 0},${r.candados2da || 0},${r.candados3ra || 0},"${r.candadosPct || '0.0%'}","${detC.replace(/"/g, '""')}","${r.candadosRevesRatio || '0 / 0'}","${r.candadosRevesPct || '0.0%'}","${detRev.replace(/"/g, '""')}","${r.candadosTotalRatio || r.candadosRatio} (${r.candadosTotalPct || r.candadosPct})","${(r.diagnostico || '').replace(/"/g, '""')}"\n`;
+            registros.forEach(r => {
+                const detM = (r.maestraHitsDetalle && r.maestraHitsDetalle.length > 0) ? r.maestraHitsDetalle.join(' | ') : 'Sin conexiones en 1ra';
+                const fecha = (r.fechaFormato || r.fecha || '').replace(/;/g, ',');
+                const sorteos = (r.sorteosEvaluados || '20 / 20').replace(/;/g, ',');
+                const pareja = (r.parejaMaestra || '').replace(/;/g, ',');
+                const p1ra = r.maestra1ra || 0;
+                const p2da = r.maestra2da || 0;
+                const p3ra = r.maestra3ra || 0;
+                const pct = (r.maestraPct || '0.0%').replace(/;/g, ',');
+                const detalle = detM.replace(/;/g, ' - ').replace(/"/g, '""');
+                const diag = (r.diagnostico || '').replace(/;/g, ' - ').replace(/"/g, '""');
+
+                csv += `"${fecha}";"${sorteos}";"${pareja}";${p1ra};${p2da};${p3ra};"${pct}";"${detalle}";"${diag}"\r\n`;
             });
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `Auditoria_Eficiencia_LotoPro_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = `Reporte_Pareja_Maestra_LotoPro_${new Date().toISOString().split('T')[0]}.csv`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
