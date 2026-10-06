@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-06",
   "fecha_ayer": "2026-10-05",
-  "actualizado_a_las": "01:57 PM",
+  "actualizado_a_las": "02:50 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -310,8 +310,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        62,
+        62,
+        17
+      ]
     },
     {
       "id": "ny_tarde",
@@ -319,8 +323,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        28,
+        74,
+        22
+      ]
     },
     {
       "id": "la_suerte_tarde",
