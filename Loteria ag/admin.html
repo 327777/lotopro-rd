@@ -453,8 +453,11 @@
                         <button type="button" onclick="archivarJornadaHoyGerencial()" title="El sistema ya guarda automáticamente en cada sorteo, pero puedes forzar un respaldo inmediato si lo deseas" style="background: #1e293b; color: #cbd5e1; border: 1px solid #475569; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
                             💾 Respaldar Ahora
                         </button>
-                        <button type="button" onclick="descargarInformeCSVGerencial()" style="background: #0f172a; border: 1.5px solid #38bdf8; color: #38bdf8; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
-                            📥 Descargar Reporte Excel
+                        <button type="button" onclick="descargarInformeExcelGerencial()" style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1.5px solid #38bdf8; color: #38bdf8; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(56, 189, 248, 0.2);">
+                            📊 Descargar Reporte Excel (Con Colores)
+                        </button>
+                        <button type="button" onclick="descargarInformeCSVGerencial()" title="Descargar como CSV plano de respaldo" style="background: #1e293b; border: 1px solid #475569; color: #94a3b8; border-radius: 8px; padding: 6px 10px; font-size: 11px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                            📄 CSV
                         </button>
                     </div>
                 </div>
@@ -2188,15 +2191,29 @@
 
             const hist = obtenerHistorialAuditoriaGerencial();
             
+            const formatearHitsWeb = (hitsList, esHoy = false) => {
+                if (!hitsList || hitsList.length === 0) {
+                    return esHoy 
+                        ? `<div style="font-size:10px; color:#64748b; font-style:italic;">Esperando impacto en las próximas loterías...</div>`
+                        : `<div style="font-size:10px; color:#64748b; font-style:italic;">Sin impacto</div>`;
+                }
+                return `<div style="display:flex; flex-direction:column; gap:4px;">` + hitsList.map(item => {
+                    let bg = 'rgba(56,189,248,0.12)', border = 'rgba(56,189,248,0.3)', color = '#38bdf8', icon = '🎯';
+                    if (item.includes('1ra') || item.includes('Mayor')) {
+                        bg = 'rgba(16,185,129,0.18)'; border = 'rgba(16,185,129,0.45)'; color = '#34d399'; icon = '🥇';
+                    } else if (item.includes('2da')) {
+                        bg = 'rgba(56,189,248,0.15)'; border = 'rgba(56,189,248,0.35)'; color = '#60a5fa'; icon = '🥈';
+                    } else if (item.includes('3ra')) {
+                        bg = 'rgba(245,158,11,0.15)'; border = 'rgba(245,158,11,0.35)'; color = '#fbbf24'; icon = '🥉';
+                    }
+                    return `<div style="background:${bg}; border:1px solid ${border}; color:${color}; padding:4px 8px; border-radius:6px; font-size:11px; font-weight:700; line-height:1.35;">${icon} ${item}</div>`;
+                }).join('') + `</div>`;
+            };
+
             // Fila de hoy en vivo (5 columnas limpias)
             let filaHoy = '';
             if (auditoriaActualGerencial) {
-                const hitsM = (auditoriaActualGerencial.maestraHitsDetalle && auditoriaActualGerencial.maestraHitsDetalle.length > 0)
-                    ? `<div style="font-size:11px; color:#93c5fd; background:rgba(30,58,138,0.25); padding:6px 8px; border-radius:6px; border:1px solid rgba(59,130,246,0.3); line-height:1.45;">
-                         ${auditoriaActualGerencial.maestraHitsDetalle.map(h => '• ' + h).join('<br>')}
-                       </div>`
-                    : `<div style="font-size:10px; color:#64748b; font-style:italic;">Esperando impacto en las próximas loterías...</div>`;
-
+                const hitsM = formatearHitsWeb(auditoriaActualGerencial.maestraHitsDetalle, true);
                 const badge1raM = auditoriaActualGerencial.maestra1ra === 0
                     ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">0 en 1ra (${auditoriaActualGerencial.maestraPct})</span>`
                     : `<span style="font-size:10px; color:#34d399; background:rgba(16,185,129,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(16,185,129,0.3);">🏆 ${auditoriaActualGerencial.maestra1ra} en 1ra (${auditoriaActualGerencial.maestraPct})</span>`;
@@ -2209,9 +2226,9 @@
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; color:#f8fafc; font-family:monospace; font-weight:800;">${auditoriaActualGerencial.sorteosEvaluados}</td>
                         <td style="padding:10px 8px; vertical-align:top; color:#fde047;">
-                            <div style="font-family:monospace; font-size:13px; font-weight:900;">${auditoriaActualGerencial.parejaMaestra}</div>
-                            <div style="margin:3px 0;">${badge1raM}</div>
-                            <div style="font-size:10px; color:#cbd5e1; font-family:monospace;">🥇${auditoriaActualGerencial.maestra1ra} | 🥈${auditoriaActualGerencial.maestra2da} | 🥉${auditoriaActualGerencial.maestra3ra}</div>
+                            <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; color:#fbbf24; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); padding:3px 8px; border-radius:6px; display:inline-block; margin-bottom:4px;">${auditoriaActualGerencial.parejaMaestra}</div>
+                            <div style="margin:2px 0;">${badge1raM}</div>
+                            <div style="font-size:10px; color:#cbd5e1; font-family:monospace; margin-top:2px;">🥇${auditoriaActualGerencial.maestra1ra} | 🥈${auditoriaActualGerencial.maestra2da} | 🥉${auditoriaActualGerencial.maestra3ra}</div>
                         </td>
                         <td style="padding:10px 8px; vertical-align:top;">
                             ${hitsM}
@@ -2223,12 +2240,7 @@
 
             // Filas archivadas anteriores (5 columnas limpias)
             const filasHist = hist.filter(h => !auditoriaActualGerencial || h.fecha !== auditoriaActualGerencial.fecha).map(h => {
-                const hitsM = (h.maestraHitsDetalle && h.maestraHitsDetalle.length > 0)
-                    ? `<div style="font-size:11px; color:#93c5fd; background:rgba(30,58,138,0.2); padding:6px 8px; border-radius:6px; border:1px solid rgba(59,130,246,0.25); line-height:1.45;">
-                         ${h.maestraHitsDetalle.map(item => '• ' + item).join('<br>')}
-                       </div>`
-                    : `<div style="font-size:10px; color:#64748b; font-style:italic;">Sin impacto</div>`;
-
+                const hitsM = formatearHitsWeb(h.maestraHitsDetalle, false);
                 const badge1raM = (h.maestra1ra === 0 || !h.maestra1ra)
                     ? `<span style="font-size:10px; color:#f87171; background:rgba(239,68,68,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(239,68,68,0.3);">0 en 1ra (${h.maestraPct || '0.0%'})</span>`
                     : `<span style="font-size:10px; color:#34d399; background:rgba(16,185,129,0.15); padding:2px 6px; border-radius:4px; font-weight:800; border:1px solid rgba(16,185,129,0.3);">🏆 ${h.maestra1ra} en 1ra (${h.maestraPct})</span>`;
@@ -2241,9 +2253,9 @@
                         </td>
                         <td style="padding:10px 8px; vertical-align:top; color:#94a3b8; font-family:monospace; font-weight:800;">${h.sorteosEvaluados}</td>
                         <td style="padding:10px 8px; vertical-align:top; color:#fde047;">
-                            <div style="font-family:monospace; font-size:13px; font-weight:900;">${h.parejaMaestra || ''}</div>
-                            <div style="margin:3px 0;">${badge1raM}</div>
-                            <div style="font-size:10px; color:#94a3b8; font-family:monospace;">🥇${h.maestra1ra || 0} | 🥈${h.maestra2da || 0} | 🥉${h.maestra3ra || 0}</div>
+                            <div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:900; color:#fbbf24; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.35); padding:3px 8px; border-radius:6px; display:inline-block; margin-bottom:4px;">${h.parejaMaestra || ''}</div>
+                            <div style="margin:2px 0;">${badge1raM}</div>
+                            <div style="font-size:10px; color:#94a3b8; font-family:monospace; margin-top:2px;">🥇${h.maestra1ra || 0} | 🥈${h.maestra2da || 0} | 🥉${h.maestra3ra || 0}</div>
                         </td>
                         <td style="padding:10px 8px; vertical-align:top;">
                             ${hitsM}
@@ -2284,6 +2296,277 @@
             alert(`✅ ¡RESPALDO CONFIRMADO EN EL CUADERNO GERENCIAL!\n\n(Recuerda que el sistema guarda automáticamente en cada sorteo sin necesidad de presionar este botón)\n\n• Fecha: ${auditoriaActualGerencial.fechaFormato}\n• Sorteos: ${auditoriaActualGerencial.sorteosEvaluados}\n• Maestra 1ra (Mayor): ${auditoriaActualGerencial.maestraRatio} (${auditoriaActualGerencial.maestraPct})\n• Candados 1ra Directos: ${auditoriaActualGerencial.candadosRatio} (${auditoriaActualGerencial.candadosPct})\n• Virados (Revés): ${auditoriaActualGerencial.candadosRevesRatio} (${auditoriaActualGerencial.candadosRevesPct})\n• Fuerza Total: ${auditoriaActualGerencial.candadosTotalRatio} (${auditoriaActualGerencial.candadosTotalPct})`);
         }
 
+        function descargarInformeExcelGerencial() {
+            const hist = obtenerHistorialAuditoriaGerencial();
+            const registros = [];
+            if (auditoriaActualGerencial) {
+                registros.push(auditoriaActualGerencial);
+            }
+            hist.forEach(h => {
+                if (!registros.some(r => r.fecha === h.fecha)) {
+                    registros.push(h);
+                }
+            });
+
+            if (registros.length === 0) {
+                alert("No hay registros para descargar.");
+                return;
+            }
+
+            const xmlEscape = (str) => {
+                if (str === null || str === undefined) return '';
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&apos;');
+            };
+
+            const limpiarTextoHit = (txt) => {
+                if (!txt) return '';
+                return txt
+                    .replace(/×/g, 'x')
+                    .replace(/;/g, ' - ')
+                    .trim();
+            };
+
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <!-- ENCABEZADOS CON COLORES EJECUTIVOS -->
+  <Style ss:ID="HdrGeneral">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#334155"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#334155"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#334155"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#334155"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#FFFFFF" ss:Bold="1"/>
+   <Interior ss:Color="#0F172A" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="HdrPareja">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#D97706"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#D97706"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#D97706"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#D97706"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#FDE047" ss:Bold="1"/>
+   <Interior ss:Color="#1E1B4B" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="HdrVerde">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#10B981"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#10B981"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#10B981"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#10B981"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#6EE7B7" ss:Bold="1"/>
+   <Interior ss:Color="#064E3B" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="HdrAzul">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0284C7"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0284C7"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0284C7"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#0284C7"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#7DD3FC" ss:Bold="1"/>
+   <Interior ss:Color="#0C4A6E" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="HdrGris">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#64748B"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#64748B"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#64748B"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#64748B"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#E2E8F0" ss:Bold="1"/>
+   <Interior ss:Color="#334155" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="HdrLoterias">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#38BDF8"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#38BDF8"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#38BDF8"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#38BDF8"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#38BDF8" ss:Bold="1"/>
+   <Interior ss:Color="#0F172A" ss:Pattern="Solid"/>
+  </Style>
+
+  <!-- CELDAS DE DATOS CON COLORES -->
+  <Style ss:ID="CellFecha">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#0F172A"/>
+   <Interior ss:Color="#F8FAFC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellSorteos">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#475569"/>
+   <Interior ss:Color="#F8FAFC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellPareja">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#F59E0B"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#F59E0B"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#F59E0B"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#F59E0B"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="12" ss:Bold="1" ss:Color="#92400E"/>
+   <Interior ss:Color="#FEF3C7" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellHit1ra">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#15803D"/>
+   <Interior ss:Color="#DCFCE7" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellHit2da">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#0369A1"/>
+   <Interior ss:Color="#E0F2FE" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellHit3ra">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1" ss:Color="#475569"/>
+   <Interior ss:Color="#F1F5F9" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellCero">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#94A3B8"/>
+   <Interior ss:Color="#F8FAFC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellLot1ra">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#86EFAC"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="10.5" ss:Bold="1" ss:Color="#166534"/>
+   <Interior ss:Color="#DCFCE7" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellLot2da">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#BAE6FD"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="10.5" ss:Bold="1" ss:Color="#0369A1"/>
+   <Interior ss:Color="#F0F9FF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellLot3ra">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#CBD5E1"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="10" ss:Color="#475569"/>
+   <Interior ss:Color="#F8FAFC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="CellLotVacia">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#E2E8F0"/></Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#CBD5E1"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Auditoria Pareja Maestra">
+  <Table>
+   <Column ss:Width="130"/>
+   <Column ss:Width="95"/>
+   <Column ss:Width="110"/>
+   <Column ss:Width="100"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="105"/>
+   <Column ss:Width="210"/>
+   <Column ss:Width="210"/>
+   <Column ss:Width="210"/>
+   <Column ss:Width="210"/>
+   <Row ss:Height="28">
+    <Cell ss:StyleID="HdrGeneral"><Data ss:Type="String">Fecha</Data></Cell>
+    <Cell ss:StyleID="HdrGeneral"><Data ss:Type="String">Sorteos Evaluados</Data></Cell>
+    <Cell ss:StyleID="HdrPareja"><Data ss:Type="String">Pareja Maestra</Data></Cell>
+    <Cell ss:StyleID="HdrVerde"><Data ss:Type="String">Aciertos 1ra (Mayor)</Data></Cell>
+    <Cell ss:StyleID="HdrAzul"><Data ss:Type="String">Aciertos 2da</Data></Cell>
+    <Cell ss:StyleID="HdrGris"><Data ss:Type="String">Aciertos 3ra</Data></Cell>
+    <Cell ss:StyleID="HdrVerde"><Data ss:Type="String">Efectividad 1ra (%)</Data></Cell>
+    <Cell ss:StyleID="HdrLoterias"><Data ss:Type="String">Loteria 1 (Donde Pego)</Data></Cell>
+    <Cell ss:StyleID="HdrLoterias"><Data ss:Type="String">Loteria 2 (Donde Pego)</Data></Cell>
+    <Cell ss:StyleID="HdrLoterias"><Data ss:Type="String">Loteria 3 (Donde Pego)</Data></Cell>
+    <Cell ss:StyleID="HdrLoterias"><Data ss:Type="String">Loteria 4 (Donde Pego)</Data></Cell>
+   </Row>
+`;
+
+            registros.forEach(r => {
+                const hits = r.maestraHitsDetalle || [];
+                const fecha = xmlEscape(r.fechaFormato || r.fecha || '');
+                const sorteos = xmlEscape(r.sorteosEvaluados || '20 / 20');
+                const pareja = xmlEscape((r.parejaMaestra || '').replace(/×/g, 'x'));
+                const p1ra = parseInt(r.maestra1ra, 10) || 0;
+                const p2da = parseInt(r.maestra2da, 10) || 0;
+                const p3ra = parseInt(r.maestra3ra, 10) || 0;
+                const pct = xmlEscape(r.maestraPct || '0.0%');
+
+                const s1ra = p1ra > 0 ? "CellHit1ra" : "CellCero";
+                const s2da = p2da > 0 ? "CellHit2da" : "CellCero";
+                const s3ra = p3ra > 0 ? "CellHit3ra" : "CellCero";
+                const spct = p1ra > 0 ? "CellHit1ra" : "CellCero";
+
+                xml += `   <Row ss:Height="22">
+    <Cell ss:StyleID="CellFecha"><Data ss:Type="String">${fecha}</Data></Cell>
+    <Cell ss:StyleID="CellSorteos"><Data ss:Type="String">${sorteos}</Data></Cell>
+    <Cell ss:StyleID="CellPareja"><Data ss:Type="String">${pareja}</Data></Cell>
+    <Cell ss:StyleID="${s1ra}"><Data ss:Type="Number">${p1ra}</Data></Cell>
+    <Cell ss:StyleID="${s2da}"><Data ss:Type="Number">${p2da}</Data></Cell>
+    <Cell ss:StyleID="${s3ra}"><Data ss:Type="Number">${p3ra}</Data></Cell>
+    <Cell ss:StyleID="${spct}"><Data ss:Type="String">${pct}</Data></Cell>
+`;
+
+                for (let i = 0; i < 4; i++) {
+                    if (i < hits.length) {
+                        const hRaw = hits[i];
+                        const hClean = xmlEscape(limpiarTextoHit(hRaw));
+                        let st = "CellLot3ra";
+                        if (hRaw.includes('1ra') || hRaw.includes('Mayor')) {
+                            st = "CellLot1ra";
+                        } else if (hRaw.includes('2da')) {
+                            st = "CellLot2da";
+                        }
+                        xml += `    <Cell ss:StyleID="${st}"><Data ss:Type="String">${hClean}</Data></Cell>\n`;
+                    } else if (i === 0 && p1ra === 0 && p2da === 0 && p3ra === 0) {
+                        xml += `    <Cell ss:StyleID="CellLotVacia"><Data ss:Type="String">Sin conexiones</Data></Cell>\n`;
+                    } else {
+                        xml += `    <Cell ss:StyleID="CellLotVacia"><Data ss:Type="String">-</Data></Cell>\n`;
+                    }
+                }
+                xml += `   </Row>\n`;
+            });
+
+            xml += `  </Table>
+ </Worksheet>
+</Workbook>`;
+
+            const blob = new Blob([xml], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Reporte_Pareja_Maestra_LotoPro_${new Date().toISOString().split('T')[0]}.xls`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
         function descargarInformeCSVGerencial() {
             const hist = obtenerHistorialAuditoriaGerencial();
             const registros = [];
@@ -2301,35 +2584,42 @@
                 return;
             }
 
-            // BOM UTF-8 en el byte 0 exacto para que Excel reconozca codificación limpia sin ï»¿ ni caracteres raros
+            // BOM UTF-8 en el byte 0 exacto para que Excel reconozca codificación limpia
             let csv = "\uFEFFsep=;\r\n";
-            csv += "Fecha;Sorteos Evaluados;Pareja Maestra;Aciertos 1ra (Mayor);Aciertos 2da;Aciertos 3ra;Efectividad 1ra (%);Donde Pego (Detalle de Loterias);Diagnostico Oficial\r\n";
+            csv += "Fecha;Sorteos Evaluados;Pareja Maestra;Aciertos 1ra (Mayor);Aciertos 2da;Aciertos 3ra;Efectividad 1ra (%);Loteria 1 (Donde Pego);Loteria 2 (Donde Pego);Loteria 3 (Donde Pego);Loteria 4 (Donde Pego)\r\n";
 
             registros.forEach(r => {
-                const detM = (r.maestraHitsDetalle && r.maestraHitsDetalle.length > 0) ? r.maestraHitsDetalle.join(' | ') : 'Sin conexiones en 1ra';
+                const hits = r.maestraHitsDetalle || [];
                 const fecha = (r.fechaFormato || r.fecha || '').replace(/;/g, ',');
                 const sorteos = (r.sorteosEvaluados || '20 / 20').replace(/;/g, ',');
-                // Limpiar el símbolo de multiplicación para que sea 'x' estándar compatible con Excel
                 const pareja = (r.parejaMaestra || '').replace(/×/g, 'x').replace(/;/g, ',');
                 const p1ra = r.maestra1ra || 0;
                 const p2da = r.maestra2da || 0;
                 const p3ra = r.maestra3ra || 0;
                 const pct = (r.maestraPct || '0.0%').replace(/;/g, ',');
-                const detalle = detM.replace(/×/g, 'x').replace(/;/g, ' - ').replace(/"/g, '""');
-                
-                // Sanitizar emojis para que no se deformen en Excel
-                let diag = (r.diagnostico || '')
-                    .replace(/🏆/g, '[EXITO]')
-                    .replace(/🔵/g, '[INERCIA]')
-                    .replace(/🟡/g, '[FIRME]')
-                    .replace(/⚠️/g, '[AVISO]')
-                    .replace(/🔒/g, '')
-                    .replace(/×/g, 'x')
-                    .replace(/;/g, ' - ')
-                    .replace(/"/g, '""')
-                    .trim();
 
-                csv += `"${fecha}";"${sorteos}";"${pareja}";${p1ra};${p2da};${p3ra};"${pct}";"${detalle}";"${diag}"\r\n`;
+                // Sanitizar texto de cada impacto para que en Excel no aparezcan caracteres deformados
+                const limpiarTextoHit = (txt) => {
+                    if (!txt) return '';
+                    return txt
+                        .replace(/×/g, 'x')
+                        .replace(/;/g, ' - ')
+                        .replace(/á/g, 'a').replace(/Á/g, 'A')
+                        .replace(/é/g, 'e').replace(/É/g, 'E')
+                        .replace(/í/g, 'i').replace(/Í/g, 'I')
+                        .replace(/ó/g, 'o').replace(/Ó/g, 'O')
+                        .replace(/ú/g, 'u').replace(/Ú/g, 'U')
+                        .replace(/ñ/g, 'n').replace(/Ñ/g, 'N')
+                        .replace(/"/g, '""')
+                        .trim();
+                };
+
+                const lot1 = limpiarTextoHit(hits[0] || (p1ra === 0 && p2da === 0 && p3ra === 0 ? 'Sin conexiones' : ''));
+                const lot2 = limpiarTextoHit(hits[1] || '');
+                const lot3 = limpiarTextoHit(hits[2] || '');
+                const lot4 = limpiarTextoHit(hits[3] || '');
+
+                csv += `"${fecha}";"${sorteos}";"${pareja}";${p1ra};${p2da};${p3ra};"${pct}";"${lot1}";"${lot2}";"${lot3}";"${lot4}"\r\n`;
             });
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
