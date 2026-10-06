@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-06",
   "fecha_ayer": "2026-10-05",
-  "actualizado_a_las": "02:50 PM",
+  "actualizado_a_las": "06:15 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -336,8 +336,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        23,
+        32,
+        57
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -345,8 +349,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        55,
+        67,
+        62
+      ]
     },
     {
       "id": "quiniela_loteka",
