@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-05",
   "fecha_ayer": "2026-10-04",
-  "actualizado_a_las": "09:17 PM",
+  "actualizado_a_las": "10:32 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -440,8 +440,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        98,
+        95,
+        17
+      ]
     },
     {
       "id": "ny_noche",
