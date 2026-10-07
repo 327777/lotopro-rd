@@ -733,6 +733,37 @@
                             </div>
                         </div>
 
+                        <!-- TABLA EJECUTIVA: JUGADA ESTRATÉGICA OFICIAL PARA HOY (IMAGEN 4) -->
+                        <div style="background: rgba(15, 23, 42, 0.95); border: 1.5px solid #10b981; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; box-shadow: 0 0 16px rgba(16, 185, 129, 0.15);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span style="font-size: 16px;">🎯</span>
+                                    <h4 style="margin: 0; font-size: 13px; font-weight: 900; color: #6ee7b7; text-transform: uppercase;">
+                                        Jugada Estratégica Oficial para Hoy
+                                    </h4>
+                                </div>
+                                <span style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #34d399; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 800;">
+                                    🟢 3 Loterías Maduras
+                                </span>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid #334155; color: #94a3b8; font-size: 10px; text-transform: uppercase;">
+                                            <th style="padding: 6px 8px;">Lotería Madura</th>
+                                            <th style="padding: 6px 8px;">Hora</th>
+                                            <th style="padding: 6px 8px;">Tipo de Jugada</th>
+                                            <th style="padding: 6px 8px;">Números a Jugar Hoy</th>
+                                            <th style="padding: 6px 8px; text-align: right;">Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-cuerpo-maduras-hoy-directas">
+                                        <!-- Generado dinámicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
                         <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
                             <!-- Cargado dinámicamente con las loterías ordenadas por madurez (Verdes arriba) -->
                         </div>
@@ -893,12 +924,13 @@
                     </div>
                 </div>
 
-                <!-- REGISTRO HISTÓRICO GERENCIAL (INFORME DÍA A DÍA) -->
-                <div style="background: #060a14; border: 1px solid #1e293b; border-radius: 10px; padding: 12px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-                        <span style="font-size: 12px; font-weight: 800; color: #e2e8f0;">📖 Cuaderno Diario de Informes Gerenciales (Registro Acumulativo de Eficiencia)</span>
-                        <span style="font-size: 10px; color: #64748b;">Actualización en vivo cada 15 seg</span>
-                    </div>
+                <!-- REGISTRO HISTÓRICO GERENCIAL (INFORME DÍA A DÍA - PLEGABLE) -->
+                <details style="background: #060a14; border: 1px solid #1e293b; border-radius: 10px; padding: 12px; margin-top: 14px;">
+                    <summary style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none;">
+                        <span style="font-size: 12px; font-weight: 800; color: #94a3b8;">📖 Cuaderno Diario de Informes Gerenciales (Disponible en Reporte)</span>
+                        <span style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 8px; border-radius: 6px; font-weight: 700;">Toca para desplegar</span>
+                    </summary>
+                    <div style="margin-top: 10px;">
                     <div style="overflow-x: auto;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
                             <thead>
@@ -917,7 +949,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div></details>
             </div>
         </div>
 
@@ -2511,8 +2543,7 @@
                 let fechaHoy = new Date(fechaHoyStr + "T12:00:00");
                 if (isNaN(fechaHoy.getTime())) fechaHoy = new Date();
 
-                // Loterías Estratégicas y sus fechas de últimos hits en 1ra
-                // Obtener combinación activa (dinámica con la jugada maestra)
+                // Obtener combinación activa directa (sin virados)
                 let p1Str = "09", p2Str = "59";
                 const customN1 = localStorage.getItem('lotopro_master_n1');
                 const customN2 = localStorage.getItem('lotopro_master_n2');
@@ -2530,8 +2561,7 @@
                 const elParejaHeader = document.getElementById('radar-pareja-foco');
                 if (elParejaHeader) elParejaHeader.innerText = `[ ${p1Str} × ${p2Str} ]`;
 
-                // 1. Cronómetro Oficial Acumulativo de Palé Directo (Acumulación Continua Real)
-                // Se mide desde el último Palé oficial (Loteka 04 Octubre [00 x 94])
+                // 1. Cronómetro Continuo Real de Palé (Acumulación Real sin Cortes Arbitrarios)
                 const fechaUltimoPale = "2026-10-04";
                 const dUltimoPale = new Date(fechaUltimoPale + "T12:00:00");
                 let diasPale = Math.round((fechaHoy - dUltimoPale) / (1000 * 60 * 60 * 24));
@@ -2546,111 +2576,93 @@
 
                 const elDescPale = document.getElementById('estado-ciclo-pale-desc');
                 if (elDescPale) {
-                    elDescPale.innerHTML = `<span>⏳</span> <span><strong>Día ${diasPale} en acumulación continua:</strong> El reloj no se reinicia a los 15 días: sigue sumando día a día hasta que caiga el próximo Palé de la Pareja Maestra [ ${p1Str} × ${p2Str} ] en cualquier lotería.</span>`;
+                    elDescPale.innerHTML = `<span>⏳</span> <span><strong>Día ${diasPale} en acumulación continua:</strong> Sigue contando sin corte arbitrario hasta que reviente el próximo Palé de [ ${p1Str} × ${p2Str} ] en cualquier lotería oficial.</span>`;
                 }
 
-                // 2. Base de Loterías Estratégicas de 1ra Mayor (Solo salidas oficiales en 1ra)
+                // 2. Base Oficial Estricta: Las 6 Loterías de la Estrategia (CERO Anguila)
                 const LOTERIAS_1RA_BASE = [
                     {
                         id: "quiniela_loteka",
                         nombre: "Quiniela Loteka (7:55 PM)",
-                        rol: "TOP 1 • PALÉ Y 1RA MAYOR",
+                        hora: "7:55 PM",
+                        rol: "TOP 1 • LOTEKA NOCHE",
                         colorRol: "#c084fc",
+                        esMaduraHoy: true,
                         fechaUltimoHit: "2026-10-04",
                         diasManual: 3,
-                        detalleHit: "04 Oct (94 en 1ra y Palé [00 × 94])",
-                        cicloTipico: "1ra: 3 a 4 días • Palé: continuo",
-                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] • Palé: [ ${p1Str} × ${p2Str} ]`
+                        cicloTipico: "Cada 2 a 4 días",
+                        detalleHit: "04 Oct (94 en 1ra)"
                     },
                     {
                         id: "ny_tarde",
                         nombre: "New York Tarde (2:30 PM)",
-                        rol: "TOP 2 • 100% EN 1RA MAYOR",
+                        hora: "2:30 PM",
+                        rol: "TOP 2 • 100% EN 1RA",
                         colorRol: "#fbbf24",
+                        esMaduraHoy: true,
                         fechaUltimoHit: "2026-10-04",
                         diasManual: 3,
-                        detalleHit: "04 Oct (94 en 1ra) y 03 Oct (77 en 1ra)",
                         cicloTipico: "Cada 2 a 3 días",
-                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ]`
+                        detalleHit: "04 Oct (94 en 1ra)"
                     },
                     {
                         id: "gana_mas",
                         nombre: "Gana Más (2:30 PM)",
-                        rol: "TOP 3 • TRACCIÓN DOMINICANA TARDE",
+                        hora: "2:30 PM",
+                        rol: "TOP 3 • NACIONAL TARDE",
                         colorRol: "#f97316",
+                        esMaduraHoy: true,
                         fechaUltimoHit: "2026-09-28",
                         diasManual: 3,
-                        detalleHit: "28 Sep (85 en 1ra) — Presión Acumulada",
-                        cicloTipico: "Cada 2 a 4 días (Presión Máxima)",
-                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ]`
+                        cicloTipico: "Cada 2 a 4 días",
+                        detalleHit: "28 Sep (85 en 1ra)"
                     },
                     {
                         id: "quiniela_leidsa",
                         nombre: "Quiniela Leidsa (8:55 PM)",
-                        rol: "TOP 4 • GRAN CIERRE NOCTURNO",
+                        hora: "8:55 PM",
+                        rol: "TOP 4 • NOCHE",
                         colorRol: "#60a5fa",
+                        esMaduraHoy: false,
                         fechaUltimoHit: "2026-10-06",
                         diasManual: 0,
-                        detalleHit: "Ayer 06 Oct (90 en 1ra Mayor)",
                         cicloTipico: "Cada 4 a 6 días",
-                        accionDirecta: `🏆 Salió anoche (90 en 1ra). Ciclo cumplido; retoma en 2 a 3 días.`
+                        detalleHit: "Ayer 06 Oct (90 en 1ra)"
                     },
                     {
                         id: "lotedom",
                         nombre: "LoteDom (12:00 PM)",
-                        rol: "TOP 5 • LÍDER 1RA DEL MEDIODÍA",
+                        hora: "12:00 PM",
+                        rol: "TOP 5 • MEDIODÍA",
                         colorRol: "#34d399",
+                        esMaduraHoy: false,
                         fechaUltimoHit: "2026-10-06",
                         diasManual: 0,
-                        detalleHit: "Ayer 06 Oct (79 en 1ra Mayor)",
                         cicloTipico: "Cada 2 a 3 días",
-                        accionDirecta: `🏆 Salió ayer (79 en 1ra). Ciclo cumplido; retoma en 2 días.`
+                        detalleHit: "Ayer 06 Oct (79 en 1ra)"
                     },
                     {
                         id: "la_suerte_dia",
                         nombre: "La Suerte Día (12:30 PM)",
-                        rol: "TOP 6 • MAYOR VOLUMEN HISTÓRICO",
+                        hora: "12:30 PM",
+                        rol: "TOP 6 • VOLUMEN HISTÓRICO",
                         colorRol: "#2dd4bf",
+                        esMaduraHoy: false,
                         fechaUltimoHit: "2026-10-06",
                         diasManual: 0,
-                        detalleHit: "Ayer 06 Oct (79 en 2da Rebote)",
                         cicloTipico: "Cada 2 a 3 días",
-                        accionDirecta: `🏆 7 aciertos en 36 días. Ciclo cumplido; retoma en 2 días.`
+                        detalleHit: "Ayer 06 Oct (79 en 2da)"
                     }
                 ];
 
-                // 3. Sensor de Expansión Elástica (7ma u 8va casilla si hay rachas activas en 1ra)
                 const listaSemaforo = [...LOTERIAS_1RA_BASE];
-
-                // Comprobar candidatos a expansión elástica (ej. Anguila 10:00 AM)
-                const candidatasElasticas = [
-                    {
-                        id: "anguila_manana",
-                        nombre: "Anguila Mañana (10:00 AM)",
-                        rol: "TOP 7 • EXPANSIÓN DINÁMICA 1RA",
-                        colorRol: "#e879f9",
-                        fechaUltimoHit: "2026-10-02",
-                        diasManual: 5,
-                        detalleHit: "02 Oct (52 en 1ra) • Hoy 59 en 3ra",
-                        cicloTipico: "Cada 2 a 4 días",
-                        accionDirecta: `⚡ Activa por racha en 1ra: directo [ ${p1Str} ] y [ ${p2Str} ]`
-                    }
-                ];
-
-                candidatasElasticas.forEach(c => {
-                    if (!listaSemaforo.some(x => x.id === c.id)) {
-                        listaSemaforo.push(c);
-                    }
-                });
 
                 const elTagCapacidad = document.getElementById('semaforo-capacidad-tag');
                 if (elTagCapacidad) {
-                    elTagCapacidad.innerText = listaSemaforo.length > 6 
-                        ? `⚡ Expansión Activa (${listaSemaforo.length} Loterías en Maduración)` 
-                        : `Base 6 Loterías Estratégicas`;
+                    elTagCapacidad.innerText = "Base Oficial: 6 Loterías Estratégicas";
                 }
 
-                // 4. Evaluar estado de hoy para cada lotería
+                // 3. Evaluar estado de hoy en sorteos reales
                 const listaSorteosHoy = (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) 
                     ? datosAppAdmin.sorteos_hoy 
                     : ((window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.sorteos_hoy)) ? window.DATOS_LOTOPRO.sorteos_hoy : []);
@@ -2662,47 +2674,72 @@
                     item.dias = (typeof item.diasManual === 'number') ? item.diasManual : 0;
                 });
 
-                // 5. AUTO-ORDENAMIENTO POR MADUREZ DE JUEGO (Verdes arriba de todo)
+                // 4. ORDENAMIENTO ESTRICTO: Las 3 Maduras de Hoy SIEMPRE ARRIBA
                 listaSemaforo.sort((a, b) => {
-                    const aScore = a.finalizadoHoy ? 0 : (a.dias >= 2 ? 3 : (a.dias === 1 ? 2 : 1));
-                    const bScore = b.finalizadoHoy ? 0 : (b.dias >= 2 ? 3 : (b.dias === 1 ? 2 : 1));
-                    if (bScore !== aScore) return bScore - aScore;
+                    if (a.esMaduraHoy && !b.esMaduraHoy) return -1;
+                    if (!a.esMaduraHoy && b.esMaduraHoy) return 1;
+                    if (a.esMaduraHoy && b.esMaduraHoy) {
+                        // La que aún no ha jugado hoy (Loteka 7:55 PM) va primero
+                        if (!a.finalizadoHoy && b.finalizadoHoy) return -1;
+                        if (a.finalizadoHoy && !b.finalizadoHoy) return 1;
+                    }
                     return b.dias - a.dias;
                 });
 
-                // 6. Renderizado de Tarjetas Rectangulares y Compactas para Celular
+                // 5. Renderizar Tabla Resumen de Maduras de Hoy (Imagen 4)
+                const tbodyMaduras = document.getElementById('tabla-cuerpo-maduras-hoy-directas');
+                if (tbodyMaduras) {
+                    const madurasHoy = listaSemaforo.filter(x => x.esMaduraHoy);
+                    tbodyMaduras.innerHTML = madurasHoy.map(m => {
+                        let estadoBadge = m.finalizadoHoy
+                            ? `<span style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #475569; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 800;">🏁 Sorteo Realizado</span>`
+                            : `<span style="background: rgba(16, 185, 129, 0.25); color: #6ee7b7; border: 1px solid #10b981; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; animation: pulse 2s infinite;">🔥 PENDIENTE HOY (${m.hora})</span>`;
+
+                        return `
+                            <tr style="border-bottom: 1px solid #1e293b; background: rgba(16, 185, 129, 0.06);">
+                                <td style="padding: 8px 10px; font-weight: 800; color: #f8fafc;">${m.nombre}</td>
+                                <td style="padding: 8px 10px; color: #94a3b8; font-family: monospace;">${m.hora}</td>
+                                <td style="padding: 8px 10px; color: #34d399; font-weight: 800;">1ra (Mayor)</td>
+                                <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #fde047; font-size: 12.5px;">[ ${p1Str} ] y [ ${p2Str} ]</td>
+                                <td style="padding: 8px 10px; text-align: right;">${estadoBadge}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
+
+                // 6. Renderizado de Tarjetas Rectangulares y Limpias (Sin textos redundantes de palé)
                 const elGrid = document.getElementById('grid-contador-dias-top4');
                 if (elGrid) {
                     elGrid.innerHTML = listaSemaforo.map(item => {
                         const dias = item.dias;
                         let badgeColor = "#38bdf8", badgeBg = "rgba(56, 189, 248, 0.15)", badgeBorder = "#38bdf8";
                         let badgeTxt = "", cardBorder = "border: 1.5px solid rgba(56, 189, 248, 0.4);", glowBox = "";
+                        let accionHtml = "";
 
-                        if (item.finalizadoHoy) {
-                            badgeColor = "#94a3b8";
-                            badgeBg = "rgba(148, 163, 184, 0.15)";
-                            badgeBorder = "#64748b";
-                            badgeTxt = "🏁 FINALIZADO HOY";
-                            cardBorder = "border: 1.5px solid rgba(100, 116, 139, 0.4);";
-                        } else if (dias === 0) {
+                        if (item.esMaduraHoy) {
+                            if (!item.finalizadoHoy) {
+                                badgeColor = "#6ee7b7";
+                                badgeBg = "rgba(16, 185, 129, 0.25)";
+                                badgeBorder = "#10b981";
+                                badgeTxt = `🟢 ¡HOY SE JUEGA! (Día ${dias})`;
+                                cardBorder = "border: 2px solid #10b981;";
+                                glowBox = "box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);";
+                                accionHtml = `👉 <strong style="color:#6ee7b7;">JUGAR EN 1RA: [ ${p1Str} ] y [ ${p2Str} ]</strong> • Pendiente hoy (${item.hora})`;
+                            } else {
+                                badgeColor = "#34d399";
+                                badgeBg = "rgba(16, 185, 129, 0.15)";
+                                badgeBorder = "#10b981";
+                                badgeTxt = `🟢 MADURA DE HOY (Día ${dias})`;
+                                cardBorder = "border: 1.5px solid rgba(16, 185, 129, 0.5);";
+                                accionHtml = `🎯 JUGADA EN 1RA: [ ${p1Str} ] y [ ${p2Str} ] • Sorteo ${item.hora} realizado`;
+                            }
+                        } else {
                             badgeColor = "#60a5fa";
-                            badgeBg = "rgba(59, 130, 246, 0.2)";
+                            badgeBg = "rgba(59, 130, 246, 0.15)";
                             badgeBorder = "#3b82f6";
                             badgeTxt = "🏆 SALIÓ AYER (Día 0)";
-                            cardBorder = "border: 1.5px solid rgba(59, 130, 246, 0.5);";
-                        } else if (dias === 1) {
-                            badgeColor = "#fde047";
-                            badgeBg = "rgba(245, 158, 11, 0.18)";
-                            badgeBorder = "#f59e0b";
-                            badgeTxt = "🟡 EN ESPERA (Día 1)";
-                            cardBorder = "border: 1.5px solid rgba(245, 158, 11, 0.5);";
-                        } else if (dias >= 2) {
-                            badgeColor = "#6ee7b7";
-                            badgeBg = "rgba(16, 185, 129, 0.25)";
-                            badgeBorder = "#10b981";
-                            badgeTxt = `🟢 ¡HOY SE JUEGA! (Día ${dias})`;
-                            cardBorder = "border: 2px solid #10b981;";
-                            glowBox = "box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);";
+                            cardBorder = "border: 1px solid rgba(59, 130, 246, 0.35);";
+                            accionHtml = `💤 <span style="color:#94a3b8;">En descanso hoy. No se juega (cumplió ayer en 1ra).</span>`;
                         }
 
                         let estadoHoyHtml = '';
@@ -2714,7 +2751,7 @@
                             if (hit1 || hit2) {
                                 estadoHoyHtml = `<span style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #6ee7b7; border-radius: 4px; padding: 2px 6px; font-size: 10px; font-weight: 800;">🎯 ¡PEGÓ HOY! [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
                             } else {
-                                estadoHoyHtml = `<span style="background: rgba(30,41,59,0.7); border: 1px solid #334155; color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9.5px;">Sorteo de hoy: [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
+                                estadoHoyHtml = `<span style="background: rgba(30,41,59,0.7); border: 1px solid #334155; color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9.5px;">Sorteo ${item.hora}: [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
                             }
                         }
 
@@ -2736,7 +2773,7 @@
                                 </div>
 
                                 <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; color: #cbd5e1; font-weight: 700;">
-                                    <span>${item.accionDirecta}</span>
+                                    <span>${accionHtml}</span>
                                     ${estadoHoyHtml}
                                 </div>
                             </div>
