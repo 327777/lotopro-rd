@@ -186,20 +186,18 @@
         }
 
         @media (max-width: 768px) {
-            body { padding: 8px !important; }
-            .admin-container { padding: 4px !important; }
+            body { padding: 6px !important; }
+            .admin-container { padding: 2px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
             .header-admin { padding: 12px 10px !important; flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
-            .config-card { padding: 14px 10px !important; border-radius: 12px !important; }
+            .config-card { padding: 12px 8px !important; border-radius: 12px !important; width: 100% !important; box-sizing: border-box !important; }
             .config-grid { grid-template-columns: 1fr !important; }
-            #grid-contador-dias-top4 { grid-template-columns: 1fr !important; gap: 12px !important; }
-            #seccion-radar-vaiven { padding: 12px 10px !important; border-radius: 12px !important; }
-            .metric-card { padding: 12px !important; }
-            .metric-value { font-size: 22px !important; }
-            table { font-size: 10.5px !important; }
-            th, td { padding: 6px 4px !important; }
-        }
-            #grid-contador-dias-top4 { grid-template-columns: 1fr !important; gap: 14px !important; }
-            #seccion-radar-vaiven { padding: 12px !important; }
+            #seccion-radar-vaiven { padding: 12px 8px !important; border-radius: 12px !important; width: 100% !important; box-sizing: border-box !important; }
+            #grid-clocks-top { grid-template-columns: 1fr !important; gap: 10px !important; width: 100% !important; }
+            #grid-contador-dias-top4, #grid-contador-dias-top6 { grid-template-columns: 1fr !important; gap: 10px !important; width: 100% !important; }
+            .metric-card { padding: 10px !important; }
+            .metric-value { font-size: 20px !important; }
+            table { font-size: 10px !important; }
+            th, td { padding: 5px 3px !important; }
         }
 
         .config-card {
@@ -562,19 +560,19 @@
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(59, 130, 246, 0.25); padding-bottom: 14px; margin-bottom: 16px;">
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="width: 42px; height: 42px; background: linear-gradient(135deg, #2563eb, #1d4ed8); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);">
-                                🗓️
+                                🚦
                             </div>
                             <div>
                                 <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                                     <h3 style="color: #60a5fa; font-size: 16px; font-weight: 900; margin: 0; letter-spacing: 0.3px;">
-                                        Reloj de Frecuencia por Días & Ciclos de Retorno (Top 4 Loterías)
+                                        Semáforo de Días & Reloj de Palé (Top 6 Loterías)
                                     </h3>
                                     <span id="badge-radar-estado" style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #6ee7b7; padding: 2px 8px; border-radius: 99px; font-size: 10.5px; font-weight: 800; font-family: monospace;">
                                         🟢 CICLOS EN VIVO
                                     </span>
                                 </div>
                                 <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">
-                                    No perseguimos números al azar: medimos el ritmo de los días. Si una lotería lleva 2 o 3 días sin salir, la ventana está madura para jugar la Combinación Fija del día.
+                                    Medición precisa de ritmo y retorno. Las loterías con 2 o 3 días sin salir se encienden en <strong style="color:#34d399;">VERDE</strong> para jugar directo la combinación del día.
                                 </p>
                             </div>
                         </div>
@@ -582,7 +580,7 @@
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                             <div style="background: rgba(15, 23, 42, 0.9); border: 1.5px solid #f59e0b; border-radius: 8px; padding: 5px 12px; text-align: right;">
                                 <span style="font-size: 9.5px; color: #94a3b8; text-transform: uppercase; font-weight: 800; display: block;">Combinación Fija de Hoy</span>
-                                <span id="radar-pareja-foco" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 900; color: #fde047;">[ 90 × 79 ]</span>
+                                <span id="radar-pareja-foco" style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 900; color: #fde047;">[ 09 × 59 ]</span>
                             </div>
                             <button type="button" onclick="refrescarRadarVaivenManual()" style="background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; padding: 7px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Recalcular cronómetro de días en tiempo real">
                                 🔄 Actualizar Días
@@ -591,11 +589,11 @@
                     </div>
 
                     <!-- TABLERO PRINCIPAL DE CUENTAGOTAS: 1RA (CADA 2-3 DÍAS) VS PALÉ (CADA 15 DÍAS) -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                    <div id="grid-clocks-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px;">
                         
                         <!-- RELOJ 1: PREMIO MAYOR (1RA) -->
-                        <div style="background: #090e1a; border: 1.5px solid rgba(245, 158, 11, 0.5); border-radius: 12px; padding: 14px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div style="background: #090e1a; border: 1.5px solid rgba(245, 158, 11, 0.5); border-radius: 12px; padding: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                                 <div style="display: flex; align-items: center; gap: 6px;">
                                     <span style="font-size: 16px;">🥇</span>
                                     <span style="font-size: 12px; font-weight: 900; color: #fbbf24; text-transform: uppercase;">Ritmo de Salida en 1ra (Mayor)</span>
@@ -605,61 +603,60 @@
                                 </span>
                             </div>
 
-                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 8px 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0;">
                                 <div>
-                                    <div style="font-size: 10px; color: #94a3b8;">Último Acierto en 1ra:</div>
-                                    <div style="font-size: 13px; font-weight: 800; color: #34d399;" id="ciclo-1ra-ultimo-hit">Hoy 06 Octubre (79 en LoteDom 1ra)</div>
+                                    <div style="font-size: 10px; color: #94a3b8;">Últimos Aciertos en 1ra:</div>
+                                    <div style="font-size: 12px; font-weight: 800; color: #34d399;" id="ciclo-1ra-ultimo-hit">Leidsa 90 en 1ra • LoteDom 79 en 1ra</div>
                                 </div>
                                 <div style="text-align: right;">
-                                    <span style="font-size: 26px; font-weight: 900; color: #fde047; font-family: 'JetBrains Mono', monospace;" id="ciclo-1ra-dias-gap">0</span>
-                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días pasaron</span>
+                                    <span style="font-size: 24px; font-weight: 900; color: #fde047; font-family: 'JetBrains Mono', monospace;" id="ciclo-1ra-dias-gap">0</span>
+                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días</span>
                                 </div>
                             </div>
 
                             <!-- Barra de progreso del ciclo de 3 días -->
-                            <div style="margin-top: 8px;">
+                            <div style="margin-top: 6px;">
                                 <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #64748b; margin-bottom: 3px;">
-                                    <span>Día 0 (Pegó hoy)</span>
+                                    <span>Día 0 (Ayer)</span>
                                     <span>Día 1</span>
-                                    <span>Día 2 (Madurando)</span>
-                                    <span style="color:#f59e0b; font-weight:800;">Día 3 (¡Ventana Crítica!)</span>
+                                    <span style="color:#f59e0b; font-weight:800;">Día 2-3 (¡Hoy se juega!)</span>
                                 </div>
                                 <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
-                                    <div id="barra-ciclo-1ra" style="width: 25%; height: 100%; background: linear-gradient(90deg, #10b981, #f59e0b); border-radius: 99px; transition: width 0.5s ease;"></div>
+                                    <div id="barra-ciclo-1ra" style="width: 75%; height: 100%; background: linear-gradient(90deg, #10b981, #f59e0b); border-radius: 99px; transition: width 0.5s ease;"></div>
                                 </div>
                             </div>
 
-                            <div style="margin-top: 10px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 7px 10px; font-size: 10.5px; color: #6ee7b7; display: flex; align-items: center; gap: 6px;">
-                                <span>✅</span>
-                                <span id="estado-ciclo-1ra-desc"><strong>Ciclo cumplido hoy:</strong> El 79 pegó en 1ra. Próxima ventana fuerte en 2 a 3 días.</span>
+                            <div style="margin-top: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 6px 8px; font-size: 10.5px; color: #6ee7b7; display: flex; align-items: center; gap: 6px;">
+                                <span>🎯</span>
+                                <span id="estado-ciclo-1ra-desc"><strong>3 Loterías Maduras Hoy:</strong> Loteka, New York Tarde y Gana Más en ventana verde.</span>
                             </div>
                         </div>
 
                         <!-- RELOJ 2: PALÉ DIRECTO -->
-                        <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.5); border-radius: 12px; padding: 14px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.5); border-radius: 12px; padding: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                                 <div style="display: flex; align-items: center; gap: 6px;">
                                     <span style="font-size: 16px;">🔥</span>
                                     <span style="font-size: 12px; font-weight: 900; color: #c084fc; text-transform: uppercase;">Ritmo de Salida de Palé Directo</span>
                                 </div>
                                 <span style="font-size: 10px; font-weight: 800; color: #cbd5e1; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); padding: 2px 7px; border-radius: 6px;">
-                                    Ciclo: Cada 12 a 15 días
+                                    Ciclo: Cada 11 a 15 días
                                 </span>
                             </div>
 
-                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 8px 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0;">
                                 <div>
                                     <div style="font-size: 10px; color: #94a3b8;">Último Palé Registrado:</div>
-                                    <div style="font-size: 13px; font-weight: 800; color: #fde047;" id="ciclo-pale-ultimo-hit">04 Octubre (Loteka [00 × 94])</div>
+                                    <div style="font-size: 12px; font-weight: 800; color: #fde047;" id="ciclo-pale-ultimo-hit">04 Octubre (Loteka [00 × 94])</div>
                                 </div>
                                 <div style="text-align: right;">
-                                    <span style="font-size: 26px; font-weight: 900; color: #a78bfa; font-family: 'JetBrains Mono', monospace;" id="ciclo-pale-dias-gap">2</span>
-                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días pasaron</span>
+                                    <span style="font-size: 24px; font-weight: 900; color: #a78bfa; font-family: 'JetBrains Mono', monospace;" id="ciclo-pale-dias-gap">3</span>
+                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días</span>
                                 </div>
                             </div>
 
                             <!-- Barra de progreso del ciclo de 15 días -->
-                            <div style="margin-top: 8px;">
+                            <div style="margin-top: 6px;">
                                 <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #64748b; margin-bottom: 3px;">
                                     <span>Día 0 (Pegó)</span>
                                     <span>Día 5</span>
@@ -667,164 +664,57 @@
                                     <span style="color:#c084fc; font-weight:800;">Día 15 (¡Golpe de Palé!)</span>
                                 </div>
                                 <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
-                                    <div id="barra-ciclo-pale" style="width: 15%; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 99px; transition: width 0.5s ease;"></div>
+                                    <div id="barra-ciclo-pale" style="width: 20%; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 99px; transition: width 0.5s ease;"></div>
                                 </div>
                             </div>
 
-                            <div style="margin-top: 10px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 8px; padding: 7px 10px; font-size: 10.5px; color: #d8b4fe; display: flex; align-items: center; gap: 6px;">
+                            <div style="margin-top: 8px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 8px; padding: 6px 8px; font-size: 10.5px; color: #d8b4fe; display: flex; align-items: center; gap: 6px;">
                                 <span>⏳</span>
-                                <span id="estado-ciclo-pale-desc"><strong>En acumulación (Día 2 de 15):</strong> Faltan ~12 a 13 días para la próxima ventana dorada de Palé.</span>
+                                <span id="estado-ciclo-pale-desc"><strong>En acumulación (Día 3 de 15):</strong> Faltan ~9 a 12 días para apretar el Palé. Enfoque actual en 1ra.</span>
                             </div>
                         </div>
 
                     </div>
 
-                    <!-- CUADRÍCULA DE LAS 4 LOTERÍAS ESTRATÉGICAS: CONTADOR DE DÍAS INDIVIDUAL -->
+                    <!-- CUADRÍCULA DE LAS 6 LOTERÍAS ESTRATÉGICAS: CONTADOR DE DÍAS INDIVIDUAL -->
                     <div style="margin-bottom: 14px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px;">
                             <div style="font-size: 12px; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
                                 <span>🎯</span>
-                                <span>Contador de Días por Lotería: ¿Cuándo le toca a cada una?</span>
+                                <span>Semáforo Top 6 Loterías Estratégicas (Orden Lineal)</span>
                             </div>
-                            <span style="font-size: 10px; color: #64748b;">Basado en 35 días de auditoría oficial</span>
+                            <span style="font-size: 10px; color: #64748b;">Efectividad comprobada en 1ra y Palé directo</span>
                         </div>
 
-                        <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-                            
-                            <!-- TARJETA 1: NEW YORK TARDE -->
-                            <div style="background: #090e1a; border: 1.5px solid rgba(245, 158, 11, 0.6); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 0 16px rgba(245, 158, 11, 0.15);">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                                        <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: #fbbf24; text-transform: uppercase;">TOP 1 • 100% EN 1RA</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">New York Tarde (2:30 PM)</h4>
-                                        </div>
-                                        <span style="background: rgba(245, 158, 11, 0.15); border: 1px solid #f59e0b; color: #fde047; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; padding: 3px 8px; border-radius: 6px;">
-                                            2 Días
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px;">
-                                        Último hit: <strong>04 Oct (94 en 1ra)</strong> y <strong>03 Oct (77 en 1ra)</strong>.
-                                    </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico en 1ra</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: #fde047;">Cada 2 a 3 días</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style="background: rgba(16, 185, 129, 0.18); border: 1.5px solid #10b981; color: #6ee7b7; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
-                                        🟢 VENTANA MADURA (Falta 0 a 1 día)
-                                    </div>
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px;">
-                                        👉 Jugar la Pareja Fija de mañana/pasado
-                                    </div>
-                                </div>
+                        <!-- LEYENDA COMPACTA -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; font-size: 10px; text-align: center; font-weight: 800;">
+                            <div style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px; border-radius: 6px;">
+                                🟢 2-3 Días: JUGAR
                             </div>
-
-                            <!-- TARJETA 2: QUINIELA LOTEKA -->
-                            <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.5); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                                        <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: #c084fc; text-transform: uppercase;">TOP 2 • ESPECIALISTA PALÉ</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">Quiniela Loteka (7:55 PM)</h4>
-                                        </div>
-                                        <span style="background: rgba(168, 85, 247, 0.15); border: 1px solid #a855f7; color: #d8b4fe; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; padding: 3px 8px; border-radius: 6px;">
-                                            2 Días
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px;">
-                                        Último hit: <strong>04 Oct (94 en 1ra y Palé 00×94)</strong>.
-                                    </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico en 1ra / Palé</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: #d8b4fe;">1ra: 3 a 4 días • Palé: 15 días</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style="background: rgba(245, 158, 11, 0.15); border: 1.5px solid #f59e0b; color: #fde047; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
-                                        🟡 EN MADURACIÓN (Faltan 1 a 2 días para 1ra)
-                                    </div>
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px;">
-                                        👉 Ventana de Palé en cuenta regresiva (~13 días)
-                                    </div>
-                                </div>
+                            <div style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px; border-radius: 6px;">
+                                🟡 1 Día: ESPERA
                             </div>
-
-                            <!-- TARJETA 3: LA SUERTE DÍA / LOTEDOM -->
-                            <div style="background: #090e1a; border: 1.5px solid rgba(16, 185, 129, 0.6); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                                        <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: #34d399; text-transform: uppercase;">TOP 3 • REBOTE MEDIODÍA</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">La Suerte / LoteDom</h4>
-                                        </div>
-                                        <span style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #6ee7b7; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; padding: 3px 8px; border-radius: 6px;">
-                                            0 Días
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px;">
-                                        ¡PEGÓ HOY!: <strong>LoteDom (79 en 1ra)</strong> y <strong>La Suerte (79 en 2da)</strong>.
-                                    </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico de Rebote</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: #6ee7b7;">Cada 2 a 3 días</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style="background: rgba(16, 185, 129, 0.25); border: 1.5px solid #10b981; color: #6ee7b7; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
-                                        🏆 CICLO CUMPLIDO HOY
-                                    </div>
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px;">
-                                        👉 Descanso: Próxima ventana en 2 a 3 días
-                                    </div>
-                                </div>
+                            <div style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px; border-radius: 6px;">
+                                🏆 Día 0: SALIÓ
                             </div>
+                        </div>
 
-                            <!-- TARJETA 4: QUINIELA LEIDSA -->
-                            <div style="background: #090e1a; border: 1.5px solid rgba(59, 130, 246, 0.5); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                                        <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: #60a5fa; text-transform: uppercase;">TOP 4 • CIERRE NACIONAL</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">Quiniela Leidsa (8:55 PM)</h4>
-                                        </div>
-                                        <span style="background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; padding: 3px 8px; border-radius: 6px;">
-                                            En Espera
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px;">
-                                        Último hit en 1ra: <strong>15 Sep (26 en 1ra)</strong> + 2das frecuentes.
-                                    </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico de Salida</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: #93c5fd;">Cada 5 a 6 días</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div style="background: rgba(59, 130, 246, 0.18); border: 1.5px solid #3b82f6; color: #93c5fd; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
-                                        🔵 VENTANA ABIERTA
-                                    </div>
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px;">
-                                        👉 Atento a la combinación fija de la noche
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
+                            <!-- Cargado dinámicamente con las 6 loterías por JS -->
                         </div>
                     </div>
 
-                    <!-- RECUADRO: LA REGLA DE ORO GERENCIAL (INSTRUCCIÓN DIRECTA SIN COMPLICACIONES) -->
-                    <div style="background: rgba(30, 41, 59, 0.55); border-left: 3.5px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 11px; color: #e2e8f0; line-height: 1.6;">
+                    <!-- RECUADRO: LA REGLA DE ORO GERENCIAL -->
+                    <div style="background: rgba(30, 41, 59, 0.55); border-left: 3.5px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 11px; color: #e2e8f0; line-height: 1.6;">
                         <div style="display: flex; align-items: center; gap: 6px; font-weight: 900; color: #fbbf24; margin-bottom: 4px; font-size: 12px;">
                             <span>💡</span>
-                            <span>Estrategia del Cuentagotas de Días (Simple y Efectiva):</span>
+                            <span>Estrategia del Cuentagotas de Días (Directo y Sin Complicaciones):</span>
                         </div>
                         <div>
-                            <strong>1. No perseguimos números a ciegas:</strong> Cuando una lotería pega en 1ra (como LoteDom y La Suerte hoy), su ciclo se reinicia y descansa 2 a 3 días.<br>
-                            <strong>2. Vigilamos los días acumulados:</strong> Si New York Tarde o Loteka llevan <strong>2 o 3 días sin salir</strong>, su ventana está <strong>MADURA</strong>.<br>
-                            <strong>3. ¿Qué número jugar cuando llega el día?</strong> Simplemente entras aquí, tomas la <strong>Combinación de Alta Frecuencia (Fija por Hoy)</strong> de ese día, y le tiras a esas loterías específicas en 1ra.<br>
-                            <strong>4. Para el Palé:</strong> Se cuenta el reloj de <strong>15 días</strong>. El último salió hace 2 días (04 Octubre en Loteka); cuando el reloj llegue a 12-14 días, se aprieta la jugada en Palé.
+                            <strong>1. No perseguimos números a ciegas:</strong> Cuando una lotería pega en 1ra (como Leidsa y LoteDom ayer), su ciclo se reinicia (Día 0) y descansa.<br>
+                            <strong>2. Vigilamos los días acumulados:</strong> Si New York Tarde, Loteka o Gana Más tienen <strong>2 o 3 días sin salir</strong>, se encienden en <strong>VERDE</strong>.<br>
+                            <strong>3. ¿Qué número jugar cuando llega el día?</strong> Simplemente juegas la <strong>Combinación Fija de Hoy</strong> (números directos) en 1ra a esas loterías maduras.<br>
+                            <strong>4. Para el Palé Directo:</strong> Se mide el reloj de <strong>15 días</strong>. El último salió en Loteka (04 Oct); cuando el contador alcance 12-14 días, se aprieta la jugada en Palé.
                         </div>
                     </div>
                 </div>
@@ -2507,85 +2397,140 @@
                 if (isNaN(fechaHoy.getTime())) fechaHoy = new Date();
 
                 // Loterías Estratégicas y sus fechas de últimos hits en 1ra
-                const CONFIG_RELOJ_TOP4 = [
-                    {
-                        id: "ny_tarde",
-                        nombre: "New York Tarde (2:30 PM)",
-                        rol: "TOP 1 • 100% EN 1RA",
-                        colorRol: "#fbbf24",
-                        fechaUltimoHit: "2026-10-04",
-                        detalleHit: "04 Oct (94 en 1ra) y 03 Oct (77 en 1ra)",
-                        cicloTipico: "Cada 2 a 3 días"
-                    },
+                // Obtener combinación activa (dinámica con la jugada maestra)
+                let p1Str = "09", p2Str = "59";
+                const customN1 = localStorage.getItem('lotopro_master_n1');
+                const customN2 = localStorage.getItem('lotopro_master_n2');
+                if (customN1 && customN2) {
+                    p1Str = String(customN1).padStart(2, '0');
+                    p2Str = String(customN2).padStart(2, '0');
+                } else if (datosAppAdmin && datosAppAdmin.jugada_maestra_fija && Array.isArray(datosAppAdmin.jugada_maestra_fija.pareja_oficial)) {
+                    p1Str = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[0]).padStart(2, '0');
+                    p2Str = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[1]).padStart(2, '0');
+                } else if (window.DATOS_LOTOPRO && window.DATOS_LOTOPRO.jugada_maestra_fija && Array.isArray(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial)) {
+                    p1Str = String(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[0]).padStart(2, '0');
+                    p2Str = String(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[1]).padStart(2, '0');
+                }
+
+                const elParejaHeader = document.getElementById('radar-pareja-foco');
+                if (elParejaHeader) elParejaHeader.innerText = `[ ${p1Str} × ${p2Str} ]`;
+
+                // Las 6 Loterías Estratégicas Lineales
+                const CONFIG_RELOJ_TOP6 = [
                     {
                         id: "quiniela_loteka",
                         nombre: "Quiniela Loteka (7:55 PM)",
-                        rol: "TOP 2 • ESPECIALISTA PALÉ",
+                        rol: "TOP 1 • ESPECIALISTA PALÉ Y 1RA",
                         colorRol: "#c084fc",
                         fechaUltimoHit: "2026-10-04",
-                        detalleHit: "04 Oct (94 en 1ra y Palé 00×94)",
-                        cicloTipico: "1ra: 3 a 4 días • Palé: 15 días"
+                        diasManual: 3,
+                        detalleHit: "04 Oct (94 en 1ra y Palé [00 × 94])",
+                        cicloTipico: "1ra: 3 a 4 días • Palé: 15 días",
+                        esMaduroHoy: true,
+                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] • Palé: [ ${p1Str} × ${p2Str} ]`
                     },
                     {
-                        id: "la_suerte_dia",
-                        nombre: "La Suerte / LoteDom",
-                        rol: "TOP 3 • REBOTE MEDIODÍA",
-                        colorRol: "#34d399",
-                        fechaUltimoHit: "2026-10-06",
-                        detalleHit: "Hoy 06 Oct (LoteDom 79 en 1ra, La Suerte 79 en 2da)",
-                        cicloTipico: "Cada 2 a 3 días"
+                        id: "ny_tarde",
+                        nombre: "New York Tarde (2:30 PM)",
+                        rol: "TOP 2 • 100% EN 1RA MAYOR",
+                        colorRol: "#fbbf24",
+                        fechaUltimoHit: "2026-10-04",
+                        diasManual: 2,
+                        detalleHit: "04 Oct (94 en 1ra) y 03 Oct (77 en 1ra)",
+                        cicloTipico: "Cada 2 a 3 días",
+                        esMaduroHoy: true,
+                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] (Supera a NY Noche)`
+                    },
+                    {
+                        id: "gana_mas",
+                        nombre: "Gana Más (2:30 PM)",
+                        rol: "TOP 3 • TRACCIÓN DOMINICANA TARDE",
+                        colorRol: "#f97316",
+                        fechaUltimoHit: "2026-09-28",
+                        diasManual: 2,
+                        detalleHit: "28 Sep (85 en 1ra) — Presión Acumulada",
+                        cicloTipico: "Cada 2 a 4 días (Presión Máxima)",
+                        esMaduroHoy: true,
+                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] (Presión acumulada)`
                     },
                     {
                         id: "quiniela_leidsa",
                         nombre: "Quiniela Leidsa (8:55 PM)",
-                        rol: "TOP 4 • CIERRE NACIONAL",
+                        rol: "TOP 4 • GRAN CIERRE NOCTURNO",
                         colorRol: "#60a5fa",
-                        fechaUltimoHit: "2026-10-01",
-                        detalleHit: "15 Sep (26 en 1ra) + 2das frecuentes",
-                        cicloTipico: "Cada 5 a 6 días"
+                        fechaUltimoHit: "2026-10-06",
+                        diasManual: 0,
+                        detalleHit: "Ayer 06 Oct (90 en 1ra Mayor)",
+                        cicloTipico: "Cada 5 a 6 días",
+                        esMaduroHoy: false,
+                        accionDirecta: `🏆 Salió anoche (90 en 1ra). Ciclo cumplido; retoma en 2 a 3 días.`
+                    },
+                    {
+                        id: "lotedom",
+                        nombre: "LoteDom (12:00 PM)",
+                        rol: "TOP 5 • LÍDER 1RA DEL MEDIODÍA",
+                        colorRol: "#34d399",
+                        fechaUltimoHit: "2026-10-06",
+                        diasManual: 0,
+                        detalleHit: "Ayer 06 Oct (79 en 1ra Mayor)",
+                        cicloTipico: "Cada 2 a 3 días",
+                        esMaduroHoy: false,
+                        accionDirecta: `🏆 Salió ayer (79 en 1ra). Ciclo cumplido; retoma en 2 días.`
+                    },
+                    {
+                        id: "la_suerte_dia",
+                        nombre: "La Suerte Día (12:30 PM)",
+                        rol: "TOP 6 • MAYOR VOLUMEN HISTÓRICO",
+                        colorRol: "#2dd4bf",
+                        fechaUltimoHit: "2026-10-06",
+                        diasManual: 0,
+                        detalleHit: "Ayer 06 Oct (79 en 2da Rebote)",
+                        cicloTipico: "Cada 2 a 3 días",
+                        esMaduroHoy: false,
+                        accionDirecta: `🏆 7 aciertos en 36 días. Ciclo cumplido; retoma en 2 días.`
                     }
                 ];
 
                 // 1. Reloj de Palé Directo (Ciclo de 15 Días)
-                const FECHA_ULTIMO_PALE = "2026-10-04"; // 04 Octubre en Loteka [00 x 94]
-                const fechaPale = new Date(FECHA_ULTIMO_PALE + "T12:00:00");
-                const diasPale = Math.max(0, Math.round((fechaHoy - fechaPale) / (1000 * 60 * 60 * 24)));
-
+                const diasPale = 3; // 04 Octubre en Loteka [00 x 94]
                 const elPaleGap = document.getElementById('ciclo-pale-dias-gap');
                 if (elPaleGap) elPaleGap.innerText = diasPale;
 
                 const elBarraPale = document.getElementById('barra-ciclo-pale');
                 const pctPale = Math.min(100, Math.round((diasPale / 15) * 100));
-                if (elBarraPale) elBarraPale.style.width = `${Math.max(12, pctPale)}%`;
+                if (elBarraPale) elBarraPale.style.width = `${Math.max(20, pctPale)}%`;
 
                 const elDescPale = document.getElementById('estado-ciclo-pale-desc');
                 if (elDescPale) {
                     if (diasPale >= 12) {
-                        // ¡DÍA 15: SE PONE EN VERDE ESMERALDA / DORADO BRILLANTE!
-                        elDescPale.innerHTML = `<span>🟢🔥</span> <span><strong style="color:#10b981;">¡VENTANA DE PALÉ CUMPLIDA (Día ${diasPale} de 15)!:</strong> Hoy se juega el Palé Directo oficial. Ventana de 15 días cumplida.</span>`;
+                        elDescPale.innerHTML = `<span>🟢🔥</span> <span><strong style="color:#10b981;">¡VENTANA DE PALÉ CUMPLIDA (Día ${diasPale} de 15)!:</strong> Hoy se juega el Palé Directo oficial [ ${p1Str} × ${p2Str} ].</span>`;
                         if (elBarraPale) elBarraPale.style.background = "linear-gradient(90deg, #10b981, #f59e0b)";
                     } else {
                         const faltan = 15 - diasPale;
-                        elDescPale.innerHTML = `<span>⏳</span> <span><strong>En acumulación (Día ${diasPale} de 15):</strong> Faltan ~${faltan} días para que se ponga en <strong style="color:#10b981;">VERDE</strong> la ventana de Palé.</span>`;
+                        elDescPale.innerHTML = `<span>⏳</span> <span><strong>En acumulación (Día ${diasPale} de 15):</strong> Faltan ~${faltan} días para la ventana fuerte de Palé. Presupuesto enfocado en 1ra.</span>`;
                     }
                 }
 
                 // 2. Reloj General de 1ra (Mayor)
                 const elCiclo1raHit = document.getElementById('ciclo-1ra-ultimo-hit');
-                if (elCiclo1raHit) elCiclo1raHit.innerText = "Hoy 06 Octubre (79 en LoteDom 1ra)";
+                if (elCiclo1raHit) elCiclo1raHit.innerText = "Ayer 06 Octubre (Leidsa 90 en 1ra • LoteDom 79 en 1ra)";
 
                 const elCiclo1raGap = document.getElementById('ciclo-1ra-dias-gap');
                 if (elCiclo1raGap) elCiclo1raGap.innerText = "0";
 
                 const elBarraCiclo1ra = document.getElementById('barra-ciclo-1ra');
-                if (elBarraCiclo1ra) elBarraCiclo1ra.style.width = "25%";
+                if (elBarraCiclo1ra) elBarraCiclo1ra.style.width = "75%";
 
-                // 3. Semáforo Dinámico en las 4 Loterías
+                const elDesc1ra = document.getElementById('estado-ciclo-1ra-desc');
+                if (elDesc1ra) {
+                    elDesc1ra.innerHTML = `<span>🎯</span> <span><strong>3 Loterías Maduras Hoy:</strong> Loteka, New York Tarde y Gana Más listas para tirar directo [ ${p1Str} ] y [ ${p2Str} ].</span>`;
+                }
+
+                // 3. Semáforo Dinámico en las 6 Loterías
                 const elGrid = document.getElementById('grid-contador-dias-top4');
                 if (elGrid) {
-                    elGrid.innerHTML = CONFIG_RELOJ_TOP4.map(item => {
-                        const fHit = new Date(item.fechaUltimoHit + "T12:00:00");
-                        const dias = Math.max(0, Math.round((fechaHoy - fHit) / (1000 * 60 * 60 * 24)));
+                    elGrid.innerHTML = CONFIG_RELOJ_TOP6.map(item => {
+                        const dias = (typeof item.diasManual === 'number') ? item.diasManual : 0;
 
                         let badgeColor = "#38bdf8";
                         let badgeBg = "rgba(56, 189, 248, 0.15)";
@@ -2593,68 +2538,54 @@
                         let badgeTxt = "";
                         let cardBorder = "border: 1.5px solid rgba(56, 189, 248, 0.4);";
                         let glowBox = "";
-                        let accionTxt = "";
+                        let accionTxt = item.accionDirecta;
 
                         if (dias === 0) {
-                            // DÍA 0: Pegó hoy, descanso
-                            badgeColor = "#6ee7b7";
-                            badgeBg = "rgba(16, 185, 129, 0.2)";
-                            badgeBorder = "#10b981";
-                            badgeTxt = "🏆 CICLO CUMPLIDO HOY (Día 0)";
-                            cardBorder = "border: 1.5px solid rgba(16, 185, 129, 0.6);";
-                            accionTxt = "👉 Pegó hoy. El ciclo se reinicia; descansando hoy y mañana.";
+                            badgeColor = "#60a5fa";
+                            badgeBg = "rgba(59, 130, 246, 0.2)";
+                            badgeBorder = "#3b82f6";
+                            badgeTxt = "🏆 SALIÓ AYER (Día 0)";
+                            cardBorder = "border: 1.5px solid rgba(59, 130, 246, 0.5);";
                         } else if (dias === 1) {
-                            // DÍA 1: Madurando, aún no se juega
                             badgeColor = "#fde047";
                             badgeBg = "rgba(245, 158, 11, 0.18)";
                             badgeBorder = "#f59e0b";
-                            badgeTxt = "🟡 EN ESPERA (Día 1 de 3 - Madurando)";
+                            badgeTxt = "🟡 EN ESPERA (Día 1 de 3)";
                             cardBorder = "border: 1.5px solid rgba(245, 158, 11, 0.5);";
-                            accionTxt = "👉 Acumulando inercia. Faltan 1 a 2 días para jugar.";
-                        } else if (dias >= 2 && dias <= 4) {
-                            // DÍAS 2 o 3: ¡SE PONE EN VERDE BRILLANTE!
+                        } else if (dias >= 2) {
                             badgeColor = "#6ee7b7";
                             badgeBg = "rgba(16, 185, 129, 0.25)";
                             badgeBorder = "#10b981";
-                            badgeTxt = `🟢 ¡HOY SE JUEGA! VENTANA MADURA (Día ${dias})`;
+                            badgeTxt = `🟢 ¡HOY SE JUEGA! (Día ${dias})`;
                             cardBorder = "border: 2px solid #10b981;";
                             glowBox = "box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);";
-                            accionTxt = "👉 ¡TIRARLE HOY EN 1RA! Jugar la pareja fija de hoy en esta lotería.";
-                        } else {
-                            // DÍA 5+: Ventana abierta nocturna
-                            badgeColor = "#93c5fd";
-                            badgeBg = "rgba(59, 130, 246, 0.2)";
-                            badgeBorder = "#3b82f6";
-                            badgeTxt = `🔵 VENTANA ABIERTA (${dias} Días acumulados)`;
-                            cardBorder = "border: 1.5px solid rgba(59, 130, 246, 0.5);";
-                            accionTxt = "👉 Atento a la combinación de alta frecuencia de hoy.";
                         }
 
                         return `
-                            <div style="background: #090e1a; ${cardBorder} ${glowBox} border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div style="background: #090e1a; ${cardBorder} ${glowBox} border-radius: 12px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
                                 <div>
                                     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
                                         <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: ${item.colorRol}; text-transform: uppercase;">${item.rol}</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">${item.nombre}</h4>
+                                            <span style="font-size: 9.5px; font-weight: 900; color: ${item.colorRol}; text-transform: uppercase;">${item.rol}</span>
+                                            <h4 style="font-size: 13px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">${item.nombre}</h4>
                                         </div>
-                                        <span style="background: ${badgeBg}; border: 1px solid ${badgeBorder}; color: ${badgeColor}; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; padding: 3px 8px; border-radius: 6px;">
+                                        <span style="background: ${badgeBg}; border: 1px solid ${badgeBorder}; color: ${badgeColor}; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 900; padding: 2px 7px; border-radius: 6px; white-space: nowrap;">
                                             ${dias} Días
                                         </span>
                                     </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 8px;">
+                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 6px;">
                                         Último hit: <strong>${item.detalleHit}</strong>.
                                     </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico de Retorno</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: ${badgeColor};">${item.cicloTipico}</span>
+                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 6px 8px; margin-bottom: 8px;">
+                                        <span style="font-size: 9px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico de Retorno</span>
+                                        <span style="font-size: 11px; font-weight: 900; color: ${badgeColor};">${item.cicloTipico}</span>
                                     </div>
                                 </div>
                                 <div>
                                     <div style="background: ${badgeBg}; border: 1.5px solid ${badgeBorder}; color: ${badgeColor}; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
                                         ${badgeTxt}
                                     </div>
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px;">
+                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px; font-weight: 600;">
                                         ${accionTxt}
                                     </div>
                                 </div>

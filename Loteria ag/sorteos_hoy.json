@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-07",
   "fecha_ayer": "2026-10-06",
-  "actualizado_a_las": "12:18 PM",
+  "actualizado_a_las": "11:40 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -76,9 +76,9 @@
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        85,
-        76,
-        7
+        69,
+        20,
+        18
       ]
     },
     {
@@ -107,96 +107,6 @@
         74,
         22
       ]
-    },
-    {
-      "nombre": "La Suerte 6:00 PM",
-      "hora": "6:00 PM",
-      "premios": [
-        23,
-        32,
-        57
-      ]
-    },
-    {
-      "nombre": "Anguila 6:00 PM",
-      "hora": "6:00 PM",
-      "premios": [
-        55,
-        67,
-        62
-      ]
-    },
-    {
-      "nombre": "Quiniela Loteka 7:55 PM",
-      "hora": "7:55 PM",
-      "premios": [
-        26,
-        4,
-        48
-      ]
-    },
-    {
-      "nombre": "La Primera 8:00 PM",
-      "hora": "8:00 PM",
-      "premios": [
-        40,
-        68,
-        35
-      ]
-    },
-    {
-      "nombre": "Quiniela Leidsa 8:55 PM",
-      "hora": "8:55 PM",
-      "premios": [
-        90,
-        87,
-        29
-      ]
-    },
-    {
-      "nombre": "Lotería Nacional 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        91,
-        9,
-        15
-      ]
-    },
-    {
-      "nombre": "Real 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        97,
-        18,
-        83
-      ]
-    },
-    {
-      "nombre": "Anguila 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        7,
-        35,
-        46
-      ]
-    },
-    {
-      "nombre": "Florida 10:00 PM",
-      "hora": "10:00 PM",
-      "premios": [
-        95,
-        71,
-        17
-      ]
-    },
-    {
-      "nombre": "New York 10:30 PM",
-      "hora": "10:30 PM",
-      "premios": [
-        86,
-        68,
-        14
-      ]
     }
   ],
   "sorteos_hoy": [
@@ -219,12 +129,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        1,
-        19,
-        15
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "lotedom",
@@ -232,12 +138,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        84,
-        20,
-        60
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_dia",
@@ -392,5 +294,351 @@
       "estado": "proximo",
       "premios": null
     }
-  ]
+  ],
+  "radar_vaiven_top4": {
+    "activo": true,
+    "pareja_foco": [
+      "09",
+      "59"
+    ],
+    "presion_acumulada_pct": 66.6,
+    "fase_onda": "ACUMULACIÓN MATUTINA",
+    "sorteos_evaluados": "1 / 20",
+    "ecos_detectados": [],
+    "presiones_vectoriales": [],
+    "top4_estrategicas": [
+      {
+        "id": "quiniela_loteka",
+        "nombre": "Quiniela Loteka (7:55 PM)",
+        "rol_estrategico": "Especialista en Palé y 1ra",
+        "record_historico": "Generadora de Palé Directo Oficial",
+        "afinidad_vaiven": "98.3%",
+        "foco_recomendado": "Palé [09 × 59] y Quiniela [09] / [59]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "ny_tarde",
+        "nombre": "New York Tarde (2:30 PM)",
+        "rol_estrategico": "Líder 100% en 1ra (Mayor)",
+        "record_historico": "100% efectividad histórica en 1ra",
+        "afinidad_vaiven": "97.8%",
+        "foco_recomendado": "[09] o [59] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "gana_mas",
+        "nombre": "Gana Más (2:30 PM)",
+        "rol_estrategico": "Tracción Dominicana Tarde",
+        "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
+        "afinidad_vaiven": "95.0%",
+        "foco_recomendado": "[09] o [59] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "quiniela_leidsa",
+        "nombre": "Quiniela Leidsa (8:55 PM)",
+        "rol_estrategico": "Gran Cierre Nocturno",
+        "record_historico": "5 impactos históricos (90 en 1ra)",
+        "afinidad_vaiven": "94.5%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "lotedom",
+        "nombre": "LoteDom (12:00 PM)",
+        "rol_estrategico": "Líder 1ra del Mediodía",
+        "record_historico": "3 veces en 1ra y 1 Palé",
+        "afinidad_vaiven": "94.0%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "la_suerte_dia",
+        "nombre": "La Suerte Día (12:30 PM)",
+        "rol_estrategico": "Mayor Volumen Histórico",
+        "record_historico": "7 impactos históricos y 1 Palé",
+        "afinidad_vaiven": "93.5%",
+        "foco_recomendado": "[09] o [59] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      }
+    ],
+    "top6_estrategicas": [
+      {
+        "id": "quiniela_loteka",
+        "nombre": "Quiniela Loteka (7:55 PM)",
+        "rol_estrategico": "Especialista en Palé y 1ra",
+        "record_historico": "Generadora de Palé Directo Oficial",
+        "afinidad_vaiven": "98.3%",
+        "foco_recomendado": "Palé [09 × 59] y Quiniela [09] / [59]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "ny_tarde",
+        "nombre": "New York Tarde (2:30 PM)",
+        "rol_estrategico": "Líder 100% en 1ra (Mayor)",
+        "record_historico": "100% efectividad histórica en 1ra",
+        "afinidad_vaiven": "97.8%",
+        "foco_recomendado": "[09] o [59] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "gana_mas",
+        "nombre": "Gana Más (2:30 PM)",
+        "rol_estrategico": "Tracción Dominicana Tarde",
+        "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
+        "afinidad_vaiven": "95.0%",
+        "foco_recomendado": "[09] o [59] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "quiniela_leidsa",
+        "nombre": "Quiniela Leidsa (8:55 PM)",
+        "rol_estrategico": "Gran Cierre Nocturno",
+        "record_historico": "5 impactos históricos (90 en 1ra)",
+        "afinidad_vaiven": "94.5%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "lotedom",
+        "nombre": "LoteDom (12:00 PM)",
+        "rol_estrategico": "Líder 1ra del Mediodía",
+        "record_historico": "3 veces en 1ra y 1 Palé",
+        "afinidad_vaiven": "94.0%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "la_suerte_dia",
+        "nombre": "La Suerte Día (12:30 PM)",
+        "rol_estrategico": "Mayor Volumen Histórico",
+        "record_historico": "7 impactos históricos y 1 Palé",
+        "afinidad_vaiven": "93.5%",
+        "foco_recomendado": "[09] o [59] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      }
+    ],
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 66.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+  },
+  "radar_vaiven_top6": {
+    "activo": true,
+    "pareja_foco": [
+      "09",
+      "59"
+    ],
+    "presion_acumulada_pct": 66.6,
+    "fase_onda": "ACUMULACIÓN MATUTINA",
+    "sorteos_evaluados": "1 / 20",
+    "ecos_detectados": [],
+    "presiones_vectoriales": [],
+    "top4_estrategicas": [
+      {
+        "id": "quiniela_loteka",
+        "nombre": "Quiniela Loteka (7:55 PM)",
+        "rol_estrategico": "Especialista en Palé y 1ra",
+        "record_historico": "Generadora de Palé Directo Oficial",
+        "afinidad_vaiven": "98.3%",
+        "foco_recomendado": "Palé [09 × 59] y Quiniela [09] / [59]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "ny_tarde",
+        "nombre": "New York Tarde (2:30 PM)",
+        "rol_estrategico": "Líder 100% en 1ra (Mayor)",
+        "record_historico": "100% efectividad histórica en 1ra",
+        "afinidad_vaiven": "97.8%",
+        "foco_recomendado": "[09] o [59] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "gana_mas",
+        "nombre": "Gana Más (2:30 PM)",
+        "rol_estrategico": "Tracción Dominicana Tarde",
+        "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
+        "afinidad_vaiven": "95.0%",
+        "foco_recomendado": "[09] o [59] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "quiniela_leidsa",
+        "nombre": "Quiniela Leidsa (8:55 PM)",
+        "rol_estrategico": "Gran Cierre Nocturno",
+        "record_historico": "5 impactos históricos (90 en 1ra)",
+        "afinidad_vaiven": "94.5%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "lotedom",
+        "nombre": "LoteDom (12:00 PM)",
+        "rol_estrategico": "Líder 1ra del Mediodía",
+        "record_historico": "3 veces en 1ra y 1 Palé",
+        "afinidad_vaiven": "94.0%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "la_suerte_dia",
+        "nombre": "La Suerte Día (12:30 PM)",
+        "rol_estrategico": "Mayor Volumen Histórico",
+        "record_historico": "7 impactos históricos y 1 Palé",
+        "afinidad_vaiven": "93.5%",
+        "foco_recomendado": "[09] o [59] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      }
+    ],
+    "top6_estrategicas": [
+      {
+        "id": "quiniela_loteka",
+        "nombre": "Quiniela Loteka (7:55 PM)",
+        "rol_estrategico": "Especialista en Palé y 1ra",
+        "record_historico": "Generadora de Palé Directo Oficial",
+        "afinidad_vaiven": "98.3%",
+        "foco_recomendado": "Palé [09 × 59] y Quiniela [09] / [59]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "ny_tarde",
+        "nombre": "New York Tarde (2:30 PM)",
+        "rol_estrategico": "Líder 100% en 1ra (Mayor)",
+        "record_historico": "100% efectividad histórica en 1ra",
+        "afinidad_vaiven": "97.8%",
+        "foco_recomendado": "[09] o [59] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "gana_mas",
+        "nombre": "Gana Más (2:30 PM)",
+        "rol_estrategico": "Tracción Dominicana Tarde",
+        "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
+        "afinidad_vaiven": "95.0%",
+        "foco_recomendado": "[09] o [59] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "quiniela_leidsa",
+        "nombre": "Quiniela Leidsa (8:55 PM)",
+        "rol_estrategico": "Gran Cierre Nocturno",
+        "record_historico": "5 impactos históricos (90 en 1ra)",
+        "afinidad_vaiven": "94.5%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "lotedom",
+        "nombre": "LoteDom (12:00 PM)",
+        "rol_estrategico": "Líder 1ra del Mediodía",
+        "record_historico": "3 veces en 1ra y 1 Palé",
+        "afinidad_vaiven": "94.0%",
+        "foco_recomendado": "[09] o [59] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      },
+      {
+        "id": "la_suerte_dia",
+        "nombre": "La Suerte Día (12:30 PM)",
+        "rol_estrategico": "Mayor Volumen Histórico",
+        "record_historico": "7 impactos históricos y 1 Palé",
+        "afinidad_vaiven": "93.5%",
+        "foco_recomendado": "[09] o [59] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
+        "aciertos": []
+      }
+    ],
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 66.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+  }
 }

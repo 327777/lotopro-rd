@@ -6,7 +6,7 @@ import json
 import urllib.request
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
-from motor_jugada_maestra import calcular_jugada_maestra
+from motor_jugada_maestra import calcular_jugada_maestra, calcular_radar_vaiven
 
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
@@ -370,6 +370,39 @@ def actualizar_todo():
                     hubo_cambios = True
                     sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
 
+    # 4.5 Respaldo Individual: Consultar URL individual para sorteos cuya hora ya pasó y no salieron en portada
+    for s in datos.get("sorteos_hoy", []):
+        sid = s.get("id")
+        if s.get("estado") != "finalizado" and hora_ha_pasado(s.get("hora", "")) and sid in URLS_RESPALDO:
+            try:
+                url_resp, nom_resp = URLS_RESPALDO[sid]
+                req_resp = urllib.request.Request(url_resp, headers=headers)
+                html_resp = urllib.request.urlopen(req_resp, context=ctx, timeout=8).read().decode("utf-8", errors="ignore")
+                soup_resp = BeautifulSoup(html_resp, "html.parser")
+                card_resp = soup_resp.find("div", class_="result-card")
+                if card_resp:
+                    date_el = card_resp.find(class_="result-date")
+                    date_txt = date_el.get_text(strip=True).lower() if date_el else ""
+                    m_d = re.match(r"^\s*(\d+)", date_txt)
+                    if m_d and int(m_d.group(1)) == ahora.day:
+                        balls = card_resp.find_all(class_="result-number")
+                        nums = [int(b.get_text(strip=True)) for b in balls if b.get_text(strip=True).isdigit()]
+                        if len(nums) >= 3:
+                            nums = nums[:3]
+                            print(f"🎉 ¡RESPALDO EXITOSO: {s['nombre']} -> {nums}!")
+                            s["estado"] = "finalizado"
+                            s["premios"] = nums
+                            if sid not in hist:
+                                hist[sid] = []
+                            if hist[sid] and hist[sid][0].get("fecha") == hoy_dmy:
+                                hist[sid][0]["premios"] = nums
+                            else:
+                                hist[sid].insert(0, {"fecha": hoy_dmy, "premios": nums})
+                            hubo_cambios = True
+                            sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
+            except Exception as e_resp:
+                pass
+
     # 5. Seguridad: Solo sorteos que NO hayan finalizado y cuya hora aún no haya llegado se aseguran en "proximo"
     # UN SORTEO QUE YA FINALIZÓ HOY NUNCA SE BORRA NI SE REGRESA A "PROXIMO" (INMUNE A FERIADOS Y HORARIOS ESPECIALES)
     for s in datos.get("sorteos_hoy", []):
@@ -380,7 +413,16 @@ def actualizar_todo():
                     s["premios"] = None
                     hubo_cambios = True
 
-    if hubo_cambios:
+    # 4.8 Actualizar Radar de Vaivén Armónico & Frecuencia (Top 6 Loterías Estratégicas)
+    try:
+        pareja_act = datos.get("jugada_maestra_fija", {}).get("pareja_oficial", ["09", "59"])
+        radar_calc = calcular_radar_vaiven(datos.get("sorteos_hoy", []), pareja_act)
+        datos["radar_vaiven_top4"] = radar_calc
+        datos["radar_vaiven_top6"] = radar_calc
+    except Exception as e:
+        print(f"Aviso radar vaivén: {e}")
+
+    if hubo_cambios or "radar_vaiven_top4" not in datos:
         datos["actualizado_a_las"] = ahora.strftime("%I:%M %p")
         with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
             json.dump(datos, f, indent=2, ensure_ascii=False)
@@ -390,9 +432,14 @@ def actualizar_todo():
             json.dump(hist, f, indent=2, ensure_ascii=False)
         with open(ARCHIVO_HIST_JS, "w", encoding="utf-8") as f:
             f.write("window.HISTORIAL_LOTERIAS = " + json.dumps(hist, ensure_ascii=False) + ";\n")
-        print("✅ Base de datos e historiales sincronizados al 100%.")
+        print("✅ Base de datos, historiales y Radar de Vaivén sincronizados al 100%.")
     else:
-        print("✓ Pizarra al día. Sin sorteos nuevos por el momento.")
+        # Guardar también el radar en caso de que esté corriendo sin cambios de resultados
+        with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
+            json.dump(datos, f, indent=2, ensure_ascii=False)
+        with open(ARCHIVO_JS, "w", encoding="utf-8") as f:
+            f.write("window.DATOS_LOTOPRO = " + json.dumps(datos, indent=2, ensure_ascii=False) + ";\n")
+        print("✓ Pizarra al día. Radar de Vaivén actualizado.")
 
     return hubo_cambios
 
