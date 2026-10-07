@@ -340,6 +340,74 @@
             color: var(--text-muted);
             background: #04060d;
         }
+
+        /* ========================================================
+           OPTIMIZACIONES CELULAR Y MÓVIL (PANTALLA COMPLETA & HORIZONTAL)
+           ======================================================== */
+        @media (max-width: 768px) {
+            main {
+                padding: 0 6px !important;
+                margin: 12px auto !important;
+            }
+            .admin-banner {
+                padding: 14px 12px !important;
+                border-radius: 12px !important;
+            }
+            .config-card {
+                padding: 12px 10px !important;
+                border-radius: 12px !important;
+            }
+            #seccion-radar-vaiven {
+                padding: 12px 8px !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                border-radius: 12px !important;
+            }
+            #grid-contador-dias-top4 {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+            }
+            .tarjeta-semaforo-lineal {
+                padding: 10px 12px !important;
+            }
+        }
+
+        /* ========================================================
+           ESTILOS DE IMPRESIÓN (REPORTE EXCLUSIVO 1RA Y PALÉ)
+           ======================================================== */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #modal-reporte-1ra-pale, #modal-reporte-1ra-pale * {
+                visibility: visible;
+            }
+            #modal-reporte-1ra-pale {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+            }
+            #modal-reporte-1ra-pale button {
+                display: none !important;
+            }
+            #modal-reporte-1ra-pale .no-print {
+                display: none !important;
+            }
+            #modal-reporte-1ra-pale table {
+                border-collapse: collapse !important;
+                width: 100% !important;
+                color: #000 !important;
+            }
+            #modal-reporte-1ra-pale th, #modal-reporte-1ra-pale td {
+                border: 1px solid #333 !important;
+                color: #000 !important;
+                padding: 6px 8px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -467,6 +535,9 @@
                         <button type="button" onclick="archivarJornadaHoyGerencial()" title="Respaldar datos" style="background: #1e293b; color: #cbd5e1; border: 1px solid #475569; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer;">
                             💾 Respaldar
                         </button>
+                        <button type="button" onclick="abrirReporteOficial1rayPale()" title="Ver, imprimir o descargar reporte exclusivo de 1ra y Palé oficial" style="background: linear-gradient(135deg, #0284c7, #0369a1); border: 1.5px solid #38bdf8; color: #ffffff; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(56, 189, 248, 0.25);">
+                            🖨️ Reporte 1ra y Palé
+                        </button>
                         <button type="button" onclick="descargarAuditoria35DiasExcel()" title="Descargar auditoría completa de los últimos 36 días con Ranking y KPIs ejecutivos" style="background: linear-gradient(135deg, #1e1b4b, #312e81); border: 1.5px solid #f59e0b; color: #fbbf24; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);">
                             🏆 Auditoría 36 Días (Excel)
                         </button>
@@ -581,125 +652,89 @@
                                 <span style="font-size: 9.5px; color: #94a3b8; text-transform: uppercase; font-weight: 800; display: block;">Combinación Fija de Hoy</span>
                                 <span id="radar-pareja-foco" style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 900; color: #fde047;">[ 09 × 59 ]</span>
                             </div>
+                            <button type="button" onclick="abrirReporteOficial1rayPale()" style="background: linear-gradient(135deg, #0284c7, #0369a1); border: 1px solid #38bdf8; color: #ffffff; padding: 7px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver e imprimir registro exclusivo de 1ra y Palé">
+                                🖨️ Reporte 1ra y Palé
+                            </button>
                             <button type="button" onclick="refrescarRadarVaivenManual()" style="background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; padding: 7px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Recalcular cronómetro de días en tiempo real">
                                 🔄 Actualizar Días
                             </button>
                         </div>
                     </div>
 
-                    <!-- TABLERO PRINCIPAL DE CUENTAGOTAS: 1RA (CADA 2-3 DÍAS) VS PALÉ (CADA 15 DÍAS) -->
-                    <div id="grid-clocks-top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px;">
-                        
-                        <!-- RELOJ 1: PREMIO MAYOR (1RA) -->
-                        <div style="background: #090e1a; border: 1.5px solid rgba(245, 158, 11, 0.5); border-radius: 12px; padding: 12px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <div style="display: flex; align-items: center; gap: 6px;">
-                                    <span style="font-size: 16px;">🥇</span>
-                                    <span style="font-size: 12px; font-weight: 900; color: #fbbf24; text-transform: uppercase;">Ritmo de Salida en 1ra (Mayor)</span>
-                                </div>
-                                <span style="font-size: 10px; font-weight: 800; color: #cbd5e1; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); padding: 2px 7px; border-radius: 6px;">
-                                    Ciclo: Cada 2 a 3 días
-                                </span>
-                            </div>
-
-                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0;">
+                    <!-- CRONÓMETRO REAL ACUMULATIVO DE PALÉ DIRECTO (SIN CORTES ARTIFICIALES) -->
+                    <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.6); border-radius: 12px; padding: 14px; margin-bottom: 16px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.12);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="font-size: 20px;">🔥</span>
                                 <div>
-                                    <div style="font-size: 10px; color: #94a3b8;">Últimos Aciertos en 1ra:</div>
-                                    <div style="font-size: 12px; font-weight: 800; color: #34d399;" id="ciclo-1ra-ultimo-hit">Leidsa 90 en 1ra • LoteDom 79 en 1ra</div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="font-size: 24px; font-weight: 900; color: #fde047; font-family: 'JetBrains Mono', monospace;" id="ciclo-1ra-dias-gap">0</span>
-                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días</span>
-                                </div>
-                            </div>
-
-                            <!-- Barra de progreso del ciclo de 3 días -->
-                            <div style="margin-top: 6px;">
-                                <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #64748b; margin-bottom: 3px;">
-                                    <span>Día 0 (Ayer)</span>
-                                    <span>Día 1</span>
-                                    <span style="color:#f59e0b; font-weight:800;">Día 2-3 (¡Hoy se juega!)</span>
-                                </div>
-                                <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
-                                    <div id="barra-ciclo-1ra" style="width: 75%; height: 100%; background: linear-gradient(90deg, #10b981, #f59e0b); border-radius: 99px; transition: width 0.5s ease;"></div>
+                                    <h4 style="margin: 0; font-size: 13.5px; font-weight: 900; color: #c084fc; text-transform: uppercase;">
+                                        Cronómetro Oficial de Palé Directo (Acumulación Real)
+                                    </h4>
+                                    <span style="font-size: 10px; color: #94a3b8;">
+                                        Acumulación continua día a día (3, 17, 32 o 52 días). Solo se reinicia cuando explote otro Palé oficial.
+                                    </span>
                                 </div>
                             </div>
+                            <span style="font-size: 10px; font-weight: 800; color: #e9d5ff; background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); padding: 3px 8px; border-radius: 6px;">
+                                Especialista Actual: Loteka 7:55 PM
+                            </span>
+                        </div>
 
-                            <div style="margin-top: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 6px 8px; font-size: 10.5px; color: #6ee7b7; display: flex; align-items: center; gap: 6px;">
-                                <span>🎯</span>
-                                <span id="estado-ciclo-1ra-desc"><strong>3 Loterías Maduras Hoy:</strong> Loteka, New York Tarde y Gana Más en ventana verde.</span>
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 8px 0;">
+                            <div>
+                                <div style="font-size: 10.5px; color: #94a3b8;">Último Palé Directo de la Pareja Maestra:</div>
+                                <div style="font-size: 13px; font-weight: 800; color: #fde047;" id="ciclo-pale-ultimo-hit">04 Octubre (Loteka [00 × 94])</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 28px; font-weight: 900; color: #c084fc; font-family: 'JetBrains Mono', monospace;" id="ciclo-pale-dias-gap">3</span>
+                                <span style="font-size: 12px; color: #cbd5e1; font-weight: 800;">Días Reales</span>
                             </div>
                         </div>
 
-                        <!-- RELOJ 2: PALÉ DIRECTO -->
-                        <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.5); border-radius: 12px; padding: 12px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <div style="display: flex; align-items: center; gap: 6px;">
-                                    <span style="font-size: 16px;">🔥</span>
-                                    <span style="font-size: 12px; font-weight: 900; color: #c084fc; text-transform: uppercase;">Ritmo de Salida de Palé Directo</span>
-                                </div>
-                                <span style="font-size: 10px; font-weight: 800; color: #cbd5e1; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); padding: 2px 7px; border-radius: 6px;">
-                                    Ciclo: Cada 11 a 15 días
-                                </span>
-                            </div>
-
-                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0;">
-                                <div>
-                                    <div style="font-size: 10px; color: #94a3b8;">Último Palé Registrado:</div>
-                                    <div style="font-size: 12px; font-weight: 800; color: #fde047;" id="ciclo-pale-ultimo-hit">04 Octubre (Loteka [00 × 94])</div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <span style="font-size: 24px; font-weight: 900; color: #a78bfa; font-family: 'JetBrains Mono', monospace;" id="ciclo-pale-dias-gap">3</span>
-                                    <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">días</span>
-                                </div>
-                            </div>
-
-                            <!-- Barra de progreso del ciclo de 15 días -->
-                            <div style="margin-top: 6px;">
-                                <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: #64748b; margin-bottom: 3px;">
-                                    <span>Día 0 (Pegó)</span>
-                                    <span>Día 5</span>
-                                    <span>Día 10</span>
-                                    <span style="color:#c084fc; font-weight:800;">Día 15 (¡Golpe de Palé!)</span>
-                                </div>
-                                <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
-                                    <div id="barra-ciclo-pale" style="width: 20%; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 99px; transition: width 0.5s ease;"></div>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 8px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 8px; padding: 6px 8px; font-size: 10.5px; color: #d8b4fe; display: flex; align-items: center; gap: 6px;">
-                                <span>⏳</span>
-                                <span id="estado-ciclo-pale-desc"><strong>En acumulación (Día 3 de 15):</strong> Faltan ~9 a 12 días para apretar el Palé. Enfoque actual en 1ra.</span>
+                        <!-- Barra de acumulación visual -->
+                        <div style="margin-top: 6px;">
+                            <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
+                                <div id="barra-ciclo-pale" style="width: 20%; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 99px; transition: width 0.5s ease;"></div>
                             </div>
                         </div>
 
+                        <div style="margin-top: 8px; background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 7px 10px; font-size: 11px; color: #e9d5ff; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+                            <span id="estado-ciclo-pale-desc">
+                                ⏳ <strong>Día 3 en acumulación real:</strong> Se mantiene contando hasta que caiga el próximo Palé directo oficial.
+                            </span>
+                            <button type="button" onclick="abrirReporteOficial1rayPale()" style="background: rgba(168, 85, 247, 0.25); border: 1px solid #c084fc; color: #ffffff; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 800; cursor: pointer;">
+                                📜 Ver Historial de Palés
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- CUADRÍCULA DE LAS 6 LOTERÍAS ESTRATÉGICAS: CONTADOR DE DÍAS INDIVIDUAL -->
+                    <!-- SEMÁFORO DE LOTERÍAS ESTRATÉGICAS DE 1RA MAYOR (ORDENADO POR MADUREZ DE JUEGO) -->
                     <div style="margin-bottom: 14px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px;">
-                            <div style="font-size: 12px; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+                            <div style="font-size: 13px; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
                                 <span>🎯</span>
-                                <span>Semáforo Top 6 Loterías Estratégicas (Orden Lineal)</span>
+                                <span>Semáforo de Loterías de 1ra Mayor (Ordenado por Madurez)</span>
                             </div>
-                            <span style="font-size: 10px; color: #64748b;">Efectividad comprobada en 1ra y Palé directo</span>
+                            <span id="semaforo-capacidad-tag" style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
+                                Base 6 Loterías • Expansión Elástica Activa
+                            </span>
                         </div>
 
                         <!-- LEYENDA COMPACTA -->
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; font-size: 10px; text-align: center; font-weight: 800;">
-                            <div style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px; border-radius: 6px;">
-                                🟢 2-3 Días: JUGAR
+                            <div style="background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 5px; border-radius: 6px;">
+                                🟢 2 a 4+ Días: ¡HOY SE JUEGA!
                             </div>
-                            <div style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 4px; border-radius: 6px;">
-                                🟡 1 Día: ESPERA
+                            <div style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 5px; border-radius: 6px;">
+                                🟡 1 Día: EN ESPERA
                             </div>
-                            <div style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px; border-radius: 6px;">
-                                🏆 Día 0: SALIÓ
+                            <div style="background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); padding: 5px; border-radius: 6px;">
+                                🏆 Día 0 / Fin: DESCANSANDO
                             </div>
                         </div>
 
-                        <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px;">
-                            <!-- Cargado dinámicamente con las 6 loterías por JS -->
+                        <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+                            <!-- Cargado dinámicamente con las loterías ordenadas por madurez (Verdes arriba) -->
                         </div>
                     </div>
 
@@ -1154,6 +1189,76 @@
                 <button class="btn-save btn-gold" style="padding: 12px 18px; font-size: 12px; font-weight: 900;" onclick="reiniciarAModoLanzamientoOficial()">
                     🚀 Poner Todo en Modo Lanzamiento (100 Visitas / 100 Consultas / 0 Candados)
                 </button>
+            </div>
+        <!-- MODAL DE REPORTE OFICIAL EXCLUSIVO DE 1RA Y PALÉ (IMPRIMIBLE / PDF) -->
+        <div id="modal-reporte-1ra-pale" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 999999; overflow-y: auto; padding: 20px 10px;">
+            <div style="max-width: 900px; margin: 20px auto; background: #0f172a; border: 2px solid #38bdf8; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); overflow: hidden; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                <!-- Header modal -->
+                <div style="background: linear-gradient(135deg, #0c4a6e, #0284c7); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #38bdf8;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 24px;">🖨️</span>
+                        <div>
+                            <h3 style="margin: 0; font-size: 16px; font-weight: 900; color: #ffffff;">Reporte Oficial Exclusivo: Impactos en 1ra (Mayor) & Palé Directo</h3>
+                            <p style="margin: 2px 0 0 0; font-size: 11px; color: #bae6fd;">Registro estricto de premios mayores y palés directos de la Jugada Maestra (Sin 2das ni 3ras)</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="cerrarReporteOficial1rayPale()" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 16px; font-weight: 900; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">✕</button>
+                </div>
+
+                <div style="padding: 20px;" id="contenido-imprimible-reporte">
+                    <!-- Barra de KPIs del Reporte -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 18px;">
+                        <div style="background: #090e1a; border: 1px solid #10b981; border-radius: 10px; padding: 10px; text-align: center;">
+                            <span style="font-size: 10px; color: #6ee7b7; font-weight: 800; text-transform: uppercase;">Aciertos en 1ra (Mayor)</span>
+                            <div id="rep-kpi-1ra" style="font-size: 22px; font-weight: 900; color: #34d399; font-family: 'JetBrains Mono', monospace;">0</div>
+                        </div>
+                        <div style="background: #090e1a; border: 1px solid #a855f7; border-radius: 10px; padding: 10px; text-align: center;">
+                            <span style="font-size: 10px; color: #d8b4fe; font-weight: 800; text-transform: uppercase;">Palés Directos</span>
+                            <div id="rep-kpi-pales" style="font-size: 22px; font-weight: 900; color: #c084fc; font-family: 'JetBrains Mono', monospace;">0</div>
+                        </div>
+                        <div style="background: #090e1a; border: 1px solid #f59e0b; border-radius: 10px; padding: 10px; text-align: center;">
+                            <span style="font-size: 10px; color: #fde047; font-weight: 800; text-transform: uppercase;">Ciclo Promedio 1ra</span>
+                            <div id="rep-kpi-ciclo-1ra" style="font-size: 22px; font-weight: 900; color: #fbbf24; font-family: 'JetBrains Mono', monospace;">Cada 2.4 días</div>
+                        </div>
+                        <div style="background: #090e1a; border: 1px solid #38bdf8; border-radius: 10px; padding: 10px; text-align: center;">
+                            <span style="font-size: 10px; color: #93c5fd; font-weight: 800; text-transform: uppercase;">Reloj Actual Palé</span>
+                            <div id="rep-kpi-reloj-pale" style="font-size: 22px; font-weight: 900; color: #38bdf8; font-family: 'JetBrains Mono', monospace;">3 Días</div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de Impactos -->
+                    <div style="overflow-x: auto; border: 1px solid #1e293b; border-radius: 10px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
+                            <thead>
+                                <tr style="background: #090e1a; border-bottom: 2px solid #334155; color: #94a3b8; font-size: 10px; text-transform: uppercase;">
+                                    <th style="padding: 10px 12px;">Fecha Oficial</th>
+                                    <th style="padding: 10px 12px;">Lotería Ganadora</th>
+                                    <th style="padding: 10px 12px;">Tipo de Impacto</th>
+                                    <th style="padding: 10px 12px;">Premio Ganador</th>
+                                    <th style="padding: 10px 12px;">Intervalo de Días</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-cuerpo-reporte-1ra-pale">
+                                <!-- Llenado dinámico -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Footer modal con botones de acción -->
+                <div style="background: #090e1a; padding: 14px 20px; border-top: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="font-size: 11px; color: #94a3b8;">
+                        📄 Registro exportable oficial para control gerencial y auditoría.
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button type="button" onclick="descargarExcelExclusivo1rayPale()" style="background: #1e293b; border: 1px solid #475569; color: #cbd5e1; border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                            📊 Descargar Excel
+                        </button>
+                        <button type="button" onclick="imprimirReporteOficial1raYPales()" style="background: linear-gradient(135deg, #10b981, #059669); border: 1px solid #10b981; color: white; border-radius: 8px; padding: 8px 16px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                            🖨️ Imprimir / Guardar PDF
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2425,18 +2530,36 @@
                 const elParejaHeader = document.getElementById('radar-pareja-foco');
                 if (elParejaHeader) elParejaHeader.innerText = `[ ${p1Str} × ${p2Str} ]`;
 
-                // Las 6 Loterías Estratégicas Lineales
-                const CONFIG_RELOJ_TOP6 = [
+                // 1. Cronómetro Oficial Acumulativo de Palé Directo (Acumulación Continua Real)
+                // Se mide desde el último Palé oficial (Loteka 04 Octubre [00 x 94])
+                const fechaUltimoPale = "2026-10-04";
+                const dUltimoPale = new Date(fechaUltimoPale + "T12:00:00");
+                let diasPale = Math.round((fechaHoy - dUltimoPale) / (1000 * 60 * 60 * 24));
+                if (isNaN(diasPale) || diasPale < 0) diasPale = 3;
+
+                const elPaleGap = document.getElementById('ciclo-pale-dias-gap');
+                if (elPaleGap) elPaleGap.innerText = diasPale;
+
+                const elBarraPale = document.getElementById('barra-ciclo-pale');
+                const pctPale = Math.min(100, Math.round((diasPale / 15) * 100));
+                if (elBarraPale) elBarraPale.style.width = `${Math.max(15, pctPale)}%`;
+
+                const elDescPale = document.getElementById('estado-ciclo-pale-desc');
+                if (elDescPale) {
+                    elDescPale.innerHTML = `<span>⏳</span> <span><strong>Día ${diasPale} en acumulación continua:</strong> El reloj no se reinicia a los 15 días: sigue sumando día a día hasta que caiga el próximo Palé de la Pareja Maestra [ ${p1Str} × ${p2Str} ] en cualquier lotería.</span>`;
+                }
+
+                // 2. Base de Loterías Estratégicas de 1ra Mayor (Solo salidas oficiales en 1ra)
+                const LOTERIAS_1RA_BASE = [
                     {
                         id: "quiniela_loteka",
                         nombre: "Quiniela Loteka (7:55 PM)",
-                        rol: "TOP 1 • ESPECIALISTA PALÉ Y 1RA",
+                        rol: "TOP 1 • PALÉ Y 1RA MAYOR",
                         colorRol: "#c084fc",
                         fechaUltimoHit: "2026-10-04",
                         diasManual: 3,
                         detalleHit: "04 Oct (94 en 1ra y Palé [00 × 94])",
-                        cicloTipico: "1ra: 3 a 4 días • Palé: 15 días",
-                        esMaduroHoy: true,
+                        cicloTipico: "1ra: 3 a 4 días • Palé: continuo",
                         accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] • Palé: [ ${p1Str} × ${p2Str} ]`
                     },
                     {
@@ -2445,11 +2568,10 @@
                         rol: "TOP 2 • 100% EN 1RA MAYOR",
                         colorRol: "#fbbf24",
                         fechaUltimoHit: "2026-10-04",
-                        diasManual: 2,
+                        diasManual: 3,
                         detalleHit: "04 Oct (94 en 1ra) y 03 Oct (77 en 1ra)",
                         cicloTipico: "Cada 2 a 3 días",
-                        esMaduroHoy: true,
-                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] (Supera a NY Noche)`
+                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ]`
                     },
                     {
                         id: "gana_mas",
@@ -2457,11 +2579,10 @@
                         rol: "TOP 3 • TRACCIÓN DOMINICANA TARDE",
                         colorRol: "#f97316",
                         fechaUltimoHit: "2026-09-28",
-                        diasManual: 2,
+                        diasManual: 3,
                         detalleHit: "28 Sep (85 en 1ra) — Presión Acumulada",
                         cicloTipico: "Cada 2 a 4 días (Presión Máxima)",
-                        esMaduroHoy: true,
-                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ] (Presión acumulada)`
+                        accionDirecta: `👉 Jugar directo en 1ra: [ ${p1Str} ] y [ ${p2Str} ]`
                     },
                     {
                         id: "quiniela_leidsa",
@@ -2471,8 +2592,7 @@
                         fechaUltimoHit: "2026-10-06",
                         diasManual: 0,
                         detalleHit: "Ayer 06 Oct (90 en 1ra Mayor)",
-                        cicloTipico: "Cada 5 a 6 días",
-                        esMaduroHoy: false,
+                        cicloTipico: "Cada 4 a 6 días",
                         accionDirecta: `🏆 Salió anoche (90 en 1ra). Ciclo cumplido; retoma en 2 a 3 días.`
                     },
                     {
@@ -2484,7 +2604,6 @@
                         diasManual: 0,
                         detalleHit: "Ayer 06 Oct (79 en 1ra Mayor)",
                         cicloTipico: "Cada 2 a 3 días",
-                        esMaduroHoy: false,
                         accionDirecta: `🏆 Salió ayer (79 en 1ra). Ciclo cumplido; retoma en 2 días.`
                     },
                     {
@@ -2496,61 +2615,76 @@
                         diasManual: 0,
                         detalleHit: "Ayer 06 Oct (79 en 2da Rebote)",
                         cicloTipico: "Cada 2 a 3 días",
-                        esMaduroHoy: false,
                         accionDirecta: `🏆 7 aciertos en 36 días. Ciclo cumplido; retoma en 2 días.`
                     }
                 ];
 
-                // 1. Reloj de Palé Directo (Ciclo de 15 Días)
-                const diasPale = 3; // 04 Octubre en Loteka [00 x 94]
-                const elPaleGap = document.getElementById('ciclo-pale-dias-gap');
-                if (elPaleGap) elPaleGap.innerText = diasPale;
+                // 3. Sensor de Expansión Elástica (7ma u 8va casilla si hay rachas activas en 1ra)
+                const listaSemaforo = [...LOTERIAS_1RA_BASE];
 
-                const elBarraPale = document.getElementById('barra-ciclo-pale');
-                const pctPale = Math.min(100, Math.round((diasPale / 15) * 100));
-                if (elBarraPale) elBarraPale.style.width = `${Math.max(20, pctPale)}%`;
-
-                const elDescPale = document.getElementById('estado-ciclo-pale-desc');
-                if (elDescPale) {
-                    if (diasPale >= 12) {
-                        elDescPale.innerHTML = `<span>🟢🔥</span> <span><strong style="color:#10b981;">¡VENTANA DE PALÉ CUMPLIDA (Día ${diasPale} de 15)!:</strong> Hoy se juega el Palé Directo oficial [ ${p1Str} × ${p2Str} ].</span>`;
-                        if (elBarraPale) elBarraPale.style.background = "linear-gradient(90deg, #10b981, #f59e0b)";
-                    } else {
-                        const faltan = 15 - diasPale;
-                        elDescPale.innerHTML = `<span>⏳</span> <span><strong>En acumulación (Día ${diasPale} de 15):</strong> Faltan ~${faltan} días para la ventana fuerte de Palé. Presupuesto enfocado en 1ra.</span>`;
+                // Comprobar candidatos a expansión elástica (ej. Anguila 10:00 AM)
+                const candidatasElasticas = [
+                    {
+                        id: "anguila_manana",
+                        nombre: "Anguila Mañana (10:00 AM)",
+                        rol: "TOP 7 • EXPANSIÓN DINÁMICA 1RA",
+                        colorRol: "#e879f9",
+                        fechaUltimoHit: "2026-10-02",
+                        diasManual: 5,
+                        detalleHit: "02 Oct (52 en 1ra) • Hoy 59 en 3ra",
+                        cicloTipico: "Cada 2 a 4 días",
+                        accionDirecta: `⚡ Activa por racha en 1ra: directo [ ${p1Str} ] y [ ${p2Str} ]`
                     }
+                ];
+
+                candidatasElasticas.forEach(c => {
+                    if (!listaSemaforo.some(x => x.id === c.id)) {
+                        listaSemaforo.push(c);
+                    }
+                });
+
+                const elTagCapacidad = document.getElementById('semaforo-capacidad-tag');
+                if (elTagCapacidad) {
+                    elTagCapacidad.innerText = listaSemaforo.length > 6 
+                        ? `⚡ Expansión Activa (${listaSemaforo.length} Loterías en Maduración)` 
+                        : `Base 6 Loterías Estratégicas`;
                 }
 
-                // 2. Reloj General de 1ra (Mayor)
-                const elCiclo1raHit = document.getElementById('ciclo-1ra-ultimo-hit');
-                if (elCiclo1raHit) elCiclo1raHit.innerText = "Ayer 06 Octubre (Leidsa 90 en 1ra • LoteDom 79 en 1ra)";
+                // 4. Evaluar estado de hoy para cada lotería
+                const listaSorteosHoy = (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) 
+                    ? datosAppAdmin.sorteos_hoy 
+                    : ((window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.sorteos_hoy)) ? window.DATOS_LOTOPRO.sorteos_hoy : []);
 
-                const elCiclo1raGap = document.getElementById('ciclo-1ra-dias-gap');
-                if (elCiclo1raGap) elCiclo1raGap.innerText = "0";
+                listaSemaforo.forEach(item => {
+                    const sHoy = listaSorteosHoy.find(s => s.id === item.id);
+                    item.finalizadoHoy = (sHoy && sHoy.estado === 'finalizado');
+                    item.premiosHoy = (sHoy && Array.isArray(sHoy.premios)) ? sHoy.premios : [];
+                    item.dias = (typeof item.diasManual === 'number') ? item.diasManual : 0;
+                });
 
-                const elBarraCiclo1ra = document.getElementById('barra-ciclo-1ra');
-                if (elBarraCiclo1ra) elBarraCiclo1ra.style.width = "75%";
+                // 5. AUTO-ORDENAMIENTO POR MADUREZ DE JUEGO (Verdes arriba de todo)
+                listaSemaforo.sort((a, b) => {
+                    const aScore = a.finalizadoHoy ? 0 : (a.dias >= 2 ? 3 : (a.dias === 1 ? 2 : 1));
+                    const bScore = b.finalizadoHoy ? 0 : (b.dias >= 2 ? 3 : (b.dias === 1 ? 2 : 1));
+                    if (bScore !== aScore) return bScore - aScore;
+                    return b.dias - a.dias;
+                });
 
-                const elDesc1ra = document.getElementById('estado-ciclo-1ra-desc');
-                if (elDesc1ra) {
-                    elDesc1ra.innerHTML = `<span>🎯</span> <span><strong>3 Loterías Maduras Hoy:</strong> Loteka, New York Tarde y Gana Más listas para tirar directo [ ${p1Str} ] y [ ${p2Str} ].</span>`;
-                }
-
-                // 3. Semáforo Dinámico en las 6 Loterías
+                // 6. Renderizado de Tarjetas Rectangulares y Compactas para Celular
                 const elGrid = document.getElementById('grid-contador-dias-top4');
                 if (elGrid) {
-                    elGrid.innerHTML = CONFIG_RELOJ_TOP6.map(item => {
-                        const dias = (typeof item.diasManual === 'number') ? item.diasManual : 0;
+                    elGrid.innerHTML = listaSemaforo.map(item => {
+                        const dias = item.dias;
+                        let badgeColor = "#38bdf8", badgeBg = "rgba(56, 189, 248, 0.15)", badgeBorder = "#38bdf8";
+                        let badgeTxt = "", cardBorder = "border: 1.5px solid rgba(56, 189, 248, 0.4);", glowBox = "";
 
-                        let badgeColor = "#38bdf8";
-                        let badgeBg = "rgba(56, 189, 248, 0.15)";
-                        let badgeBorder = "#38bdf8";
-                        let badgeTxt = "";
-                        let cardBorder = "border: 1.5px solid rgba(56, 189, 248, 0.4);";
-                        let glowBox = "";
-                        let accionTxt = item.accionDirecta;
-
-                        if (dias === 0) {
+                        if (item.finalizadoHoy) {
+                            badgeColor = "#94a3b8";
+                            badgeBg = "rgba(148, 163, 184, 0.15)";
+                            badgeBorder = "#64748b";
+                            badgeTxt = "🏁 FINALIZADO HOY";
+                            cardBorder = "border: 1.5px solid rgba(100, 116, 139, 0.4);";
+                        } else if (dias === 0) {
                             badgeColor = "#60a5fa";
                             badgeBg = "rgba(59, 130, 246, 0.2)";
                             badgeBorder = "#3b82f6";
@@ -2560,7 +2694,7 @@
                             badgeColor = "#fde047";
                             badgeBg = "rgba(245, 158, 11, 0.18)";
                             badgeBorder = "#f59e0b";
-                            badgeTxt = "🟡 EN ESPERA (Día 1 de 3)";
+                            badgeTxt = "🟡 EN ESPERA (Día 1)";
                             cardBorder = "border: 1.5px solid rgba(245, 158, 11, 0.5);";
                         } else if (dias >= 2) {
                             badgeColor = "#6ee7b7";
@@ -2568,55 +2702,42 @@
                             badgeBorder = "#10b981";
                             badgeTxt = `🟢 ¡HOY SE JUEGA! (Día ${dias})`;
                             cardBorder = "border: 2px solid #10b981;";
-                            glowBox = "box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);";
+                            glowBox = "box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);";
                         }
 
                         let estadoHoyHtml = '';
-                        const listaSorteosHoy = (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) 
-                            ? datosAppAdmin.sorteos_hoy 
-                            : ((window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.sorteos_hoy)) ? window.DATOS_LOTOPRO.sorteos_hoy : []);
-
-                        const sHoy = listaSorteosHoy.find(s => s.id === item.id);
-                        if (sHoy && sHoy.estado === 'finalizado' && Array.isArray(sHoy.premios) && sHoy.premios.length >= 3) {
+                        if (item.finalizadoHoy && item.premiosHoy.length >= 3) {
                             const p1Num = parseInt(p1Str, 10);
                             const p2Num = parseInt(p2Str, 10);
-                            const hit1 = sHoy.premios.includes(p1Num);
-                            const hit2 = sHoy.premios.includes(p2Num);
+                            const hit1 = item.premiosHoy.includes(p1Num);
+                            const hit2 = item.premiosHoy.includes(p2Num);
                             if (hit1 || hit2) {
-                                estadoHoyHtml = `<div style="margin-top: 6px; background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #6ee7b7; border-radius: 6px; padding: 4px 6px; font-size: 10px; font-weight: 800; text-align: center;">🎯 ¡IMPACTO HOY! [${sHoy.premios.map(fmt2Adm).join(', ')}]</div>`;
+                                estadoHoyHtml = `<span style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #6ee7b7; border-radius: 4px; padding: 2px 6px; font-size: 10px; font-weight: 800;">🎯 ¡PEGÓ HOY! [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
                             } else {
-                                estadoHoyHtml = `<div style="margin-top: 6px; background: rgba(30,41,59,0.7); border: 1px solid #334155; color: #94a3b8; border-radius: 6px; padding: 4px 6px; font-size: 10px; text-align: center;">Sorteo de hoy: [${sHoy.premios.map(fmt2Adm).join(', ')}]</div>`;
+                                estadoHoyHtml = `<span style="background: rgba(30,41,59,0.7); border: 1px solid #334155; color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9.5px;">Sorteo de hoy: [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
                             }
                         }
 
                         return `
-                            <div style="background: #090e1a; ${cardBorder} ${glowBox} border-radius: 12px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                                        <div>
-                                            <span style="font-size: 9.5px; font-weight: 900; color: ${item.colorRol}; text-transform: uppercase;">${item.rol}</span>
-                                            <h4 style="font-size: 13px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">${item.nombre}</h4>
-                                        </div>
-                                        <span style="background: ${badgeBg}; border: 1px solid ${badgeBorder}; color: ${badgeColor}; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 900; padding: 2px 7px; border-radius: 6px; white-space: nowrap;">
-                                            ${dias} Días
-                                        </span>
+                            <div class="tarjeta-semaforo-lineal" style="background: #090e1a; ${cardBorder} ${glowBox} border-radius: 10px; padding: 10px 14px; display: flex; flex-direction: column; gap: 5px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                        <span style="font-size: 9px; font-weight: 900; color: ${item.colorRol}; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">${item.rol}</span>
+                                        <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 0;">${item.nombre}</h4>
                                     </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; margin-bottom: 6px;">
-                                        Último hit: <strong>${item.detalleHit}</strong>.
-                                    </div>
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 6px 8px; margin-bottom: 8px;">
-                                        <span style="font-size: 9px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Ciclo Típico de Retorno</span>
-                                        <span style="font-size: 11px; font-weight: 900; color: ${badgeColor};">${item.cicloTipico}</span>
-                                    </div>
+                                    <span style="background: ${badgeBg}; border: 1.5px solid ${badgeBorder}; color: ${badgeColor}; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 900; padding: 2px 8px; border-radius: 6px; white-space: nowrap;">
+                                        ${dias} Días
+                                    </span>
                                 </div>
-                                <div>
-                                    <div style="background: ${badgeBg}; border: 1.5px solid ${badgeBorder}; color: ${badgeColor}; border-radius: 6px; padding: 6px 8px; font-size: 11px; font-weight: 900; text-align: center;">
-                                        ${badgeTxt}
-                                    </div>
+
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; background: rgba(15, 23, 42, 0.7); border-radius: 6px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.04);">
+                                    <span style="font-size: 10.5px; font-weight: 900; color: ${badgeColor};">${badgeTxt}</span>
+                                    <span style="font-size: 10px; color: #94a3b8;">Ciclo 1ra: <strong style="color:#e2e8f0;">${item.cicloTipico}</strong></span>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; color: #cbd5e1; font-weight: 700;">
+                                    <span>${item.accionDirecta}</span>
                                     ${estadoHoyHtml}
-                                    <div style="font-size: 10px; color: #cbd5e1; text-align: center; margin-top: 5px; font-weight: 600;">
-                                        ${accionTxt}
-                                    </div>
                                 </div>
                             </div>
                         `;
@@ -2656,7 +2777,22 @@
         // CUADERNO DIARIO Y ARCHIVO HISTÓRICO
         // (AUTO-GUARDADO CONTINUO 24/7)
         // ==========================================
-        const HISTORIAL_OFICIAL_BASE = [
+                const HISTORIAL_OFICIAL_BASE = [
+            {
+                fecha: "2026-10-06",
+                fechaFormato: "06 Octubre 2026",
+                sorteosEvaluados: "10 / 10",
+                parejaMaestra: "[90 × 79]",
+                maestra1ra: 1,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["LoteDom 12:00 PM: 79 en 1ra", "La Suerte 12:30 PM: 79 en 2da"],
+                maestraRatio: "1 / 10",
+                maestraPct: "10.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
             {
                 fecha: "2026-10-05",
                 fechaFormato: "05 Octubre 2026",
@@ -2665,13 +2801,10 @@
                 maestra1ra: 0,
                 maestra2da: 2,
                 maestra3ra: 0,
-                maestraHitsDetalle: [
-                    "La Primera 12:00 PM: 19 en 2da",
-                    "Quiniela Real 1:00 PM: 19 en 2da"
-                ],
+                maestraHitsDetalle: ["La Primera 12:00 PM: 19 en 2da", "Quiniela Real 1:00 PM: 19 en 2da"],
                 maestraRatio: "0 / 20",
                 maestraPct: "0.0%",
-                diagnostico: "🔵 Inercia en 2da Posición (2 aciertos en La Primera y Real)",
+                diagnostico: "🔵 Rebote Frecuente (2 en 2da)",
                 diagClase: "color:#60a5fa; font-weight:800;",
                 cerrado: true
             },
@@ -2683,33 +2816,10 @@
                 maestra1ra: 2,
                 maestra2da: 0,
                 maestra3ra: 1,
-                maestraHitsDetalle: [
-                    "New York 2:30 PM: 94 en 1ra",
-                    "Quiniela Loteka 7:55 PM: 94 en 1ra",
-                    "Quiniela Loteka 7:55 PM: 00 en 3ra (¡Palé 94×00!)"
-                ],
+                maestraHitsDetalle: ["New York 2:30 PM: 94 en 1ra", "Quiniela Loteka 7:55 PM: 94 en 1ra", "Quiniela Loteka 7:55 PM: 00 en 3ra", "🔥 Palé en Quiniela Loteka 7:55 PM [00 × 94]"],
                 maestraRatio: "2 / 20",
                 maestraPct: "10.0%",
-                candados1ra: 0,
-                candados2da: 1,
-                candados3ra: 0,
-                candadosHitsDetalle: [
-                    "La Primera 8:00 PM: 73 en 2da"
-                ],
-                candadosRatio: "0 / 18",
-                candadosPct: "0.0%",
-                candadosReves1ra: 1,
-                candadosReves2da: 1,
-                candadosReves3ra: 0,
-                candadosRevesHitsDetalle: [
-                    "Quiniela Loteka 7:55 PM: 94 (virao) en 1ra",
-                    "New York 10:30 PM: 53 (virao) en 2da"
-                ],
-                candadosRevesRatio: "2 / 18",
-                candadosRevesPct: "11.1%",
-                candadosTotalRatio: "3 / 18",
-                candadosTotalPct: "16.7%",
-                diagnostico: "🏆 Alta Eficiencia Maestra (2 en 1ra + Palé 94×00 en Loteka)",
+                diagnostico: "🏆 ¡GOLPE DE PALÉ DIRECTO! (1 Palé)",
                 diagClase: "color:#34d399; font-weight:800;",
                 cerrado: true
             },
@@ -2721,28 +2831,11 @@
                 maestra1ra: 1,
                 maestra2da: 0,
                 maestra3ra: 1,
-                maestraHitsDetalle: [
-                    "New York 2:30 PM: 77 en 1ra",
-                    "Quiniela Leidsa 8:55 PM: 27 en 3ra"
-                ],
+                maestraHitsDetalle: ["New York 2:30 PM: 77 en 1ra", "Quiniela Leidsa 8:55 PM: 27 en 3ra"],
                 maestraRatio: "1 / 20",
                 maestraPct: "5.0%",
-                candados1ra: 0,
-                candados2da: 0,
-                candados3ra: 0,
-                candadosHitsDetalle: [],
-                candadosRatio: "0 / 18",
-                candadosPct: "0.0%",
-                candadosReves1ra: 0,
-                candadosReves2da: 0,
-                candadosReves3ra: 0,
-                candadosRevesHitsDetalle: [],
-                candadosRevesRatio: "0 / 18",
-                candadosRevesPct: "0.0%",
-                candadosTotalRatio: "0 / 18",
-                candadosTotalPct: "0.0%",
-                diagnostico: "🟡 Rendimiento Firme Maestra (1 en 1ra Mayor en NY 2:30 PM)",
-                diagClase: "color:#fde047; font-weight:800;",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
                 cerrado: true
             },
             {
@@ -2753,30 +2846,11 @@
                 maestra1ra: 1,
                 maestra2da: 0,
                 maestra3ra: 0,
-                maestraHitsDetalle: [
-                    "Real 9:00 PM: 94 en 1ra"
-                ],
+                maestraHitsDetalle: ["Quiniela Real 9:00 PM: 94 en 1ra"],
                 maestraRatio: "1 / 20",
                 maestraPct: "5.0%",
-                candados1ra: 0,
-                candados2da: 0,
-                candados3ra: 0,
-                candadosHitsDetalle: [],
-                candadosRatio: "0 / 18",
-                candadosPct: "0.0%",
-                candadosReves1ra: 1,
-                candadosReves2da: 1,
-                candadosReves3ra: 0,
-                candadosRevesHitsDetalle: [
-                    "Anguila 10:00 AM: 52 (virao) en 1ra",
-                    "Florida 10:00 PM: 56 (virao) en 2da"
-                ],
-                candadosRevesRatio: "2 / 18",
-                candadosRevesPct: "11.1%",
-                candadosTotalRatio: "2 / 18",
-                candadosTotalPct: "11.1%",
-                diagnostico: "🟡 Rendimiento Firme Maestra (1 en 1ra en Real 9:00 PM)",
-                diagClase: "color:#fde047; font-weight:800;",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
                 cerrado: true
             },
             {
@@ -2787,33 +2861,461 @@
                 maestra1ra: 0,
                 maestra2da: 1,
                 maestra3ra: 1,
-                maestraHitsDetalle: [
-                    "La Primera 12:00 PM: 93 en 2da",
-                    "La Primera 8:00 PM: 93 en 3ra"
-                ],
+                maestraHitsDetalle: ["La Primera 12:00 PM: 93 en 2da", "La Primera 8:00 PM: 93 en 3ra"],
                 maestraRatio: "0 / 20",
                 maestraPct: "0.0%",
-                candados1ra: 1,
-                candados2da: 0,
-                candados3ra: 0,
-                candadosHitsDetalle: [
-                    "La Primera 8:00 PM: 09 (Candado [39 × 09])"
-                ],
-                candadosRatio: "1 / 18",
-                candadosPct: "5.6%",
-                candadosReves1ra: 0,
-                candadosReves2da: 1,
-                candadosReves3ra: 1,
-                candadosRevesHitsDetalle: [
-                    "La Primera 12:00 PM: 93 (Revés de 39)",
-                    "La Primera 8:00 PM: 93 (Revés de 39)"
-                ],
-                candadosRevesRatio: "2 / 18",
-                candadosRevesPct: "11.1%",
-                candadosTotalRatio: "3 / 18",
-                candadosTotalPct: "16.7%",
-                diagnostico: "🟡 Rendimiento Estable Directo (1 en 1ra + 2 Virados)",
-                diagClase: "color:#fde047; font-weight:800;",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-30",
+                fechaFormato: "30 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[91 × 86]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-29",
+                fechaFormato: "29 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[93 × 29]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-28",
+                fechaFormato: "28 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[28 × 85]",
+                maestra1ra: 2,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Gana Más 2:30 PM: 85 en 1ra", "La Suerte 6:00 PM: 85 en 3ra", "Anguila 6:00 PM: 28 en 1ra"],
+                maestraRatio: "2 / 20",
+                maestraPct: "10.0%",
+                diagnostico: "🌟 IMPACTO DOBLE EN 1RA (2 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-27",
+                fechaFormato: "27 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[92 × 05]",
+                maestra1ra: 1,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Florida 1:30 PM: 92 en 2da", "Gana Más 2:30 PM: 05 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-26",
+                fechaFormato: "26 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[71 × 82]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 82 en 1ra", "New Jersey 1:00 PM: 71 en 3ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-25",
+                fechaFormato: "25 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[02 × 68]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 02 en 3ra", "LoteDom 12:00 PM: 68 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-24",
+                fechaFormato: "24 Septiembre 2026",
+                sorteosEvaluados: "18 / 18",
+                parejaMaestra: "[23 × 47]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 18",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-23",
+                fechaFormato: "23 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[68 × 82]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Quiniela Loteka 7:55 PM: 82 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia Menor (1 en 3ra)",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-22",
+                fechaFormato: "22 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[73 × 96]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Primera 12:00 PM: 96 en 3ra", "La Suerte 12:30 PM: 73 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-21",
+                fechaFormato: "21 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[51 × 71]",
+                maestra1ra: 0,
+                maestra2da: 2,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["New Jersey 1:00 PM: 51 en 2da", "Quiniela Leidsa 8:55 PM: 71 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (2 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-20",
+                fechaFormato: "20 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[73 × 31]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-19",
+                fechaFormato: "19 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[63 × 90]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-18",
+                fechaFormato: "18 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[74 × 82]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Anguila 9:00 PM: 82 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia Menor (1 en 3ra)",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-17",
+                fechaFormato: "17 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[86 × 07]",
+                maestra1ra: 1,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Primera 12:00 PM: 07 en 2da", "Anguila 1:00 PM: 07 en 3ra", "Anguila 6:00 PM: 86 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-16",
+                fechaFormato: "16 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[63 × 30]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 63 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-15",
+                fechaFormato: "15 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[26 × 82]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Quiniela Leidsa 8:55 PM: 26 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-14",
+                fechaFormato: "14 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[39 × 50]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Suerte 6:00 PM: 39 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-13",
+                fechaFormato: "13 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 66]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-12",
+                fechaFormato: "12 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[65 × 57]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Anguila 10:00 AM: 57 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia Menor (1 en 3ra)",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-11",
+                fechaFormato: "11 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[30 × 98]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Primera 8:00 PM: 30 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-10",
+                fechaFormato: "10 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[19 × 76]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-09",
+                fechaFormato: "09 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[91 × 73]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Primera 12:00 PM: 91 en 1ra", "Anguila 9:00 PM: 73 en 3ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-08",
+                fechaFormato: "08 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[40 × 58]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Anguila 1:00 PM: 40 en 2da", "Anguila 6:00 PM: 58 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-07",
+                fechaFormato: "07 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[91 × 06]",
+                maestra1ra: 1,
+                maestra2da: 2,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Primera 12:00 PM: 91 en 2da", "LoteDom 12:00 PM: 06 en 1ra", "LoteDom 12:00 PM: 06 en 2da", "🔥 Palé en LoteDom 12:00 PM [91 × 06]"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🏆 ¡GOLPE DE PALÉ DIRECTO! (1 Palé)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-06",
+                fechaFormato: "06 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[65 × 79]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 3,
+                maestraHitsDetalle: ["New Jersey 1:00 PM: 79 en 3ra", "Gana Más 2:30 PM: 65 en 3ra", "Quiniela Leidsa 8:55 PM: 65 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia Menor (3 en 3ra)",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-05",
+                fechaFormato: "05 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[06 × 03]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Florida 1:30 PM: 03 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia Menor (1 en 3ra)",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-04",
+                fechaFormato: "04 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[05 × 94]",
+                maestra1ra: 1,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Anguila 10:00 AM: 05 en 1ra", "Quiniela Leidsa 8:55 PM: 05 en 2da"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-03",
+                fechaFormato: "03 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[27 × 63]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "Sin impacto directo",
+                diagClase: "color:#94a3b8;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-02",
+                fechaFormato: "02 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[90 × 68]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["New York 10:30 PM: 68 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-09-01",
+                fechaFormato: "01 Septiembre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[27 × 06]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 06 en 2da", "La Suerte 12:30 PM: 06 en 3ra", "🔥 Palé en La Suerte 12:30 PM [27 × 06]"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🏆 ¡GOLPE DE PALÉ DIRECTO! (1 Palé)",
+                diagClase: "color:#34d399; font-weight:800;",
                 cerrado: true
             }
         ];
@@ -3306,6 +3808,244 @@
             a.click();
             document.body.removeChild(a);
         }
+
+        // ==========================================
+        // REPORTE OFICIAL EXCLUSIVO: 1RA (MAYOR) Y PALÉ DIRECTO
+        // (AUDITORÍA PURA Y CONTROL GERENCIAL IMPRIMIBLE)
+        // ==========================================
+        function abrirReporteOficial1rayPale() {
+            const modal = document.getElementById('modal-reporte-1ra-pale');
+            if (!modal) return;
+            modal.style.display = 'block';
+
+            const hist = (typeof obtenerHistorialAuditoriaGerencial === 'function') 
+                ? obtenerHistorialAuditoriaGerencial() 
+                : (HISTORIAL_OFICIAL_BASE || []);
+
+            const registrosUnicos = [];
+            if (typeof auditoriaActualGerencial !== 'undefined' && auditoriaActualGerencial && auditoriaActualGerencial.fecha) {
+                registrosUnicos.push(auditoriaActualGerencial);
+            }
+            hist.forEach(h => {
+                if (!registrosUnicos.some(r => r.fecha === h.fecha)) {
+                    registrosUnicos.push(h);
+                }
+            });
+
+            // Ordenar de más antiguo a más reciente para calcular los intervalos con rigor matemático
+            const ordenadosCronologico = [...registrosUnicos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+            let conteo1ra = 0;
+            let conteoPales = 0;
+            let ultimoFecha1ra = null;
+            let ultimoFechaPale = null;
+            const listaHitsFiltrados = [];
+            let sumaIntervalos1ra = 0;
+            let conteoIntervalos1ra = 0;
+
+            ordenadosCronologico.forEach(reg => {
+                const fechaObj = new Date(reg.fecha + "T12:00:00");
+                const hits = Array.isArray(reg.maestraHitsDetalle) ? reg.maestraHitsDetalle : [];
+
+                hits.forEach(hitStr => {
+                    const esPale = hitStr.includes('Palé') || hitStr.includes('Pale') || hitStr.includes('¡Palé');
+                    const es1ra = (hitStr.includes('en 1ra') || hitStr.includes('1ra')) && !hitStr.includes('en 2da') && !hitStr.includes('en 3ra');
+
+                    // Descartar estrictamente impactos de 2da y 3ra que no sean Palé
+                    if (!esPale && !es1ra) return;
+
+                    let tipoImpacto = '';
+                    let intervaloTxt = '—';
+
+                    if (esPale) {
+                        conteoPales++;
+                        tipoImpacto = '🔥 Palé Directo';
+                        if (ultimoFechaPale) {
+                            const diffDias = Math.max(1, Math.round((fechaObj - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
+                            intervaloTxt = `${diffDias} Días`;
+                        } else {
+                            intervaloTxt = 'Inicio de Auditoría';
+                        }
+                        ultimoFechaPale = fechaObj;
+                    } else if (es1ra) {
+                        conteo1ra++;
+                        tipoImpacto = '🥇 1ra (Mayor)';
+                        if (ultimoFecha1ra) {
+                            const diffDias = Math.max(1, Math.round((fechaObj - ultimoFecha1ra) / (1000 * 60 * 60 * 24)));
+                            intervaloTxt = `${diffDias} Días`;
+                            sumaIntervalos1ra += diffDias;
+                            conteoIntervalos1ra++;
+                        } else {
+                            intervaloTxt = 'Inicio de Auditoría';
+                        }
+                        ultimoFecha1ra = fechaObj;
+                    }
+
+                    let loteria = reg.parejaMaestra ? `Lotería Oficial (${reg.parejaMaestra})` : 'Lotería Oficial';
+                    let premio = hitStr;
+                    if (hitStr.includes(':')) {
+                        const parts = hitStr.split(':');
+                        loteria = parts[0].trim();
+                        premio = parts.slice(1).join(':').trim();
+                    }
+
+                    listaHitsFiltrados.push({
+                        fecha: reg.fecha,
+                        fechaFormato: reg.fechaFormato || reg.fecha,
+                        loteria: loteria,
+                        tipoImpacto: tipoImpacto,
+                        premio: premio,
+                        intervalo: intervaloTxt,
+                        esPale: esPale
+                    });
+                });
+            });
+
+            // Actualizar KPIs
+            const elKpi1ra = document.getElementById('rep-kpi-1ra');
+            const elKpiPales = document.getElementById('rep-kpi-pales');
+            const elKpiCiclo1ra = document.getElementById('rep-kpi-ciclo-1ra');
+            const elKpiRelojPale = document.getElementById('rep-kpi-reloj-pale');
+
+            if (elKpi1ra) elKpi1ra.innerText = conteo1ra;
+            if (elKpiPales) elKpiPales.innerText = conteoPales;
+
+            if (elKpiCiclo1ra) {
+                const prom = conteoIntervalos1ra > 0 ? (sumaIntervalos1ra / conteoIntervalos1ra).toFixed(1) : '2.4';
+                elKpiCiclo1ra.innerText = `Cada ${prom} días`;
+            }
+
+            if (elKpiRelojPale) {
+                let fechaHoy = new Date();
+                if (typeof datosAppAdmin !== 'undefined' && datosAppAdmin && datosAppAdmin.fecha_hoy) {
+                    const fh = new Date(datosAppAdmin.fecha_hoy + "T12:00:00");
+                    if (!isNaN(fh.getTime())) fechaHoy = fh;
+                }
+                let diasAcumPale = 3;
+                if (ultimoFechaPale) {
+                    diasAcumPale = Math.max(0, Math.round((fechaHoy - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
+                }
+                elKpiRelojPale.innerText = `${diasAcumPale} Días`;
+            }
+
+            // Renderizar tabla en orden descendente (más reciente arriba)
+            const tbody = document.getElementById('tabla-cuerpo-reporte-1ra-pale');
+            if (tbody) {
+                if (listaHitsFiltrados.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px; color:#94a3b8;">No hay impactos en 1ra o Palé registrados en este período.</td></tr>`;
+                    return;
+                }
+
+                const filasHtml = [...listaHitsFiltrados].reverse().map(item => {
+                    const badgeTipo = item.esPale
+                        ? `<span style="background: rgba(168,85,247,0.2); color: #c084fc; border: 1px solid #a855f7; padding: 2px 7px; border-radius: 4px; font-weight: 800; font-size: 10px;">${item.tipoImpacto}</span>`
+                        : `<span style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10b981; padding: 2px 7px; border-radius: 4px; font-weight: 800; font-size: 10px;">${item.tipoImpacto}</span>`;
+
+                    return `
+                        <tr style="border-bottom: 1px solid #1e293b; transition: background 0.15s ease;" onmouseover="this.style.background='rgba(255,255,255,0.03)'" onmouseout="this.style.background='transparent'">
+                            <td style="padding: 9px 12px; font-weight: 700; color: #f8fafc; font-family: monospace;">${item.fechaFormato}</td>
+                            <td style="padding: 9px 12px; font-weight: 800; color: #38bdf8;">${item.loteria}</td>
+                            <td style="padding: 9px 12px;">${badgeTipo}</td>
+                            <td style="padding: 9px 12px; font-family: monospace; font-weight: 800; color: #facc15;">${item.premio}</td>
+                            <td style="padding: 9px 12px; font-weight: 700; color: #cbd5e1; font-family: monospace;">${item.intervalo}</td>
+                        </tr>
+                    `;
+                }).join('');
+
+                tbody.innerHTML = filasHtml;
+            }
+        }
+
+        function cerrarReporteOficial1rayPale() {
+            const modal = document.getElementById('modal-reporte-1ra-pale');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function imprimirReporteOficial1raYPales() {
+            window.print();
+        }
+
+        function descargarExcelExclusivo1rayPale() {
+            const hist = (typeof obtenerHistorialAuditoriaGerencial === 'function') 
+                ? obtenerHistorialAuditoriaGerencial() 
+                : (HISTORIAL_OFICIAL_BASE || []);
+
+            const registrosUnicos = [];
+            if (typeof auditoriaActualGerencial !== 'undefined' && auditoriaActualGerencial && auditoriaActualGerencial.fecha) {
+                registrosUnicos.push(auditoriaActualGerencial);
+            }
+            hist.forEach(h => {
+                if (!registrosUnicos.some(r => r.fecha === h.fecha)) {
+                    registrosUnicos.push(h);
+                }
+            });
+
+            const ordenados = [...registrosUnicos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            let ultimoFecha1ra = null;
+            let ultimoFechaPale = null;
+            const filasCsv = [];
+
+            ordenados.forEach(reg => {
+                const fechaObj = new Date(reg.fecha + "T12:00:00");
+                const hits = Array.isArray(reg.maestraHitsDetalle) ? reg.maestraHitsDetalle : [];
+                hits.forEach(hitStr => {
+                    const esPale = hitStr.includes('Palé') || hitStr.includes('Pale') || hitStr.includes('¡Palé');
+                    const es1ra = (hitStr.includes('en 1ra') || hitStr.includes('1ra')) && !hitStr.includes('en 2da') && !hitStr.includes('en 3ra');
+                    if (!esPale && !es1ra) return;
+
+                    let tipo = esPale ? 'PALE DIRECTO' : '1RA (MAYOR)';
+                    let intervalo = '—';
+                    if (esPale) {
+                        if (ultimoFechaPale) {
+                            const diff = Math.max(1, Math.round((fechaObj - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
+                            intervalo = `${diff} dias`;
+                        } else {
+                            intervalo = 'Inicio Auditoria';
+                        }
+                        ultimoFechaPale = fechaObj;
+                    } else {
+                        if (ultimoFecha1ra) {
+                            const diff = Math.max(1, Math.round((fechaObj - ultimoFecha1ra) / (1000 * 60 * 60 * 24)));
+                            intervalo = `${diff} dias`;
+                        } else {
+                            intervalo = 'Inicio Auditoria';
+                        }
+                        ultimoFecha1ra = fechaObj;
+                    }
+
+                    let loteria = 'Loteria Oficial';
+                    let premio = hitStr;
+                    if (hitStr.includes(':')) {
+                        const parts = hitStr.split(':');
+                        loteria = parts[0].trim();
+                        premio = parts.slice(1).join(':').trim();
+                    }
+
+                    const clean = (s) => (s || '').replace(/;/g, ' - ').replace(/"/g, '""').trim();
+                    filasCsv.push(`"${clean(reg.fecha)}";"${clean(reg.fechaFormato)}";"${clean(loteria)}";"${clean(tipo)}";"${clean(premio)}";"${clean(intervalo)}";"${clean(reg.parejaMaestra)}"`);
+                });
+            });
+
+            if (filasCsv.length === 0) {
+                alert("No hay registros en 1ra o Palé para descargar.");
+                return;
+            }
+
+            let csvContent = "\uFEFFsep=;\r\n";
+            csvContent += "Fecha ISO;Fecha Formato;Loteria Ganadora;Tipo de Impacto;Premio Ganador;Intervalo de Dias;Pareja Maestra Jugada\r\n";
+            csvContent += filasCsv.reverse().join("\r\n");
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Reporte_Exclusivo_1ra_y_Pales_LotoPro_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
 
         // ==========================================
         // BANDEJA DE ASISTENCIA Y SOPORTE A CLIENTES
