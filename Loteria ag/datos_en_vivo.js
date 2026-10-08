@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-07",
   "fecha_ayer": "2026-10-06",
-  "actualizado_a_las": "08:25 PM",
+  "actualizado_a_las": "09:19 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -298,8 +298,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        15,
+        65,
+        66
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -307,8 +311,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        14,
+        59,
+        0
+      ]
     },
     {
       "id": "real_noche",
@@ -316,8 +324,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        4,
+        39,
+        10
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -325,8 +337,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        90,
+        70,
+        95
+      ]
     },
     {
       "id": "florida_noche",
@@ -353,9 +369,9 @@ window.DATOS_LOTOPRO = {
       "09",
       "59"
     ],
-    "presion_acumulada_pct": 87.4,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "01",
@@ -380,6 +396,46 @@ window.DATOS_LOTOPRO = {
             "id": "primera_noche",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "59",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "15",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -442,6 +498,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "70",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Anguila 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -452,10 +528,28 @@ window.DATOS_LOTOPRO = {
         "impacto": "El 08 vibró en 1 sorteo(s), empujando al 09"
       },
       {
+        "numero_disparador": "10",
+        "objetivo_presionado": "09",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 10 vibró en 1 sorteo(s), empujando al 09"
+      },
+      {
         "numero_disparador": "60",
         "objetivo_presionado": "59",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 60 vibró en 2 sorteo(s), encerrando al 59"
+      },
+      {
+        "numero_disparador": "90",
+        "objetivo_presionado": "09",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 90 rompió hoy, activando tracción directa hacia el 09"
+      },
+      {
+        "numero_disparador": "95",
+        "objetivo_presionado": "59",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 95 rompió hoy, activando tracción directa hacia el 59"
       }
     ],
     "top4_estrategicas": [
@@ -517,10 +611,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[09] o [59] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          15,
+          65,
+          66
+        ],
         "aciertos": []
       },
       {
@@ -617,10 +715,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[09] o [59] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          15,
+          65,
+          66
+        ],
         "aciertos": []
       },
       {
@@ -658,7 +760,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -666,9 +768,9 @@ window.DATOS_LOTOPRO = {
       "09",
       "59"
     ],
-    "presion_acumulada_pct": 87.4,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "01",
@@ -693,6 +795,46 @@ window.DATOS_LOTOPRO = {
             "id": "primera_noche",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "59",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "15",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -755,6 +897,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "70",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Anguila 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -765,10 +927,28 @@ window.DATOS_LOTOPRO = {
         "impacto": "El 08 vibró en 1 sorteo(s), empujando al 09"
       },
       {
+        "numero_disparador": "10",
+        "objetivo_presionado": "09",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 10 vibró en 1 sorteo(s), empujando al 09"
+      },
+      {
         "numero_disparador": "60",
         "objetivo_presionado": "59",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 60 vibró en 2 sorteo(s), encerrando al 59"
+      },
+      {
+        "numero_disparador": "90",
+        "objetivo_presionado": "09",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 90 rompió hoy, activando tracción directa hacia el 09"
+      },
+      {
+        "numero_disparador": "95",
+        "objetivo_presionado": "59",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 95 rompió hoy, activando tracción directa hacia el 59"
       }
     ],
     "top4_estrategicas": [
@@ -830,10 +1010,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[09] o [59] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          15,
+          65,
+          66
+        ],
         "aciertos": []
       },
       {
@@ -930,10 +1114,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[09] o [59] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          15,
+          65,
+          66
+        ],
         "aciertos": []
       },
       {
@@ -971,6 +1159,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [09 × 59] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
