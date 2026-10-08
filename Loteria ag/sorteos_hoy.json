@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-07",
   "fecha_ayer": "2026-10-06",
-  "actualizado_a_las": "10:46 PM",
+  "actualizado_a_las": "11:17 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -196,9 +196,9 @@
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        37,
-        70,
-        8
+        90,
+        85,
+        22
       ]
     },
     {
@@ -534,33 +534,27 @@
         ]
       },
       {
-        "numero": "70",
+        "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (2da) ➔ Anguila 9:00 PM (2da)",
+        "detalle": "New Jersey 1:00 PM (1ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
             "loteria": "Anguila 9:00 PM",
             "id": "anguila_9pm",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       }
     ],
     "presiones_vectoriales": [
-      {
-        "numero_disparador": "08",
-        "objetivo_presionado": "09",
-        "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 08 vibró en 1 sorteo(s), empujando al 09"
-      },
       {
         "numero_disparador": "10",
         "objetivo_presionado": "09",
@@ -959,33 +953,27 @@
         ]
       },
       {
-        "numero": "70",
+        "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (2da) ➔ Anguila 9:00 PM (2da)",
+        "detalle": "New Jersey 1:00 PM (1ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
             "loteria": "Anguila 9:00 PM",
             "id": "anguila_9pm",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       }
     ],
     "presiones_vectoriales": [
-      {
-        "numero_disparador": "08",
-        "objetivo_presionado": "09",
-        "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 08 vibró en 1 sorteo(s), empujando al 09"
-      },
       {
         "numero_disparador": "10",
         "objetivo_presionado": "09",
