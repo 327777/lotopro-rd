@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-09",
   "fecha_ayer": "2026-10-08",
-  "actualizado_a_las": "07:56 PM",
+  "actualizado_a_las": "08:27 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -364,9 +364,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        63,
-        34,
-        25
+        27,
+        44,
+        87
       ]
     },
     {
@@ -375,8 +375,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        70,
+        72,
+        85
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -439,30 +443,10 @@ window.DATOS_LOTOPRO = {
       "00",
       "79"
     ],
-    "presion_acumulada_pct": 85.8,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
-      {
-        "numero": "34",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
       {
         "numero": "62",
         "repeticiones": 2,
@@ -564,9 +548,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          63,
-          34,
-          25
+          27,
+          44,
+          87
         ],
         "aciertos": []
       },
@@ -668,9 +652,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          63,
-          34,
-          25
+          27,
+          44,
+          87
         ],
         "aciertos": []
       },
@@ -760,7 +744,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [00 × 79] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [00 × 79] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -768,30 +752,10 @@ window.DATOS_LOTOPRO = {
       "00",
       "79"
     ],
-    "presion_acumulada_pct": 85.8,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
-      {
-        "numero": "34",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
       {
         "numero": "62",
         "repeticiones": 2,
@@ -893,9 +857,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          63,
-          34,
-          25
+          27,
+          44,
+          87
         ],
         "aciertos": []
       },
@@ -997,9 +961,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          63,
-          34,
-          25
+          27,
+          44,
+          87
         ],
         "aciertos": []
       },
@@ -1089,6 +1053,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [00 × 79] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [00 × 79] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
