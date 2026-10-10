@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-09",
   "fecha_ayer": "2026-10-08",
-  "actualizado_a_las": "10:47 PM",
+  "actualizado_a_las": "11:17 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        94,
-        77,
-        24
+        1,
+        96,
+        5
       ]
     },
     {
@@ -552,6 +552,26 @@
         ]
       },
       {
+        "numero": "96",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "74",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -638,6 +658,12 @@
         "objetivo_presionado": "00",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 99 vibró en 1 sorteo(s), empujando al 00"
+      },
+      {
+        "numero_disparador": "01",
+        "objetivo_presionado": "00",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 01 vibró en 1 sorteo(s), empujando al 00"
       },
       {
         "numero_disparador": "78",
@@ -967,6 +993,26 @@
         ]
       },
       {
+        "numero": "96",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "74",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1053,6 +1099,12 @@
         "objetivo_presionado": "00",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 99 vibró en 1 sorteo(s), empujando al 00"
+      },
+      {
+        "numero_disparador": "01",
+        "objetivo_presionado": "00",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 01 vibró en 1 sorteo(s), empujando al 00"
       },
       {
         "numero_disparador": "78",
