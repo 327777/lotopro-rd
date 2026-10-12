@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-11",
   "fecha_ayer": "2026-10-10",
-  "actualizado_a_las": "08:59 PM",
+  "actualizado_a_las": "09:25 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -336,8 +336,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        94,
+        16,
+        34
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -397,8 +401,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        78,
+        72,
+        43
+      ]
     },
     {
       "id": "real_noche",
@@ -406,8 +414,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        84,
+        11,
+        49
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -415,8 +427,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        17,
+        8,
+        25
+      ]
     },
     {
       "id": "florida_noche",
@@ -443,9 +459,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "32"
     ],
-    "presion_acumulada_pct": 87.4,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "97",
@@ -474,6 +490,58 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "La Primera 8:00 PM",
             "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "78",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ New York 2:30 PM (3ra) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "49",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 6:00 PM (1ra) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -540,40 +608,20 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "78",
+        "numero": "94",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ New York 2:30 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 6:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "49",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 6:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -614,6 +662,46 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Quiniela Leidsa 8:55 PM",
             "id": "quiniela_leidsa",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "16",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (1ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "84",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 6:00 PM (2da) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -829,7 +917,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 32] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 32] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -837,9 +925,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "32"
     ],
-    "presion_acumulada_pct": 87.4,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "97",
@@ -868,6 +956,58 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "La Primera 8:00 PM",
             "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "78",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ New York 2:30 PM (3ra) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "49",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 6:00 PM (1ra) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -934,40 +1074,20 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "78",
+        "numero": "94",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ New York 2:30 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 6:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "49",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 6:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -1008,6 +1128,46 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Quiniela Leidsa 8:55 PM",
             "id": "quiniela_leidsa",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "16",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (1ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "84",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 6:00 PM (2da) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -1223,6 +1383,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 32] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 32] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
