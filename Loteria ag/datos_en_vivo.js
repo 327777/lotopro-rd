@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-11",
   "fecha_ayer": "2026-10-10",
-  "actualizado_a_las": "10:50 PM",
+  "actualizado_a_las": "11:19 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@ window.DATOS_LOTOPRO = {
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        38,
-        71,
-        42
+        75,
+        6,
+        85
       ]
     },
     {
@@ -656,26 +656,6 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "38",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -1168,26 +1148,6 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "38",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
