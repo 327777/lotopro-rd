@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-13",
   "fecha_ayer": "2026-10-12",
-  "actualizado_a_las": "06:29 PM",
+  "actualizado_a_las": "07:56 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -362,8 +362,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        8,
+        99,
+        72
+      ]
     },
     {
       "id": "primera_noche",
@@ -435,9 +439,9 @@ window.DATOS_LOTOPRO = {
       "28",
       "27"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 85.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
       {
         "numero": "81",
@@ -520,7 +524,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "72",
+        "objetivo_presionado": "27",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 72 rompió hoy, activando tracción directa hacia el 27"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -529,10 +540,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [28 × 27] y Quiniela [28] / [27]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          8,
+          99,
+          72
+        ],
         "aciertos": []
       },
       {
@@ -625,10 +640,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [28 × 27] y Quiniela [28] / [27]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          8,
+          99,
+          72
+        ],
         "aciertos": []
       },
       {
@@ -713,7 +732,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [28 × 27] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [28 × 27] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -721,9 +740,9 @@ window.DATOS_LOTOPRO = {
       "28",
       "27"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 85.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
       {
         "numero": "81",
@@ -806,7 +825,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "72",
+        "objetivo_presionado": "27",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 72 rompió hoy, activando tracción directa hacia el 27"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -815,10 +841,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [28 × 27] y Quiniela [28] / [27]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          8,
+          99,
+          72
+        ],
         "aciertos": []
       },
       {
@@ -911,10 +941,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [28 × 27] y Quiniela [28] / [27]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          8,
+          99,
+          72
+        ],
         "aciertos": []
       },
       {
@@ -999,6 +1033,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [28 × 27] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [28 × 27] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
