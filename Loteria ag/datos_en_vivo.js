@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-13",
   "fecha_ayer": "2026-10-12",
-  "actualizado_a_las": "10:32 PM",
+  "actualizado_a_las": "11:11 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@ window.DATOS_LOTOPRO = {
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        52,
-        62,
-        7
+        33,
+        69,
+        4
       ]
     },
     {
@@ -472,26 +472,26 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
-        "numero": "52",
+        "numero": "69",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Gana Más 2:30 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Gana Más 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
         "loterias": [
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "2da",
+            "premio_index": 2
           },
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -558,6 +558,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "95",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -578,26 +598,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "69",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "50",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -612,6 +612,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "52",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -887,26 +907,26 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
-        "numero": "52",
+        "numero": "69",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Gana Más 2:30 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Gana Más 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
         "loterias": [
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "2da",
+            "premio_index": 2
           },
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -973,6 +993,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "95",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -993,26 +1033,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "69",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "50",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1027,6 +1047,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "52",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "1ra",
             "premio_index": 1
           }
