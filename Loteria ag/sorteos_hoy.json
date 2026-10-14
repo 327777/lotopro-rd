@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-14",
   "fecha_ayer": "2026-10-13",
-  "actualizado_a_las": "01:46 PM",
+  "actualizado_a_las": "02:32 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        0,
+        96,
+        74
+      ]
     },
     {
       "id": "gana_mas",
@@ -415,9 +419,9 @@
       "05",
       "95"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "91",
@@ -434,6 +438,26 @@
           {
             "loteria": "La Suerte 12:30 PM",
             "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "00",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Florida 1:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -486,6 +510,12 @@
         "objetivo_presionado": "05",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 06 vibró en 1 sorteo(s), empujando al 05"
+      },
+      {
+        "numero_disparador": "96",
+        "objetivo_presionado": "95",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 96 vibró en 1 sorteo(s), encerrando al 95"
       }
     ],
     "top4_estrategicas": [
@@ -668,7 +698,7 @@
         ]
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [05 × 95] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [05 × 95] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -676,9 +706,9 @@
       "05",
       "95"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "91",
@@ -695,6 +725,26 @@
           {
             "loteria": "La Suerte 12:30 PM",
             "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "00",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Florida 1:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -747,6 +797,12 @@
         "objetivo_presionado": "05",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 06 vibró en 1 sorteo(s), empujando al 05"
+      },
+      {
+        "numero_disparador": "96",
+        "objetivo_presionado": "95",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 96 vibró en 1 sorteo(s), encerrando al 95"
       }
     ],
     "top4_estrategicas": [
@@ -929,6 +985,6 @@
         ]
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [05 × 95] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [05 × 95] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
