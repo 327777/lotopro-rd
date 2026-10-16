@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-16",
   "fecha_ayer": "2026-10-15",
-  "actualizado_a_las": "01:03 PM",
+  "actualizado_a_las": "01:43 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -258,8 +258,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        76,
+        1,
+        41
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -267,8 +271,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        24,
+        21,
+        93
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -276,8 +284,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        6,
+        57,
+        81
+      ]
     },
     {
       "id": "florida_dia",
@@ -403,9 +415,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "39"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
+    "presion_acumulada_pct": 76.2,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "7 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
@@ -413,6 +425,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "39",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 38 vibró en 1 sorteo(s), encerrando al 39"
+      },
+      {
+        "numero_disparador": "93",
+        "objetivo_presionado": "39",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 93 rompió hoy, activando tracción directa hacia el 39"
       }
     ],
     "top4_estrategicas": [
@@ -591,7 +609,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 39] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 39] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -599,9 +617,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "39"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
+    "presion_acumulada_pct": 76.2,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "7 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
@@ -609,6 +627,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "39",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 38 vibró en 1 sorteo(s), encerrando al 39"
+      },
+      {
+        "numero_disparador": "93",
+        "objetivo_presionado": "39",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 93 rompió hoy, activando tracción directa hacia el 39"
       }
     ],
     "top4_estrategicas": [
@@ -787,6 +811,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 39] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 39] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
