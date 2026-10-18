@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-18",
   "fecha_ayer": "2026-10-17",
-  "actualizado_a_las": "01:23 PM",
+  "actualizado_a_las": "01:51 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        17,
+        67,
+        79
+      ]
     },
     {
       "id": "gana_mas",
@@ -417,7 +421,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
@@ -617,7 +621,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
