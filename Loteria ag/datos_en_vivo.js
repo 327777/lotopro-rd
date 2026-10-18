@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-17",
   "fecha_ayer": "2026-10-16",
-  "actualizado_a_las": "09:18 PM",
+  "actualizado_a_las": "10:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -234,9 +234,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        85,
-        62,
-        98
+        52,
+        67,
+        47
       ]
     },
     {
@@ -490,46 +490,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "62",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 1:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "98",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ La Suerte 6:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "92",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -755,7 +715,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "62",
         "objetivo_presionado": "63",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 62 vibró en 2 sorteo(s), empujando al 63"
+        "impacto": "El 62 vibró en 1 sorteo(s), empujando al 63"
       },
       {
         "numero_disparador": "80",
@@ -850,9 +810,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          85,
-          62,
-          98
+          52,
+          67,
+          47
         ],
         "aciertos": []
       },
@@ -954,9 +914,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          85,
-          62,
-          98
+          52,
+          67,
+          47
         ],
         "aciertos": []
       },
@@ -1017,46 +977,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "62",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 1:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "98",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ La Suerte 6:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "92",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1282,7 +1202,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "62",
         "objetivo_presionado": "63",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 62 vibró en 2 sorteo(s), empujando al 63"
+        "impacto": "El 62 vibró en 1 sorteo(s), empujando al 63"
       },
       {
         "numero_disparador": "80",
@@ -1377,9 +1297,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          85,
-          62,
-          98
+          52,
+          67,
+          47
         ],
         "aciertos": []
       },
@@ -1481,9 +1401,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          85,
-          62,
-          98
+          52,
+          67,
+          47
         ],
         "aciertos": []
       },
