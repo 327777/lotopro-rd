@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-18",
   "fecha_ayer": "2026-10-17",
-  "actualizado_a_las": "02:57 PM",
+  "actualizado_a_las": "06:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -345,8 +345,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        7,
+        21,
+        45
+      ]
     },
     {
       "id": "quiniela_loteka",
@@ -429,7 +433,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "11 / 20",
     "ecos_detectados": [
       {
         "numero": "22",
@@ -672,7 +676,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "11 / 20",
     "ecos_detectados": [
       {
         "numero": "22",
