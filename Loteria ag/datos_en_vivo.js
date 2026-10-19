@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-19",
   "fecha_ayer": "2026-10-18",
-  "actualizado_a_las": "12:29 PM",
+  "actualizado_a_las": "01:06 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -245,8 +245,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        14,
+        83,
+        25
+      ]
     },
     {
       "id": "quiniela_real",
@@ -254,8 +258,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        7,
+        40,
+        38
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -263,8 +271,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        82,
+        27,
+        30
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -399,9 +411,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "09"
     ],
-    "presion_acumulada_pct": 69.8,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "3 / 20",
+    "presion_acumulada_pct": 74.6,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -502,10 +514,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[95] o [09] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          14,
+          83,
+          25
+        ],
         "aciertos": []
       }
     ],
@@ -586,14 +602,18 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[95] o [09] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          14,
+          83,
+          25
+        ],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 69.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -601,9 +621,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "09"
     ],
-    "presion_acumulada_pct": 69.8,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "3 / 20",
+    "presion_acumulada_pct": 74.6,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -704,10 +724,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[95] o [09] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          14,
+          83,
+          25
+        ],
         "aciertos": []
       }
     ],
@@ -788,13 +812,17 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[95] o [09] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          14,
+          83,
+          25
+        ],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 69.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
