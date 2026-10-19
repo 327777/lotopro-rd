@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-18",
   "fecha_ayer": "2026-10-17",
-  "actualizado_a_las": "10:47 PM",
+  "actualizado_a_las": "11:29 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@ window.DATOS_LOTOPRO = {
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        35,
-        47,
-        84
+        68,
+        91,
+        65
       ]
     },
     {
@@ -574,6 +574,26 @@ window.DATOS_LOTOPRO = {
             "id": "ny_noche",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "65",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (1ra) ➔ New Jersey 1:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -999,6 +1019,26 @@ window.DATOS_LOTOPRO = {
             "id": "ny_noche",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "65",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (1ra) ➔ New Jersey 1:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
