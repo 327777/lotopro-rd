@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-19",
   "fecha_ayer": "2026-10-18",
-  "actualizado_a_las": "01:44 PM",
+  "actualizado_a_las": "02:12 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        18,
+        24,
+        68
+      ]
     },
     {
       "id": "gana_mas",
@@ -415,9 +419,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "09"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -434,6 +438,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Anguila 10:00 AM",
             "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "68",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (2da) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -617,7 +641,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -625,9 +649,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "09"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -644,6 +668,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Anguila 10:00 AM",
             "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "68",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (2da) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -827,6 +871,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 09] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
