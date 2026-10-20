@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-19",
   "fecha_ayer": "2026-10-18",
-  "actualizado_a_las": "07:57 PM",
+  "actualizado_a_las": "08:37 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -364,9 +364,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        22,
-        19,
-        53
+        86,
+        83,
+        4
       ]
     },
     {
@@ -375,8 +375,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        39,
+        4,
+        55
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -441,7 +445,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -470,16 +474,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "22",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "numero": "86",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 6:00 PM (2da) ➔ Anguila 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (1ra)",
         "loterias": [
           {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
@@ -530,14 +540,14 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "19",
+        "numero": "83",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
         "loterias": [
           {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
             "pos": "2da",
             "premio_index": 2
           },
@@ -570,20 +580,40 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "86",
+        "numero": "55",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
         "loterias": [
           {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -603,9 +633,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          22,
-          19,
-          53
+          86,
+          83,
+          4
         ],
         "aciertos": []
       },
@@ -703,9 +733,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          22,
-          19,
-          53
+          86,
+          83,
+          4
         ],
         "aciertos": []
       },
@@ -801,7 +831,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -830,16 +860,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "22",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "numero": "86",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 6:00 PM (2da) ➔ Anguila 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (1ra)",
         "loterias": [
           {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
@@ -890,14 +926,14 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "19",
+        "numero": "83",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
         "loterias": [
           {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
             "pos": "2da",
             "premio_index": 2
           },
@@ -930,20 +966,40 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "86",
+        "numero": "55",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
         "loterias": [
           {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -963,9 +1019,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          22,
-          19,
-          53
+          86,
+          83,
+          4
         ],
         "aciertos": []
       },
@@ -1063,9 +1119,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          22,
-          19,
-          53
+          86,
+          83,
+          4
         ],
         "aciertos": []
       },
