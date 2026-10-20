@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-19",
   "fecha_ayer": "2026-10-18",
-  "actualizado_a_las": "09:19 PM",
+  "actualizado_a_las": "10:03 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -234,9 +234,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        91,
-        19,
-        21
+        82,
+        41,
+        26
       ]
     },
     {
@@ -536,10 +536,10 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "91",
+        "numero": "82",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ New York 2:30 PM (2da)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ Anguila 1:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
@@ -548,30 +548,10 @@ window.DATOS_LOTOPRO = {
             "premio_index": 1
           },
           {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "21",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Lotería Nacional 9:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -824,9 +804,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          91,
-          19,
-          21
+          82,
+          41,
+          26
         ],
         "aciertos": []
       },
@@ -928,9 +908,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          91,
-          19,
-          21
+          82,
+          41,
+          26
         ],
         "aciertos": []
       },
@@ -1037,10 +1017,10 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "91",
+        "numero": "82",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ New York 2:30 PM (2da)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ Anguila 1:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
@@ -1049,30 +1029,10 @@ window.DATOS_LOTOPRO = {
             "premio_index": 1
           },
           {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "21",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Lotería Nacional 9:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -1325,9 +1285,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          91,
-          19,
-          21
+          82,
+          41,
+          26
         ],
         "aciertos": []
       },
@@ -1429,9 +1389,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          91,
-          19,
-          21
+          82,
+          41,
+          26
         ],
         "aciertos": []
       },
