@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-19",
   "fecha_ayer": "2026-10-18",
-  "actualizado_a_las": "10:03 PM",
+  "actualizado_a_las": "10:49 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -440,8 +440,12 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        69,
+        14,
+        55
+      ]
     },
     {
       "id": "ny_noche",
@@ -449,8 +453,12 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        2,
+        58,
+        94
+      ]
     }
   ],
   "radar_vaiven_top4": {
@@ -461,7 +469,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -486,6 +494,58 @@
             "id": "anguila_6pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "14",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (2da) ➔ Florida 10:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "55",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra) ➔ Florida 10:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -556,26 +616,6 @@
         ]
       },
       {
-        "numero": "14",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "83",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -610,26 +650,6 @@
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "55",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -714,9 +734,35 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "58",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Real 9:00 PM (3ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "94",
+        "objetivo_presionado": "95",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 94 vibró en 1 sorteo(s), empujando al 95"
+      },
       {
         "numero_disparador": "59",
         "objetivo_presionado": "95",
@@ -942,7 +988,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "57",
@@ -967,6 +1013,58 @@
             "id": "anguila_6pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "14",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (2da) ➔ Florida 10:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "55",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra) ➔ Florida 10:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -1037,26 +1135,6 @@
         ]
       },
       {
-        "numero": "14",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "83",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1091,26 +1169,6 @@
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "55",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -1195,9 +1253,35 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "58",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Real 9:00 PM (3ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "94",
+        "objetivo_presionado": "95",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 94 vibró en 1 sorteo(s), empujando al 95"
+      },
       {
         "numero_disparador": "59",
         "objetivo_presionado": "95",
