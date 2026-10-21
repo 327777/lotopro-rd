@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-21",
   "fecha_ayer": "2026-10-20",
-  "actualizado_a_las": "01:45 PM",
+  "actualizado_a_las": "03:03 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -310,8 +310,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        13,
+        60,
+        74
+      ]
     },
     {
       "id": "ny_tarde",
@@ -319,8 +323,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        92,
+        87,
+        85
+      ]
     },
     {
       "id": "la_suerte_tarde",
@@ -419,9 +427,9 @@ window.DATOS_LOTOPRO = {
       "75",
       "50"
     ],
-    "presion_acumulada_pct": 77.8,
+    "presion_acumulada_pct": 81.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "8 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "69",
@@ -466,6 +474,12 @@ window.DATOS_LOTOPRO = {
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "74",
+        "objetivo_presionado": "75",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 74 vibró en 1 sorteo(s), empujando al 75"
+      },
+      {
         "numero_disparador": "49",
         "objetivo_presionado": "50",
         "tipo": "Encierro Armónico (Sándwich)",
@@ -499,10 +513,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[75] o [50] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          92,
+          87,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -512,10 +530,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[75] o [50] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          13,
+          60,
+          74
+        ],
         "aciertos": []
       },
       {
@@ -587,10 +609,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[75] o [50] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          92,
+          87,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -600,10 +626,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[75] o [50] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          13,
+          60,
+          74
+        ],
         "aciertos": []
       },
       {
@@ -654,7 +684,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [75 × 50] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [75 × 50] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -662,9 +692,9 @@ window.DATOS_LOTOPRO = {
       "75",
       "50"
     ],
-    "presion_acumulada_pct": 77.8,
+    "presion_acumulada_pct": 81.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "8 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "69",
@@ -709,6 +739,12 @@ window.DATOS_LOTOPRO = {
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "74",
+        "objetivo_presionado": "75",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 74 vibró en 1 sorteo(s), empujando al 75"
+      },
+      {
         "numero_disparador": "49",
         "objetivo_presionado": "50",
         "tipo": "Encierro Armónico (Sándwich)",
@@ -742,10 +778,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[75] o [50] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          92,
+          87,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -755,10 +795,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[75] o [50] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          13,
+          60,
+          74
+        ],
         "aciertos": []
       },
       {
@@ -830,10 +874,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[75] o [50] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          92,
+          87,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -843,10 +891,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[75] o [50] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          13,
+          60,
+          74
+        ],
         "aciertos": []
       },
       {
@@ -897,6 +949,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [75 × 50] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [75 × 50] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
