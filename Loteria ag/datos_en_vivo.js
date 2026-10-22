@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-21",
   "fecha_ayer": "2026-10-20",
-  "actualizado_a_las": "10:48 PM",
+  "actualizado_a_las": "11:29 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,9 +286,9 @@ window.DATOS_LOTOPRO = {
       "hora": "1:00 PM",
       "estado": "finalizado",
       "premios": [
-        64,
-        58,
-        5
+        30,
+        60,
+        97
       ]
     },
     {
@@ -472,6 +472,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
+        "numero": "97",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da) ➔ New York 10:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "59",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -572,40 +598,20 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "58",
+        "numero": "60",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ New Jersey 1:00 PM (2da)",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Gana Más 2:30 PM (2da)",
         "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "05",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (3ra) ➔ Anguila 6:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
           },
           {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
           }
@@ -648,26 +654,6 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_leidsa",
             "pos": "3ra",
             "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "97",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (2da) ➔ New York 10:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "New York 10:30 PM",
-            "id": "ny_noche",
-            "pos": "1ra",
-            "premio_index": 1
           }
         ]
       },
@@ -999,6 +985,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
+        "numero": "97",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da) ➔ New York 10:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "59",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1099,40 +1111,20 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "58",
+        "numero": "60",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ New Jersey 1:00 PM (2da)",
+        "detalle": "New Jersey 1:00 PM (2da) ➔ Gana Más 2:30 PM (2da)",
         "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "05",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (3ra) ➔ Anguila 6:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
           },
           {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
           }
@@ -1175,26 +1167,6 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_leidsa",
             "pos": "3ra",
             "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "97",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (2da) ➔ New York 10:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "New York 10:30 PM",
-            "id": "ny_noche",
-            "pos": "1ra",
-            "premio_index": 1
           }
         ]
       },
