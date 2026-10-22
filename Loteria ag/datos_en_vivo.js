@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-22",
   "fecha_ayer": "2026-10-21",
-  "actualizado_a_las": "01:14 PM",
+  "actualizado_a_las": "01:50 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -297,8 +297,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        27,
+        79,
+        28
+      ]
     },
     {
       "id": "gana_mas",
@@ -415,9 +419,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "96"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "83",
@@ -636,7 +640,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 96] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 96] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -644,9 +648,9 @@ window.DATOS_LOTOPRO = {
       "95",
       "96"
     ],
-    "presion_acumulada_pct": 76.2,
+    "presion_acumulada_pct": 77.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "83",
@@ -865,6 +869,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 96] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [95 × 96] en 1ra, la presión acumulada alcanza el 77.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
