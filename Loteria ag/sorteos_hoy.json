@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-21",
   "fecha_ayer": "2026-10-20",
-  "actualizado_a_las": "08:36 PM",
+  "actualizado_a_las": "09:19 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -388,8 +388,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        53,
+        89,
+        92
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -397,8 +401,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        35,
+        39,
+        52
+      ]
     },
     {
       "id": "real_noche",
@@ -406,8 +414,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        57,
+        45,
+        9
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -415,8 +427,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        8,
+        98,
+        25
+      ]
     },
     {
       "id": "florida_noche",
@@ -445,7 +461,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "59",
@@ -546,6 +562,86 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "92",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New York 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "89",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 6:00 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "35",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 6:00 PM (3ra) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "45",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ Real 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -560,6 +656,12 @@
         "objetivo_presionado": "50",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 49 vibró en 1 sorteo(s), encerrando al 50"
+      },
+      {
+        "numero_disparador": "57",
+        "objetivo_presionado": "75",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 57 rompió hoy, activando tracción directa hacia el 75"
       },
       {
         "numero_disparador": "05",
@@ -627,10 +729,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[75] o [50] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          53,
+          89,
+          92
+        ],
         "aciertos": []
       },
       {
@@ -727,10 +833,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[75] o [50] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          53,
+          89,
+          92
+        ],
         "aciertos": []
       },
       {
@@ -778,7 +888,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "59",
@@ -879,6 +989,86 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "92",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New York 2:30 PM (1ra) ➔ Quiniela Leidsa 8:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "89",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 6:00 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "35",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 6:00 PM (3ra) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "45",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ Real 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -893,6 +1083,12 @@
         "objetivo_presionado": "50",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 49 vibró en 1 sorteo(s), encerrando al 50"
+      },
+      {
+        "numero_disparador": "57",
+        "objetivo_presionado": "75",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 57 rompió hoy, activando tracción directa hacia el 75"
       },
       {
         "numero_disparador": "05",
@@ -960,10 +1156,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[75] o [50] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          53,
+          89,
+          92
+        ],
         "aciertos": []
       },
       {
@@ -1060,10 +1260,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[75] o [50] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          53,
+          89,
+          92
+        ],
         "aciertos": []
       },
       {
