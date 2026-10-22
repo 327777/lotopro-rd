@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-21",
   "fecha_ayer": "2026-10-20",
-  "actualizado_a_las": "08:06 PM",
+  "actualizado_a_las": "08:36 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -364,9 +364,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        68,
-        99,
-        11
+        47,
+        59,
+        45
       ]
     },
     {
@@ -447,6 +447,26 @@ window.DATOS_LOTOPRO = {
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
+      {
+        "numero": "59",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
       {
         "numero": "69",
         "repeticiones": 2,
@@ -560,9 +580,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          68,
-          99,
-          11
+          47,
+          59,
+          45
         ],
         "aciertos": []
       },
@@ -660,9 +680,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          68,
-          99,
-          11
+          47,
+          59,
+          45
         ],
         "aciertos": []
       },
@@ -761,6 +781,26 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
+        "numero": "59",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "69",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -873,9 +913,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          68,
-          99,
-          11
+          47,
+          59,
+          45
         ],
         "aciertos": []
       },
@@ -973,9 +1013,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          68,
-          99,
-          11
+          47,
+          59,
+          45
         ],
         "aciertos": []
       },
