@@ -191,9 +191,6 @@
             .header-admin { padding: 12px 10px !important; flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
             .config-card { padding: 12px 8px !important; border-radius: 12px !important; width: 100% !important; box-sizing: border-box !important; }
             .config-grid { grid-template-columns: 1fr !important; }
-            #seccion-radar-vaiven { padding: 12px 8px !important; border-radius: 12px !important; width: 100% !important; box-sizing: border-box !important; }
-            #grid-clocks-top { grid-template-columns: 1fr !important; gap: 10px !important; width: 100% !important; }
-            #grid-contador-dias-top4, #grid-contador-dias-top6 { grid-template-columns: 1fr !important; gap: 10px !important; width: 100% !important; }
             .metric-card { padding: 10px !important; }
             .metric-value { font-size: 20px !important; }
             table { font-size: 10px !important; }
@@ -357,56 +354,6 @@
                 padding: 12px 10px !important;
                 border-radius: 12px !important;
             }
-            #seccion-radar-vaiven {
-                padding: 12px 8px !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                border-radius: 12px !important;
-            }
-            #grid-contador-dias-top4 {
-                grid-template-columns: 1fr !important;
-                gap: 8px !important;
-            }
-            .tarjeta-semaforo-lineal {
-                padding: 10px 12px !important;
-            }
-        }
-
-        /* ========================================================
-           ESTILOS DE IMPRESIÓN (REPORTE EXCLUSIVO 1RA Y PALÉ)
-           ======================================================== */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #modal-reporte-1ra-pale, #modal-reporte-1ra-pale * {
-                visibility: visible;
-            }
-            #modal-reporte-1ra-pale {
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                width: 100% !important;
-                background: white !important;
-                color: black !important;
-                padding: 0 !important;
-            }
-            #modal-reporte-1ra-pale button {
-                display: none !important;
-            }
-            #modal-reporte-1ra-pale .no-print {
-                display: none !important;
-            }
-            #modal-reporte-1ra-pale table {
-                border-collapse: collapse !important;
-                width: 100% !important;
-                color: #000 !important;
-            }
-            #modal-reporte-1ra-pale th, #modal-reporte-1ra-pale td {
-                border: 1px solid #333 !important;
-                color: #000 !important;
-                padding: 6px 8px !important;
-            }
         }
     </style>
 </head>
@@ -497,7 +444,7 @@
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span style="font-size: 24px;">🎯</span>
                     <div>
-                        <h3 style="color: #6ee7b7;">Monitor Gerencial: Combinación de Alta Frecuencia & Semáforo de Días</h3>
+                        <h3 style="color: #6ee7b7;">Monitor Gerencial: Pareja de Alta Frecuencia</h3>
                         <p style="font-size: 11px; color: #94a3b8;">
                             Sincronizado en tiempo real con la fórmula de Jaladera y resultados oficiales del día.
                         </p>
@@ -535,14 +482,8 @@
                         <button type="button" onclick="archivarJornadaHoyGerencial()" title="Respaldar datos" style="background: #1e293b; color: #cbd5e1; border: 1px solid #475569; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer;">
                             💾 Respaldar
                         </button>
-                        <button type="button" onclick="abrirReporteOficial1rayPale()" title="Ver, imprimir o descargar reporte exclusivo de 1ra y Palé oficial" style="background: linear-gradient(135deg, #0284c7, #0369a1); border: 1.5px solid #38bdf8; color: #ffffff; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(56, 189, 248, 0.25);">
-                            🖨️ Reporte 1ra y Palé
-                        </button>
                         <button type="button" onclick="descargarAuditoria35DiasExcel()" title="Descargar auditoría completa de los últimos 36 días con Ranking y KPIs ejecutivos" style="background: linear-gradient(135deg, #1e1b4b, #312e81); border: 1.5px solid #f59e0b; color: #fbbf24; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);">
                             🏆 Auditoría 36 Días (Excel)
-                        </button>
-                        <button type="button" onclick="document.getElementById('seccion-radar-vaiven').scrollIntoView({behavior: 'smooth'})" title="Ir directo al Semáforo de Días optimizado para celular" style="background: linear-gradient(135deg, #065f46, #047857); border: 1.5px solid #10b981; color: #6ee7b7; border-radius: 8px; padding: 6px 14px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);">
-                            📱 Semáforo Móvil (Ver en Celular)
                         </button>
                     </div>
                 </div>
@@ -558,7 +499,7 @@
                                 <div style="font-size: 10.5px; color: #94a3b8;">Fórmula Matemática • Jaladera Directa</div>
                             </div>
                             <div id="adm-maestra-pareja-tag" style="background: #131c31; border: 1.5px solid #f59e0b; color: #fde047; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 900; padding: 4px 12px; border-radius: 6px;">
-                                [ 09 × 59 ]
+                                [ 05 × 95 ]
                             </div>
                         </div>
 
@@ -588,6 +529,21 @@
                         </div>
                         <div id="adm-maestra-detalle-hits" style="margin-top: 8px; font-size: 11px; color: #6ee7b7; font-weight: 800; line-height: 1.4;">
                             🥉 Rebote detectado: <span style="color:#93c5fd;">Anguila 10:00 AM: 59 en 3ra</span>
+                        </div>
+
+                        <!-- BADGE DE CICLO DE MADURACIÓN FIJO (OPCIÓN A) -->
+                        <div id="adm-maestra-ciclo-box" style="margin-top: 10px; background: rgba(30, 41, 59, 0.7); border: 1px solid #334155; border-radius: 8px; padding: 8px 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <span style="font-size: 10px; font-weight: 800; color: #fbbf24; text-transform: uppercase;">
+                                    🔒 Ciclo Fijo de Maduración
+                                </span>
+                                <span id="adm-ciclo-dias-badge" style="font-size: 10px; font-weight: 900; background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #fde047; padding: 2px 6px; border-radius: 4px;">
+                                    Día 6 Activo
+                                </span>
+                            </div>
+                            <div id="adm-ciclo-objetivo-desc" style="font-size: 10.5px; color: #94a3b8; line-height: 1.35;">
+                                🎯 Objetivo: Romper en 1ra en <strong style="color: #6ee7b7;">Gana Más (2:30 PM)</strong>, <strong style="color: #6ee7b7;">NY Tarde (2:30 PM)</strong> o <strong style="color: #6ee7b7;">Loteka (7:55 PM)</strong>. Bloqueado contra cambio de medianoche.
+                            </div>
                         </div>
                     </div>
 
@@ -621,177 +577,16 @@
                     </div>
                 </div>
 
-                <!-- MÓDULO ESTRATÉGICO: RELOJ DE FRECUENCIA POR DÍAS & CICLOS DE RETORNO (TOP 4 LOTERÍAS) -->
-                <div id="seccion-radar-vaiven" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(10, 16, 31, 0.99) 100%); border: 1.5px solid #3b82f6; border-radius: 14px; padding: 18px; margin-bottom: 20px; box-shadow: 0 4px 30px rgba(59, 130, 246, 0.15); position: relative; overflow: hidden;">
-                    <!-- Decoración sutil -->
-                    <div style="position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
 
-                    <!-- Encabezado -->
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(59, 130, 246, 0.25); padding-bottom: 14px; margin-bottom: 16px;">
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <div style="width: 42px; height: 42px; background: linear-gradient(135deg, #2563eb, #1d4ed8); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);">
-                                🚦
-                            </div>
-                            <div>
-                                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                                    <h3 style="color: #60a5fa; font-size: 16px; font-weight: 900; margin: 0; letter-spacing: 0.3px;">
-                                        Semáforo de Días & Reloj de Palé (Top 6 Loterías)
-                                    </h3>
-                                    <span id="badge-radar-estado" style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #6ee7b7; padding: 2px 8px; border-radius: 99px; font-size: 10.5px; font-weight: 800; font-family: monospace;">
-                                        🟢 CICLOS EN VIVO
-                                    </span>
-                                </div>
-                                <p style="font-size: 11px; color: #94a3b8; margin: 2px 0 0 0;">
-                                    Medición precisa de ritmo y retorno. Las loterías con 2 o 3 días sin salir se encienden en <strong style="color:#34d399;">VERDE</strong> para jugar directo la combinación del día.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                            <div style="background: rgba(15, 23, 42, 0.9); border: 1.5px solid #f59e0b; border-radius: 8px; padding: 5px 12px; text-align: right;">
-                                <span style="font-size: 9.5px; color: #94a3b8; text-transform: uppercase; font-weight: 800; display: block;">Combinación Fija de Hoy</span>
-                                <span id="radar-pareja-foco" style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 900; color: #fde047;">[ 09 × 59 ]</span>
-                            </div>
-                            <button type="button" onclick="abrirReporteOficial1rayPale()" style="background: linear-gradient(135deg, #0284c7, #0369a1); border: 1px solid #38bdf8; color: #ffffff; padding: 7px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Ver e imprimir registro exclusivo de 1ra y Palé">
-                                🖨️ Reporte 1ra y Palé
-                            </button>
-                            <button type="button" onclick="refrescarRadarVaivenManual()" style="background: rgba(59, 130, 246, 0.15); border: 1px solid #3b82f6; color: #93c5fd; padding: 7px 12px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;" title="Recalcular cronómetro de días en tiempo real">
-                                🔄 Actualizar Días
-                            </button>
-                        </div>
-                    </div>
 
-                    <!-- CRONÓMETRO REAL ACUMULATIVO DE PALÉ DIRECTO (SIN CORTES ARTIFICIALES) -->
-                    <div style="background: #090e1a; border: 1.5px solid rgba(168, 85, 247, 0.6); border-radius: 12px; padding: 14px; margin-bottom: 16px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.12);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <span style="font-size: 20px;">🔥</span>
-                                <div>
-                                    <h4 style="margin: 0; font-size: 13.5px; font-weight: 900; color: #c084fc; text-transform: uppercase;">
-                                        Cronómetro Oficial de Palé Directo (Acumulación Real)
-                                    </h4>
-                                    <span style="font-size: 10px; color: #94a3b8;">
-                                        Acumulación continua día a día (3, 17, 32 o 52 días). Solo se reinicia cuando explote otro Palé oficial.
-                                    </span>
-                                </div>
-                            </div>
-                            <span style="font-size: 10px; font-weight: 800; color: #e9d5ff; background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.5); padding: 3px 8px; border-radius: 6px;">
-                                Especialista Actual: Loteka 7:55 PM
-                            </span>
-                        </div>
-
-                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin: 8px 0;">
-                            <div>
-                                <div style="font-size: 10.5px; color: #94a3b8;">Último Palé Directo de la Pareja Maestra:</div>
-                                <div style="font-size: 13px; font-weight: 800; color: #fde047;" id="ciclo-pale-ultimo-hit">04 Octubre (Loteka [00 × 94])</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <span style="font-size: 28px; font-weight: 900; color: #c084fc; font-family: 'JetBrains Mono', monospace;" id="ciclo-pale-dias-gap">3</span>
-                                <span style="font-size: 12px; color: #cbd5e1; font-weight: 800;">Días Reales</span>
-                            </div>
-                        </div>
-
-                        <!-- Barra de acumulación visual -->
-                        <div style="margin-top: 6px;">
-                            <div style="width: 100%; height: 8px; background: #1e293b; border-radius: 99px; overflow: hidden;">
-                                <div id="barra-ciclo-pale" style="width: 20%; height: 100%; background: linear-gradient(90deg, #3b82f6, #a855f7); border-radius: 99px; transition: width 0.5s ease;"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 8px; background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 7px 10px; font-size: 11px; color: #e9d5ff; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
-                            <span id="estado-ciclo-pale-desc">
-                                ⏳ <strong>Día 3 en acumulación real:</strong> Se mantiene contando hasta que caiga el próximo Palé directo oficial.
-                            </span>
-                            <button type="button" onclick="abrirReporteOficial1rayPale()" style="background: rgba(168, 85, 247, 0.25); border: 1px solid #c084fc; color: #ffffff; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 800; cursor: pointer;">
-                                📜 Ver Historial de Palés
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- SEMÁFORO DE LOTERÍAS ESTRATÉGICAS DE 1RA MAYOR (ORDENADO POR MADUREZ DE JUEGO) -->
-                    <div style="margin-bottom: 14px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px;">
-                            <div style="font-size: 13px; font-weight: 900; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
-                                <span>🎯</span>
-                                <span>Semáforo de Loterías de 1ra Mayor (Ordenado por Madurez)</span>
-                            </div>
-                            <span id="semaforo-capacidad-tag" style="font-size: 10px; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 6px; font-weight: 800;">
-                                Base 6 Loterías • Expansión Elástica Activa
-                            </span>
-                        </div>
-
-                        <!-- LEYENDA COMPACTA -->
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; font-size: 10px; text-align: center; font-weight: 800;">
-                            <div style="background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 5px; border-radius: 6px;">
-                                🟢 2 a 4+ Días: ¡HOY SE JUEGA!
-                            </div>
-                            <div style="background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 5px; border-radius: 6px;">
-                                🟡 1 Día: EN ESPERA
-                            </div>
-                            <div style="background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); padding: 5px; border-radius: 6px;">
-                                🏆 Día 0 / Fin: DESCANSANDO
-                            </div>
-                        </div>
-
-                        <!-- TABLA EJECUTIVA: JUGADA ESTRATÉGICA OFICIAL PARA HOY (IMAGEN 4) -->
-                        <div style="background: rgba(15, 23, 42, 0.95); border: 1.5px solid #10b981; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; box-shadow: 0 0 16px rgba(16, 185, 129, 0.15);">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-                                <div style="display: flex; align-items: center; gap: 6px;">
-                                    <span style="font-size: 16px;">🎯</span>
-                                    <h4 style="margin: 0; font-size: 13px; font-weight: 900; color: #6ee7b7; text-transform: uppercase;">
-                                        Jugada Estratégica Oficial para Hoy
-                                    </h4>
-                                </div>
-                                <span style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #34d399; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 800;">
-                                    🟢 3 Loterías Maduras
-                                </span>
-                            </div>
-                            <div style="overflow-x: auto;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
-                                    <thead>
-                                        <tr style="border-bottom: 1px solid #334155; color: #94a3b8; font-size: 10px; text-transform: uppercase;">
-                                            <th style="padding: 6px 8px;">Lotería Madura</th>
-                                            <th style="padding: 6px 8px;">Hora</th>
-                                            <th style="padding: 6px 8px;">Tipo de Jugada</th>
-                                            <th style="padding: 6px 8px;">Números a Jugar Hoy</th>
-                                            <th style="padding: 6px 8px; text-align: right;">Estado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="tabla-cuerpo-maduras-hoy-directas">
-                                        <!-- Generado dinámicamente -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div id="grid-contador-dias-top4" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
-                            <!-- Cargado dinámicamente con las loterías ordenadas por madurez (Verdes arriba) -->
-                        </div>
-                    </div>
-
-                    <!-- RECUADRO: LA REGLA DE ORO GERENCIAL -->
-                    <div style="background: rgba(30, 41, 59, 0.55); border-left: 3.5px solid #f59e0b; border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 11px; color: #e2e8f0; line-height: 1.6;">
-                        <div style="display: flex; align-items: center; gap: 6px; font-weight: 900; color: #fbbf24; margin-bottom: 4px; font-size: 12px;">
-                            <span>💡</span>
-                            <span>Estrategia del Cuentagotas de Días (Directo y Sin Complicaciones):</span>
-                        </div>
-                        <div>
-                            <strong>1. No perseguimos números a ciegas:</strong> Cuando una lotería pega en 1ra (como Leidsa y LoteDom ayer), su ciclo se reinicia (Día 0) y descansa.<br>
-                            <strong>2. Vigilamos los días acumulados:</strong> Si New York Tarde, Loteka o Gana Más tienen <strong>2 o 3 días sin salir</strong>, se encienden en <strong>VERDE</strong>.<br>
-                            <strong>3. ¿Qué número jugar cuando llega el día?</strong> Simplemente juegas la <strong>Combinación Fija de Hoy</strong> (números directos) en 1ra a esas loterías maduras.<br>
-                            <strong>4. Para el Palé Directo:</strong> Se mide el reloj de <strong>15 días</strong>. El último salió en Loteka (04 Oct); cuando el contador alcance 12-14 días, se aprieta la jugada en Palé.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RANKING COMPLETO DE LOTERÍAS (ACCESO DIRECTO MÓVIL / FIN DE SEMANA) -->
+                <!-- RANKING COMPLETO DE LOTERÍAS (ALIMENTACIÓN Y ACTUALIZACIÓN 100% DINÁMICA) -->
                 <div style="background: #090e1a; border: 1.5px solid rgba(56, 189, 248, 0.4); border-radius: 12px; padding: 14px; margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span style="font-size: 20px;">🏆</span>
                             <div>
                                 <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 0;">Ranking de Loterías: ¿Dónde pega más la Pareja Maestra?</h4>
-                                <span style="font-size: 10.5px; color: #94a3b8;">36 Días Auditados (51 Aciertos Oficiales) • Optimizado para ver en Celular</span>
+                                <span id="adm-ranking-subtitulo" style="font-size: 10.5px; color: #38bdf8; font-weight: 700;">Auditando historial completo en vivo...</span>
                             </div>
                         </div>
                         <button type="button" onclick="toggleRankingMobile()" id="btn-toggle-ranking" style="background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; border-radius: 8px; padding: 6px 12px; font-size: 11px; font-weight: 800; cursor: pointer;">
@@ -799,28 +594,9 @@
                         </button>
                     </div>
 
-                    <!-- Resumen rápido en tarjetas táctiles (Siempre visibles en móvil) -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-bottom: 10px;">
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 8px; padding: 10px;">
-                            <span style="font-size: 9.5px; color: #fbbf24; font-weight: 900; text-transform: uppercase;">Top 1 Volumen Total</span>
-                            <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 2px;">La Suerte 12:30 PM</div>
-                            <div style="font-size: 11px; color: #6ee7b7; font-weight: 700; margin-top: 2px;">7 Aciertos (1 en 1ra, 4 en 2da, 1 Palé)</div>
-                        </div>
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 10px;">
-                            <span style="font-size: 9.5px; color: #34d399; font-weight: 900; text-transform: uppercase;">Top 1 Efectividad 1ra</span>
-                            <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 2px;">New York 2:30 PM</div>
-                            <div style="font-size: 11px; color: #fde047; font-weight: 700; margin-top: 2px;">2 Aciertos (¡100% en 1ra Mayor!)</div>
-                        </div>
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 10px;">
-                            <span style="font-size: 9.5px; color: #c084fc; font-weight: 900; text-transform: uppercase;">Top 1 Palé Directo</span>
-                            <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 2px;">Quiniela Loteka 7:55 PM</div>
-                            <div style="font-size: 11px; color: #d8b4fe; font-weight: 700; margin-top: 2px;">3 Aciertos (1 en 1ra + Palé [00 × 94])</div>
-                        </div>
-                        <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 8px; padding: 10px;">
-                            <span style="font-size: 9.5px; color: #60a5fa; font-weight: 900; text-transform: uppercase;">Top 1 Mayor Frecuencia 1ra</span>
-                            <div style="font-size: 13px; font-weight: 800; color: #ffffff; margin-top: 2px;">LoteDom 12:00 PM</div>
-                            <div style="font-size: 11px; color: #6ee7b7; font-weight: 700; margin-top: 2px;">4 Aciertos (¡3 en 1ra Mayor!)</div>
-                        </div>
+                    <!-- Resumen rápido en 4 tarjetas táctiles (Calculadas 100% dinámicas) -->
+                    <div id="adm-ranking-top4-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-bottom: 10px;">
+                        <div style="padding: 12px; text-align: center; color: #64748b; font-size: 11px;">Cargando métricas de ranking...</div>
                     </div>
 
                     <!-- Tabla colapsable con desglose de todas las loterías -->
@@ -837,88 +613,8 @@
                                     <th style="padding: 6px; text-align:center; color:#c084fc;">🔥 Palé</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid #1e293b; background: rgba(245, 158, 11, 0.08);">
-                                    <td style="padding: 6px; font-weight:900; color:#fbbf24;">🥇 1</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">La Suerte 12:30 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">7</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">4</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">2</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#c084fc;">1</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b;">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">🥈 2</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">La Primera 12:00 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">6</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">4</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">1</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b;">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">🥉 3</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">Quiniela Leidsa 8:55 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">5</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">2</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">2</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b; background: rgba(16, 185, 129, 0.08);">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">4</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">LoteDom 12:00 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">4</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#34d399;">3 (Top 1)</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">0</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#c084fc;">1</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b;">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">5</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">Gana Más 2:30 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">3</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">2</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">0</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">1</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b;">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">6</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">Anguila 6:00 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">3</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">2</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">0</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">1</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b; background: rgba(168, 85, 247, 0.08);">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">7</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">Quiniela Loteka 7:55 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">3</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">0</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">2</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#c084fc;">1 (Palé 00×94)</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b; background: rgba(16, 185, 129, 0.12);">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">8</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">New York 2:30 PM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">2</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#34d399;">2 (100% en 1ra)</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">0</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">0</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #1e293b;">
-                                    <td style="padding: 6px; font-weight:900; color:#94a3b8;">9</td>
-                                    <td style="padding: 6px; font-weight:800; color:#ffffff;">Anguila 10:00 AM</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">2</td>
-                                    <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">1</td>
-                                    <td style="padding: 6px; text-align:center; color:#60a5fa;">0</td>
-                                    <td style="padding: 6px; text-align:center; color:#cbd5e1;">1</td>
-                                    <td style="padding: 6px; text-align:center;">0</td>
-                                </tr>
+                            <tbody id="adm-ranking-tabla-cuerpo">
+                                <tr><td colspan="7" style="padding: 10px; text-align: center; color: #64748b;">Calculando posiciones del ranking...</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -1222,77 +918,7 @@
                     🚀 Poner Todo en Modo Lanzamiento (100 Visitas / 100 Consultas / 0 Candados)
                 </button>
             </div>
-        <!-- MODAL DE REPORTE OFICIAL EXCLUSIVO DE 1RA Y PALÉ (IMPRIMIBLE / PDF) -->
-        <div id="modal-reporte-1ra-pale" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 999999; overflow-y: auto; padding: 20px 10px;">
-            <div style="max-width: 900px; margin: 20px auto; background: #0f172a; border: 2px solid #38bdf8; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.8); overflow: hidden; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-                <!-- Header modal -->
-                <div style="background: linear-gradient(135deg, #0c4a6e, #0284c7); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #38bdf8;">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="font-size: 24px;">🖨️</span>
-                        <div>
-                            <h3 style="margin: 0; font-size: 16px; font-weight: 900; color: #ffffff;">Reporte Oficial Exclusivo: Impactos en 1ra (Mayor) & Palé Directo</h3>
-                            <p style="margin: 2px 0 0 0; font-size: 11px; color: #bae6fd;">Registro estricto de premios mayores y palés directos de la Jugada Maestra (Sin 2das ni 3ras)</p>
-                        </div>
-                    </div>
-                    <button type="button" onclick="cerrarReporteOficial1rayPale()" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 16px; font-weight: 900; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;">✕</button>
-                </div>
 
-                <div style="padding: 20px;" id="contenido-imprimible-reporte">
-                    <!-- Barra de KPIs del Reporte -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 18px;">
-                        <div style="background: #090e1a; border: 1px solid #10b981; border-radius: 10px; padding: 10px; text-align: center;">
-                            <span style="font-size: 10px; color: #6ee7b7; font-weight: 800; text-transform: uppercase;">Aciertos en 1ra (Mayor)</span>
-                            <div id="rep-kpi-1ra" style="font-size: 22px; font-weight: 900; color: #34d399; font-family: 'JetBrains Mono', monospace;">0</div>
-                        </div>
-                        <div style="background: #090e1a; border: 1px solid #a855f7; border-radius: 10px; padding: 10px; text-align: center;">
-                            <span style="font-size: 10px; color: #d8b4fe; font-weight: 800; text-transform: uppercase;">Palés Directos</span>
-                            <div id="rep-kpi-pales" style="font-size: 22px; font-weight: 900; color: #c084fc; font-family: 'JetBrains Mono', monospace;">0</div>
-                        </div>
-                        <div style="background: #090e1a; border: 1px solid #f59e0b; border-radius: 10px; padding: 10px; text-align: center;">
-                            <span style="font-size: 10px; color: #fde047; font-weight: 800; text-transform: uppercase;">Ciclo Promedio 1ra</span>
-                            <div id="rep-kpi-ciclo-1ra" style="font-size: 22px; font-weight: 900; color: #fbbf24; font-family: 'JetBrains Mono', monospace;">Cada 2.4 días</div>
-                        </div>
-                        <div style="background: #090e1a; border: 1px solid #38bdf8; border-radius: 10px; padding: 10px; text-align: center;">
-                            <span style="font-size: 10px; color: #93c5fd; font-weight: 800; text-transform: uppercase;">Reloj Actual Palé</span>
-                            <div id="rep-kpi-reloj-pale" style="font-size: 22px; font-weight: 900; color: #38bdf8; font-family: 'JetBrains Mono', monospace;">3 Días</div>
-                        </div>
-                    </div>
-
-                    <!-- Tabla de Impactos -->
-                    <div style="overflow-x: auto; border: 1px solid #1e293b; border-radius: 10px;">
-                        <table style="width: 100%; border-collapse: collapse; font-size: 11.5px; text-align: left;">
-                            <thead>
-                                <tr style="background: #090e1a; border-bottom: 2px solid #334155; color: #94a3b8; font-size: 10px; text-transform: uppercase;">
-                                    <th style="padding: 10px 12px;">Fecha Oficial</th>
-                                    <th style="padding: 10px 12px;">Lotería Ganadora</th>
-                                    <th style="padding: 10px 12px;">Tipo de Impacto</th>
-                                    <th style="padding: 10px 12px;">Premio Ganador</th>
-                                    <th style="padding: 10px 12px;">Intervalo de Días</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabla-cuerpo-reporte-1ra-pale">
-                                <!-- Llenado dinámico -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Footer modal con botones de acción -->
-                <div style="background: #090e1a; padding: 14px 20px; border-top: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                    <div style="font-size: 11px; color: #94a3b8;">
-                        📄 Registro exportable oficial para control gerencial y auditoría.
-                    </div>
-                    <div style="display: flex; gap: 8px;">
-                        <button type="button" onclick="descargarExcelExclusivo1rayPale()" style="background: #1e293b; border: 1px solid #475569; color: #cbd5e1; border-radius: 8px; padding: 8px 14px; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
-                            📊 Descargar Excel
-                        </button>
-                        <button type="button" onclick="imprimirReporteOficial1raYPales()" style="background: linear-gradient(135deg, #10b981, #059669); border: 1px solid #10b981; color: white; border-radius: 8px; padding: 8px 16px; font-size: 11.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px;">
-                            🖨️ Imprimir / Guardar PDF
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </main>
 
@@ -1301,6 +927,17 @@
     </footer>
 
     <script>
+        // Limpieza forzada de residuos manuales de ciclos anteriores (79 x 00, 09 x 59)
+        try {
+            const _n1 = localStorage.getItem('lotopro_master_n1');
+            const _n2 = localStorage.getItem('lotopro_master_n2');
+            if (_n1 === '79' || _n2 === '00' || _n1 === '09' || _n2 === '59' || _n2 === '16' || !_n1) {
+                localStorage.removeItem('lotopro_master_n1');
+                localStorage.removeItem('lotopro_master_n2');
+                localStorage.removeItem('lotopro_master_label');
+            }
+        } catch (e) {}
+
         // Proteger el panel de administración con PIN de seguridad
         const PIN_ADMIN = "7777";
         localStorage.setItem('lotopro_es_admin', 'true');
@@ -1897,10 +1534,16 @@
             } catch (e) {
                 console.warn('Usando datos locales o sincronizados:', e);
             }
+            // Limpiar residuos manuales viejos (ej: 79 x 00) para sincronizar al 100% con la jugada maestra oficial
+            const curN1 = localStorage.getItem('lotopro_master_n1');
+            const curN2 = localStorage.getItem('lotopro_master_n2');
+            if (curN1 === '79' || curN2 === '00' || curN2 === '16' || (curN1 && !datosAppAdmin)) {
+                localStorage.removeItem('lotopro_master_n1');
+                localStorage.removeItem('lotopro_master_n2');
+                localStorage.removeItem('lotopro_master_label');
+            }
             actualizarCamposJugadaMaestra();
             actualizarAuditoriaEficienciaGerencial();
-            actualizarRelojCuentagotasDinamico();
-            renderizarRadarVaivenAdmin();
         }
 
         // ==========================================
@@ -1911,8 +1554,8 @@
 
         function actualizarAuditoriaEficienciaGerencial() {
             try {
-                // 1. Obtener Pareja Maestra Oficial de Alta Frecuencia para Hoy (Default [09, 59])
-                let mN1 = 9, mN2 = 59;
+                // 1. Obtener Pareja Maestra Oficial de Alta Frecuencia para Hoy (Default [05, 95])
+                let mN1 = 5, mN2 = 95;
                 const customN1 = localStorage.getItem('lotopro_master_n1');
                 const customN2 = localStorage.getItem('lotopro_master_n2');
                 if (customN1 && customN2) {
@@ -1933,8 +1576,23 @@
                 const elParejaTag = document.getElementById('adm-maestra-pareja-tag');
                 if (elParejaTag) elParejaTag.innerText = `[ ${p1Str} × ${p2Str} ]`;
 
-                const elRadarFoco = document.getElementById('radar-pareja-foco');
-                if (elRadarFoco) elRadarFoco.innerText = `[ ${p1Str} × ${p2Str} ]`;
+                // Actualizar info de ciclo de maduración si existe
+                const jmObj = (datosAppAdmin && datosAppAdmin.jugada_maestra_fija) || (window.DATOS_LOTOPRO && window.DATOS_LOTOPRO.jugada_maestra_fija) || {};
+                const cicloObj = jmObj.ciclo_maduracion || null;
+                const elCicloDias = document.getElementById('adm-ciclo-dias-badge');
+                const elCicloDesc = document.getElementById('adm-ciclo-objetivo-desc');
+                if (cicloObj) {
+                    if (elCicloDias) {
+                        elCicloDias.innerText = `Día ${cicloObj.dias_activo || 6} Activo`;
+                    }
+                    if (elCicloDesc) {
+                        if (cicloObj.rompio_en_1ra) {
+                            elCicloDesc.innerHTML = `🏆 <strong style="color:#34d399;">${cicloObj.estado}</strong>`;
+                        } else {
+                            elCicloDesc.innerHTML = `🎯 Objetivo: Romper en 1ra en <strong style="color: #6ee7b7;">Gana Más (2:30 PM)</strong>, <strong style="color: #6ee7b7;">NY Tarde (2:30 PM)</strong> o <strong style="color: #6ee7b7;">Loteka (7:55 PM)</strong>. 🔒 Bloqueado contra cambio de medianoche.`;
+                        }
+                    }
+                }
 
                 // 2. Evaluar Combinación Maestra contra todos los sorteos finalizados hoy
                 let maestra1ra = 0, maestra2da = 0, maestra3ra = 0;
@@ -2093,709 +1751,12 @@
                 // Auto-archivo
                 autoArchivarJornadaGerencial(auditoriaActualGerencial);
                 renderizarCuadernoDiarioGerencial();
+                renderizarRankingDinamico();
             } catch (err) {
                 console.error("Error en actualizarAuditoriaEficienciaGerencial:", err);
             }
         }
 
-
-        // ==========================================
-        // ALGORITMO DE RADAR DE VAIVÉN ARMÓNICO
-        // Y TRAZADOR DE FRECUENCIA (TOP 4 LOTERÍAS)
-        // ==========================================
-        function calcularRadarVaivenJS() {
-            let mN1 = 9, mN2 = 59;
-            const customN1 = localStorage.getItem('lotopro_master_n1');
-            const customN2 = localStorage.getItem('lotopro_master_n2');
-            if (customN1 && customN2) {
-                mN1 = parseInt(customN1, 10);
-                mN2 = parseInt(customN2, 10);
-            } else if (datosAppAdmin && datosAppAdmin.jugada_maestra_fija && Array.isArray(datosAppAdmin.jugada_maestra_fija.pareja_oficial)) {
-                mN1 = parseInt(datosAppAdmin.jugada_maestra_fija.pareja_oficial[0], 10);
-                mN2 = parseInt(datosAppAdmin.jugada_maestra_fija.pareja_oficial[1], 10);
-            } else if (window.DATOS_LOTOPRO && window.DATOS_LOTOPRO.jugada_maestra_fija && Array.isArray(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial)) {
-                mN1 = parseInt(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[0], 10);
-                mN2 = parseInt(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[1], 10);
-            }
-
-            const p1Str = fmt2Adm(mN1);
-            const p2Str = fmt2Adm(mN2);
-
-            const listaSorteos = (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) 
-                ? datosAppAdmin.sorteos_hoy 
-                : ((window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.sorteos_hoy)) ? window.DATOS_LOTOPRO.sorteos_hoy : []);
-
-            const conteos = {};
-            const apariciones = {};
-            const finalizados = [];
-
-            listaSorteos.forEach(s => {
-                if (s.estado === 'finalizado' && Array.isArray(s.premios) && s.premios.length >= 3) {
-                    finalizados.push(s);
-                    s.premios.forEach((pRaw, idx) => {
-                        const p = parseInt(pRaw, 10);
-                        const pos = (idx === 0) ? '1ra' : (idx === 1 ? '2da' : '3ra');
-                        conteos[p] = (conteos[p] || 0) + 1;
-                        if (!apariciones[p]) apariciones[p] = [];
-                        apariciones[p].push({ loteria: s.nombre, id: s.id, pos: pos, num: p });
-                    });
-                }
-            });
-
-            // 1. Ecos y repeticiones de hoy
-            const ecos = [];
-            Object.keys(conteos).forEach(k => {
-                const num = parseInt(k, 10);
-                const cnt = conteos[num];
-                if (cnt >= 2) {
-                    const tipo = (cnt === 2) ? 'Eco Gemelo Inmediato' : 'Cadena Ondular Expansiva';
-                    const det = apariciones[num].map(a => `${a.loteria} (${a.pos})`).join(' ➔ ');
-                    ecos.push({
-                        numero: fmt2Adm(num),
-                        repeticiones: cnt,
-                        tipo: tipo,
-                        detalle: det,
-                        loterias: apariciones[num]
-                    });
-                }
-            });
-            ecos.sort((a, b) => b.repeticiones - a.repeticiones);
-
-            // 2. Presiones vectoriales sobre la pareja maestra
-            const presiones = [];
-            const vecinosP1 = [(mN1 - 1 + 100) % 100, (mN1 + 1) % 100];
-            const vecinosP2 = [(mN2 - 1 + 100) % 100, (mN2 + 1) % 100];
-
-            vecinosP1.forEach(v => {
-                if (conteos[v]) {
-                    presiones.push({
-                        disparador: fmt2Adm(v),
-                        objetivo: p1Str,
-                        tipo: 'Flanco Vecino (±1)',
-                        impacto: `El ${fmt2Adm(v)} vibró en ${conteos[v]} sorteo(s), empujando al ${p1Str}`
-                    });
-                }
-            });
-
-            vecinosP2.forEach(v => {
-                if (conteos[v]) {
-                    presiones.push({
-                        disparador: fmt2Adm(v),
-                        objetivo: p2Str,
-                        tipo: 'Encierro Armónico (Sándwich)',
-                        impacto: `El ${fmt2Adm(v)} vibró en ${conteos[v]} sorteo(s), encerrando al ${p2Str}`
-                    });
-                }
-            });
-
-            const rev1 = (mN1 % 10) * 10 + Math.floor(mN1 / 10);
-            const rev2 = (mN2 % 10) * 10 + Math.floor(mN2 / 10);
-            if (conteos[rev1] && rev1 !== mN1 && rev1 !== mN2) {
-                presiones.push({
-                    disparador: fmt2Adm(rev1),
-                    objetivo: p1Str,
-                    tipo: 'Revés Espejo (Virado en 1ra)',
-                    impacto: `El virado ${fmt2Adm(rev1)} rompió hoy, activando tracción directa hacia el ${p1Str}`
-                });
-            }
-            if (conteos[rev2] && rev2 !== mN1 && rev2 !== mN2) {
-                presiones.push({
-                    disparador: fmt2Adm(rev2),
-                    objetivo: p2Str,
-                    tipo: 'Revés Espejo (Virado en 1ra)',
-                    impacto: `El virado ${fmt2Adm(rev2)} rompió hoy, activando tracción directa hacia el ${p2Str}`
-                });
-            }
-
-            // 3. Presión acumulada
-            const sorteosJugados = finalizados.length;
-            let parejaEn1ra = false;
-            finalizados.forEach(s => {
-                const p0 = parseInt(s.premios[0], 10);
-                if (p0 === mN1 || p0 === mN2) parejaEn1ra = true;
-            });
-
-            let presionPct = 77.8;
-            let faseTexto = 'VENTANA CRÍTICA DE RUPTURA';
-            if (!parejaEn1ra) {
-                presionPct = Math.min(Math.round((65.0 + (sorteosJugados / 20.0) * 32.0) * 10) / 10, 98.6);
-                faseTexto = sorteosJugados >= 6 ? 'VENTANA CRÍTICA DE RUPTURA' : 'ACUMULACIÓN MATUTINA';
-            } else {
-                presionPct = 99.4;
-                faseTexto = 'IMPACTO EN 1RA CONFIRMADO';
-            }
-
-            // 4. Top 4 Loterías
-            const TOP4 = [
-                {
-                    id: 'ny_tarde',
-                    nombre: 'New York Tarde (2:30 PM)',
-                    rol: 'Especialista en 1ra (Mayor)',
-                    record: '100% efectividad histórica en 1ra',
-                    base: 96.5,
-                    foco: `${p1Str} o ${p2Str} Directo en 1ra`
-                },
-                {
-                    id: 'quiniela_loteka',
-                    nombre: 'Quiniela Loteka (7:55 PM)',
-                    rol: 'Rompimiento Nocturno y Palés',
-                    record: 'Generadora de Palé Directo Oficial',
-                    base: 95.2,
-                    foco: `Palé [${p1Str} × ${p2Str}] y Quiniela ${p1Str}`
-                },
-                {
-                    id: 'la_suerte_dia',
-                    alias: 'lotedom',
-                    nombre: 'La Suerte Día (12:30 PM) / LoteDom',
-                    rol: 'Epicentro de Rebote del Mediodía',
-                    record: '6 impactos históricos (Top 1 en volumen)',
-                    base: 94.0,
-                    foco: 'Trampolín de Vaivén Ejecutado'
-                },
-                {
-                    id: 'quiniela_leidsa',
-                    nombre: 'Quiniela Leidsa (8:55 PM)',
-                    rol: 'Gran Resonancia de Cierre',
-                    record: '5 impactos históricos (Top 3 Nacional)',
-                    base: 93.8,
-                    foco: `${p2Str} o ${p1Str} en 1ra/2da`
-                }
-            ];
-
-            const mapaSorteos = {};
-            listaSorteos.forEach(s => mapaSorteos[s.id] = s);
-
-            const top4Res = TOP4.map(cfg => {
-                const s = mapaSorteos[cfg.id] || {};
-                let estadoSorteo = s.estado || 'proximo';
-                if (cfg.alias && mapaSorteos[cfg.alias] && mapaSorteos[cfg.alias].estado === 'finalizado') {
-                    if (estadoSorteo === 'finalizado') estadoSorteo = 'finalizado';
-                }
-
-                const listaEval = [s];
-                if (cfg.alias && mapaSorteos[cfg.alias]) {
-                    listaEval.push(mapaSorteos[cfg.alias]);
-                }
-
-                const aciertos = [];
-                listaEval.forEach(sItem => {
-                    if (sItem && sItem.estado === 'finalizado' && Array.isArray(sItem.premios) && sItem.premios.length >= 3) {
-                        sItem.premios.forEach((pRaw, idx) => {
-                            const p = parseInt(pRaw, 10);
-                            const pos = idx === 0 ? '1ra' : (idx === 1 ? '2da' : '3ra');
-                            if (p === mN1) aciertos.push(`${sItem.nombre}: ${p1Str} en ${pos}`);
-                            if (p === mN2) aciertos.push(`${sItem.nombre}: ${p2Str} en ${pos}`);
-                        });
-                    }
-                });
-
-                const premios = s.premios || [];
-                let afinidad = cfg.base;
-                if ((cfg.id === 'ny_tarde' || cfg.id === 'quiniela_loteka')) {
-                    afinidad = Math.min(Math.round((afinidad + 1.8) * 10) / 10, 99.1);
-                }
-
-                let focoItem = cfg.foco;
-                if (parejaEn1ra && (cfg.id === 'ny_tarde' || cfg.id === 'quiniela_loteka')) {
-                    focoItem = `${p1Str} en 1ra y Palé [${p1Str} × ${p2Str}]`;
-                }
-
-                let estadoRadar = 'ESPERANDO HORA OFICIAL';
-                let colorEstado = '#38bdf8';
-                if (estadoSorteo === 'finalizado') {
-                    if (aciertos.length >= 2) {
-                        estadoRadar = `🎯 ¡DOBLE IMPACTO CONFIRMADO! (${aciertos.join(' • ')})`;
-                        colorEstado = '#10b981';
-                    } else if (aciertos.length === 1) {
-                        estadoRadar = `🎯 ¡IMPACTO! (${aciertos[0]})`;
-                        colorEstado = '#10b981';
-                    } else {
-                        estadoRadar = 'FINALIZADO (Inercia Transferida)';
-                        colorEstado = '#94a3b8';
-                    }
-                }
- else {
-                    if (cfg.id === 'ny_tarde') {
-                        estadoRadar = '🔥 VENTANA CRÍTICA ACTIVA (Próximo)';
-                        colorEstado = '#f59e0b';
-                    } else if (cfg.id === 'quiniela_loteka') {
-                        estadoRadar = '⚡ EN CONCENTRACIÓN NOCTURNA';
-                        colorEstado = '#a855f7';
-                    } else if (cfg.id === 'quiniela_leidsa') {
-                        estadoRadar = '🌙 EN ESPERA DE CIERRE';
-                        colorEstado = '#6366f1';
-                    }
-                }
-
-                return {
-                    id: cfg.id,
-                    nombre: cfg.nombre,
-                    rol: cfg.rol,
-                    record: cfg.record,
-                    afinidad: afinidad,
-                    foco: cfg.foco,
-                    estadoSorteo: estadoSorteo,
-                    estadoRadar: estadoRadar,
-                    colorEstado: colorEstado,
-                    premios: premios,
-                    aciertos: aciertos
-                };
-            });
-
-            return {
-                parejaFoco: [p1Str, p2Str],
-                presionPct: presionPct,
-                faseTexto: faseTexto,
-                sorteosEvaluados: `${sorteosJugados} / 20`,
-                ecos: ecos,
-                presiones: presiones,
-                top4: top4Res,
-                diagnostico: `El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM), la cadena del 69 y el virado 38 en Florida (1:30 PM). Al no haber salido aún la Pareja Maestra [${p1Str} × ${p2Str}] en 1ra, la presión acumulada alcanza el ${presionPct}%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM).`
-            };
-        }
-
-        function renderizarRadarVaivenAdmin() {
-            try {
-                let radar = null;
-                if (datosAppAdmin && datosAppAdmin.radar_vaiven_top4 && datosAppAdmin.radar_vaiven_top4.activo) {
-                    radar = {
-                        parejaFoco: datosAppAdmin.radar_vaiven_top4.pareja_foco || ['83', '28'],
-                        presionPct: datosAppAdmin.radar_vaiven_top4.presion_acumulada_pct || 77.8,
-                        faseTexto: datosAppAdmin.radar_vaiven_top4.fase_onda || 'VENTANA CRÍTICA DE RUPTURA',
-                        sorteosEvaluados: datosAppAdmin.radar_vaiven_top4.sorteos_evaluados || '8 / 20',
-                        ecos: (datosAppAdmin.radar_vaiven_top4.ecos_detectados || []).map(e => ({
-                            numero: e.numero,
-                            repeticiones: e.repeticiones,
-                            tipo: e.tipo,
-                            detalle: e.detalle
-                        })),
-                        presiones: (datosAppAdmin.radar_vaiven_top4.presiones_vectoriales || []).map(p => ({
-                            disparador: p.numero_disparador,
-                            objetivo: p.objetivo_presionado,
-                            tipo: p.tipo,
-                            impacto: p.impacto
-                        })),
-                        top4: (datosAppAdmin.radar_vaiven_top4.top4_estrategicas || []).map(t => ({
-                            id: t.id,
-                            nombre: t.nombre,
-                            rol: t.rol_estrategico,
-                            record: t.record_historico,
-                            afinidad: parseFloat(t.afinidad_vaiven) || 95.0,
-                            foco: t.foco_recomendado,
-                            estadoSorteo: t.estado_sorteo,
-                            estadoRadar: t.estado_radar,
-                            colorEstado: t.color_estado,
-                            premios: t.premios_hoy || [],
-                            aciertos: t.aciertos || []
-                        })),
-                        diagnostico: datosAppAdmin.radar_vaiven_top4.diagnostico_algoritmo || ''
-                    };
-                } else {
-                    radar = calcularRadarVaivenJS();
-                }
-
-                if (!radar) return;
-
-                // 1. Pareja foco
-                const elFoco = document.getElementById('radar-pareja-foco');
-                if (elFoco) elFoco.innerText = `[ ${radar.parejaFoco[0]} × ${radar.parejaFoco[1]} ]`;
-
-                // 2. Presión y fase
-                const elFase = document.getElementById('radar-fase-texto');
-                if (elFase) elFase.innerText = radar.faseTexto;
-
-                const elPresNum = document.getElementById('radar-presion-num');
-                if (elPresNum) elPresNum.innerText = `${radar.presionPct}%`;
-
-                const elRatio = document.getElementById('radar-sorteos-ratio');
-                if (elRatio) elRatio.innerText = `(${radar.sorteosEvaluados} evaluados)`;
-
-                const elBarra = document.getElementById('radar-barra-progreso');
-                if (elBarra) elBarra.style.width = `${radar.presionPct}%`;
-
-                // 3. Ecos y vectores de vaivén
-                const elEcosCont = document.getElementById('radar-ecos-container');
-                if (elEcosCont) {
-                    let htmlItems = [];
-
-                    if (radar.ecos && radar.ecos.length > 0) {
-                        radar.ecos.forEach(e => {
-                            htmlItems.push(`
-                                <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 10px 12px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                                        <div style="display: flex; align-items: center; gap: 6px;">
-                                            <span style="font-size: 14px;">🔁</span>
-                                            <span style="font-size: 11px; font-weight: 900; color: #f8fafc;">${e.tipo}</span>
-                                        </div>
-                                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 900; color: #fde047; background: #131c31; border: 1px solid #f59e0b; padding: 1px 8px; border-radius: 4px;">
-                                            [ ${e.numero} ] ×${e.repeticiones}
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; line-height: 1.4;">
-                                        ${e.detalle}
-                                    </div>
-                                </div>
-                            `);
-                        });
-                    }
-
-                    if (radar.presiones && radar.presiones.length > 0) {
-                        radar.presiones.forEach(p => {
-                            const icon = p.tipo.includes('Revés') ? '🔄' : '🧲';
-                            const borderColor = p.tipo.includes('Revés') ? 'rgba(245, 158, 11, 0.4)' : 'rgba(16, 185, 129, 0.4)';
-                            htmlItems.push(`
-                                <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid ${borderColor}; border-radius: 8px; padding: 10px 12px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                                        <div style="display: flex; align-items: center; gap: 6px;">
-                                            <span style="font-size: 14px;">${icon}</span>
-                                            <span style="font-size: 11px; font-weight: 900; color: #cbd5e1;">${p.tipo}</span>
-                                        </div>
-                                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 900; color: #6ee7b7; background: #064e3b; border: 1px solid #10b981; padding: 1px 7px; border-radius: 4px;">
-                                            ${p.disparador} ➔ ${p.objetivo}
-                                        </span>
-                                    </div>
-                                    <div style="font-size: 10.5px; color: #94a3b8; line-height: 1.4;">
-                                        ${p.impacto}
-                                    </div>
-                                </div>
-                            `);
-                        });
-                    }
-
-                    if (htmlItems.length === 0) {
-                        elEcosCont.innerHTML = `<div style="color: #64748b; font-size: 11px; padding: 6px;">Escaneando primeros sorteos del día...</div>`;
-                    } else {
-                        elEcosCont.innerHTML = htmlItems.join('');
-                    }
-                }
-
-                // 4. Cuadrícula de las Top 4 Loterías
-                const elGridTop4 = document.getElementById('radar-grid-top4');
-                if (elGridTop4 && radar.top4 && radar.top4.length > 0) {
-                    elGridTop4.innerHTML = radar.top4.map((t, idx) => {
-                        const rankNum = idx + 1;
-                        let cardBorder = 'border: 1.5px solid rgba(56, 189, 248, 0.35);';
-                        let glowEffect = '';
-                        if (t.id === 'ny_tarde') {
-                            cardBorder = 'border: 1.5px solid rgba(245, 158, 11, 0.6);';
-                            glowEffect = 'box-shadow: 0 0 16px rgba(245, 158, 11, 0.15);';
-                        } else if (t.id === 'quiniela_loteka') {
-                            cardBorder = 'border: 1.5px solid rgba(168, 85, 247, 0.5);';
-                        }
-
-                        let hitsHtml = '';
-                        if (t.aciertos && t.aciertos.length > 0) {
-                            hitsHtml = `<div style="margin-top: 8px; background: rgba(16,185,129,0.18); border: 1px solid #10b981; color: #6ee7b7; border-radius: 6px; padding: 4px 8px; font-size: 10.5px; font-weight: 800; text-align: center;">🎯 ${t.aciertos.join(' • ')}</div>`;
-                        } else if (t.estadoSorteo === 'finalizado' && t.premios && t.premios.length >= 3) {
-                            hitsHtml = `<div style="margin-top: 8px; font-size: 10px; color: #94a3b8; text-align: center;">Premios: <strong style="color:#e2e8f0;">[${t.premios.map(fmt2Adm).join(', ')}]</strong></div>`;
-                        }
-
-                        return `
-                            <div style="background: #090e1a; ${cardBorder} ${glowEffect} border-radius: 12px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
-                                <div>
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                                        <div>
-                                            <span style="font-size: 10px; font-weight: 900; color: #fbbf24; text-transform: uppercase;">TOP ${rankNum} ESTRATÉGICA</span>
-                                            <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 2px 0 0 0;">${t.nombre}</h4>
-                                        </div>
-                                        <span style="background: rgba(15, 23, 42, 0.9); border: 1px solid #38bdf8; color: #38bdf8; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 900; padding: 2px 6px; border-radius: 6px;">
-                                            ${t.afinidad}%
-                                        </span>
-                                    </div>
-
-                                    <div style="font-size: 10px; color: #94a3b8; margin-bottom: 8px;">
-                                        ${t.rol} • <span style="color:#cbd5e1;">${t.record}</span>
-                                    </div>
-
-                                    <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid #1e293b; border-radius: 8px; padding: 8px 10px; margin-bottom: 8px;">
-                                        <span style="font-size: 9.5px; color: #64748b; font-weight: 800; text-transform: uppercase; display: block;">Foco de Jugada</span>
-                                        <span style="font-size: 11.5px; font-weight: 900; color: #fde047; font-family: 'JetBrains Mono', monospace;">${t.foco}</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div style="background: rgba(0,0,0,0.3); border: 1px solid ${t.colorEstado}; color: ${t.colorEstado}; border-radius: 6px; padding: 5px 8px; font-size: 10px; font-weight: 900; text-align: center;">
-                                        ${t.estadoRadar}
-                                    </div>
-                                    ${hitsHtml}
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                }
-
-                // 5. Diagnóstico del algoritmo
-                const elDiag = document.getElementById('radar-diagnostico-texto');
-                if (elDiag && radar.diagnostico) {
-                    elDiag.innerText = radar.diagnostico;
-                }
-
-                // 6. Reloj Dinámico de Frecuencia por Días (Cuentagotas Automático)
-                actualizarRelojCuentagotasDinamico();
-            } catch (err) {
-                console.error("Error renderizando radar de vaivén:", err);
-            }
-        }
-
-        function actualizarRelojCuentagotasDinamico() {
-            try {
-                let fechaHoyStr = (datosAppAdmin && datosAppAdmin.fecha_hoy) ? datosAppAdmin.fecha_hoy : "2026-10-07";
-                let fechaHoy = new Date(fechaHoyStr + "T12:00:00");
-                if (isNaN(fechaHoy.getTime())) fechaHoy = new Date();
-
-                // Obtener combinación activa directa (sin virados)
-                let p1Str = "09", p2Str = "59";
-                const customN1 = localStorage.getItem('lotopro_master_n1');
-                const customN2 = localStorage.getItem('lotopro_master_n2');
-                if (customN1 && customN2) {
-                    p1Str = String(customN1).padStart(2, '0');
-                    p2Str = String(customN2).padStart(2, '0');
-                } else if (datosAppAdmin && datosAppAdmin.jugada_maestra_fija && Array.isArray(datosAppAdmin.jugada_maestra_fija.pareja_oficial)) {
-                    p1Str = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[0]).padStart(2, '0');
-                    p2Str = String(datosAppAdmin.jugada_maestra_fija.pareja_oficial[1]).padStart(2, '0');
-                } else if (window.DATOS_LOTOPRO && window.DATOS_LOTOPRO.jugada_maestra_fija && Array.isArray(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial)) {
-                    p1Str = String(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[0]).padStart(2, '0');
-                    p2Str = String(window.DATOS_LOTOPRO.jugada_maestra_fija.pareja_oficial[1]).padStart(2, '0');
-                }
-
-                const elParejaHeader = document.getElementById('radar-pareja-foco');
-                if (elParejaHeader) elParejaHeader.innerText = `[ ${p1Str} × ${p2Str} ]`;
-
-                // 1. Cronómetro Continuo Real de Palé (Acumulación Real sin Cortes Arbitrarios)
-                const fechaUltimoPale = "2026-10-04";
-                const dUltimoPale = new Date(fechaUltimoPale + "T12:00:00");
-                let diasPale = Math.round((fechaHoy - dUltimoPale) / (1000 * 60 * 60 * 24));
-                if (isNaN(diasPale) || diasPale < 0) diasPale = 3;
-
-                const elPaleGap = document.getElementById('ciclo-pale-dias-gap');
-                if (elPaleGap) elPaleGap.innerText = diasPale;
-
-                const elBarraPale = document.getElementById('barra-ciclo-pale');
-                const pctPale = Math.min(100, Math.round((diasPale / 15) * 100));
-                if (elBarraPale) elBarraPale.style.width = `${Math.max(15, pctPale)}%`;
-
-                const elDescPale = document.getElementById('estado-ciclo-pale-desc');
-                if (elDescPale) {
-                    elDescPale.innerHTML = `<span>⏳</span> <span><strong>Día ${diasPale} en acumulación continua:</strong> Sigue contando sin corte arbitrario hasta que reviente el próximo Palé de [ ${p1Str} × ${p2Str} ] en cualquier lotería oficial.</span>`;
-                }
-
-                // 2. Base Oficial Estricta: Las 6 Loterías de la Estrategia (CERO Anguila)
-                const LOTERIAS_1RA_BASE = [
-                    {
-                        id: "quiniela_loteka",
-                        nombre: "Quiniela Loteka (7:55 PM)",
-                        hora: "7:55 PM",
-                        rol: "TOP 1 • LOTEKA NOCHE",
-                        colorRol: "#c084fc",
-                        esMaduraHoy: true,
-                        fechaUltimoHit: "2026-10-04",
-                        diasManual: 3,
-                        cicloTipico: "Cada 2 a 4 días",
-                        detalleHit: "04 Oct (94 en 1ra)"
-                    },
-                    {
-                        id: "ny_tarde",
-                        nombre: "New York Tarde (2:30 PM)",
-                        hora: "2:30 PM",
-                        rol: "TOP 2 • 100% EN 1RA",
-                        colorRol: "#fbbf24",
-                        esMaduraHoy: true,
-                        fechaUltimoHit: "2026-10-04",
-                        diasManual: 3,
-                        cicloTipico: "Cada 2 a 3 días",
-                        detalleHit: "04 Oct (94 en 1ra)"
-                    },
-                    {
-                        id: "gana_mas",
-                        nombre: "Gana Más (2:30 PM)",
-                        hora: "2:30 PM",
-                        rol: "TOP 3 • NACIONAL TARDE",
-                        colorRol: "#f97316",
-                        esMaduraHoy: true,
-                        fechaUltimoHit: "2026-09-28",
-                        diasManual: 3,
-                        cicloTipico: "Cada 2 a 4 días",
-                        detalleHit: "28 Sep (85 en 1ra)"
-                    },
-                    {
-                        id: "quiniela_leidsa",
-                        nombre: "Quiniela Leidsa (8:55 PM)",
-                        hora: "8:55 PM",
-                        rol: "TOP 4 • NOCHE",
-                        colorRol: "#60a5fa",
-                        esMaduraHoy: false,
-                        fechaUltimoHit: "2026-10-06",
-                        diasManual: 0,
-                        cicloTipico: "Cada 4 a 6 días",
-                        detalleHit: "Ayer 06 Oct (90 en 1ra)"
-                    },
-                    {
-                        id: "lotedom",
-                        nombre: "LoteDom (12:00 PM)",
-                        hora: "12:00 PM",
-                        rol: "TOP 5 • MEDIODÍA",
-                        colorRol: "#34d399",
-                        esMaduraHoy: false,
-                        fechaUltimoHit: "2026-10-06",
-                        diasManual: 0,
-                        cicloTipico: "Cada 2 a 3 días",
-                        detalleHit: "Ayer 06 Oct (79 en 1ra)"
-                    },
-                    {
-                        id: "la_suerte_dia",
-                        nombre: "La Suerte Día (12:30 PM)",
-                        hora: "12:30 PM",
-                        rol: "TOP 6 • VOLUMEN HISTÓRICO",
-                        colorRol: "#2dd4bf",
-                        esMaduraHoy: false,
-                        fechaUltimoHit: "2026-10-06",
-                        diasManual: 0,
-                        cicloTipico: "Cada 2 a 3 días",
-                        detalleHit: "Ayer 06 Oct (79 en 2da)"
-                    }
-                ];
-
-                const listaSemaforo = [...LOTERIAS_1RA_BASE];
-
-                const elTagCapacidad = document.getElementById('semaforo-capacidad-tag');
-                if (elTagCapacidad) {
-                    elTagCapacidad.innerText = "Base Oficial: 6 Loterías Estratégicas";
-                }
-
-                // 3. Evaluar estado de hoy en sorteos reales
-                const listaSorteosHoy = (datosAppAdmin && Array.isArray(datosAppAdmin.sorteos_hoy)) 
-                    ? datosAppAdmin.sorteos_hoy 
-                    : ((window.DATOS_LOTOPRO && Array.isArray(window.DATOS_LOTOPRO.sorteos_hoy)) ? window.DATOS_LOTOPRO.sorteos_hoy : []);
-
-                listaSemaforo.forEach(item => {
-                    const sHoy = listaSorteosHoy.find(s => s.id === item.id);
-                    item.finalizadoHoy = (sHoy && sHoy.estado === 'finalizado');
-                    item.premiosHoy = (sHoy && Array.isArray(sHoy.premios)) ? sHoy.premios : [];
-                    item.dias = (typeof item.diasManual === 'number') ? item.diasManual : 0;
-                });
-
-                // 4. ORDENAMIENTO ESTRICTO: Las 3 Maduras de Hoy SIEMPRE ARRIBA
-                listaSemaforo.sort((a, b) => {
-                    if (a.esMaduraHoy && !b.esMaduraHoy) return -1;
-                    if (!a.esMaduraHoy && b.esMaduraHoy) return 1;
-                    if (a.esMaduraHoy && b.esMaduraHoy) {
-                        // La que aún no ha jugado hoy (Loteka 7:55 PM) va primero
-                        if (!a.finalizadoHoy && b.finalizadoHoy) return -1;
-                        if (a.finalizadoHoy && !b.finalizadoHoy) return 1;
-                    }
-                    return b.dias - a.dias;
-                });
-
-                // 5. Renderizar Tabla Resumen de Maduras de Hoy (Imagen 4)
-                const tbodyMaduras = document.getElementById('tabla-cuerpo-maduras-hoy-directas');
-                if (tbodyMaduras) {
-                    const madurasHoy = listaSemaforo.filter(x => x.esMaduraHoy);
-                    tbodyMaduras.innerHTML = madurasHoy.map(m => {
-                        let estadoBadge = m.finalizadoHoy
-                            ? `<span style="background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #475569; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 800;">🏁 Sorteo Realizado</span>`
-                            : `<span style="background: rgba(16, 185, 129, 0.25); color: #6ee7b7; border: 1px solid #10b981; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; animation: pulse 2s infinite;">🔥 PENDIENTE HOY (${m.hora})</span>`;
-
-                        return `
-                            <tr style="border-bottom: 1px solid #1e293b; background: rgba(16, 185, 129, 0.06);">
-                                <td style="padding: 8px 10px; font-weight: 800; color: #f8fafc;">${m.nombre}</td>
-                                <td style="padding: 8px 10px; color: #94a3b8; font-family: monospace;">${m.hora}</td>
-                                <td style="padding: 8px 10px; color: #34d399; font-weight: 800;">1ra (Mayor)</td>
-                                <td style="padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-weight: 900; color: #fde047; font-size: 12.5px;">[ ${p1Str} ] y [ ${p2Str} ]</td>
-                                <td style="padding: 8px 10px; text-align: right;">${estadoBadge}</td>
-                            </tr>
-                        `;
-                    }).join('');
-                }
-
-                // 6. Renderizado de Tarjetas Rectangulares y Limpias (Sin textos redundantes de palé)
-                const elGrid = document.getElementById('grid-contador-dias-top4');
-                if (elGrid) {
-                    elGrid.innerHTML = listaSemaforo.map(item => {
-                        const dias = item.dias;
-                        let badgeColor = "#38bdf8", badgeBg = "rgba(56, 189, 248, 0.15)", badgeBorder = "#38bdf8";
-                        let badgeTxt = "", cardBorder = "border: 1.5px solid rgba(56, 189, 248, 0.4);", glowBox = "";
-                        let accionHtml = "";
-
-                        if (item.esMaduraHoy) {
-                            if (!item.finalizadoHoy) {
-                                badgeColor = "#6ee7b7";
-                                badgeBg = "rgba(16, 185, 129, 0.25)";
-                                badgeBorder = "#10b981";
-                                badgeTxt = `🟢 ¡HOY SE JUEGA! (Día ${dias})`;
-                                cardBorder = "border: 2px solid #10b981;";
-                                glowBox = "box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);";
-                                accionHtml = `👉 <strong style="color:#6ee7b7;">JUGAR EN 1RA: [ ${p1Str} ] y [ ${p2Str} ]</strong> • Pendiente hoy (${item.hora})`;
-                            } else {
-                                badgeColor = "#34d399";
-                                badgeBg = "rgba(16, 185, 129, 0.15)";
-                                badgeBorder = "#10b981";
-                                badgeTxt = `🟢 MADURA DE HOY (Día ${dias})`;
-                                cardBorder = "border: 1.5px solid rgba(16, 185, 129, 0.5);";
-                                accionHtml = `🎯 JUGADA EN 1RA: [ ${p1Str} ] y [ ${p2Str} ] • Sorteo ${item.hora} realizado`;
-                            }
-                        } else {
-                            badgeColor = "#60a5fa";
-                            badgeBg = "rgba(59, 130, 246, 0.15)";
-                            badgeBorder = "#3b82f6";
-                            badgeTxt = "🏆 SALIÓ AYER (Día 0)";
-                            cardBorder = "border: 1px solid rgba(59, 130, 246, 0.35);";
-                            accionHtml = `💤 <span style="color:#94a3b8;">En descanso hoy. No se juega (cumplió ayer en 1ra).</span>`;
-                        }
-
-                        let estadoHoyHtml = '';
-                        if (item.finalizadoHoy && item.premiosHoy.length >= 3) {
-                            const p1Num = parseInt(p1Str, 10);
-                            const p2Num = parseInt(p2Str, 10);
-                            const hit1 = item.premiosHoy.includes(p1Num);
-                            const hit2 = item.premiosHoy.includes(p2Num);
-                            if (hit1 || hit2) {
-                                estadoHoyHtml = `<span style="background: rgba(16,185,129,0.2); border: 1px solid #10b981; color: #6ee7b7; border-radius: 4px; padding: 2px 6px; font-size: 10px; font-weight: 800;">🎯 ¡PEGÓ HOY! [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
-                            } else {
-                                estadoHoyHtml = `<span style="background: rgba(30,41,59,0.7); border: 1px solid #334155; color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9.5px;">Sorteo ${item.hora}: [${item.premiosHoy.map(fmt2Adm).join(', ')}]</span>`;
-                            }
-                        }
-
-                        return `
-                            <div class="tarjeta-semaforo-lineal" style="background: #090e1a; ${cardBorder} ${glowBox} border-radius: 10px; padding: 10px 14px; display: flex; flex-direction: column; gap: 5px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
-                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                                        <span style="font-size: 9px; font-weight: 900; color: ${item.colorRol}; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.08);">${item.rol}</span>
-                                        <h4 style="font-size: 13.5px; font-weight: 800; color: #f8fafc; margin: 0;">${item.nombre}</h4>
-                                    </div>
-                                    <span style="background: ${badgeBg}; border: 1.5px solid ${badgeBorder}; color: ${badgeColor}; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 900; padding: 2px 8px; border-radius: 6px; white-space: nowrap;">
-                                        ${dias} Días
-                                    </span>
-                                </div>
-
-                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; background: rgba(15, 23, 42, 0.7); border-radius: 6px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.04);">
-                                    <span style="font-size: 10.5px; font-weight: 900; color: ${badgeColor};">${badgeTxt}</span>
-                                    <span style="font-size: 10px; color: #94a3b8;">Ciclo 1ra: <strong style="color:#e2e8f0;">${item.cicloTipico}</strong></span>
-                                </div>
-
-                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 10.5px; color: #cbd5e1; font-weight: 700;">
-                                    <span>${accionHtml}</span>
-                                    ${estadoHoyHtml}
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                }
-            } catch (err) {
-                console.error("Error en actualizarRelojCuentagotasDinamico:", err);
-            }
-        }
-
-        function refrescarRadarVaivenManual() {
-            actualizarRelojCuentagotasDinamico();
-            actualizarAuditoriaEficienciaGerencial();
-            renderizarRadarVaivenAdmin();
-            const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : null;
-            if (btn) {
-                const oldText = btn.innerHTML;
-                btn.innerHTML = '✅ Días Sincronizados';
-                setTimeout(() => { btn.innerHTML = oldText; }, 1800);
-            }
-        }
 
         function toggleRankingMobile() {
             const el = document.getElementById('contenedor-tabla-ranking-completo');
@@ -2815,6 +1776,231 @@
         // (AUTO-GUARDADO CONTINUO 24/7)
         // ==========================================
                 const HISTORIAL_OFICIAL_BASE = [
+            {
+                fecha: "2026-10-21",
+                fechaFormato: "21 Octubre 2026",
+                sorteosEvaluados: "12 / 20",
+                parejaMaestra: "[59 × 12]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Anguila 10:00 AM: 59 en 1ra"],
+                maestraRatio: "1 / 12",
+                maestraPct: "8.3%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-20",
+                fechaFormato: "20 Octubre 2026",
+                sorteosEvaluados: "1 / 20",
+                parejaMaestra: "[59 × 12]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Anguila 10:00 AM: 12 en 2da"],
+                maestraRatio: "0 / 1",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-19",
+                fechaFormato: "19 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "⏳ Sin impactos en este día",
+                diagClase: "color:#94a3b8; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-18",
+                fechaFormato: "18 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "⏳ Sin impactos en este día",
+                diagClase: "color:#94a3b8; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-17",
+                fechaFormato: "17 Octubre 2026",
+                sorteosEvaluados: "10 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 2,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Anguila 1:00 PM: 95 en 1ra", "New York Tarde 2:30 PM: 95 en 1ra"],
+                maestraRatio: "2 / 10",
+                maestraPct: "20.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (2 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-16",
+                fechaFormato: "16 Octubre 2026",
+                sorteosEvaluados: "12 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 12",
+                maestraPct: "0.0%",
+                diagnostico: "⏳ Sin impactos en este día",
+                diagClase: "color:#94a3b8; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-15",
+                fechaFormato: "15 Octubre 2026",
+                sorteosEvaluados: "10 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 96 en 1ra"],
+                maestraRatio: "1 / 10",
+                maestraPct: "10.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-14",
+                fechaFormato: "14 Octubre 2026",
+                sorteosEvaluados: "13 / 20",
+                parejaMaestra: "[95 × 96]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 95 en 3ra", "Florida Día 1:30 PM: 96 en 2da"],
+                maestraRatio: "0 / 13",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-13",
+                fechaFormato: "13 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 1,
+                maestra2da: 1,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 09 en 2da", "New York Noche 10:30 PM: 59 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "5.0%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-12",
+                fechaFormato: "12 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: [],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "⏳ Sin impactos en este día",
+                diagClase: "color:#94a3b8; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-11",
+                fechaFormato: "11 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 1,
+                maestra2da: 0,
+                maestra3ra: 0,
+                maestraHitsDetalle: ["Primera Noche 8:00 PM: 59 en 1ra"],
+                maestraRatio: "1 / 20",
+                maestraPct: "4.8%",
+                diagnostico: "🎯 PREMIO MAYOR CONFIRMADO (1 en 1ra)",
+                diagClase: "color:#34d399; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-10",
+                fechaFormato: "10 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["LoteDom 12:00 PM: 09 en 3ra"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia en Premios Menores (1 en 3ra)",
+                diagClase: "color:#fbbf24; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-09",
+                fechaFormato: "09 Octubre 2026",
+                sorteosEvaluados: "16 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 2,
+                maestraHitsDetalle: ["La Suerte 12:30 PM: 09 en 2da", "LoteDom 12:00 PM: 59 en 3ra", "Quiniela Leidsa 8:55 PM: 59 en 3ra"],
+                maestraRatio: "0 / 16",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-08",
+                fechaFormato: "08 Octubre 2026",
+                sorteosEvaluados: "10 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 0,
+                maestra2da: 0,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Quiniela Real 1:00 PM: 59 en 3ra"],
+                maestraRatio: "0 / 10",
+                maestraPct: "0.0%",
+                diagnostico: "🥉 Frecuencia en Premios Menores (1 en 3ra)",
+                diagClase: "color:#fbbf24; font-weight:800;",
+                cerrado: true
+            },
+            {
+                fecha: "2026-10-07",
+                fechaFormato: "07 Octubre 2026",
+                sorteosEvaluados: "20 / 20",
+                parejaMaestra: "[09 × 59]",
+                maestra1ra: 0,
+                maestra2da: 1,
+                maestra3ra: 1,
+                maestraHitsDetalle: ["Anguila 10:00 AM: 59 en 3ra", "Lotería Nacional 9:00 PM: 59 en 2da"],
+                maestraRatio: "0 / 20",
+                maestraPct: "0.0%",
+                diagnostico: "🔵 Rebote Frecuente (1 en 2da)",
+                diagClase: "color:#60a5fa; font-weight:800;",
+                cerrado: true
+            },
             {
                 fecha: "2026-10-06",
                 fechaFormato: "06 Octubre 2026",
@@ -3408,6 +2594,152 @@
             guardarHistorialAuditoriaGerencial(hist);
         }
 
+        // ==========================================
+        // RANKING DINÁMICO DE EFECTIVIDAD POR LOTERÍA
+        // (ALIMENTACIÓN CONSTANTE Y EN TIEMPO REAL)
+        // ==========================================
+        function renderizarRankingDinamico() {
+            try {
+                const hist = (typeof obtenerHistorialAuditoriaGerencial === 'function') 
+                    ? obtenerHistorialAuditoriaGerencial() 
+                    : (HISTORIAL_OFICIAL_BASE || []);
+
+                const registros = [];
+                if (typeof auditoriaActualGerencial !== 'undefined' && auditoriaActualGerencial && auditoriaActualGerencial.fecha) {
+                    registros.push(auditoriaActualGerencial);
+                }
+                hist.forEach(h => {
+                    if (!registros.some(r => r.fecha === h.fecha)) {
+                        registros.push(h);
+                    }
+                });
+
+                // Catálogo de Loterías
+                const LOTERIAS_MAP = {
+                    "la_suerte": { nombre: "La Suerte 12:30 PM", regex: /suerte\s*(?:12|d[íi]a)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "la_primera": { nombre: "La Primera 12:00 PM", regex: /primera\s*(?:12|d[íi]a)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "leidsa": { nombre: "Quiniela Leidsa 8:55 PM", regex: /leidsa/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "lotedom": { nombre: "LoteDom 12:00 PM", regex: /lotedom/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "gana_mas": { nombre: "Gana Más 2:30 PM", regex: /gana\s*m[áa]s/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "anguila_6pm": { nombre: "Anguila 6:00 PM", regex: /anguila\s*6/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "loteka": { nombre: "Quiniela Loteka 7:55 PM", regex: /loteka/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "ny_tarde": { nombre: "New York Tarde 2:30 PM", regex: /new\s*york\s*(?:2|tarde)|ny\s*tarde/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "real_1pm": { nombre: "Quiniela Real 1:00 PM", regex: /real\s*(?:1|d[íi]a|1:00)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "anguila_10am": { nombre: "Anguila 10:00 AM", regex: /anguila\s*10/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "anguila_1pm": { nombre: "Anguila 1:00 PM", regex: /anguila\s*1(?::00|\s*pm)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "anguila_9pm": { nombre: "Anguila 9:00 PM", regex: /anguila\s*9/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "florida_dia": { nombre: "Florida Día 1:30 PM", regex: /florida\s*(?:1|d[íi]a)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "florida_noche": { nombre: "Florida Noche 10:00 PM", regex: /florida\s*(?:10|noche)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "nacional_9pm": { nombre: "Lotería Nacional 9:00 PM", regex: /nacional/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "primera_noche": { nombre: "Primera Noche 8:00 PM", regex: /primera\s*(?:8|noche)/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "ny_noche": { nombre: "New York Noche 10:30 PM", regex: /new\s*york\s*(?:10|noche)|ny\s*noche/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 },
+                    "suerte_6pm": { nombre: "La Suerte 6:00 PM", regex: /suerte\s*6/i, total: 0, p1ra: 0, p2da: 0, p3ra: 0, pale: 0 }
+                };
+
+                let totalAciertosGeneral = 0;
+
+                registros.forEach(reg => {
+                    const hits = Array.isArray(reg.maestraHitsDetalle) ? reg.maestraHitsDetalle : [];
+                    hits.forEach(hitStr => {
+                        const esPale = hitStr.includes('Palé') || hitStr.includes('Pale') || hitStr.includes('¡Palé');
+                        const es1ra = hitStr.includes('en 1ra') || hitStr.includes('1ra');
+                        const es2da = hitStr.includes('en 2da') || hitStr.includes('2da');
+                        const es3ra = hitStr.includes('en 3ra') || hitStr.includes('3ra');
+
+                        let matchedKey = null;
+                        for (const key in LOTERIAS_MAP) {
+                            if (LOTERIAS_MAP[key].regex.test(hitStr)) {
+                                matchedKey = key;
+                                break;
+                            }
+                        }
+
+                        if (matchedKey) {
+                            totalAciertosGeneral++;
+                            LOTERIAS_MAP[matchedKey].total++;
+                            if (esPale) LOTERIAS_MAP[matchedKey].pale++;
+                            else if (es1ra) LOTERIAS_MAP[matchedKey].p1ra++;
+                            else if (es2da) LOTERIAS_MAP[matchedKey].p2da++;
+                            else if (es3ra) LOTERIAS_MAP[matchedKey].p3ra++;
+                        }
+                    });
+                });
+
+                // Ordenar por Total desc, luego 1ra desc
+                const listaRanking = Object.values(LOTERIAS_MAP).sort((a, b) => {
+                    if (b.total !== a.total) return b.total - a.total;
+                    if (b.p1ra !== a.p1ra) return b.p1ra - a.p1ra;
+                    return b.p2da - a.p2da;
+                });
+
+                // 1. Subtítulo dinámico
+                const elSubtitulo = document.getElementById('adm-ranking-subtitulo');
+                if (elSubtitulo) {
+                    elSubtitulo.innerText = `${registros.length} Días Auditados (${totalAciertosGeneral} Aciertos Oficiales) • Actualización Automática`;
+                }
+
+                // 2. Determinar los 4 líderes
+                const topVolumen = [...listaRanking].sort((a, b) => b.total - a.total)[0] || listaRanking[0];
+                const topEfectividad = [...listaRanking].filter(x => x.total > 0).sort((a, b) => (b.p1ra / b.total) - (a.p1ra / a.total) || b.p1ra - a.p1ra)[0] || listaRanking[0];
+                const topPale = [...listaRanking].sort((a, b) => b.pale - a.pale || b.total - a.total)[0] || listaRanking[0];
+                const topFrecuencia1ra = [...listaRanking].sort((a, b) => b.p1ra - a.p1ra || b.total - a.total)[0] || listaRanking[0];
+
+                // 3. Renderizar las 4 tarjetas táctiles
+                const elContenedorTop4 = document.getElementById('adm-ranking-top4-cards');
+                if (elContenedorTop4) {
+                    elContenedorTop4.innerHTML = `
+                        <div style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(245, 158, 11, 0.45); border-radius: 10px; padding: 12px; box-shadow: 0 0 12px rgba(245, 158, 11, 0.1);">
+                            <span style="font-size: 9.5px; color: #fbbf24; font-weight: 900; text-transform: uppercase;">Top 1 Volumen Total</span>
+                            <div style="font-size: 13.5px; font-weight: 900; color: #ffffff; margin-top: 3px;">${topVolumen.nombre}</div>
+                            <div style="font-size: 11px; color: #6ee7b7; font-weight: 700; margin-top: 3px;">${topVolumen.total} Aciertos (${topVolumen.p1ra} en 1ra, ${topVolumen.p2da} en 2da, ${topVolumen.p3ra} en 3ra)</div>
+                        </div>
+                        <div style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(16, 185, 129, 0.45); border-radius: 10px; padding: 12px; box-shadow: 0 0 12px rgba(16, 185, 129, 0.1);">
+                            <span style="font-size: 9.5px; color: #34d399; font-weight: 900; text-transform: uppercase;">Top 1 Efectividad 1ra</span>
+                            <div style="font-size: 13.5px; font-weight: 900; color: #ffffff; margin-top: 3px;">${topEfectividad.nombre}</div>
+                            <div style="font-size: 11px; color: #fde047; font-weight: 700; margin-top: 3px;">${topEfectividad.p1ra} Aciertos (${topEfectividad.total > 0 ? ((topEfectividad.p1ra / topEfectividad.total) * 100).toFixed(0) : 0}% en 1ra Mayor)</div>
+                        </div>
+                        <div style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(168, 85, 247, 0.45); border-radius: 10px; padding: 12px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.1);">
+                            <span style="font-size: 9.5px; color: #c084fc; font-weight: 900; text-transform: uppercase;">Top 1 Palé Directo</span>
+                            <div style="font-size: 13.5px; font-weight: 900; color: #ffffff; margin-top: 3px;">${topPale.nombre}</div>
+                            <div style="font-size: 11px; color: #d8b4fe; font-weight: 700; margin-top: 3px;">${topPale.pale > 0 ? topPale.pale + ' Palé Directo Oficial' : 'Especialista en Palé Oficial'}</div>
+                        </div>
+                        <div style="background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(59, 130, 246, 0.45); border-radius: 10px; padding: 12px; box-shadow: 0 0 12px rgba(59, 130, 246, 0.1);">
+                            <span style="font-size: 9.5px; color: #60a5fa; font-weight: 900; text-transform: uppercase;">Top 1 Mayor Frecuencia 1ra</span>
+                            <div style="font-size: 13.5px; font-weight: 900; color: #ffffff; margin-top: 3px;">${topFrecuencia1ra.nombre}</div>
+                            <div style="font-size: 11px; color: #6ee7b7; font-weight: 700; margin-top: 3px;">${topFrecuencia1ra.p1ra} en 1ra Mayor (${topFrecuencia1ra.total} aciertos totales)</div>
+                        </div>
+                    `;
+                }
+
+                // 4. Renderizar filas de la tabla completa ordenada
+                const tbody = document.getElementById('adm-ranking-tabla-cuerpo');
+                if (tbody) {
+                    tbody.innerHTML = listaRanking.map((lot, idx) => {
+                        let badgeRank = `#${idx + 1}`;
+                        let rowBg = '';
+                        if (idx === 0) { badgeRank = '🥇 1'; rowBg = 'background: rgba(245, 158, 11, 0.08);'; }
+                        else if (idx === 1) { badgeRank = '🥈 2'; }
+                        else if (idx === 2) { badgeRank = '🥉 3'; }
+                        else if (idx === 3) { rowBg = 'background: rgba(16, 185, 129, 0.08);'; }
+
+                        return `
+                            <tr style="border-bottom: 1px solid #1e293b; ${rowBg}">
+                                <td style="padding: 6px; font-weight:900; color:#fbbf24;">${badgeRank}</td>
+                                <td style="padding: 6px; font-weight:800; color:#ffffff;">${lot.nombre}</td>
+                                <td style="padding: 6px; text-align:center; font-weight:900; color:#fbbf24;">${lot.total}</td>
+                                <td style="padding: 6px; text-align:center; font-weight:800; color:#34d399;">${lot.p1ra}</td>
+                                <td style="padding: 6px; text-align:center; color:#60a5fa;">${lot.p2da}</td>
+                                <td style="padding: 6px; text-align:center; color:#cbd5e1;">${lot.p3ra}</td>
+                                <td style="padding: 6px; text-align:center; color:#c084fc; font-weight:900;">${lot.pale > 0 ? '🔥 ' + lot.pale : '0'}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
+            } catch (err) {
+                console.error("Error en renderizarRankingDinamico:", err);
+            }
+        }
+
         function renderizarCuadernoDiarioGerencial() {
             const tbody = document.getElementById('adm-tabla-registro-diario');
             if (!tbody) return;
@@ -3847,244 +3179,6 @@
         }
 
         // ==========================================
-        // REPORTE OFICIAL EXCLUSIVO: 1RA (MAYOR) Y PALÉ DIRECTO
-        // (AUDITORÍA PURA Y CONTROL GERENCIAL IMPRIMIBLE)
-        // ==========================================
-        function abrirReporteOficial1rayPale() {
-            const modal = document.getElementById('modal-reporte-1ra-pale');
-            if (!modal) return;
-            modal.style.display = 'block';
-
-            const hist = (typeof obtenerHistorialAuditoriaGerencial === 'function') 
-                ? obtenerHistorialAuditoriaGerencial() 
-                : (HISTORIAL_OFICIAL_BASE || []);
-
-            const registrosUnicos = [];
-            if (typeof auditoriaActualGerencial !== 'undefined' && auditoriaActualGerencial && auditoriaActualGerencial.fecha) {
-                registrosUnicos.push(auditoriaActualGerencial);
-            }
-            hist.forEach(h => {
-                if (!registrosUnicos.some(r => r.fecha === h.fecha)) {
-                    registrosUnicos.push(h);
-                }
-            });
-
-            // Ordenar de más antiguo a más reciente para calcular los intervalos con rigor matemático
-            const ordenadosCronologico = [...registrosUnicos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-            let conteo1ra = 0;
-            let conteoPales = 0;
-            let ultimoFecha1ra = null;
-            let ultimoFechaPale = null;
-            const listaHitsFiltrados = [];
-            let sumaIntervalos1ra = 0;
-            let conteoIntervalos1ra = 0;
-
-            ordenadosCronologico.forEach(reg => {
-                const fechaObj = new Date(reg.fecha + "T12:00:00");
-                const hits = Array.isArray(reg.maestraHitsDetalle) ? reg.maestraHitsDetalle : [];
-
-                hits.forEach(hitStr => {
-                    const esPale = hitStr.includes('Palé') || hitStr.includes('Pale') || hitStr.includes('¡Palé');
-                    const es1ra = (hitStr.includes('en 1ra') || hitStr.includes('1ra')) && !hitStr.includes('en 2da') && !hitStr.includes('en 3ra');
-
-                    // Descartar estrictamente impactos de 2da y 3ra que no sean Palé
-                    if (!esPale && !es1ra) return;
-
-                    let tipoImpacto = '';
-                    let intervaloTxt = '—';
-
-                    if (esPale) {
-                        conteoPales++;
-                        tipoImpacto = '🔥 Palé Directo';
-                        if (ultimoFechaPale) {
-                            const diffDias = Math.max(1, Math.round((fechaObj - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
-                            intervaloTxt = `${diffDias} Días`;
-                        } else {
-                            intervaloTxt = 'Inicio de Auditoría';
-                        }
-                        ultimoFechaPale = fechaObj;
-                    } else if (es1ra) {
-                        conteo1ra++;
-                        tipoImpacto = '🥇 1ra (Mayor)';
-                        if (ultimoFecha1ra) {
-                            const diffDias = Math.max(1, Math.round((fechaObj - ultimoFecha1ra) / (1000 * 60 * 60 * 24)));
-                            intervaloTxt = `${diffDias} Días`;
-                            sumaIntervalos1ra += diffDias;
-                            conteoIntervalos1ra++;
-                        } else {
-                            intervaloTxt = 'Inicio de Auditoría';
-                        }
-                        ultimoFecha1ra = fechaObj;
-                    }
-
-                    let loteria = reg.parejaMaestra ? `Lotería Oficial (${reg.parejaMaestra})` : 'Lotería Oficial';
-                    let premio = hitStr;
-                    if (hitStr.includes(':')) {
-                        const parts = hitStr.split(':');
-                        loteria = parts[0].trim();
-                        premio = parts.slice(1).join(':').trim();
-                    }
-
-                    listaHitsFiltrados.push({
-                        fecha: reg.fecha,
-                        fechaFormato: reg.fechaFormato || reg.fecha,
-                        loteria: loteria,
-                        tipoImpacto: tipoImpacto,
-                        premio: premio,
-                        intervalo: intervaloTxt,
-                        esPale: esPale
-                    });
-                });
-            });
-
-            // Actualizar KPIs
-            const elKpi1ra = document.getElementById('rep-kpi-1ra');
-            const elKpiPales = document.getElementById('rep-kpi-pales');
-            const elKpiCiclo1ra = document.getElementById('rep-kpi-ciclo-1ra');
-            const elKpiRelojPale = document.getElementById('rep-kpi-reloj-pale');
-
-            if (elKpi1ra) elKpi1ra.innerText = conteo1ra;
-            if (elKpiPales) elKpiPales.innerText = conteoPales;
-
-            if (elKpiCiclo1ra) {
-                const prom = conteoIntervalos1ra > 0 ? (sumaIntervalos1ra / conteoIntervalos1ra).toFixed(1) : '2.4';
-                elKpiCiclo1ra.innerText = `Cada ${prom} días`;
-            }
-
-            if (elKpiRelojPale) {
-                let fechaHoy = new Date();
-                if (typeof datosAppAdmin !== 'undefined' && datosAppAdmin && datosAppAdmin.fecha_hoy) {
-                    const fh = new Date(datosAppAdmin.fecha_hoy + "T12:00:00");
-                    if (!isNaN(fh.getTime())) fechaHoy = fh;
-                }
-                let diasAcumPale = 3;
-                if (ultimoFechaPale) {
-                    diasAcumPale = Math.max(0, Math.round((fechaHoy - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
-                }
-                elKpiRelojPale.innerText = `${diasAcumPale} Días`;
-            }
-
-            // Renderizar tabla en orden descendente (más reciente arriba)
-            const tbody = document.getElementById('tabla-cuerpo-reporte-1ra-pale');
-            if (tbody) {
-                if (listaHitsFiltrados.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px; color:#94a3b8;">No hay impactos en 1ra o Palé registrados en este período.</td></tr>`;
-                    return;
-                }
-
-                const filasHtml = [...listaHitsFiltrados].reverse().map(item => {
-                    const badgeTipo = item.esPale
-                        ? `<span style="background: rgba(168,85,247,0.2); color: #c084fc; border: 1px solid #a855f7; padding: 2px 7px; border-radius: 4px; font-weight: 800; font-size: 10px;">${item.tipoImpacto}</span>`
-                        : `<span style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10b981; padding: 2px 7px; border-radius: 4px; font-weight: 800; font-size: 10px;">${item.tipoImpacto}</span>`;
-
-                    return `
-                        <tr style="border-bottom: 1px solid #1e293b; transition: background 0.15s ease;" onmouseover="this.style.background='rgba(255,255,255,0.03)'" onmouseout="this.style.background='transparent'">
-                            <td style="padding: 9px 12px; font-weight: 700; color: #f8fafc; font-family: monospace;">${item.fechaFormato}</td>
-                            <td style="padding: 9px 12px; font-weight: 800; color: #38bdf8;">${item.loteria}</td>
-                            <td style="padding: 9px 12px;">${badgeTipo}</td>
-                            <td style="padding: 9px 12px; font-family: monospace; font-weight: 800; color: #facc15;">${item.premio}</td>
-                            <td style="padding: 9px 12px; font-weight: 700; color: #cbd5e1; font-family: monospace;">${item.intervalo}</td>
-                        </tr>
-                    `;
-                }).join('');
-
-                tbody.innerHTML = filasHtml;
-            }
-        }
-
-        function cerrarReporteOficial1rayPale() {
-            const modal = document.getElementById('modal-reporte-1ra-pale');
-            if (modal) modal.style.display = 'none';
-        }
-
-        function imprimirReporteOficial1raYPales() {
-            window.print();
-        }
-
-        function descargarExcelExclusivo1rayPale() {
-            const hist = (typeof obtenerHistorialAuditoriaGerencial === 'function') 
-                ? obtenerHistorialAuditoriaGerencial() 
-                : (HISTORIAL_OFICIAL_BASE || []);
-
-            const registrosUnicos = [];
-            if (typeof auditoriaActualGerencial !== 'undefined' && auditoriaActualGerencial && auditoriaActualGerencial.fecha) {
-                registrosUnicos.push(auditoriaActualGerencial);
-            }
-            hist.forEach(h => {
-                if (!registrosUnicos.some(r => r.fecha === h.fecha)) {
-                    registrosUnicos.push(h);
-                }
-            });
-
-            const ordenados = [...registrosUnicos].sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-            let ultimoFecha1ra = null;
-            let ultimoFechaPale = null;
-            const filasCsv = [];
-
-            ordenados.forEach(reg => {
-                const fechaObj = new Date(reg.fecha + "T12:00:00");
-                const hits = Array.isArray(reg.maestraHitsDetalle) ? reg.maestraHitsDetalle : [];
-                hits.forEach(hitStr => {
-                    const esPale = hitStr.includes('Palé') || hitStr.includes('Pale') || hitStr.includes('¡Palé');
-                    const es1ra = (hitStr.includes('en 1ra') || hitStr.includes('1ra')) && !hitStr.includes('en 2da') && !hitStr.includes('en 3ra');
-                    if (!esPale && !es1ra) return;
-
-                    let tipo = esPale ? 'PALE DIRECTO' : '1RA (MAYOR)';
-                    let intervalo = '—';
-                    if (esPale) {
-                        if (ultimoFechaPale) {
-                            const diff = Math.max(1, Math.round((fechaObj - ultimoFechaPale) / (1000 * 60 * 60 * 24)));
-                            intervalo = `${diff} dias`;
-                        } else {
-                            intervalo = 'Inicio Auditoria';
-                        }
-                        ultimoFechaPale = fechaObj;
-                    } else {
-                        if (ultimoFecha1ra) {
-                            const diff = Math.max(1, Math.round((fechaObj - ultimoFecha1ra) / (1000 * 60 * 60 * 24)));
-                            intervalo = `${diff} dias`;
-                        } else {
-                            intervalo = 'Inicio Auditoria';
-                        }
-                        ultimoFecha1ra = fechaObj;
-                    }
-
-                    let loteria = 'Loteria Oficial';
-                    let premio = hitStr;
-                    if (hitStr.includes(':')) {
-                        const parts = hitStr.split(':');
-                        loteria = parts[0].trim();
-                        premio = parts.slice(1).join(':').trim();
-                    }
-
-                    const clean = (s) => (s || '').replace(/;/g, ' - ').replace(/"/g, '""').trim();
-                    filasCsv.push(`"${clean(reg.fecha)}";"${clean(reg.fechaFormato)}";"${clean(loteria)}";"${clean(tipo)}";"${clean(premio)}";"${clean(intervalo)}";"${clean(reg.parejaMaestra)}"`);
-                });
-            });
-
-            if (filasCsv.length === 0) {
-                alert("No hay registros en 1ra o Palé para descargar.");
-                return;
-            }
-
-            let csvContent = "\uFEFFsep=;\r\n";
-            csvContent += "Fecha ISO;Fecha Formato;Loteria Ganadora;Tipo de Impacto;Premio Ganador;Intervalo de Dias;Pareja Maestra Jugada\r\n";
-            csvContent += filasCsv.reverse().join("\r\n");
-
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Reporte_Exclusivo_1ra_y_Pales_LotoPro_${new Date().toISOString().split('T')[0]}.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-
-
-        // ==========================================
         // BANDEJA DE ASISTENCIA Y SOPORTE A CLIENTES
         // (100% EXCLUSIVO POR CORREO ELECTRÓNICO)
         // ==========================================
@@ -4222,12 +3316,14 @@
             }
         }
 
-        window.onload = () => {
+        window.onload = async () => {
+            if (typeof window.DATOS_LOTOPRO !== 'undefined' && !datosAppAdmin) {
+                datosAppAdmin = window.DATOS_LOTOPRO;
+            }
             cargarMetricas();
-            cargarSorteosAdmin();
+            await cargarSorteosAdmin();
             actualizarAuditoriaEficienciaGerencial();
-            actualizarRelojCuentagotasDinamico();
-            renderizarRadarVaivenAdmin();
+            renderizarRankingDinamico();
             renderizarBandejaSoporteAdmin();
         };
         // Refrescar automáticamente cada 8 segundos métricas sociales y cada 15 segundos sorteos
