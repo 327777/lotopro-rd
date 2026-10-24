@@ -1,7 +1,7 @@
 {
-  "fecha_hoy": "2026-10-23",
-  "fecha_ayer": "2026-10-22",
-  "actualizado_a_las": "10:13 PM",
+  "fecha_hoy": "2026-10-24",
+  "fecha_ayer": "2026-10-23",
+  "actualizado_a_las": "12:12 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -9,8 +9,8 @@
   },
   "jugada_maestra_fija": {
     "pareja_oficial": [
-      "39",
-      "26"
+      "35",
+      "16"
     ],
     "clasificacion": "Números con Mayor Probabilidad del Día",
     "indice_inercia": "98.4%",
@@ -22,171 +22,171 @@
       "nombre": "Anguila 10:00 AM",
       "hora": "10:00 AM",
       "premios": [
-        31,
-        62,
-        95
+        81,
+        7,
+        10
       ]
     },
     {
       "nombre": "La Primera 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        83,
-        59,
-        56
+        61,
+        82,
+        75
       ]
     },
     {
       "nombre": "LoteDom 12:00 PM",
       "hora": "12:00 PM",
       "premios": [
-        24,
-        47,
-        44
+        41,
+        63,
+        47
       ]
     },
     {
       "nombre": "La Suerte 12:30 PM",
       "hora": "12:30 PM",
       "premios": [
-        40,
-        19,
-        94
+        25,
+        16,
+        36
       ]
     },
     {
       "nombre": "Quiniela Real 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        3,
+        31,
         77,
-        87
+        53
       ]
     },
     {
       "nombre": "Anguila 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        12,
-        85,
-        2
+        42,
+        78,
+        64
       ]
     },
     {
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        83,
-        39,
-        5
+        32,
+        58,
+        42
       ]
     },
     {
       "nombre": "Florida 1:30 PM",
       "hora": "1:30 PM",
       "premios": [
-        27,
-        79,
-        28
+        13,
+        55,
+        20
       ]
     },
     {
       "nombre": "Gana Más 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        62,
-        87,
-        49
+        69,
+        13,
+        15
       ]
     },
     {
       "nombre": "New York 2:30 PM",
       "hora": "2:30 PM",
       "premios": [
-        93,
-        52,
-        70
+        81,
+        38,
+        11
       ]
     },
     {
       "nombre": "La Suerte 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        5,
-        17,
-        49
+        50,
+        58,
+        76
       ]
     },
     {
       "nombre": "Anguila 6:00 PM",
       "hora": "6:00 PM",
       "premios": [
-        42,
-        19,
-        74
+        0,
+        76,
+        78
       ]
     },
     {
       "nombre": "Quiniela Loteka 7:55 PM",
       "hora": "7:55 PM",
       "premios": [
-        65,
+        53,
         85,
-        62
+        27
       ]
     },
     {
       "nombre": "La Primera 8:00 PM",
       "hora": "8:00 PM",
       "premios": [
-        63,
-        94,
-        84
+        38,
+        34,
+        56
       ]
     },
     {
       "nombre": "Quiniela Leidsa 8:55 PM",
       "hora": "8:55 PM",
       "premios": [
-        66,
-        61,
-        23
+        7,
+        93,
+        12
       ]
     },
     {
       "nombre": "Lotería Nacional 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        59,
-        9,
-        96
+        43,
+        39,
+        61
       ]
     },
     {
       "nombre": "Real 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        27,
-        50,
-        67
+        53,
+        79,
+        58
       ]
     },
     {
       "nombre": "Anguila 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
-        81,
-        95,
-        56
+        50,
+        3,
+        94
       ]
     },
     {
       "nombre": "Florida 10:00 PM",
       "hora": "10:00 PM",
       "premios": [
-        74,
-        83,
-        38
+        5,
+        60,
+        55
       ]
     }
   ],
@@ -197,12 +197,8 @@
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "finalizado",
-      "premios": [
-        81,
-        7,
-        10
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_primera_dia",
@@ -210,12 +206,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        61,
-        82,
-        75
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "lotedom",
@@ -223,12 +215,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        41,
-        63,
-        47
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_dia",
@@ -236,12 +224,8 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        25,
-        16,
-        36
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_real",
@@ -249,12 +233,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        31,
-        77,
-        53
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_1pm",
@@ -262,12 +242,8 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        42,
-        78,
-        64
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "new_jersey_dia",
@@ -275,12 +251,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        32,
-        58,
-        42
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_dia",
@@ -288,12 +260,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        13,
-        55,
-        20
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "gana_mas",
@@ -301,12 +269,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        69,
-        13,
-        15
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_tarde",
@@ -314,12 +278,8 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "finalizado",
-      "premios": [
-        81,
-        38,
-        11
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "la_suerte_tarde",
@@ -327,12 +287,8 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        50,
-        58,
-        76
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_6pm",
@@ -340,12 +296,8 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        0,
-        76,
-        78
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_loteka",
@@ -353,12 +305,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        53,
-        85,
-        27
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "primera_noche",
@@ -366,12 +314,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        38,
-        34,
-        56
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "quiniela_leidsa",
@@ -379,12 +323,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "finalizado",
-      "premios": [
-        7,
-        93,
-        12
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "loteria_nacional",
@@ -392,12 +332,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        43,
-        39,
-        61
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "real_noche",
@@ -405,12 +341,8 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        53,
-        79,
-        58
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "anguila_9pm",
@@ -418,12 +350,8 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        50,
-        3,
-        94
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "florida_noche",
@@ -431,12 +359,8 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "finalizado",
-      "premios": [
-        5,
-        60,
-        55
-      ]
+      "estado": "proximo",
+      "premios": null
     },
     {
       "id": "ny_noche",
@@ -451,292 +375,14 @@
   "radar_vaiven_top4": {
     "activo": true,
     "pareja_foco": [
-      "39",
-      "26"
+      "35",
+      "16"
     ],
-    "presion_acumulada_pct": 95.4,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "19 / 20",
-    "ecos_detectados": [
-      {
-        "numero": "53",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra) ➔ Real 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "58",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "New Jersey 1:00 PM (2da) ➔ La Suerte 6:00 PM (2da) ➔ Real 9:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "81",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (1ra) ➔ New York 2:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "07",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "61",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Lotería Nacional 9:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "42",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (1ra) ➔ New Jersey 1:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "78",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (2da) ➔ Anguila 6:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "13",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "55",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (2da) ➔ Florida 10:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Florida 10:00 PM",
-            "id": "florida_noche",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "38",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (2da) ➔ La Primera 8:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "50",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (1ra) ➔ Anguila 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Anguila 9:00 PM",
-            "id": "anguila_9pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "76",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (3ra) ➔ Anguila 6:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      }
-    ],
-    "presiones_vectoriales": [
-      {
-        "numero_disparador": "38",
-        "objetivo_presionado": "39",
-        "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 38 vibró en 2 sorteo(s), empujando al 39"
-      },
-      {
-        "numero_disparador": "25",
-        "objetivo_presionado": "26",
-        "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 25 vibró en 1 sorteo(s), encerrando al 26"
-      },
-      {
-        "numero_disparador": "27",
-        "objetivo_presionado": "26",
-        "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 27 vibró en 1 sorteo(s), encerrando al 26"
-      },
-      {
-        "numero_disparador": "93",
-        "objetivo_presionado": "39",
-        "tipo": "Revés Espejo (Virado en 1ra)",
-        "impacto": "El virado 93 rompió hoy, activando tracción directa hacia el 39"
-      }
-    ],
+    "presion_acumulada_pct": 65.0,
+    "fase_onda": "ACUMULACIÓN MATUTINA",
+    "sorteos_evaluados": "0 / 20",
+    "ecos_detectados": [],
+    "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -744,15 +390,11 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [39 × 26] y Quiniela [39] / [26]",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          53,
-          85,
-          27
-        ],
+        "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -761,15 +403,11 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[39] o [26] Directo en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          81,
-          38,
-          11
-        ],
+        "foco_recomendado": "[35] o [16] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -778,15 +416,11 @@
         "rol_estrategico": "Tracción Dominicana Tarde",
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
-        "foco_recomendado": "[39] o [26] en 1ra Mayor",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          69,
-          13,
-          15
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -795,15 +429,11 @@
         "rol_estrategico": "Gran Cierre Nocturno",
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          7,
-          93,
-          12
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -812,15 +442,11 @@
         "rol_estrategico": "Líder 1ra del Mediodía",
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          41,
-          63,
-          47
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -829,15 +455,11 @@
         "rol_estrategico": "Mayor Volumen Histórico",
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
-        "foco_recomendado": "[39] o [26] en 1ra / 2da",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          25,
-          16,
-          36
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       }
     ],
@@ -848,15 +470,11 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [39 × 26] y Quiniela [39] / [26]",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          53,
-          85,
-          27
-        ],
+        "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -865,15 +483,11 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[39] o [26] Directo en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          81,
-          38,
-          11
-        ],
+        "foco_recomendado": "[35] o [16] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -882,15 +496,11 @@
         "rol_estrategico": "Tracción Dominicana Tarde",
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
-        "foco_recomendado": "[39] o [26] en 1ra Mayor",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          69,
-          13,
-          15
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -899,15 +509,11 @@
         "rol_estrategico": "Gran Cierre Nocturno",
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          7,
-          93,
-          12
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -916,15 +522,11 @@
         "rol_estrategico": "Líder 1ra del Mediodía",
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          41,
-          63,
-          47
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -933,309 +535,27 @@
         "rol_estrategico": "Mayor Volumen Histórico",
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
-        "foco_recomendado": "[39] o [26] en 1ra / 2da",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          25,
-          16,
-          36
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [39 × 26] en 1ra, la presión acumulada alcanza el 95.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 65.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
     "pareja_foco": [
-      "39",
-      "26"
+      "35",
+      "16"
     ],
-    "presion_acumulada_pct": 95.4,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "19 / 20",
-    "ecos_detectados": [
-      {
-        "numero": "53",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra) ➔ Real 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "58",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "New Jersey 1:00 PM (2da) ➔ La Suerte 6:00 PM (2da) ➔ Real 9:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "81",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (1ra) ➔ New York 2:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "07",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Leidsa 8:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Leidsa 8:55 PM",
-            "id": "quiniela_leidsa",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "61",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Lotería Nacional 9:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "42",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (1ra) ➔ New Jersey 1:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "78",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (2da) ➔ Anguila 6:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "13",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "55",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (2da) ➔ Florida 10:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Florida 10:00 PM",
-            "id": "florida_noche",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
-        "numero": "38",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (2da) ➔ La Primera 8:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "50",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (1ra) ➔ Anguila 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Anguila 9:00 PM",
-            "id": "anguila_9pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "76",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 6:00 PM (3ra) ➔ Anguila 6:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 6:00 PM",
-            "id": "anguila_6pm",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      }
-    ],
-    "presiones_vectoriales": [
-      {
-        "numero_disparador": "38",
-        "objetivo_presionado": "39",
-        "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 38 vibró en 2 sorteo(s), empujando al 39"
-      },
-      {
-        "numero_disparador": "25",
-        "objetivo_presionado": "26",
-        "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 25 vibró en 1 sorteo(s), encerrando al 26"
-      },
-      {
-        "numero_disparador": "27",
-        "objetivo_presionado": "26",
-        "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 27 vibró en 1 sorteo(s), encerrando al 26"
-      },
-      {
-        "numero_disparador": "93",
-        "objetivo_presionado": "39",
-        "tipo": "Revés Espejo (Virado en 1ra)",
-        "impacto": "El virado 93 rompió hoy, activando tracción directa hacia el 39"
-      }
-    ],
+    "presion_acumulada_pct": 65.0,
+    "fase_onda": "ACUMULACIÓN MATUTINA",
+    "sorteos_evaluados": "0 / 20",
+    "ecos_detectados": [],
+    "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -1243,15 +563,11 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [39 × 26] y Quiniela [39] / [26]",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          53,
-          85,
-          27
-        ],
+        "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1260,15 +576,11 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[39] o [26] Directo en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          81,
-          38,
-          11
-        ],
+        "foco_recomendado": "[35] o [16] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1277,15 +589,11 @@
         "rol_estrategico": "Tracción Dominicana Tarde",
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
-        "foco_recomendado": "[39] o [26] en 1ra Mayor",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          69,
-          13,
-          15
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1294,15 +602,11 @@
         "rol_estrategico": "Gran Cierre Nocturno",
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          7,
-          93,
-          12
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1311,15 +615,11 @@
         "rol_estrategico": "Líder 1ra del Mediodía",
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          41,
-          63,
-          47
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1328,15 +628,11 @@
         "rol_estrategico": "Mayor Volumen Histórico",
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
-        "foco_recomendado": "[39] o [26] en 1ra / 2da",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          25,
-          16,
-          36
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       }
     ],
@@ -1347,15 +643,11 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [39 × 26] y Quiniela [39] / [26]",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          53,
-          85,
-          27
-        ],
+        "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
+        "estado_sorteo": "proximo",
+        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
+        "color_estado": "#a855f7",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1364,15 +656,11 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[39] o [26] Directo en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          81,
-          38,
-          11
-        ],
+        "foco_recomendado": "[35] o [16] Directo en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
+        "color_estado": "#f59e0b",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1381,15 +669,11 @@
         "rol_estrategico": "Tracción Dominicana Tarde",
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
-        "foco_recomendado": "[39] o [26] en 1ra Mayor",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          69,
-          13,
-          15
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra Mayor",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1398,15 +682,11 @@
         "rol_estrategico": "Gran Cierre Nocturno",
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          7,
-          93,
-          12
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "🌙 EN ESPERA DE CIERRE",
+        "color_estado": "#6366f1",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1415,15 +695,11 @@
         "rol_estrategico": "Líder 1ra del Mediodía",
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
-        "foco_recomendado": "[39] o [26] en 1ra",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          41,
-          63,
-          47
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       },
       {
@@ -1432,18 +708,14 @@
         "rol_estrategico": "Mayor Volumen Histórico",
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
-        "foco_recomendado": "[39] o [26] en 1ra / 2da",
-        "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
-        "premios_hoy": [
-          25,
-          16,
-          36
-        ],
+        "foco_recomendado": "[35] o [16] en 1ra / 2da",
+        "estado_sorteo": "proximo",
+        "estado_radar": "ESPERANDO HORA OFICIAL",
+        "color_estado": "#38bdf8",
+        "premios_hoy": [],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [39 × 26] en 1ra, la presión acumulada alcanza el 95.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 65.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
