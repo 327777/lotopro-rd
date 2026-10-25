@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-25",
   "fecha_ayer": "2026-10-24",
-  "actualizado_a_las": "12:15 AM",
+  "actualizado_a_las": "12:59 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -188,8 +188,12 @@
       "categoria": "Anguila",
       "tanda": "Mañana",
       "hora": "10:00 AM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        89,
+        47,
+        27
+      ]
     },
     {
       "id": "la_primera_dia",
@@ -197,8 +201,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        19,
+        56,
+        35
+      ]
     },
     {
       "id": "lotedom",
@@ -206,8 +214,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        67,
+        65,
+        87
+      ]
     },
     {
       "id": "la_suerte_dia",
@@ -215,8 +227,12 @@
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        49,
+        76,
+        95
+      ]
     },
     {
       "id": "quiniela_real",
@@ -369,11 +385,24 @@
       "66",
       "17"
     ],
-    "presion_acumulada_pct": 65.0,
+    "presion_acumulada_pct": 71.4,
     "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "0 / 20",
+    "sorteos_evaluados": "4 / 20",
     "ecos_detectados": [],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "65",
+        "objetivo_presionado": "66",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 65 vibró en 1 sorteo(s), empujando al 66"
+      },
+      {
+        "numero_disparador": "67",
+        "objetivo_presionado": "66",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 67 vibró en 1 sorteo(s), empujando al 66"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -434,10 +463,14 @@
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[66] o [17] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          67,
+          65,
+          87
+        ],
         "aciertos": []
       },
       {
@@ -447,10 +480,14 @@
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[66] o [17] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          49,
+          76,
+          95
+        ],
         "aciertos": []
       }
     ],
@@ -514,10 +551,14 @@
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[66] o [17] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          67,
+          65,
+          87
+        ],
         "aciertos": []
       },
       {
@@ -527,14 +568,18 @@
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[66] o [17] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          49,
+          76,
+          95
+        ],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [66 × 17] en 1ra, la presión acumulada alcanza el 65.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [66 × 17] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -542,11 +587,24 @@
       "66",
       "17"
     ],
-    "presion_acumulada_pct": 65.0,
+    "presion_acumulada_pct": 71.4,
     "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "0 / 20",
+    "sorteos_evaluados": "4 / 20",
     "ecos_detectados": [],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "65",
+        "objetivo_presionado": "66",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 65 vibró en 1 sorteo(s), empujando al 66"
+      },
+      {
+        "numero_disparador": "67",
+        "objetivo_presionado": "66",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 67 vibró en 1 sorteo(s), empujando al 66"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -607,10 +665,14 @@
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[66] o [17] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          67,
+          65,
+          87
+        ],
         "aciertos": []
       },
       {
@@ -620,10 +682,14 @@
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[66] o [17] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          49,
+          76,
+          95
+        ],
         "aciertos": []
       }
     ],
@@ -687,10 +753,14 @@
         "record_historico": "3 veces en 1ra y 1 Palé",
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[66] o [17] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          67,
+          65,
+          87
+        ],
         "aciertos": []
       },
       {
@@ -700,13 +770,17 @@
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[66] o [17] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          49,
+          76,
+          95
+        ],
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [66 × 17] en 1ra, la presión acumulada alcanza el 65.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [66 × 17] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
