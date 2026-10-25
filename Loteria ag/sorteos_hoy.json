@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-24",
   "fecha_ayer": "2026-10-23",
-  "actualizado_a_las": "07:39 PM",
+  "actualizado_a_las": "08:13 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -353,8 +353,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        56,
+        44,
+        38
+      ]
     },
     {
       "id": "primera_noche",
@@ -362,8 +366,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        60,
+        83,
+        59
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -426,10 +434,36 @@
       "35",
       "16"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
+      {
+        "numero": "60",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra) ➔ La Primera 8:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
       {
         "numero": "06",
         "repeticiones": 3,
@@ -477,26 +511,6 @@
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "60",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -585,10 +599,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          56,
+          44,
+          38
+        ],
         "aciertos": []
       },
       {
@@ -681,10 +699,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          56,
+          44,
+          38
+        ],
         "aciertos": []
       },
       {
@@ -769,7 +791,7 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -777,10 +799,36 @@
       "35",
       "16"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
+      {
+        "numero": "60",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra) ➔ La Primera 8:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
       {
         "numero": "06",
         "repeticiones": 3,
@@ -828,26 +876,6 @@
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "60",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -936,10 +964,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          56,
+          44,
+          38
+        ],
         "aciertos": []
       },
       {
@@ -1032,10 +1064,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [35 × 16] y Quiniela [35] / [16]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          56,
+          44,
+          38
+        ],
         "aciertos": []
       },
       {
@@ -1120,6 +1156,6 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 16] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
