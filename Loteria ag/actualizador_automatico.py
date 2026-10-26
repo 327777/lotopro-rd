@@ -137,6 +137,29 @@ def hora_ha_pasado(hora_str):
     except Exception:
         return True
 
+MAPA_HOJAS_EXCEL = {
+    "anguila_10am": "Anguila 10.00 AM",
+    "la_primera_dia": "La Primera Día",
+    "la_suerte_dia": "La Suerte Día",
+    "quiniela_real": "Quiniela Real",
+    "anguila_1pm": "Anguila 1.00 PM",
+    "new_jersey_dia": "New Jersey Día",
+    "florida_dia": "Florida Día",
+    "lotedom": "LoteDom",
+    "gana_mas": "Gana Más",
+    "ny_tarde": "New York Tarde",
+    "la_suerte_tarde": "La Suerte Tarde",
+    "anguila_6pm": "Anguila 6.00 PM",
+    "quiniela_loteka": "Quiniela Loteka",
+    "primera_noche": "Primera Noche",
+    "quiniela_leidsa": "Quiniela Leidsa",
+    "loteria_nacional": "Lotería Nacional",
+    "real_noche": "Lotería Real Noche",
+    "anguila_9pm": "Anguila 9.00 PM",
+    "florida_noche": "Florida Noche",
+    "ny_noche": "New York Noche"
+}
+
 def sincronizar_excel_recientes(sid, nombre_sorteo, fecha_dmy, premios):
     archivo_excel = os.path.join(DIR_ACTUAL, "Recientes.xlsx")
     if not os.path.exists(archivo_excel):
@@ -144,20 +167,15 @@ def sincronizar_excel_recientes(sid, nombre_sorteo, fecha_dmy, premios):
     try:
         import openpyxl
         wb = openpyxl.load_workbook(archivo_excel)
-        hoja_match = None
-        nom_clean = nombre_sorteo.lower().replace(":", ".").replace(" ", "")
-        for h in wb.sheetnames:
-            h_clean = h.lower().replace(":", ".").replace(" ", "")
-            if h_clean == nom_clean:
-                hoja_match = h
-                break
-        if not hoja_match:
+        hoja_match = MAPA_HOJAS_EXCEL.get(sid)
+        if not hoja_match or hoja_match not in wb.sheetnames:
+            nom_clean = nombre_sorteo.lower().replace(":", ".").replace(" ", "")
             for h in wb.sheetnames:
                 h_clean = h.lower().replace(":", ".").replace(" ", "")
-                if h_clean in nom_clean or nom_clean in h_clean:
+                if h_clean == nom_clean or h_clean in nom_clean or nom_clean in h_clean:
                     hoja_match = h
                     break
-        if hoja_match:
+        if hoja_match and hoja_match in wb.sheetnames:
             ws = wb[hoja_match]
             if ws.max_row >= 2 and str(ws.cell(row=2, column=1).value).strip() == fecha_dmy:
                 ws.cell(row=2, column=2, value=premios[0])
@@ -173,6 +191,42 @@ def sincronizar_excel_recientes(sid, nombre_sorteo, fecha_dmy, premios):
             print(f"📊 Recientes.xlsx sincronizado: {hoja_match} -> {premios}")
     except Exception as e:
         print(f"Nota sincronizando Recientes.xlsx: {e}")
+
+def verificar_impacto_ciclo_maduracion(datos, sid, nombre_sorteo, fecha_dmy, nums):
+    """
+    Opción A: Monitorea si la jugada fija en ciclo de maduración cumple su objetivo
+    de romper en 1ra (Mayor) en las 3 Loterías Clave: Gana Más, New York Tarde o Loteka.
+    """
+    jm = datos.get("jugada_maestra_fija", {})
+    ciclo = jm.get("ciclo_maduracion", {})
+    if not ciclo.get("activo", True):
+        return
+
+    pareja = jm.get("pareja_oficial", ["09", "59"])
+    try:
+        pareja_ints = [int(p) for p in pareja if str(p).isdigit()]
+    except Exception:
+        pareja_ints = [9, 59]
+
+    loterias_clave = ciclo.get("loterias_clave", ["gana_mas", "ny_tarde", "quiniela_loteka"])
+
+    if sid in loterias_clave and len(nums) >= 1:
+        p0 = int(nums[0])
+        if p0 in pareja_ints:
+            print(f"\n{'='*60}")
+            print(f"🏆🏆 ¡¡OBJETIVO CUMPLIDO: RUPTURA EN 1RA EN LOTERÍA MADURA CLAVE!! 🏆🏆")
+            print(f"   Lotería: {nombre_sorteo}")
+            print(f"   Premio Mayor Ganador: {p0:02d}")
+            print(f"   Fecha: {fecha_dmy}")
+            print(f"{'='*60}\n")
+            ciclo["rompio_en_1ra"] = True
+            ciclo["estado"] = f"¡OBJETIVO CUMPLIDO! Rompió {p0:02d} en 1ra en {nombre_sorteo}"
+            ciclo["detalle_ruptura"] = {
+                "loteria_id": sid,
+                "loteria_nombre": nombre_sorteo,
+                "fecha": fecha_dmy,
+                "numero_ganador": f"{p0:02d}"
+            }
 
 def actualizar_todo():
     hora_actual_str = ahora_rd().strftime('%I:%M:%S %p')
@@ -214,9 +268,65 @@ def actualizar_todo():
         with open(ARCHIVO_JSON, "w", encoding="utf-8") as f:
             json.dump(datos, f, indent=2, ensure_ascii=False)
 
-        nueva_pareja = calcular_jugada_maestra()
-        datos["jugada_maestra_fija"]["pareja_oficial"] = nueva_pareja
-        print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+        # Opción A: Bloquear Jugada Maestra en ciclo de maduración (3 a 5 días)
+        jm = datos.get("jugada_maestra_fija", {})
+        if "ciclo_maduracion" not in jm:
+            jm["ciclo_maduracion"] = {
+                "activo": True,
+                "bloqueado": True,
+                "fecha_inicio": "2026-10-07",
+                "dias_activo": 6,
+                "max_dias_ciclo": 5,
+                "loterias_clave": ["gana_mas", "ny_tarde", "quiniela_loteka"],
+                "loterias_clave_nombres": [
+                    "Gana Más (2:30 PM)",
+                    "New York Tarde (2:30 PM)",
+                    "Quiniela Loteka (7:55 PM)"
+                ],
+                "objetivo": "Ruptura en 1ra Mayor en Lotería Madura Clave",
+                "rompio_en_1ra": False,
+                "detalle_ruptura": None,
+                "estado": "En Maduración Activa"
+            }
+        
+        ciclo = jm["ciclo_maduracion"]
+        modo = jm.get("modo_ciclo", "maduracion_fija")
+
+        # Calcular días transcurridos reales desde el inicio del ciclo
+        fecha_inicio_str = ciclo.get("fecha_inicio", "2026-10-07")
+        try:
+            d_ini = datetime.strptime(fecha_inicio_str, "%Y-%m-%d").date()
+            d_hoy = ahora.date()
+            dias_transcurridos = max(1, (d_hoy - d_ini).days + 1)
+        except Exception:
+            dias_transcurridos = ciclo.get("dias_activo", 1) + 1
+
+        ciclo["dias_activo"] = dias_transcurridos
+
+        if modo == "maduracion_fija" and ciclo.get("bloqueado", True):
+            if ciclo.get("rompio_en_1ra", False):
+                print(f"🎯 El ciclo previo CUMPLIÓ su objetivo de 1ra en {ciclo.get('detalle_ruptura', {}).get('loteria_nombre', 'lotería clave')}.")
+                print(f"🔄 Calculando nuevo ciclo de maduración cuantitativo...")
+                nueva_pareja = calcular_jugada_maestra()
+                jm["pareja_oficial"] = nueva_pareja
+                ciclo["fecha_inicio"] = hoy_iso
+                ciclo["dias_activo"] = 1
+                ciclo["rompio_en_1ra"] = False
+                ciclo["detalle_ruptura"] = None
+                ciclo["estado"] = f"En Maduración Activa (Día 1 de {ciclo.get('max_dias_ciclo', 5)})"
+                print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+            else:
+                p1, p2 = jm.get("pareja_oficial", ["09", "59"])
+                max_dias = ciclo.get("max_dias_ciclo", 5)
+                ciclo["estado"] = f"En Maduración Activa (Día {dias_transcurridos} de {max_dias})"
+                print(f"🔒 CICLO DE MADURACIÓN FIJO (Día {dias_transcurridos} de {max_dias}):")
+                print(f"   Pareja Maestra [ {p1} ] × [ {p2} ] SE MANTIENE BLOQUEADA.")
+                print(f"   Objetivo: Ruptura en 1ra en Gana Más, NY Tarde o Loteka.")
+        else:
+            nueva_pareja = calcular_jugada_maestra()
+            jm["pareja_oficial"] = nueva_pareja
+            print(f"🎯 Nueva Pareja Maestra Diaria: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+
         hubo_cambios = True
 
     hist = {}
@@ -369,6 +479,7 @@ def actualizar_todo():
                         
                     hubo_cambios = True
                     sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
+                    verificar_impacto_ciclo_maduracion(datos, sid, s.get("nombre", sid), hoy_dmy, nums)
 
     # 4.5 Respaldo Individual: Consultar URL individual para sorteos cuya hora ya pasó y no salieron en portada
     for s in datos.get("sorteos_hoy", []):
@@ -379,11 +490,11 @@ def actualizar_todo():
                 req_resp = urllib.request.Request(url_resp, headers=headers)
                 html_resp = urllib.request.urlopen(req_resp, context=ctx, timeout=8).read().decode("utf-8", errors="ignore")
                 soup_resp = BeautifulSoup(html_resp, "html.parser")
-                card_resp = soup_resp.find("div", class_="result-card")
-                if card_resp:
+                cards_resp = soup_resp.find_all("div", class_="result-card")
+                for card_resp in cards_resp:
                     date_el = card_resp.find(class_="result-date")
                     date_txt = date_el.get_text(strip=True).lower() if date_el else ""
-                    m_d = re.match(r"^\s*(\d+)", date_txt)
+                    m_d = re.search(r"(\d{1,2})", date_txt)
                     if m_d and int(m_d.group(1)) == ahora.day:
                         balls = card_resp.find_all(class_="result-number")
                         nums = [int(b.get_text(strip=True)) for b in balls if b.get_text(strip=True).isdigit()]
@@ -400,6 +511,8 @@ def actualizar_todo():
                                 hist[sid].insert(0, {"fecha": hoy_dmy, "premios": nums})
                             hubo_cambios = True
                             sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
+                            verificar_impacto_ciclo_maduracion(datos, sid, s.get("nombre", sid), hoy_dmy, nums)
+                            break
             except Exception as e_resp:
                 pass
 
