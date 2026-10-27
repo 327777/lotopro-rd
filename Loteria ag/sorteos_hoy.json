@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-10-27",
   "fecha_ayer": "2026-10-26",
-  "actualizado_a_las": "12:37 AM",
+  "actualizado_a_las": "12:28 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -109,9 +109,9 @@
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        36,
-        99,
-        74
+        17,
+        3,
+        81
       ]
     },
     {
@@ -211,6 +211,24 @@
         34,
         82,
         52
+      ]
+    },
+    {
+      "nombre": "Florida 10:00 PM",
+      "hora": "10:00 PM",
+      "premios": [
+        79,
+        98,
+        45
+      ]
+    },
+    {
+      "nombre": "New York 10:30 PM",
+      "hora": "10:30 PM",
+      "premios": [
+        86,
+        50,
+        50
       ]
     }
   ],

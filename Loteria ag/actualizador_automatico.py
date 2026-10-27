@@ -414,42 +414,39 @@ def actualizar_todo():
         print(f"⚠️ Error conectando a la fuente: {e}")
         return False
 
-    # Cortar estrictamente antes del bloque de "Ayer" para no mezclar nunca sorteos del día anterior
-    if 'aria-label="Ayer' in html:
-        html = html.split('aria-label="Ayer')[0]
-
     soup = BeautifulSoup(html, "html.parser")
 
     # Ordenar claves de búsqueda por longitud descendente para evitar colisiones
     claves_ordenadas = sorted(MAPA_LOTERIAS.keys(), key=len, reverse=True)
 
-    # 4. Procesar tarjetas de resultados de la página principal
+    # 4. Procesar tarjetas de resultados de la página principal (Tanto HOY como AYER para recuperación automática)
     import re
     sorteos_vistos_hoy = set()
-    tarjetas_hoy_detectadas = 0
+    sorteos_vistos_ayer = set()
+    
+    ayer_dt = ahora - timedelta(days=1)
+    ayer_dmy = ayer_dt.strftime("%d/%m/%Y")
     
     for card in soup.find_all("div", class_="result-card"):
         name_el = card.find(class_="lottery-name")
-        if not name_el:
+        date_el = card.find(class_="result-date")
+        if not name_el or not date_el:
             continue
         nom_web = name_el.get_text(strip=True).lower()
+        date_txt = date_el.get_text(strip=True).lower()
         
-        # Extraer fecha de la tarjeta y validar el número exacto del día (inmune a 2026, 2027, 2028...)
-        date_el = card.find(class_="result-date")
-        date_txt = date_el.get_text(strip=True).lower() if date_el else ""
-        m_dia = re.match(r"^\s*(\d+)", date_txt)
-        if not m_dia or int(m_dia.group(1)) != ahora.day:
+        m_dia = re.search(r"(\d{1,2})", date_txt)
+        if not m_dia:
             continue
-            
-        tarjetas_hoy_detectadas += 1
-
+        dia_card = int(m_dia.group(1))
+        
         # Encontrar ID correspondiente sin colisiones
         sid = None
         for k in claves_ordenadas:
             if k in nom_web:
                 sid = MAPA_LOTERIAS[k]
                 break
-        if not sid or sid in sorteos_vistos_hoy:
+        if not sid:
             continue
 
         # Extraer bolos
@@ -459,27 +456,83 @@ def actualizar_todo():
             continue
         nums = nums[:3]
 
-        sorteos_vistos_hoy.add(sid)
-
-        # Buscar sorteo en sorteos_hoy
-        for s in datos.get("sorteos_hoy", []):
-            if s.get("id") == sid and hora_ha_pasado(s.get("hora", "")):
-                if s["estado"] != "finalizado" or s.get("premios") != nums:
-                    print(f"🎉 ¡NUEVO RESULTADO OFICIAL DETECTADO: {s['nombre']} -> {nums}!")
-                    s["estado"] = "finalizado"
-                    s["premios"] = nums
-                    
-                    # Actualizar historial
-                    if sid not in hist:
-                        hist[sid] = []
-                    if hist[sid] and hist[sid][0].get("fecha") == hoy_dmy:
-                        hist[sid][0]["premios"] = nums
-                    else:
-                        hist[sid].insert(0, {"fecha": hoy_dmy, "premios": nums})
+        # CASO 1: Sorteo de HOY
+        if dia_card == ahora.day and sid not in sorteos_vistos_hoy:
+            sorteos_vistos_hoy.add(sid)
+            for s in datos.get("sorteos_hoy", []):
+                if s.get("id") == sid and hora_ha_pasado(s.get("hora", "")):
+                    if s["estado"] != "finalizado" or s.get("premios") != nums:
+                        print(f"🎉 ¡NUEVO RESULTADO OFICIAL DETECTADO: {s['nombre']} -> {nums}!")
+                        s["estado"] = "finalizado"
+                        s["premios"] = nums
                         
-                    hubo_cambios = True
-                    sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
-                    verificar_impacto_ciclo_maduracion(datos, sid, s.get("nombre", sid), hoy_dmy, nums)
+                        if sid not in hist:
+                            hist[sid] = []
+                        if hist[sid] and hist[sid][0].get("fecha") == hoy_dmy:
+                            hist[sid][0]["premios"] = nums
+                        else:
+                            hist[sid].insert(0, {"fecha": hoy_dmy, "premios": nums})
+                            
+                        hubo_cambios = True
+                        sincronizar_excel_recientes(sid, s.get("nombre", sid), hoy_dmy, nums)
+                        verificar_impacto_ciclo_maduracion(datos, sid, s.get("nombre", sid), hoy_dmy, nums)
+
+        # CASO 2: RECUPERACIÓN INTELIGENTE DE AYER (Para sorteos nocturnos como NY Noche o Florida Noche)
+        elif dia_card == ayer_dt.day and sid not in sorteos_vistos_ayer:
+            sorteos_vistos_ayer.add(sid)
+            
+            necesita_recuperacion = False
+            
+            # Chequear si está en sorteos_ayer
+            encontrado_en_ayer = False
+            for s_ayer in datos.get("sorteos_ayer", []):
+                if sid in s_ayer.get("nombre", "").lower() or s_ayer.get("premios") == nums:
+                    encontrado_en_ayer = True
+                    break
+            if not encontrado_en_ayer:
+                necesita_recuperacion = True
+                
+            # Chequear si está en historial
+            if sid not in hist or not any(h.get("fecha") == ayer_dmy for h in hist.get(sid, [])):
+                necesita_recuperacion = True
+
+            if necesita_recuperacion:
+                print(f"🌙 ¡RECUPERACIÓN NOCTURNA AUTOMÁTICA DE AYER: {sid} -> {nums}!")
+                if sid not in hist:
+                    hist[sid] = []
+                hist_fechas = [h.get("fecha") for h in hist[sid]]
+                if ayer_dmy not in hist_fechas:
+                    hist[sid].append({"fecha": ayer_dmy, "premios": nums})
+                    def k_date(x):
+                        p = x.get("fecha", "").split("/")
+                        return f"{p[2]}{p[1]}{p[0]}" if len(p) == 3 else "00000000"
+                    hist[sid].sort(key=k_date, reverse=True)
+                
+                nombre_oficial = None
+                hora_oficial = None
+                for sh in datos.get("sorteos_hoy", []):
+                    if sh.get("id") == sid:
+                        nombre_oficial = sh.get("nombre")
+                        hora_oficial = sh.get("hora")
+                        break
+                
+                if nombre_oficial:
+                    ayer_lista = datos.setdefault("sorteos_ayer", [])
+                    actualizado_en_lista = False
+                    for sa in ayer_lista:
+                        if sa.get("nombre") == nombre_oficial:
+                            sa["premios"] = nums
+                            actualizado_en_lista = True
+                            break
+                    if not actualizado_en_lista:
+                        ayer_lista.append({
+                            "nombre": nombre_oficial,
+                            "hora": hora_oficial,
+                            "premios": nums
+                        })
+                
+                sincronizar_excel_recientes(sid, nombre_oficial or sid, ayer_dmy, nums)
+                hubo_cambios = True
 
     # 4.5 Respaldo Individual: Consultar URL individual para sorteos cuya hora ya pasó y no salieron en portada
     for s in datos.get("sorteos_hoy", []):
