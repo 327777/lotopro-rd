@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-29",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "01:35 AM",
+  "actualizado_a_las": "07:43 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -169,39 +169,12 @@ window.DATOS_LOTOPRO = {
       ]
     },
     {
-      "nombre": "New York 10:30 PM",
-      "hora": "10:30 PM",
+      "nombre": "La Primera 8:00 PM",
+      "hora": "8:00 PM",
       "premios": [
-        58,
-        22,
-        36
-      ]
-    },
-    {
-      "nombre": "Florida 10:00 PM",
-      "hora": "10:00 PM",
-      "premios": [
-        35,
-        57,
-        43
-      ]
-    },
-    {
-      "nombre": "Lotería Nacional 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        87,
-        69,
-        6
-      ]
-    },
-    {
-      "nombre": "Anguila 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        39,
-        20,
-        54
+        49,
+        14,
+        55
       ]
     },
     {
@@ -214,6 +187,15 @@ window.DATOS_LOTOPRO = {
       ]
     },
     {
+      "nombre": "Lotería Nacional 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        87,
+        69,
+        6
+      ]
+    },
+    {
       "nombre": "Real 9:00 PM",
       "hora": "9:00 PM",
       "premios": [
@@ -223,12 +205,30 @@ window.DATOS_LOTOPRO = {
       ]
     },
     {
-      "nombre": "La Primera 8:00 PM",
-      "hora": "8:00 PM",
+      "nombre": "Anguila 9:00 PM",
+      "hora": "9:00 PM",
       "premios": [
-        49,
-        14,
-        55
+        39,
+        20,
+        54
+      ]
+    },
+    {
+      "nombre": "Florida 10:00 PM",
+      "hora": "10:00 PM",
+      "premios": [
+        35,
+        57,
+        43
+      ]
+    },
+    {
+      "nombre": "New York 10:30 PM",
+      "hora": "10:30 PM",
+      "premios": [
+        58,
+        22,
+        36
       ]
     }
   ],
