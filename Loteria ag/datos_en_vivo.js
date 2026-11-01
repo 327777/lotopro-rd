@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-01",
   "fecha_ayer": "2026-10-31",
-  "actualizado_a_las": "03:40 PM",
+  "actualizado_a_las": "06:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -378,8 +378,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        74,
+        33,
+        54
+      ]
     },
     {
       "id": "quiniela_loteka",
@@ -460,9 +464,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "72"
     ],
-    "presion_acumulada_pct": 81.0,
+    "presion_acumulada_pct": 82.6,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "11 / 20",
     "ecos_detectados": [
       {
         "numero": "10",
@@ -487,6 +491,46 @@ window.DATOS_LOTOPRO = {
             "id": "gana_mas",
             "pos": "3ra",
             "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "54",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Anguila 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "33",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -737,7 +781,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 82.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -745,9 +789,9 @@ window.DATOS_LOTOPRO = {
       "03",
       "72"
     ],
-    "presion_acumulada_pct": 81.0,
+    "presion_acumulada_pct": 82.6,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "11 / 20",
     "ecos_detectados": [
       {
         "numero": "10",
@@ -772,6 +816,46 @@ window.DATOS_LOTOPRO = {
             "id": "gana_mas",
             "pos": "3ra",
             "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "54",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Anguila 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "33",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -1022,6 +1106,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 82.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
