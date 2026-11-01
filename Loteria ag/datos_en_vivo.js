@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-10-31",
   "fecha_ayer": "2026-10-30",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -397,9 +397,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        40,
-        58,
-        56
+        95,
+        11,
+        99
       ]
     },
     {
@@ -553,26 +553,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "40",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 12:30 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "97",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -633,9 +613,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          40,
-          58,
-          56
+          95,
+          11,
+          99
         ],
         "aciertos": []
       },
@@ -735,9 +715,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          40,
-          58,
-          56
+          95,
+          11,
+          99
         ],
         "aciertos": []
       },
@@ -910,26 +890,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "40",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Suerte 12:30 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "97",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -990,9 +950,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          40,
-          58,
-          56
+          95,
+          11,
+          99
         ],
         "aciertos": []
       },
@@ -1092,9 +1052,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          40,
-          58,
-          56
+          95,
+          11,
+          99
         ],
         "aciertos": []
       },
