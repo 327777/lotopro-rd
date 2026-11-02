@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-02",
   "fecha_ayer": "2026-11-01",
-  "actualizado_a_las": "12:00 AM",
+  "actualizado_a_las": "12:20 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -109,9 +109,9 @@
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        7,
-        88,
-        45
+        78,
+        84,
+        16
       ]
     },
     {
