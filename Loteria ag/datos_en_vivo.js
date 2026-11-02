@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-01",
   "fecha_ayer": "2026-10-31",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -267,9 +267,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        23,
-        1,
-        10
+        50,
+        47,
+        4
       ]
     },
     {
@@ -497,32 +497,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "10",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ La Suerte 12:30 PM (3ra) ➔ Gana Más 2:30 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "15",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
@@ -589,22 +563,42 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "23",
+        "numero": "04",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Florida 1:30 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "10",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (3ra) ➔ Gana Más 2:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -700,7 +694,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "04",
         "objetivo_presionado": "03",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 04 vibró en 1 sorteo(s), empujando al 03"
+        "impacto": "El 04 vibró en 2 sorteo(s), empujando al 03"
       },
       {
         "numero_disparador": "30",
@@ -789,9 +783,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          23,
-          1,
-          10
+          50,
+          47,
+          4
         ],
         "aciertos": []
       },
@@ -893,9 +887,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          23,
-          1,
-          10
+          50,
+          47,
+          4
         ],
         "aciertos": []
       },
@@ -930,32 +924,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "10",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ La Suerte 12:30 PM (3ra) ➔ Gana Más 2:30 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "15",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
@@ -1022,22 +990,42 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "23",
+        "numero": "04",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Florida 1:30 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "10",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (3ra) ➔ Gana Más 2:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -1133,7 +1121,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "04",
         "objetivo_presionado": "03",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 04 vibró en 1 sorteo(s), empujando al 03"
+        "impacto": "El 04 vibró en 2 sorteo(s), empujando al 03"
       },
       {
         "numero_disparador": "30",
@@ -1222,9 +1210,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          23,
-          1,
-          10
+          50,
+          47,
+          4
         ],
         "aciertos": []
       },
@@ -1326,9 +1314,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          23,
-          1,
-          10
+          50,
+          47,
+          4
         ],
         "aciertos": []
       },
