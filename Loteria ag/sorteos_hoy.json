@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-02",
   "fecha_ayer": "2026-11-01",
-  "actualizado_a_las": "06:10 PM",
+  "actualizado_a_las": "08:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -395,8 +395,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        65,
+        73,
+        5
+      ]
     },
     {
       "id": "primera_noche",
@@ -404,8 +408,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        70,
+        47,
+        4
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -468,9 +476,9 @@
       "03",
       "72"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "43",
@@ -645,7 +653,20 @@
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "04",
+        "objetivo_presionado": "03",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 04 vibró en 1 sorteo(s), empujando al 03"
+      },
+      {
+        "numero_disparador": "73",
+        "objetivo_presionado": "72",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 73 vibró en 1 sorteo(s), encerrando al 72"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -654,10 +675,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [03 × 72] y Quiniela [03] / [72]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          65,
+          73,
+          5
+        ],
         "aciertos": []
       },
       {
@@ -750,10 +775,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [03 × 72] y Quiniela [03] / [72]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          65,
+          73,
+          5
+        ],
         "aciertos": []
       },
       {
@@ -838,7 +867,7 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -846,9 +875,9 @@
       "03",
       "72"
     ],
-    "presion_acumulada_pct": 84.2,
+    "presion_acumulada_pct": 87.4,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "43",
@@ -1023,7 +1052,20 @@
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "04",
+        "objetivo_presionado": "03",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 04 vibró en 1 sorteo(s), empujando al 03"
+      },
+      {
+        "numero_disparador": "73",
+        "objetivo_presionado": "72",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 73 vibró en 1 sorteo(s), encerrando al 72"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -1032,10 +1074,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [03 × 72] y Quiniela [03] / [72]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          65,
+          73,
+          5
+        ],
         "aciertos": []
       },
       {
@@ -1128,10 +1174,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [03 × 72] y Quiniela [03] / [72]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          65,
+          73,
+          5
+        ],
         "aciertos": []
       },
       {
@@ -1216,6 +1266,6 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [03 × 72] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
