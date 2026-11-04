@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-04",
   "fecha_ayer": "2026-11-03",
-  "actualizado_a_las": "12:00 AM",
+  "actualizado_a_las": "12:20 AM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -109,9 +109,9 @@ window.DATOS_LOTOPRO = {
       "nombre": "New Jersey 1:00 PM",
       "hora": "1:00 PM",
       "premios": [
-        21,
-        75,
-        56
+        43,
+        71,
+        52
       ]
     },
     {
