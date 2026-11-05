@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-04",
   "fecha_ayer": "2026-11-03",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -267,9 +267,9 @@
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        19,
-        76,
-        9
+        97,
+        32,
+        43
       ]
     },
     {
@@ -549,26 +549,6 @@
         ]
       },
       {
-        "numero": "19",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Lotería Nacional 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "42",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -755,9 +735,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          76,
-          9
+          97,
+          32,
+          43
         ],
         "aciertos": []
       },
@@ -859,9 +839,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          76,
-          9
+          97,
+          32,
+          43
         ],
         "aciertos": []
       },
@@ -948,26 +928,6 @@
         ]
       },
       {
-        "numero": "19",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Lotería Nacional 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Lotería Nacional 9:00 PM",
-            "id": "loteria_nacional",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "42",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1154,9 +1114,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          76,
-          9
+          97,
+          32,
+          43
         ],
         "aciertos": []
       },
@@ -1258,9 +1218,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          76,
-          9
+          97,
+          32,
+          43
         ],
         "aciertos": []
       },
