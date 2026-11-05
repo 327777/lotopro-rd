@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-04",
   "fecha_ayer": "2026-11-03",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -397,9 +397,9 @@
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        99,
-        82,
-        52
+        47,
+        30,
+        90
       ]
     },
     {
@@ -533,22 +533,22 @@
         ]
       },
       {
-        "numero": "82",
+        "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "La Suerte 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
@@ -565,6 +565,12 @@
         "objetivo_presionado": "72",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 73 vibró en 1 sorteo(s), encerrando al 72"
+      },
+      {
+        "numero_disparador": "30",
+        "objetivo_presionado": "03",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 30 rompió hoy, activando tracción directa hacia el 03"
       },
       {
         "numero_disparador": "27",
@@ -585,9 +591,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          99,
-          82,
-          52
+          47,
+          30,
+          90
         ],
         "aciertos": []
       },
@@ -685,9 +691,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          99,
-          82,
-          52
+          47,
+          30,
+          90
         ],
         "aciertos": []
       },
@@ -838,22 +844,22 @@
         ]
       },
       {
-        "numero": "82",
+        "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "La Suerte 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
@@ -870,6 +876,12 @@
         "objetivo_presionado": "72",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 73 vibró en 1 sorteo(s), encerrando al 72"
+      },
+      {
+        "numero_disparador": "30",
+        "objetivo_presionado": "03",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 30 rompió hoy, activando tracción directa hacia el 03"
       },
       {
         "numero_disparador": "27",
@@ -890,9 +902,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          99,
-          82,
-          52
+          47,
+          30,
+          90
         ],
         "aciertos": []
       },
@@ -990,9 +1002,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          99,
-          82,
-          52
+          47,
+          30,
+          90
         ],
         "aciertos": []
       },
