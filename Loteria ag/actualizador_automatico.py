@@ -208,18 +208,18 @@ def verificar_impacto_ciclo_maduracion(datos, sid, nombre_sorteo, fecha_dmy, num
     except Exception:
         pareja_ints = [9, 59]
 
-    loterias_clave = ciclo.get("loterias_clave", ["gana_mas", "ny_tarde", "quiniela_loteka"])
-
-    if sid in loterias_clave and len(nums) >= 1:
+    # Orden Oficial: NO IMPORTA DONDE SALGA, si salió en 1ra en cualquier lotería debe desbloquear
+    if len(nums) >= 1:
         p0 = int(nums[0])
         if p0 in pareja_ints:
             print(f"\n{'='*60}")
-            print(f"🏆🏆 ¡¡OBJETIVO CUMPLIDO: RUPTURA EN 1RA EN LOTERÍA MADURA CLAVE!! 🏆🏆")
+            print(f"🏆🏆 ¡¡OBJETIVO CUMPLIDO: RUPTURA EN 1RA EN SORTEO OFICIAL!! 🏆🏆")
             print(f"   Lotería: {nombre_sorteo}")
             print(f"   Premio Mayor Ganador: {p0:02d}")
             print(f"   Fecha: {fecha_dmy}")
             print(f"{'='*60}\n")
             ciclo["rompio_en_1ra"] = True
+            ciclo["bloqueado"] = False
             ciclo["estado"] = f"¡OBJETIVO CUMPLIDO! Rompió {p0:02d} en 1ra en {nombre_sorteo}"
             ciclo["detalle_ruptura"] = {
                 "loteria_id": sid,
@@ -232,9 +232,19 @@ def actualizar_todo():
     hora_actual_str = ahora_rd().strftime('%I:%M:%S %p')
     print(f"[{hora_actual_str} RD] 📡 Consultando resultados oficiales en vivo...")
     
-    # 1. Cargar datos locales
-    with open(ARCHIVO_JSON, "r", encoding="utf-8") as f:
-        datos = json.load(f)
+    # 1. Cargar datos locales (con reintento seguro en caso de bloqueo de archivo)
+    datos = None
+    for intento in range(3):
+        try:
+            with open(ARCHIVO_JSON, "r", encoding="utf-8") as f:
+                datos = json.load(f)
+            if datos:
+                break
+        except Exception:
+            time.sleep(0.5)
+    if not datos:
+        print("⚠️ No se pudo leer sorteos_hoy.json en este ciclo. Reintentando en el próximo...")
+        return
 
     # 2. Verificar cambio de día con HORA DE REPÚBLICA DOMINICANA (UTC-4)
     ahora = ahora_rd()
@@ -303,29 +313,35 @@ def actualizar_todo():
 
         ciclo["dias_activo"] = dias_transcurridos
 
-        if modo == "maduracion_fija" and ciclo.get("bloqueado", True):
-            if ciclo.get("rompio_en_1ra", False):
-                print(f"🎯 El ciclo previo CUMPLIÓ su objetivo de 1ra en {ciclo.get('detalle_ruptura', {}).get('loteria_nombre', 'lotería clave')}.")
-                print(f"🔄 Calculando nuevo ciclo de maduración cuantitativo...")
-                nueva_pareja = calcular_jugada_maestra()
-                jm["pareja_oficial"] = nueva_pareja
-                ciclo["fecha_inicio"] = hoy_iso
-                ciclo["dias_activo"] = 1
-                ciclo["rompio_en_1ra"] = False
-                ciclo["detalle_ruptura"] = None
-                ciclo["estado"] = f"En Maduración Activa (Día 1 de {ciclo.get('max_dias_ciclo', 5)})"
-                print(f"🎯 Nueva Pareja Maestra Oficial: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
-            else:
-                p1, p2 = jm.get("pareja_oficial", ["09", "59"])
-                max_dias = ciclo.get("max_dias_ciclo", 5)
-                ciclo["estado"] = f"En Maduración Activa (Día {dias_transcurridos} de {max_dias})"
-                print(f"🔒 CICLO DE MADURACIÓN FIJO (Día {dias_transcurridos} de {max_dias}):")
-                print(f"   Pareja Maestra [ {p1} ] × [ {p2} ] SE MANTIENE BLOQUEADA.")
-                print(f"   Objetivo: Ruptura en 1ra en Gana Más, NY Tarde o Loteka.")
+        # 1. PANTALLA CLIENTE (SAGRADA): Frecuencia Diaria 24h pura (Ventana Deslizante Viva)
+        nueva_pareja = calcular_jugada_maestra()
+        jm["pareja_oficial"] = nueva_pareja
+        print(f"🎯 PANTALLA CLIENTE (Frecuencia Diaria 24h): [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+
+        # 2. ADMINISTRADOR: Desbloqueo automático al romper en 1ra (cualquier lotería) o al llegar a 5 días
+        max_dias = ciclo.get("max_dias_ciclo", 5)
+        if ciclo.get("rompio_en_1ra", False) or (dias_transcurridos > max_dias):
+            motivo = f"CUMPLIÓ objetivo de 1ra ({ciclo.get('detalle_ruptura', {}).get('loteria_nombre', 'sorteo oficial')})" if ciclo.get("rompio_en_1ra", False) else f"completó el límite de {max_dias} días"
+            print(f"🎯 ADMIN: Ciclo previo {motivo}. Desbloqueando e iniciando nuevo ciclo para el Administrador...")
+            if ciclo.get("rompio_en_1ra", False) and ciclo.get("detalle_ruptura"):
+                det = ciclo["detalle_ruptura"]
+                jm["ciclo_previo_cumplido"] = {
+                    "pareja": ["03", "72"],
+                    "resultado": "¡OBJETIVO CUMPLIDO!",
+                    "loteria": det.get("loteria_nombre", "Sorteo Oficial"),
+                    "fecha": det.get("fecha", hoy_dmy),
+                    "premio_ganador": f"{det.get('numero_ganador')} en 1ra (Premio Mayor)",
+                    "dias_totales": dias_transcurridos
+                }
+            ciclo["fecha_inicio"] = hoy_iso
+            ciclo["dias_activo"] = 1
+            ciclo["rompio_en_1ra"] = False
+            ciclo["bloqueado"] = False
+            ciclo["detalle_ruptura"] = None
+            ciclo["estado"] = f"En Maduración Activa (Día 1 de {max_dias})"
         else:
-            nueva_pareja = calcular_jugada_maestra()
-            jm["pareja_oficial"] = nueva_pareja
-            print(f"🎯 Nueva Pareja Maestra Diaria: [ {nueva_pareja[0]} ] × [ {nueva_pareja[1]} ]")
+            ciclo["dias_activo"] = dias_transcurridos
+            ciclo["estado"] = f"En Maduración Activa (Día {dias_transcurridos} de {max_dias})"
 
         hubo_cambios = True
 
