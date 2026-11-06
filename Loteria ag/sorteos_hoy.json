@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-05",
   "fecha_ayer": "2026-11-04",
-  "actualizado_a_las": "09:00 PM",
+  "actualizado_a_las": "09:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -421,8 +421,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        55,
+        77,
+        78
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -430,8 +434,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        75,
+        73,
+        81
+      ]
     },
     {
       "id": "real_noche",
@@ -452,8 +460,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        21,
+        28,
+        30
+      ]
     },
     {
       "id": "florida_noche",
@@ -482,13 +494,13 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "15 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "21",
-        "repeticiones": 3,
+        "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "La Suerte 12:30 PM (2da) ➔ La Suerte 6:00 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ La Suerte 6:00 PM (3ra) ➔ La Primera 8:00 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "La Suerte 12:30 PM",
@@ -507,6 +519,64 @@
             "id": "primera_noche",
             "pos": "3ra",
             "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "73",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "77",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -611,46 +681,6 @@
         ]
       },
       {
-        "numero": "73",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "77",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "10",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -669,6 +699,26 @@
             "premio_index": 1
           }
         ]
+      },
+      {
+        "numero": "75",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -682,7 +732,13 @@
         "numero_disparador": "73",
         "objetivo_presionado": "72",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 73 vibró en 2 sorteo(s), encerrando al 72"
+        "impacto": "El 73 vibró en 3 sorteo(s), encerrando al 72"
+      },
+      {
+        "numero_disparador": "30",
+        "objetivo_presionado": "03",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 30 rompió hoy, activando tracción directa hacia el 03"
       }
     ],
     "top4_estrategicas": [
@@ -744,10 +800,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[03] o [72] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          55,
+          77,
+          78
+        ],
         "aciertos": []
       },
       {
@@ -844,10 +904,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[03] o [72] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          55,
+          77,
+          78
+        ],
         "aciertos": []
       },
       {
@@ -895,13 +959,13 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "15 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "21",
-        "repeticiones": 3,
+        "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "La Suerte 12:30 PM (2da) ➔ La Suerte 6:00 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ La Suerte 6:00 PM (3ra) ➔ La Primera 8:00 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "La Suerte 12:30 PM",
@@ -920,6 +984,64 @@
             "id": "primera_noche",
             "pos": "3ra",
             "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "73",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "77",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra) ➔ Quiniela Leidsa 8:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -1024,46 +1146,6 @@
         ]
       },
       {
-        "numero": "73",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "77",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "10",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1082,6 +1164,26 @@
             "premio_index": 1
           }
         ]
+      },
+      {
+        "numero": "75",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -1095,7 +1197,13 @@
         "numero_disparador": "73",
         "objetivo_presionado": "72",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 73 vibró en 2 sorteo(s), encerrando al 72"
+        "impacto": "El 73 vibró en 3 sorteo(s), encerrando al 72"
+      },
+      {
+        "numero_disparador": "30",
+        "objetivo_presionado": "03",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 30 rompió hoy, activando tracción directa hacia el 03"
       }
     ],
     "top4_estrategicas": [
@@ -1157,10 +1265,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[03] o [72] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          55,
+          77,
+          78
+        ],
         "aciertos": []
       },
       {
@@ -1257,10 +1369,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[03] o [72] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          55,
+          77,
+          78
+        ],
         "aciertos": []
       },
       {
