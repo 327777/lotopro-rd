@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "01:10 PM",
+  "actualizado_a_las": "02:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -312,8 +312,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        26,
+        59,
+        60
+      ]
     },
     {
       "id": "florida_dia",
@@ -441,7 +445,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "6 / 20",
+    "sorteos_evaluados": "7 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -657,7 +661,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "6 / 20",
+    "sorteos_evaluados": "7 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
