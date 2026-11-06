@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "12:26 PM",
+  "actualizado_a_las": "12:33 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -119,75 +119,21 @@ window.DATOS_LOTOPRO = {
       ]
     },
     {
-      "nombre": "New York 10:30 PM",
-      "hora": "10:30 PM",
+      "nombre": "Gana Más 2:30 PM",
+      "hora": "2:30 PM",
       "premios": [
-        15,
-        86,
-        58
+        10,
+        56,
+        22
       ]
     },
     {
-      "nombre": "Florida 10:00 PM",
-      "hora": "10:00 PM",
+      "nombre": "New York 2:30 PM",
+      "hora": "2:30 PM",
       "premios": [
-        83,
-        41,
-        41
-      ]
-    },
-    {
-      "nombre": "Lotería Nacional 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        75,
-        73,
-        81
-      ]
-    },
-    {
-      "nombre": "Anguila 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        21,
-        28,
-        30
-      ]
-    },
-    {
-      "nombre": "Quiniela Leidsa 8:55 PM",
-      "hora": "8:55 PM",
-      "premios": [
-        55,
-        77,
-        78
-      ]
-    },
-    {
-      "nombre": "Real 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        42,
-        23,
-        60
-      ]
-    },
-    {
-      "nombre": "Quiniela Loteka 7:55 PM",
-      "hora": "7:55 PM",
-      "premios": [
-        98,
-        40,
-        77
-      ]
-    },
-    {
-      "nombre": "La Primera 8:00 PM",
-      "hora": "8:00 PM",
-      "premios": [
-        67,
-        64,
-        21
+        87,
+        2,
+        5
       ]
     },
     {
@@ -209,21 +155,75 @@ window.DATOS_LOTOPRO = {
       ]
     },
     {
-      "nombre": "New York 2:30 PM",
-      "hora": "2:30 PM",
+      "nombre": "Quiniela Loteka 7:55 PM",
+      "hora": "7:55 PM",
       "premios": [
-        87,
-        2,
-        5
+        98,
+        40,
+        77
       ]
     },
     {
-      "nombre": "Gana Más 2:30 PM",
-      "hora": "2:30 PM",
+      "nombre": "La Primera 8:00 PM",
+      "hora": "8:00 PM",
       "premios": [
-        10,
-        56,
-        22
+        67,
+        64,
+        21
+      ]
+    },
+    {
+      "nombre": "Quiniela Leidsa 8:55 PM",
+      "hora": "8:55 PM",
+      "premios": [
+        55,
+        77,
+        78
+      ]
+    },
+    {
+      "nombre": "Lotería Nacional 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        75,
+        73,
+        81
+      ]
+    },
+    {
+      "nombre": "Real 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        42,
+        23,
+        60
+      ]
+    },
+    {
+      "nombre": "Anguila 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        21,
+        28,
+        30
+      ]
+    },
+    {
+      "nombre": "Florida 10:00 PM",
+      "hora": "10:00 PM",
+      "premios": [
+        83,
+        41,
+        41
+      ]
+    },
+    {
+      "nombre": "New York 10:30 PM",
+      "hora": "10:30 PM",
+      "premios": [
+        15,
+        86,
+        58
       ]
     }
   ],
@@ -273,8 +273,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Mañana",
       "hora": "12:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        12,
+        81,
+        55
+      ]
     },
     {
       "id": "quiniela_real",
@@ -429,8 +433,29 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "3 / 20",
-    "ecos_detectados": [],
+    "sorteos_evaluados": "4 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "12",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ La Suerte 12:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
@@ -509,10 +534,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[30] o [28] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          12,
+          81,
+          55
+        ],
         "aciertos": []
       }
     ],
@@ -593,10 +622,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[30] o [28] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          12,
+          81,
+          55
+        ],
         "aciertos": []
       }
     ],
@@ -610,8 +643,29 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "3 / 20",
-    "ecos_detectados": [],
+    "sorteos_evaluados": "4 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "12",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ La Suerte 12:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
@@ -690,10 +744,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[30] o [28] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          12,
+          81,
+          55
+        ],
         "aciertos": []
       }
     ],
@@ -774,10 +832,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "7 impactos históricos y 1 Palé",
         "afinidad_vaiven": "93.5%",
         "foco_recomendado": "[30] o [28] en 1ra / 2da",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          12,
+          81,
+          55
+        ],
         "aciertos": []
       }
     ],
