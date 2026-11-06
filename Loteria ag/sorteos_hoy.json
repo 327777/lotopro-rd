@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "02:10 PM",
+  "actualizado_a_las": "02:50 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -325,8 +325,12 @@
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        2,
+        3,
+        83
+      ]
     },
     {
       "id": "gana_mas",
@@ -445,7 +449,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -474,7 +478,14 @@
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "03",
+        "objetivo_presionado": "30",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 03 rompió hoy, activando tracción directa hacia el 30"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -661,7 +672,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "8 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -690,7 +701,14 @@
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "03",
+        "objetivo_presionado": "30",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 03 rompió hoy, activando tracción directa hacia el 30"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
