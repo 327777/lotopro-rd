@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-05",
   "fecha_ayer": "2026-11-04",
-  "actualizado_a_las": "11:00 PM",
+  "actualizado_a_las": "11:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -486,8 +486,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        15,
+        86,
+        58
+      ]
     }
   ],
   "radar_vaiven_top4": {
@@ -498,7 +502,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "77",
@@ -983,7 +987,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "77",
