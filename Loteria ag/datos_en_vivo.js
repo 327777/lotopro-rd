@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-05",
   "fecha_ayer": "2026-11-04",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -397,9 +397,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        65,
-        33,
-        2
+        98,
+        40,
+        77
       ]
     },
     {
@@ -607,6 +607,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "77",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "10",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -625,46 +645,6 @@ window.DATOS_LOTOPRO = {
             "premio_index": 1
           }
         ]
-      },
-      {
-        "numero": "65",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "02",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
@@ -672,7 +652,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "02",
         "objetivo_presionado": "03",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 02 vibró en 2 sorteo(s), empujando al 03"
+        "impacto": "El 02 vibró en 1 sorteo(s), empujando al 03"
       },
       {
         "numero_disparador": "73",
@@ -693,9 +673,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          65,
-          33,
-          2
+          98,
+          40,
+          77
         ],
         "aciertos": []
       },
@@ -793,9 +773,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          65,
-          33,
-          2
+          98,
+          40,
+          77
         ],
         "aciertos": []
       },
@@ -1020,6 +1000,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "77",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "10",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1038,46 +1038,6 @@ window.DATOS_LOTOPRO = {
             "premio_index": 1
           }
         ]
-      },
-      {
-        "numero": "65",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
-        "numero": "02",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
@@ -1085,7 +1045,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "02",
         "objetivo_presionado": "03",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 02 vibró en 2 sorteo(s), empujando al 03"
+        "impacto": "El 02 vibró en 1 sorteo(s), empujando al 03"
       },
       {
         "numero_disparador": "73",
@@ -1106,9 +1066,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          65,
-          33,
-          2
+          98,
+          40,
+          77
         ],
         "aciertos": []
       },
@@ -1206,9 +1166,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          65,
-          33,
-          2
+          98,
+          40,
+          77
         ],
         "aciertos": []
       },
