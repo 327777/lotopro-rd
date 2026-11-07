@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "09:20 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -262,9 +262,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        24,
-        12,
-        57
+        26,
+        80,
+        85
       ]
     },
     {
@@ -492,17 +492,37 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "12",
-        "repeticiones": 4,
+        "numero": "85",
+        "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ La Suerte 12:30 PM (1ra) ➔ Quiniela Real 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
             "pos": "2da",
             "premio_index": 2
           },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "12",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Real 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "loterias": [
           {
             "loteria": "La Suerte 12:30 PM",
             "id": "la_suerte_dia",
@@ -544,22 +564,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "85",
+        "numero": "26",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ New Jersey 1:00 PM (1ra)",
         "loterias": [
           {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -790,9 +810,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          24,
-          12,
-          57
+          26,
+          80,
+          85
         ],
         "aciertos": []
       },
@@ -894,9 +914,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          24,
-          12,
-          57
+          26,
+          80,
+          85
         ],
         "aciertos": []
       },
@@ -931,17 +951,37 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "12",
-        "repeticiones": 4,
+        "numero": "85",
+        "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ La Suerte 12:30 PM (1ra) ➔ Quiniela Real 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
             "pos": "2da",
             "premio_index": 2
           },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "12",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Suerte 12:30 PM (1ra) ➔ Quiniela Real 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
+        "loterias": [
           {
             "loteria": "La Suerte 12:30 PM",
             "id": "la_suerte_dia",
@@ -983,22 +1023,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "85",
+        "numero": "26",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ New Jersey 1:00 PM (1ra)",
         "loterias": [
           {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "2da",
-            "premio_index": 2
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
           },
           {
-            "loteria": "Real 9:00 PM",
-            "id": "real_noche",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -1229,9 +1269,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          24,
-          12,
-          57
+          26,
+          80,
+          85
         ],
         "aciertos": []
       },
@@ -1333,9 +1373,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          24,
-          12,
-          57
+          26,
+          80,
+          85
         ],
         "aciertos": []
       },
