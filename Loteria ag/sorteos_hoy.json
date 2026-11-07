@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "09:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -429,8 +429,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        11,
+        29,
+        82
+      ]
     },
     {
       "id": "real_noche",
@@ -451,8 +455,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        23,
+        94,
+        9
+      ]
     },
     {
       "id": "florida_noche",
@@ -481,7 +489,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -596,6 +604,26 @@
         ]
       },
       {
+        "numero": "29",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (2da) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "20",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -661,19 +689,25 @@
         "numero_disparador": "29",
         "objetivo_presionado": "30",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 29 vibró en 1 sorteo(s), empujando al 30"
+        "impacto": "El 29 vibró en 2 sorteo(s), empujando al 30"
       },
       {
         "numero_disparador": "29",
         "objetivo_presionado": "28",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 29 vibró en 1 sorteo(s), encerrando al 28"
+        "impacto": "El 29 vibró en 2 sorteo(s), encerrando al 28"
       },
       {
         "numero_disparador": "03",
         "objetivo_presionado": "30",
         "tipo": "Revés Espejo (Virado en 1ra)",
         "impacto": "El virado 03 rompió hoy, activando tracción directa hacia el 30"
+      },
+      {
+        "numero_disparador": "82",
+        "objetivo_presionado": "28",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 82 rompió hoy, activando tracción directa hacia el 28"
       }
     ],
     "top4_estrategicas": [
@@ -894,7 +928,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -1009,6 +1043,26 @@
         ]
       },
       {
+        "numero": "29",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (2da) ➔ Lotería Nacional 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "20",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1074,19 +1128,25 @@
         "numero_disparador": "29",
         "objetivo_presionado": "30",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 29 vibró en 1 sorteo(s), empujando al 30"
+        "impacto": "El 29 vibró en 2 sorteo(s), empujando al 30"
       },
       {
         "numero_disparador": "29",
         "objetivo_presionado": "28",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 29 vibró en 1 sorteo(s), encerrando al 28"
+        "impacto": "El 29 vibró en 2 sorteo(s), encerrando al 28"
       },
       {
         "numero_disparador": "03",
         "objetivo_presionado": "30",
         "tipo": "Revés Espejo (Virado en 1ra)",
         "impacto": "El virado 03 rompió hoy, activando tracción directa hacia el 30"
+      },
+      {
+        "numero_disparador": "82",
+        "objetivo_presionado": "28",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 82 rompió hoy, activando tracción directa hacia el 28"
       }
     ],
     "top4_estrategicas": [
