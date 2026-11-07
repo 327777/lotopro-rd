@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "02:50 PM",
+  "actualizado_a_las": "03:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -351,8 +351,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        39,
+        45,
+        85
+      ]
     },
     {
       "id": "la_suerte_tarde",
@@ -453,7 +457,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "9 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "29",
@@ -514,6 +518,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "39",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (3ra) ➔ New York 2:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -545,10 +569,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          39,
+          45,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -637,10 +665,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          39,
+          45,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -718,7 +750,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "9 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "29",
@@ -779,6 +811,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "39",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (3ra) ➔ New York 2:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -810,10 +862,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          39,
+          45,
+          85
+        ],
         "aciertos": []
       },
       {
@@ -902,10 +958,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          39,
+          45,
+          85
+        ],
         "aciertos": []
       },
       {
