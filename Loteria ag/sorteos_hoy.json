@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "12:36 PM",
+  "actualizado_a_las": "01:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -35,9 +35,14 @@
       "dias_activo": 1,
       "max_dias_ciclo": 5,
       "objetivo": "Ruptura en 1ra Mayor en Cualquier Sorteo Oficial",
-      "rompio_en_1ra": false,
-      "detalle_ruptura": null,
-      "estado": "En Maduración Activa (Día 1 de 5)"
+      "rompio_en_1ra": true,
+      "detalle_ruptura": {
+        "loteria_id": "anguila_1pm",
+        "loteria_nombre": "Anguila 1:00 PM",
+        "fecha": "07/11/2026",
+        "numero_ganador": "60"
+      },
+      "estado": "¡OBJETIVO CUMPLIDO! Rompió 60 en 1ra en Anguila 1:00 PM"
     }
   },
   "sorteos_ayer": [
@@ -281,8 +286,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        25,
+        74,
+        27
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -290,8 +299,12 @@
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        60,
+        9,
+        20
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -426,9 +439,9 @@
       "62",
       "60"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
       {
         "numero": "29",
@@ -459,7 +472,7 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [62 × 60] y Quiniela [62] / [60]",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -472,7 +485,7 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[62] o [60] Directo en 1ra",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
         "color_estado": "#f59e0b",
@@ -547,7 +560,7 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [62 × 60] y Quiniela [62] / [60]",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -560,7 +573,7 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[62] o [60] Directo en 1ra",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
         "color_estado": "#f59e0b",
@@ -628,7 +641,7 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [62 × 60] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [62 × 60] registró doble impacto en el mediodía: el 60 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (60 ➔ 62), la presión residual se concentra con máxima fuerza en el 62 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -636,9 +649,9 @@
       "62",
       "60"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
       {
         "numero": "29",
@@ -669,7 +682,7 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [62 × 60] y Quiniela [62] / [60]",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -682,7 +695,7 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[62] o [60] Directo en 1ra",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
         "color_estado": "#f59e0b",
@@ -757,7 +770,7 @@
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [62 × 60] y Quiniela [62] / [60]",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -770,7 +783,7 @@
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[62] o [60] Directo en 1ra",
+        "foco_recomendado": "62 en 1ra y Palé [62 × 60]",
         "estado_sorteo": "proximo",
         "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
         "color_estado": "#f59e0b",
@@ -838,6 +851,6 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [62 × 60] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [62 × 60] registró doble impacto en el mediodía: el 60 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (60 ➔ 62), la presión residual se concentra con máxima fuerza en el 62 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
