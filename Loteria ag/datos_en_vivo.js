@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-06",
   "fecha_ayer": "2026-10-28",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "09:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -434,8 +434,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        72,
+        67,
+        85
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -473,7 +477,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "15 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -522,6 +526,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "85",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "3ra",
             "premio_index": 3
           }
@@ -838,7 +862,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "15 / 20",
     "ecos_detectados": [
       {
         "numero": "12",
@@ -887,6 +911,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "85",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "3ra",
             "premio_index": 3
           }
