@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "10:10 PM",
+  "actualizado_a_las": "11:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -468,8 +468,12 @@
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        94,
+        40,
+        38
+      ]
     },
     {
       "id": "ny_noche",
@@ -489,7 +493,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "19 / 20",
     "ecos_detectados": [
       {
         "numero": "02",
@@ -958,7 +962,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "19 / 20",
     "ecos_detectados": [
       {
         "numero": "02",
