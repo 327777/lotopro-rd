@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "09:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -37,12 +37,12 @@ window.DATOS_LOTOPRO = {
       "objetivo": "Ruptura en 1ra Mayor en Cualquier Sorteo Oficial",
       "rompio_en_1ra": true,
       "detalle_ruptura": {
-        "loteria_id": "anguila_1pm",
-        "loteria_nombre": "Anguila 1:00 PM",
+        "loteria_id": "real_noche",
+        "loteria_nombre": "Real 9:00 PM",
         "fecha": "07/11/2026",
         "numero_ganador": "60"
       },
-      "estado": "¡OBJETIVO CUMPLIDO! Rompió 60 en 1ra en Anguila 1:00 PM"
+      "estado": "¡OBJETIVO CUMPLIDO! Rompió 60 en 1ra en Real 9:00 PM"
     }
   },
   "sorteos_ayer": [
@@ -434,8 +434,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        60,
+        12,
+        75
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -473,7 +477,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "15 / 20",
     "ecos_detectados": [
       {
         "numero": "00",
@@ -584,6 +588,26 @@ window.DATOS_LOTOPRO = {
             "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "60",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (1ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -878,7 +902,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "14 / 20",
+    "sorteos_evaluados": "15 / 20",
     "ecos_detectados": [
       {
         "numero": "00",
@@ -989,6 +1013,26 @@ window.DATOS_LOTOPRO = {
             "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "60",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (1ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
