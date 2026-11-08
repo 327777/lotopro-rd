@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "09:00 PM",
+  "actualizado_a_las": "09:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -416,8 +416,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        3,
+        35,
+        62
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -425,8 +429,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        47,
+        75,
+        97
+      ]
     },
     {
       "id": "real_noche",
@@ -447,8 +455,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        7,
+        31,
+        34
+      ]
     },
     {
       "id": "florida_noche",
@@ -477,7 +489,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "15 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "00",
@@ -670,6 +682,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "75",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -751,11 +783,17 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[62] o [60] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
-        "aciertos": []
+        "estado_sorteo": "finalizado",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Leidsa 8:55 PM: 62 en 3ra)",
+        "color_estado": "#10b981",
+        "premios_hoy": [
+          3,
+          35,
+          62
+        ],
+        "aciertos": [
+          "Quiniela Leidsa 8:55 PM: 62 en 3ra"
+        ]
       },
       {
         "id": "lotedom",
@@ -851,11 +889,17 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[62] o [60] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
-        "aciertos": []
+        "estado_sorteo": "finalizado",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Leidsa 8:55 PM: 62 en 3ra)",
+        "color_estado": "#10b981",
+        "premios_hoy": [
+          3,
+          35,
+          62
+        ],
+        "aciertos": [
+          "Quiniela Leidsa 8:55 PM: 62 en 3ra"
+        ]
       },
       {
         "id": "lotedom",
@@ -902,7 +946,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "15 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "00",
@@ -1095,6 +1139,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "75",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (2da) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -1176,11 +1240,17 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[62] o [60] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
-        "aciertos": []
+        "estado_sorteo": "finalizado",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Leidsa 8:55 PM: 62 en 3ra)",
+        "color_estado": "#10b981",
+        "premios_hoy": [
+          3,
+          35,
+          62
+        ],
+        "aciertos": [
+          "Quiniela Leidsa 8:55 PM: 62 en 3ra"
+        ]
       },
       {
         "id": "lotedom",
@@ -1276,11 +1346,17 @@ window.DATOS_LOTOPRO = {
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[62] o [60] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
-        "aciertos": []
+        "estado_sorteo": "finalizado",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Leidsa 8:55 PM: 62 en 3ra)",
+        "color_estado": "#10b981",
+        "premios_hoy": [
+          3,
+          35,
+          62
+        ],
+        "aciertos": [
+          "Quiniela Leidsa 8:55 PM: 62 en 3ra"
+        ]
       },
       {
         "id": "lotedom",
