@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-07",
   "fecha_ayer": "2026-11-06",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -262,9 +262,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        72,
-        89,
-        88
+        6,
+        2,
+        19
       ]
     },
     {
@@ -492,6 +492,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
+        "numero": "02",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ New Jersey 1:00 PM (1ra) ➔ Florida 1:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "00",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
@@ -624,26 +650,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "02",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Florida 1:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "39",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -722,6 +728,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "60",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 61 vibró en 1 sorteo(s), encerrando al 60"
+      },
+      {
+        "numero_disparador": "06",
+        "objetivo_presionado": "60",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 06 rompió hoy, activando tracción directa hacia el 60"
       }
     ],
     "top4_estrategicas": [
@@ -806,9 +818,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          89,
-          88
+          6,
+          2,
+          19
         ],
         "aciertos": []
       },
@@ -912,9 +924,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          89,
-          88
+          6,
+          2,
+          19
         ],
         "aciertos": []
       },
@@ -949,6 +961,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
+        "numero": "02",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ New Jersey 1:00 PM (1ra) ➔ Florida 1:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "00",
         "repeticiones": 3,
         "tipo": "Cadena Ondular Expansiva",
@@ -1081,26 +1119,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "02",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New Jersey 1:00 PM (1ra) ➔ Florida 1:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "New Jersey 1:00 PM",
-            "id": "new_jersey_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "39",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1179,6 +1197,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "60",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 61 vibró en 1 sorteo(s), encerrando al 60"
+      },
+      {
+        "numero_disparador": "06",
+        "objetivo_presionado": "60",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 06 rompió hoy, activando tracción directa hacia el 60"
       }
     ],
     "top4_estrategicas": [
@@ -1263,9 +1287,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          89,
-          88
+          6,
+          2,
+          19
         ],
         "aciertos": []
       },
@@ -1369,9 +1393,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          89,
-          88
+          6,
+          2,
+          19
         ],
         "aciertos": []
       },
