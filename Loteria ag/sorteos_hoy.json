@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-08",
   "fecha_ayer": "2026-11-07",
-  "actualizado_a_las": "08:10 PM",
+  "actualizado_a_las": "09:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -407,8 +407,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        20,
+        94,
+        97
+      ]
     },
     {
       "id": "loteria_nacional",
@@ -416,8 +420,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        8,
+        73,
+        11
+      ]
     },
     {
       "id": "real_noche",
@@ -425,8 +433,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        97,
+        6,
+        11
+      ]
     },
     {
       "id": "anguila_9pm",
@@ -462,10 +474,36 @@
       "92",
       "95"
     ],
-    "presion_acumulada_pct": 85.8,
+    "presion_acumulada_pct": 90.6,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "16 / 20",
     "ecos_detectados": [
+      {
+        "numero": "11",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Lotería Nacional 9:00 PM (3ra) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "67",
         "repeticiones": 2,
@@ -521,6 +559,46 @@
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "08",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "20",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (2da) ➔ Quiniela Leidsa 8:55 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -585,9 +663,35 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "97",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Leidsa 8:55 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "94",
+        "objetivo_presionado": "95",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 94 vibró en 1 sorteo(s), encerrando al 95"
+      },
       {
         "numero_disparador": "59",
         "objetivo_presionado": "95",
@@ -654,10 +758,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[92] o [95] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          20,
+          94,
+          97
+        ],
         "aciertos": []
       },
       {
@@ -754,10 +862,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[92] o [95] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          20,
+          94,
+          97
+        ],
         "aciertos": []
       },
       {
@@ -795,7 +907,7 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 90.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -803,10 +915,36 @@
       "92",
       "95"
     ],
-    "presion_acumulada_pct": 85.8,
+    "presion_acumulada_pct": 90.6,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "16 / 20",
     "ecos_detectados": [
+      {
+        "numero": "11",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (3ra) ➔ Lotería Nacional 9:00 PM (3ra) ➔ Real 9:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "67",
         "repeticiones": 2,
@@ -862,6 +1000,46 @@
           {
             "loteria": "Gana Más 2:30 PM",
             "id": "gana_mas",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "08",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ Lotería Nacional 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "20",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (2da) ➔ Quiniela Leidsa 8:55 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -926,9 +1104,35 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "97",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Leidsa 8:55 PM (3ra) ➔ Real 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Leidsa 8:55 PM",
+            "id": "quiniela_leidsa",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "94",
+        "objetivo_presionado": "95",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 94 vibró en 1 sorteo(s), encerrando al 95"
+      },
       {
         "numero_disparador": "59",
         "objetivo_presionado": "95",
@@ -995,10 +1199,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[92] o [95] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          20,
+          94,
+          97
+        ],
         "aciertos": []
       },
       {
@@ -1095,10 +1303,14 @@
         "record_historico": "5 impactos históricos (90 en 1ra)",
         "afinidad_vaiven": "94.5%",
         "foco_recomendado": "[92] o [95] en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🌙 EN ESPERA DE CIERRE",
-        "color_estado": "#6366f1",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          20,
+          94,
+          97
+        ],
         "aciertos": []
       },
       {
@@ -1136,6 +1348,6 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 90.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
