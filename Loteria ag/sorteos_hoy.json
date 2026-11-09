@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-08",
   "fecha_ayer": "2026-11-07",
-  "actualizado_a_las": "09:00 PM",
+  "actualizado_a_las": "09:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -359,8 +359,12 @@
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        6,
+        79,
+        9
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -446,8 +450,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        64,
+        57,
+        72
+      ]
     },
     {
       "id": "florida_noche",
@@ -474,9 +482,9 @@
       "92",
       "95"
     ],
-    "presion_acumulada_pct": 90.6,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "11",
@@ -539,6 +547,26 @@
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ Anguila 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -639,6 +667,26 @@
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "06",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 6:00 PM (1ra) ➔ Real 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -907,7 +955,7 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 90.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -915,9 +963,9 @@
       "92",
       "95"
     ],
-    "presion_acumulada_pct": 90.6,
+    "presion_acumulada_pct": 93.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "11",
@@ -980,6 +1028,26 @@
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (2da) ➔ Anguila 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -1080,6 +1148,26 @@
           {
             "loteria": "New York 2:30 PM",
             "id": "ny_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "06",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 6:00 PM (1ra) ➔ Real 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -1348,6 +1436,6 @@
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 90.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [92 × 95] en 1ra, la presión acumulada alcanza el 93.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 }
