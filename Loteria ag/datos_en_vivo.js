@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-09",
   "fecha_ayer": "2026-11-08",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        95,
-        88,
-        77
+        12,
+        11,
+        86
       ]
     },
     {
@@ -487,38 +487,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "95",
-        "repeticiones": 4,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra) ➔ New York 2:30 PM (2da) ➔ La Suerte 6:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "48",
         "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
@@ -545,6 +513,52 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Lotería Nacional 9:00 PM",
             "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "95",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (2da) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "86",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ New Jersey 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
             "pos": "2da",
             "premio_index": 2
           }
@@ -767,9 +781,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          95,
-          88,
-          77
+          12,
+          11,
+          86
         ],
         "aciertos": []
       },
@@ -873,9 +887,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          95,
-          88,
-          77
+          12,
+          11,
+          86
         ],
         "aciertos": []
       },
@@ -910,38 +924,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
-        "numero": "95",
-        "repeticiones": 4,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "Anguila 10:00 AM (2da) ➔ LoteDom 12:00 PM (1ra) ➔ New York 2:30 PM (2da) ➔ La Suerte 6:00 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "La Suerte 6:00 PM",
-            "id": "la_suerte_tarde",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
-      },
-      {
         "numero": "48",
         "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
@@ -968,6 +950,52 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Lotería Nacional 9:00 PM",
             "id": "loteria_nacional",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "95",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (2da) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "86",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ New Jersey 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
             "pos": "2da",
             "premio_index": 2
           }
@@ -1190,9 +1218,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          95,
-          88,
-          77
+          12,
+          11,
+          86
         ],
         "aciertos": []
       },
@@ -1296,9 +1324,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          95,
-          88,
-          77
+          12,
+          11,
+          86
         ],
         "aciertos": []
       },
