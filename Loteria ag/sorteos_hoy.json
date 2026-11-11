@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-10",
   "fecha_ayer": "2026-11-09",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -387,9 +387,9 @@
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        90,
-        40,
-        85
+        64,
+        72,
+        35
       ]
     },
     {
@@ -575,6 +575,26 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (1ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -597,9 +617,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          90,
-          40,
-          85
+          64,
+          72,
+          35
         ],
         "aciertos": []
       },
@@ -697,9 +717,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          90,
-          40,
-          85
+          64,
+          72,
+          35
         ],
         "aciertos": []
       },
@@ -902,6 +922,26 @@
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (1ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -924,9 +964,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          90,
-          40,
-          85
+          64,
+          72,
+          35
         ],
         "aciertos": []
       },
@@ -1024,9 +1064,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          90,
-          40,
-          85
+          64,
+          72,
+          35
         ],
         "aciertos": []
       },
