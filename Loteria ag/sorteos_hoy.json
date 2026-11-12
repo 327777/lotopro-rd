@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-11",
   "fecha_ayer": "2026-11-10",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -387,9 +387,9 @@
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        10,
-        74,
-        48
+        40,
+        7,
+        79
       ]
     },
     {
@@ -471,6 +471,26 @@
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
+        "numero": "79",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "16",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -487,6 +507,26 @@
             "id": "quiniela_real",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "07",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -573,6 +613,12 @@
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "40",
+        "objetivo_presionado": "39",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 40 vibró en 1 sorteo(s), empujando al 39"
+      },
+      {
         "numero_disparador": "16",
         "objetivo_presionado": "61",
         "tipo": "Revés Espejo (Virado en 1ra)",
@@ -591,9 +637,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          10,
-          74,
-          48
+          40,
+          7,
+          79
         ],
         "aciertos": []
       },
@@ -693,9 +739,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          10,
-          74,
-          48
+          40,
+          7,
+          79
         ],
         "aciertos": []
       },
@@ -796,6 +842,26 @@
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
+        "numero": "79",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "16",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -812,6 +878,26 @@
             "id": "quiniela_real",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "07",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -898,6 +984,12 @@
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "40",
+        "objetivo_presionado": "39",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 40 vibró en 1 sorteo(s), empujando al 39"
+      },
+      {
         "numero_disparador": "16",
         "objetivo_presionado": "61",
         "tipo": "Revés Espejo (Virado en 1ra)",
@@ -916,9 +1008,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          10,
-          74,
-          48
+          40,
+          7,
+          79
         ],
         "aciertos": []
       },
@@ -1018,9 +1110,9 @@
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          10,
-          74,
-          48
+          40,
+          7,
+          79
         ],
         "aciertos": []
       },
