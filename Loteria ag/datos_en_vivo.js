@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-11",
   "fecha_ayer": "2026-11-10",
-  "actualizado_a_las": "09:20 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        7,
-        27,
-        50
+        30,
+        22,
+        40
       ]
     },
     {
@@ -547,22 +547,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "07",
+        "numero": "40",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -692,7 +692,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "40",
         "objetivo_presionado": "39",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 40 vibró en 1 sorteo(s), empujando al 39"
+        "impacto": "El 40 vibró en 2 sorteo(s), empujando al 39"
       },
       {
         "numero_disparador": "16",
@@ -783,9 +783,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          7,
-          27,
-          50
+          30,
+          22,
+          40
         ],
         "aciertos": []
       },
@@ -889,9 +889,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          7,
-          27,
-          50
+          30,
+          22,
+          40
         ],
         "aciertos": []
       },
@@ -986,22 +986,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "07",
+        "numero": "40",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
             "loteria": "Quiniela Loteka 7:55 PM",
             "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -1131,7 +1131,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "40",
         "objetivo_presionado": "39",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 40 vibró en 1 sorteo(s), empujando al 39"
+        "impacto": "El 40 vibró en 2 sorteo(s), empujando al 39"
       },
       {
         "numero_disparador": "16",
@@ -1222,9 +1222,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          7,
-          27,
-          50
+          30,
+          22,
+          40
         ],
         "aciertos": []
       },
@@ -1328,9 +1328,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          7,
-          27,
-          50
+          30,
+          22,
+          40
         ],
         "aciertos": []
       },
