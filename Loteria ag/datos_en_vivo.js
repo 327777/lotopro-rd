@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-12",
   "fecha_ayer": "2026-11-11",
-  "actualizado_a_las": "09:20 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        17,
-        12,
-        94
+        47,
+        44,
+        34
       ]
     },
     {
@@ -519,6 +519,32 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "34",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "52",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -559,22 +585,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "17",
+        "numero": "44",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 12:30 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Real 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "2da",
+            "premio_index": 2
           },
           {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -615,26 +641,6 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_loteka",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "34",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "3ra",
-            "premio_index": 3
           }
         ]
       },
@@ -810,16 +816,14 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[94] o [76] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 94 en 3ra)",
-        "color_estado": "#10b981",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          12,
-          94
+          47,
+          44,
+          34
         ],
-        "aciertos": [
-          "LoteDom 12:00 PM: 94 en 3ra"
-        ]
+        "aciertos": []
       },
       {
         "id": "la_suerte_dia",
@@ -916,16 +920,14 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[94] o [76] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 94 en 3ra)",
-        "color_estado": "#10b981",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          12,
-          94
+          47,
+          44,
+          34
         ],
-        "aciertos": [
-          "LoteDom 12:00 PM: 94 en 3ra"
-        ]
+        "aciertos": []
       },
       {
         "id": "la_suerte_dia",
@@ -990,6 +992,32 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "34",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "52",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1030,22 +1058,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "17",
+        "numero": "44",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 12:30 PM (3ra)",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Real 9:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "1ra",
-            "premio_index": 1
+            "pos": "2da",
+            "premio_index": 2
           },
           {
-            "loteria": "La Suerte 12:30 PM",
-            "id": "la_suerte_dia",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "Real 9:00 PM",
+            "id": "real_noche",
+            "pos": "1ra",
+            "premio_index": 1
           }
         ]
       },
@@ -1086,26 +1114,6 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_loteka",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "34",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 1:00 PM (3ra) ➔ Florida 1:30 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "3ra",
-            "premio_index": 3
           }
         ]
       },
@@ -1281,16 +1289,14 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[94] o [76] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 94 en 3ra)",
-        "color_estado": "#10b981",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          12,
-          94
+          47,
+          44,
+          34
         ],
-        "aciertos": [
-          "LoteDom 12:00 PM: 94 en 3ra"
-        ]
+        "aciertos": []
       },
       {
         "id": "la_suerte_dia",
@@ -1387,16 +1393,14 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[94] o [76] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 94 en 3ra)",
-        "color_estado": "#10b981",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          12,
-          94
+          47,
+          44,
+          34
         ],
-        "aciertos": [
-          "LoteDom 12:00 PM: 94 en 3ra"
-        ]
+        "aciertos": []
       },
       {
         "id": "la_suerte_dia",
