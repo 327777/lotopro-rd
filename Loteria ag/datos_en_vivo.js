@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-13",
   "fecha_ayer": "2026-11-12",
-  "actualizado_a_las": "01:10 PM",
+  "actualizado_a_las": "02:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -307,8 +307,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        73,
+        23,
+        12
+      ]
     },
     {
       "id": "florida_dia",
@@ -434,10 +438,31 @@ window.DATOS_LOTOPRO = {
       "80",
       "01"
     ],
-    "presion_acumulada_pct": 74.6,
+    "presion_acumulada_pct": 76.2,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "6 / 20",
-    "ecos_detectados": [],
+    "sorteos_evaluados": "7 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "23",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (1ra) ➔ New Jersey 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
@@ -615,7 +640,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -623,10 +648,31 @@ window.DATOS_LOTOPRO = {
       "80",
       "01"
     ],
-    "presion_acumulada_pct": 74.6,
+    "presion_acumulada_pct": 76.2,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "6 / 20",
-    "ecos_detectados": [],
+    "sorteos_evaluados": "7 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "23",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (1ra) ➔ New Jersey 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [],
     "top4_estrategicas": [
       {
@@ -804,6 +850,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 76.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
