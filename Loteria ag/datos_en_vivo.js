@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-13",
   "fecha_ayer": "2026-11-12",
-  "actualizado_a_las": "03:40 PM",
+  "actualizado_a_las": "06:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -35,9 +35,14 @@ window.DATOS_LOTOPRO = {
       "dias_activo": 1,
       "max_dias_ciclo": 5,
       "objetivo": "Ruptura en 1ra Mayor en Cualquier Sorteo Oficial",
-      "rompio_en_1ra": false,
-      "detalle_ruptura": null,
-      "estado": "En Maduración Activa (Día 1 de 5)"
+      "rompio_en_1ra": true,
+      "detalle_ruptura": {
+        "loteria_id": "la_suerte_tarde",
+        "loteria_nombre": "La Suerte 6:00 PM",
+        "fecha": "13/11/2026",
+        "numero_ganador": "01"
+      },
+      "estado": "¡OBJETIVO CUMPLIDO! Rompió 01 en 1ra en La Suerte 6:00 PM"
     }
   },
   "sorteos_ayer": [
@@ -359,8 +364,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        1,
+        12,
+        26
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -368,8 +377,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        9,
+        34,
+        73
+      ]
     },
     {
       "id": "quiniela_loteka",
@@ -450,10 +463,50 @@ window.DATOS_LOTOPRO = {
       "80",
       "01"
     ],
-    "presion_acumulada_pct": 81.0,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
+    "sorteos_evaluados": "12 / 20",
     "ecos_detectados": [
+      {
+        "numero": "34",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "26",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (3ra) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "23",
         "repeticiones": 2,
@@ -469,6 +522,46 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "73",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (1ra) ➔ Anguila 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "12",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
           }
@@ -503,7 +596,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [80 × 01] y Quiniela [80] / [01]",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -516,7 +609,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[80] o [01] Directo en 1ra",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -599,7 +692,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [80 × 01] y Quiniela [80] / [01]",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -612,7 +705,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[80] o [01] Directo en 1ra",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -688,7 +781,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [80 × 01] registró doble impacto en el mediodía: el 01 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (01 ➔ 80), la presión residual se concentra con máxima fuerza en el 80 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -696,10 +789,50 @@ window.DATOS_LOTOPRO = {
       "80",
       "01"
     ],
-    "presion_acumulada_pct": 81.0,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
+    "sorteos_evaluados": "12 / 20",
     "ecos_detectados": [
+      {
+        "numero": "34",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "26",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Suerte 12:30 PM (3ra) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "23",
         "repeticiones": 2,
@@ -715,6 +848,46 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "New Jersey 1:00 PM",
             "id": "new_jersey_dia",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "73",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (1ra) ➔ Anguila 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 6:00 PM",
+            "id": "anguila_6pm",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "12",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New Jersey 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "New Jersey 1:00 PM",
+            "id": "new_jersey_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
           }
@@ -749,7 +922,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [80 × 01] y Quiniela [80] / [01]",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -762,7 +935,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[80] o [01] Directo en 1ra",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -845,7 +1018,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [80 × 01] y Quiniela [80] / [01]",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "proximo",
         "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
         "color_estado": "#a855f7",
@@ -858,7 +1031,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[80] o [01] Directo en 1ra",
+        "foco_recomendado": "80 en 1ra y Palé [80 × 01]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -934,6 +1107,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [80 × 01] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [80 × 01] registró doble impacto en el mediodía: el 01 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (01 ➔ 80), la presión residual se concentra con máxima fuerza en el 80 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
