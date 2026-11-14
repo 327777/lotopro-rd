@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-14",
   "fecha_ayer": "2026-11-13",
-  "actualizado_a_las": "12:40 PM",
+  "actualizado_a_las": "01:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -281,8 +281,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        67,
+        33,
+        84
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -290,8 +294,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        92,
+        60,
+        90
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -426,16 +434,57 @@ window.DATOS_LOTOPRO = {
       "79",
       "93"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
-    "ecos_detectados": [],
+    "presion_acumulada_pct": 74.6,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "6 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "92",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (1ra) ➔ Anguila 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "67",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [
       {
         "numero_disparador": "92",
         "objetivo_presionado": "93",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 92 vibró en 1 sorteo(s), encerrando al 93"
+        "impacto": "El 92 vibró en 2 sorteo(s), encerrando al 93"
       }
     ],
     "top4_estrategicas": [
@@ -614,7 +663,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [79 × 93] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [79 × 93] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -622,16 +671,57 @@ window.DATOS_LOTOPRO = {
       "79",
       "93"
     ],
-    "presion_acumulada_pct": 71.4,
-    "fase_onda": "ACUMULACIÓN MATUTINA",
-    "sorteos_evaluados": "4 / 20",
-    "ecos_detectados": [],
+    "presion_acumulada_pct": 74.6,
+    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "sorteos_evaluados": "6 / 20",
+    "ecos_detectados": [
+      {
+        "numero": "92",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (1ra) ➔ Anguila 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "67",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      }
+    ],
     "presiones_vectoriales": [
       {
         "numero_disparador": "92",
         "objetivo_presionado": "93",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 92 vibró en 1 sorteo(s), encerrando al 93"
+        "impacto": "El 92 vibró en 2 sorteo(s), encerrando al 93"
       }
     ],
     "top4_estrategicas": [
@@ -810,6 +900,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [79 × 93] en 1ra, la presión acumulada alcanza el 71.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [79 × 93] en 1ra, la presión acumulada alcanza el 74.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
