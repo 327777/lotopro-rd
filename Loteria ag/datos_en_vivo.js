@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-14",
   "fecha_ayer": "2026-11-13",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        72,
-        0,
-        71
+        28,
+        44,
+        67
       ]
     },
     {
@@ -487,6 +487,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
+        "numero": "67",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "92",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -547,22 +573,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "67",
+        "numero": "44",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
           },
           {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -767,9 +793,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          0,
-          71
+          28,
+          44,
+          67
         ],
         "aciertos": []
       },
@@ -871,9 +897,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          0,
-          71
+          28,
+          44,
+          67
         ],
         "aciertos": []
       },
@@ -908,6 +934,32 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
+        "numero": "67",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ LoteDom 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "92",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -968,22 +1020,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "67",
+        "numero": "44",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (3ra) ➔ Quiniela Real 1:00 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
-            "loteria": "La Primera 12:00 PM",
-            "id": "la_primera_dia",
-            "pos": "3ra",
-            "premio_index": 3
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "2da",
+            "premio_index": 2
           },
           {
-            "loteria": "Quiniela Real 1:00 PM",
-            "id": "quiniela_real",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -1188,9 +1240,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          0,
-          71
+          28,
+          44,
+          67
         ],
         "aciertos": []
       },
@@ -1292,9 +1344,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          72,
-          0,
-          71
+          28,
+          44,
+          67
         ],
         "aciertos": []
       },
