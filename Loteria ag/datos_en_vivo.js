@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-16",
   "fecha_ayer": "2026-11-15",
-  "actualizado_a_las": "11:00 PM",
+  "actualizado_a_las": "11:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -476,8 +476,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        27,
+        21,
+        21
+      ]
     }
   ],
   "radar_vaiven_top4": {
@@ -486,9 +490,9 @@ window.DATOS_LOTOPRO = {
       "35",
       "07"
     ],
-    "presion_acumulada_pct": 95.4,
+    "presion_acumulada_pct": 97.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "25",
@@ -617,6 +621,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "27",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (2da) ➔ New York 10:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "91",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -693,6 +717,26 @@ window.DATOS_LOTOPRO = {
             "id": "anguila_6pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "21",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New York 10:30 PM (2da) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
@@ -919,7 +963,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 07] en 1ra, la presión acumulada alcanza el 95.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 07] en 1ra, la presión acumulada alcanza el 97.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -927,9 +971,9 @@ window.DATOS_LOTOPRO = {
       "35",
       "07"
     ],
-    "presion_acumulada_pct": 95.4,
+    "presion_acumulada_pct": 97.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "25",
@@ -1058,6 +1102,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "27",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (2da) ➔ New York 10:30 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "91",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1134,6 +1198,26 @@ window.DATOS_LOTOPRO = {
             "id": "anguila_6pm",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "21",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "New York 10:30 PM (2da) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
@@ -1360,6 +1444,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 07] en 1ra, la presión acumulada alcanza el 95.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [35 × 07] en 1ra, la presión acumulada alcanza el 97.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
