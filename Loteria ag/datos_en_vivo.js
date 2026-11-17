@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-16",
   "fecha_ayer": "2026-11-15",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -387,9 +387,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        47,
-        24,
-        86
+        75,
+        23,
+        45
       ]
     },
     {
@@ -471,32 +471,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
-        "numero": "24",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "02",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -577,6 +551,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "24",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -613,6 +607,26 @@ window.DATOS_LOTOPRO = {
             "id": "ny_tarde",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "45",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -657,9 +671,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          47,
-          24,
-          86
+          75,
+          23,
+          45
         ],
         "aciertos": []
       },
@@ -757,9 +771,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          47,
-          24,
-          86
+          75,
+          23,
+          45
         ],
         "aciertos": []
       },
@@ -858,32 +872,6 @@ window.DATOS_LOTOPRO = {
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
-        "numero": "24",
-        "repeticiones": 3,
-        "tipo": "Cadena Ondular Expansiva",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra) ➔ Quiniela Loteka 7:55 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
         "numero": "02",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -964,6 +952,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "24",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "90",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1000,6 +1008,26 @@ window.DATOS_LOTOPRO = {
             "id": "ny_tarde",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "45",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -1044,9 +1072,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          47,
-          24,
-          86
+          75,
+          23,
+          45
         ],
         "aciertos": []
       },
@@ -1144,9 +1172,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          47,
-          24,
-          86
+          75,
+          23,
+          45
         ],
         "aciertos": []
       },
