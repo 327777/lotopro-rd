@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-17",
   "fecha_ayer": "2026-11-16",
-  "actualizado_a_las": "10:10 PM",
+  "actualizado_a_las": "11:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -468,8 +468,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        55,
+        74,
+        51
+      ]
     },
     {
       "id": "ny_noche",
@@ -489,13 +493,13 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "19 / 20",
     "ecos_detectados": [
       {
         "numero": "55",
-        "repeticiones": 3,
+        "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Florida 1:30 PM (2da) ➔ Anguila 6:00 PM (1ra)",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Florida 1:30 PM (2da) ➔ Anguila 6:00 PM (1ra) ➔ Florida 10:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "La Primera 12:00 PM",
@@ -512,6 +516,12 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Anguila 6:00 PM",
             "id": "anguila_6pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -538,6 +548,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Real 9:00 PM",
             "id": "real_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "74",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Florida 10:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -700,6 +730,26 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "51",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (1ra) ➔ Florida 10:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -970,13 +1020,13 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "18 / 20",
+    "sorteos_evaluados": "19 / 20",
     "ecos_detectados": [
       {
         "numero": "55",
-        "repeticiones": 3,
+        "repeticiones": 4,
         "tipo": "Cadena Ondular Expansiva",
-        "detalle": "La Primera 12:00 PM (1ra) ➔ Florida 1:30 PM (2da) ➔ Anguila 6:00 PM (1ra)",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Florida 1:30 PM (2da) ➔ Anguila 6:00 PM (1ra) ➔ Florida 10:00 PM (1ra)",
         "loterias": [
           {
             "loteria": "La Primera 12:00 PM",
@@ -993,6 +1043,12 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Anguila 6:00 PM",
             "id": "anguila_6pm",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
             "pos": "1ra",
             "premio_index": 1
           }
@@ -1019,6 +1075,26 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "Real 9:00 PM",
             "id": "real_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "74",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (3ra) ➔ Florida 10:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
             "pos": "2da",
             "premio_index": 2
           }
@@ -1181,6 +1257,26 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_leidsa",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "51",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (1ra) ➔ Florida 10:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Florida 10:00 PM",
+            "id": "florida_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
