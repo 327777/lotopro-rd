@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-18",
   "fecha_ayer": "2026-11-17",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -387,9 +387,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        17,
-        45,
-        43
+        84,
+        64,
+        9
       ]
     },
     {
@@ -643,9 +643,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          45,
-          43
+          84,
+          64,
+          9
         ],
         "aciertos": []
       },
@@ -743,9 +743,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          45,
-          43
+          84,
+          64,
+          9
         ],
         "aciertos": []
       },
@@ -1016,9 +1016,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          45,
-          43
+          84,
+          64,
+          9
         ],
         "aciertos": []
       },
@@ -1116,9 +1116,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          17,
-          45,
-          43
+          84,
+          64,
+          9
         ],
         "aciertos": []
       },
