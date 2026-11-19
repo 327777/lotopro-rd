@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-18",
   "fecha_ayer": "2026-11-17",
-  "actualizado_a_las": "11:00 PM",
+  "actualizado_a_las": "11:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -481,8 +481,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        4,
+        30,
+        64
+      ]
     }
   ],
   "radar_vaiven_top4": {
@@ -493,7 +497,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "09",
@@ -634,6 +638,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "30",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "99",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -710,6 +734,26 @@ window.DATOS_LOTOPRO = {
             "id": "loteria_nacional",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (2da) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
@@ -940,7 +984,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "09",
@@ -1081,6 +1125,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "30",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "99",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1157,6 +1221,26 @@ window.DATOS_LOTOPRO = {
             "id": "loteria_nacional",
             "pos": "1ra",
             "premio_index": 1
+          }
+        ]
+      },
+      {
+        "numero": "64",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (2da) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       }
