@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-19",
   "fecha_ayer": "2026-11-18",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -258,8 +258,8 @@ window.DATOS_LOTOPRO = {
       "estado": "finalizado",
       "premios": [
         55,
-        72,
-        84
+        83,
+        18
       ]
     },
     {
@@ -657,22 +657,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "72",
+        "numero": "18",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ La Primera 8:00 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (2da)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -757,7 +757,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "83",
+        "objetivo_presionado": "82",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 83 vibró en 1 sorteo(s), empujando al 82"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -839,8 +846,8 @@ window.DATOS_LOTOPRO = {
         "color_estado": "#94a3b8",
         "premios_hoy": [
           55,
-          72,
-          84
+          83,
+          18
         ],
         "aciertos": []
       },
@@ -943,8 +950,8 @@ window.DATOS_LOTOPRO = {
         "color_estado": "#94a3b8",
         "premios_hoy": [
           55,
-          72,
-          84
+          83,
+          18
         ],
         "aciertos": []
       },
@@ -1149,22 +1156,22 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "72",
+        "numero": "18",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ La Primera 8:00 PM (1ra)",
+        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (2da)",
         "loterias": [
           {
             "loteria": "LoteDom 12:00 PM",
             "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
+            "pos": "3ra",
+            "premio_index": 3
           },
           {
-            "loteria": "La Primera 8:00 PM",
-            "id": "primera_noche",
-            "pos": "1ra",
-            "premio_index": 1
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "2da",
+            "premio_index": 2
           }
         ]
       },
@@ -1249,7 +1256,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "83",
+        "objetivo_presionado": "82",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 83 vibró en 1 sorteo(s), empujando al 82"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -1331,8 +1345,8 @@ window.DATOS_LOTOPRO = {
         "color_estado": "#94a3b8",
         "premios_hoy": [
           55,
-          72,
-          84
+          83,
+          18
         ],
         "aciertos": []
       },
@@ -1435,8 +1449,8 @@ window.DATOS_LOTOPRO = {
         "color_estado": "#94a3b8",
         "premios_hoy": [
           55,
-          72,
-          84
+          83,
+          18
         ],
         "aciertos": []
       },
