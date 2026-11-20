@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-20",
   "fecha_ayer": "2026-11-19",
-  "actualizado_a_las": "02:50 PM",
+  "actualizado_a_las": "03:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -346,8 +346,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        16,
+        50,
+        86
+      ]
     },
     {
       "id": "la_suerte_tarde",
@@ -446,9 +450,9 @@ window.DATOS_LOTOPRO = {
       "26",
       "05"
     ],
-    "presion_acumulada_pct": 79.4,
+    "presion_acumulada_pct": 81.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "9 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "96",
@@ -489,6 +493,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "86",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ New York 2:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -497,6 +521,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "26",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 25 vibró en 1 sorteo(s), empujando al 26"
+      },
+      {
+        "numero_disparador": "50",
+        "objetivo_presionado": "05",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 50 rompió hoy, activando tracción directa hacia el 05"
       }
     ],
     "top4_estrategicas": [
@@ -520,10 +550,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[26] o [05] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          16,
+          50,
+          86
+        ],
         "aciertos": []
       },
       {
@@ -612,10 +646,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[26] o [05] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          16,
+          50,
+          86
+        ],
         "aciertos": []
       },
       {
@@ -683,7 +721,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [26 × 05] en 1ra, la presión acumulada alcanza el 79.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [26 × 05] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -691,9 +729,9 @@ window.DATOS_LOTOPRO = {
       "26",
       "05"
     ],
-    "presion_acumulada_pct": 79.4,
+    "presion_acumulada_pct": 81.0,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "9 / 20",
+    "sorteos_evaluados": "10 / 20",
     "ecos_detectados": [
       {
         "numero": "96",
@@ -734,6 +772,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "86",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (2da) ➔ New York 2:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -742,6 +800,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "26",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 25 vibró en 1 sorteo(s), empujando al 26"
+      },
+      {
+        "numero_disparador": "50",
+        "objetivo_presionado": "05",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 50 rompió hoy, activando tracción directa hacia el 05"
       }
     ],
     "top4_estrategicas": [
@@ -765,10 +829,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[26] o [05] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          16,
+          50,
+          86
+        ],
         "aciertos": []
       },
       {
@@ -857,10 +925,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
         "foco_recomendado": "[26] o [05] Directo en 1ra",
-        "estado_sorteo": "proximo",
-        "estado_radar": "🔥 VENTANA CRÍTICA ACTIVA (Próximo)",
-        "color_estado": "#f59e0b",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          16,
+          50,
+          86
+        ],
         "aciertos": []
       },
       {
@@ -928,6 +1000,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [26 × 05] en 1ra, la presión acumulada alcanza el 79.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [26 × 05] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
