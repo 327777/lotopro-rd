@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "12:40 PM",
+  "actualizado_a_las": "01:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,8 +286,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        37,
+        3,
+        32
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -295,8 +299,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        86,
+        63,
+        42
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -433,8 +441,28 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "4 / 20",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
+      {
+        "numero": "03",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Quiniela Real 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
       {
         "numero": "91",
         "repeticiones": 2,
@@ -456,7 +484,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "63",
+        "objetivo_presionado": "64",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -647,8 +682,28 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "4 / 20",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [
+      {
+        "numero": "03",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "La Primera 12:00 PM (1ra) ➔ Quiniela Real 1:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "La Primera 12:00 PM",
+            "id": "la_primera_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
       {
         "numero": "91",
         "repeticiones": 2,
@@ -670,7 +725,14 @@ window.DATOS_LOTOPRO = {
         ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "63",
+        "objetivo_presionado": "64",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
