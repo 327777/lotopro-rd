@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "02:10 PM",
+  "actualizado_a_las": "02:50 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -325,8 +325,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Tarde",
       "hora": "1:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        83,
+        69,
+        36
+      ]
     },
     {
       "id": "gana_mas",
@@ -334,8 +338,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "2:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        0,
+        56,
+        55
+      ]
     },
     {
       "id": "ny_tarde",
@@ -445,7 +453,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "9 / 20",
     "ecos_detectados": [
       {
         "numero": "03",
@@ -550,10 +558,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[47] o [64] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          0,
+          56,
+          55
+        ],
         "aciertos": []
       },
       {
@@ -640,10 +652,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[47] o [64] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          0,
+          56,
+          55
+        ],
         "aciertos": []
       },
       {
@@ -706,7 +722,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "7 / 20",
+    "sorteos_evaluados": "9 / 20",
     "ecos_detectados": [
       {
         "numero": "03",
@@ -811,10 +827,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[47] o [64] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          0,
+          56,
+          55
+        ],
         "aciertos": []
       },
       {
@@ -901,10 +921,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "2 aciertos en 1ra (Supera a Nacional)",
         "afinidad_vaiven": "95.0%",
         "foco_recomendado": "[47] o [64] en 1ra Mayor",
-        "estado_sorteo": "proximo",
-        "estado_radar": "ESPERANDO HORA OFICIAL",
-        "color_estado": "#38bdf8",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          0,
+          56,
+          55
+        ],
         "aciertos": []
       },
       {
