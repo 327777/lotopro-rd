@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-20",
   "fecha_ayer": "2026-11-19",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        89,
-        56,
-        76
+        68,
+        5,
+        39
       ]
     },
     {
@@ -613,6 +613,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "68",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 12:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "86",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -804,14 +824,16 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[26] o [05] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 05 en 2da)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          89,
-          56,
-          76
+          68,
+          5,
+          39
         ],
-        "aciertos": []
+        "aciertos": [
+          "LoteDom 12:00 PM: 05 en 2da"
+        ]
       },
       {
         "id": "la_suerte_dia",
@@ -908,14 +930,16 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[26] o [05] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 05 en 2da)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          89,
-          56,
-          76
+          68,
+          5,
+          39
         ],
-        "aciertos": []
+        "aciertos": [
+          "LoteDom 12:00 PM: 05 en 2da"
+        ]
       },
       {
         "id": "la_suerte_dia",
@@ -1074,6 +1098,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "68",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ La Suerte 12:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Suerte 12:30 PM",
+            "id": "la_suerte_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
         "numero": "86",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1265,14 +1309,16 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[26] o [05] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 05 en 2da)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          89,
-          56,
-          76
+          68,
+          5,
+          39
         ],
-        "aciertos": []
+        "aciertos": [
+          "LoteDom 12:00 PM: 05 en 2da"
+        ]
       },
       {
         "id": "la_suerte_dia",
@@ -1369,14 +1415,16 @@ window.DATOS_LOTOPRO = {
         "afinidad_vaiven": "94.0%",
         "foco_recomendado": "[26] o [05] en 1ra",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (LoteDom 12:00 PM: 05 en 2da)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          89,
-          56,
-          76
+          68,
+          5,
+          39
         ],
-        "aciertos": []
+        "aciertos": [
+          "LoteDom 12:00 PM: 05 en 2da"
+        ]
       },
       {
         "id": "la_suerte_dia",
