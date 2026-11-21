@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "06:10 PM",
+  "actualizado_a_las": "07:57 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -390,8 +390,12 @@
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        21,
+        97,
+        84
+      ]
     },
     {
       "id": "primera_noche",
@@ -465,7 +469,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
       {
         "numero": "26",
@@ -596,10 +600,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "47 en 1ra y Palé [47 × 64]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          21,
+          97,
+          84
+        ],
         "aciertos": []
       },
       {
@@ -694,10 +702,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "47 en 1ra y Palé [47 × 64]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          21,
+          97,
+          84
+        ],
         "aciertos": []
       },
       {
@@ -794,7 +806,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "12 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
       {
         "numero": "26",
@@ -925,10 +937,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "47 en 1ra y Palé [47 × 64]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          21,
+          97,
+          84
+        ],
         "aciertos": []
       },
       {
@@ -1023,10 +1039,14 @@
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "47 en 1ra y Palé [47 × 64]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          21,
+          97,
+          84
+        ],
         "aciertos": []
       },
       {
