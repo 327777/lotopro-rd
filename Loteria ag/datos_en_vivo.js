@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "07:57 PM",
+  "actualizado_a_las": "08:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -403,8 +403,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        4,
+        90,
+        49
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -469,8 +473,34 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
+      {
+        "numero": "90",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (1ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
       {
         "numero": "26",
         "repeticiones": 3,
@@ -494,26 +524,6 @@ window.DATOS_LOTOPRO = {
             "id": "anguila_6pm",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "90",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
           }
         ]
       },
@@ -806,8 +816,34 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "13 / 20",
+    "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
+      {
+        "numero": "90",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (1ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "New York 2:30 PM",
+            "id": "ny_tarde",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
       {
         "numero": "26",
         "repeticiones": 3,
@@ -831,26 +867,6 @@ window.DATOS_LOTOPRO = {
             "id": "anguila_6pm",
             "pos": "2da",
             "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "90",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Anguila 10:00 AM (2da) ➔ New York 2:30 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "Anguila 10:00 AM",
-            "id": "anguila_10am",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
           }
         ]
       },
