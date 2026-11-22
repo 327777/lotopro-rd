@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "09:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -429,8 +429,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        78,
+        97,
+        46
+      ]
     },
     {
       "id": "real_noche",
@@ -485,7 +489,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "17 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "90",
@@ -698,6 +702,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "46",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (3ra) ➔ Anguila 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -705,7 +729,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "46",
         "objetivo_presionado": "47",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 46 vibró en 1 sorteo(s), empujando al 47"
+        "impacto": "El 46 vibró en 2 sorteo(s), empujando al 47"
       },
       {
         "numero_disparador": "48",
@@ -948,7 +972,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "17 / 20",
+    "sorteos_evaluados": "18 / 20",
     "ecos_detectados": [
       {
         "numero": "90",
@@ -1161,6 +1185,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "46",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Lotería Nacional 9:00 PM (3ra) ➔ Anguila 9:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Lotería Nacional 9:00 PM",
+            "id": "loteria_nacional",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -1168,7 +1212,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "46",
         "objetivo_presionado": "47",
         "tipo": "Flanco Vecino (±1)",
-        "impacto": "El 46 vibró en 1 sorteo(s), empujando al 47"
+        "impacto": "El 46 vibró en 2 sorteo(s), empujando al 47"
       },
       {
         "numero_disparador": "48",
