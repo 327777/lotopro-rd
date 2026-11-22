@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-21",
   "fecha_ayer": "2026-11-20",
-  "actualizado_a_las": "09:00 PM",
+  "actualizado_a_las": "09:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -451,8 +451,12 @@
       "categoria": "Anguila",
       "tanda": "Noche",
       "hora": "9:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        55,
+        46,
+        16
+      ]
     },
     {
       "id": "florida_noche",
@@ -481,7 +485,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "17 / 20",
     "ecos_detectados": [
       {
         "numero": "90",
@@ -656,6 +660,26 @@
         ]
       },
       {
+        "numero": "55",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "11",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -678,6 +702,12 @@
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "46",
+        "objetivo_presionado": "47",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 46 vibró en 1 sorteo(s), empujando al 47"
+      },
+      {
         "numero_disparador": "48",
         "objetivo_presionado": "47",
         "tipo": "Flanco Vecino (±1)",
@@ -688,6 +718,12 @@
         "objetivo_presionado": "64",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
+      },
+      {
+        "numero_disparador": "46",
+        "objetivo_presionado": "64",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 46 rompió hoy, activando tracción directa hacia el 64"
       }
     ],
     "top4_estrategicas": [
@@ -912,7 +948,7 @@
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "16 / 20",
+    "sorteos_evaluados": "17 / 20",
     "ecos_detectados": [
       {
         "numero": "90",
@@ -1087,6 +1123,26 @@
         ]
       },
       {
+        "numero": "55",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Gana Más 2:30 PM (3ra) ➔ Anguila 9:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Anguila 9:00 PM",
+            "id": "anguila_9pm",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
+      {
         "numero": "11",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1109,6 +1165,12 @@
     ],
     "presiones_vectoriales": [
       {
+        "numero_disparador": "46",
+        "objetivo_presionado": "47",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 46 vibró en 1 sorteo(s), empujando al 47"
+      },
+      {
         "numero_disparador": "48",
         "objetivo_presionado": "47",
         "tipo": "Flanco Vecino (±1)",
@@ -1119,6 +1181,12 @@
         "objetivo_presionado": "64",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
+      },
+      {
+        "numero_disparador": "46",
+        "objetivo_presionado": "64",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 46 rompió hoy, activando tracción directa hacia el 64"
       }
     ],
     "top4_estrategicas": [
