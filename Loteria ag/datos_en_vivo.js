@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-22",
   "fecha_ayer": "2026-11-21",
-  "actualizado_a_las": "12:40 PM",
+  "actualizado_a_las": "01:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -286,8 +286,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        77,
+        59,
+        13
+      ]
     },
     {
       "id": "anguila_1pm",
@@ -295,8 +299,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "1:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        46,
+        32,
+        38
+      ]
     },
     {
       "id": "new_jersey_dia",
@@ -433,7 +441,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "4 / 20",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
@@ -635,7 +643,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "4 / 20",
+    "sorteos_evaluados": "6 / 20",
     "ecos_detectados": [],
     "presiones_vectoriales": [
       {
