@@ -1,7 +1,7 @@
 {
   "fecha_hoy": "2026-11-23",
   "fecha_ayer": "2026-11-22",
-  "actualizado_a_las": "12:37 PM",
+  "actualizado_a_las": "12:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -105,66 +105,30 @@
       ]
     },
     {
-      "nombre": "New York 10:30 PM",
-      "hora": "10:30 PM",
+      "nombre": "Florida 1:30 PM",
+      "hora": "1:30 PM",
       "premios": [
-        13,
-        15,
-        28
-      ]
-    },
-    {
-      "nombre": "Florida 10:00 PM",
-      "hora": "10:00 PM",
-      "premios": [
-        14,
-        58,
-        96
-      ]
-    },
-    {
-      "nombre": "Anguila 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        28,
-        31,
-        36
-      ]
-    },
-    {
-      "nombre": "Real 9:00 PM",
-      "hora": "9:00 PM",
-      "premios": [
-        73,
-        52,
-        9
-      ]
-    },
-    {
-      "nombre": "Quiniela Loteka 7:55 PM",
-      "hora": "7:55 PM",
-      "premios": [
-        27,
         82,
-        61
+        11,
+        90
       ]
     },
     {
-      "nombre": "La Primera 8:00 PM",
-      "hora": "8:00 PM",
+      "nombre": "Gana Más 2:30 PM",
+      "hora": "2:30 PM",
       "premios": [
-        16,
-        60,
-        60
+        32,
+        33,
+        22
       ]
     },
     {
-      "nombre": "Lotería Nacional 9:00 PM",
-      "hora": "9:00 PM",
+      "nombre": "New York 2:30 PM",
+      "hora": "2:30 PM",
       "premios": [
-        46,
-        42,
-        94
+        24,
+        14,
+        20
       ]
     },
     {
@@ -186,6 +150,24 @@
       ]
     },
     {
+      "nombre": "Quiniela Loteka 7:55 PM",
+      "hora": "7:55 PM",
+      "premios": [
+        27,
+        82,
+        61
+      ]
+    },
+    {
+      "nombre": "La Primera 8:00 PM",
+      "hora": "8:00 PM",
+      "premios": [
+        16,
+        60,
+        60
+      ]
+    },
+    {
       "nombre": "Quiniela Leidsa 8:55 PM",
       "hora": "8:55 PM",
       "premios": [
@@ -195,30 +177,48 @@
       ]
     },
     {
-      "nombre": "New York 2:30 PM",
-      "hora": "2:30 PM",
+      "nombre": "Lotería Nacional 9:00 PM",
+      "hora": "9:00 PM",
       "premios": [
-        24,
+        46,
+        42,
+        94
+      ]
+    },
+    {
+      "nombre": "Real 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        73,
+        52,
+        9
+      ]
+    },
+    {
+      "nombre": "Anguila 9:00 PM",
+      "hora": "9:00 PM",
+      "premios": [
+        28,
+        31,
+        36
+      ]
+    },
+    {
+      "nombre": "Florida 10:00 PM",
+      "hora": "10:00 PM",
+      "premios": [
         14,
-        20
+        58,
+        96
       ]
     },
     {
-      "nombre": "Gana Más 2:30 PM",
-      "hora": "2:30 PM",
+      "nombre": "New York 10:30 PM",
+      "hora": "10:30 PM",
       "premios": [
-        32,
-        33,
-        22
-      ]
-    },
-    {
-      "nombre": "Florida 1:30 PM",
-      "hora": "1:30 PM",
-      "premios": [
-        82,
-        11,
-        90
+        13,
+        15,
+        28
       ]
     }
   ],
