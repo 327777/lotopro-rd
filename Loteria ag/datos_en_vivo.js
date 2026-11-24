@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-23",
   "fecha_ayer": "2026-11-22",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:20 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -35,9 +35,14 @@ window.DATOS_LOTOPRO = {
       "dias_activo": 1,
       "max_dias_ciclo": 5,
       "objetivo": "Ruptura en 1ra Mayor en Cualquier Sorteo Oficial",
-      "rompio_en_1ra": false,
-      "detalle_ruptura": null,
-      "estado": "En Maduración Activa (Día 1 de 5)"
+      "rompio_en_1ra": true,
+      "detalle_ruptura": {
+        "loteria_id": "quiniela_loteka",
+        "loteria_nombre": "Quiniela Loteka 7:55 PM",
+        "fecha": "23/11/2026",
+        "numero_ganador": "63"
+      },
+      "estado": "¡OBJETIVO CUMPLIDO! Rompió 63 en 1ra en Quiniela Loteka 7:55 PM"
     }
   },
   "sorteos_ayer": [
@@ -387,9 +392,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        41,
-        83,
-        97
+        63,
+        33,
+        13
       ]
     },
     {
@@ -466,15 +471,15 @@ window.DATOS_LOTOPRO = {
       "63",
       "64"
     ],
-    "presion_acumulada_pct": 87.4,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "13",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (2da) ➔ La Suerte 6:00 PM (2da)",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Primera 12:00 PM (2da) ➔ La Suerte 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
             "loteria": "La Primera 12:00 PM",
@@ -487,6 +492,12 @@ window.DATOS_LOTOPRO = {
             "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -571,6 +582,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "33",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "87",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -609,26 +640,6 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
-      },
-      {
-        "numero": "97",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (1ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
@@ -637,6 +648,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "63",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 64 vibró en 1 sorteo(s), empujando al 63"
+      },
+      {
+        "numero_disparador": "63",
+        "objetivo_presionado": "64",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
       },
       {
         "numero_disparador": "65",
@@ -658,16 +675,18 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [63 × 64] y Quiniela [63] / [64]",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Loteka 7:55 PM: 63 en 1ra)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          41,
-          83,
-          97
+          63,
+          33,
+          13
         ],
-        "aciertos": []
+        "aciertos": [
+          "Quiniela Loteka 7:55 PM: 63 en 1ra"
+        ]
       },
       {
         "id": "ny_tarde",
@@ -675,7 +694,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[63] o [64] Directo en 1ra",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -758,16 +777,18 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [63 × 64] y Quiniela [63] / [64]",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Loteka 7:55 PM: 63 en 1ra)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          41,
-          83,
-          97
+          63,
+          33,
+          13
         ],
-        "aciertos": []
+        "aciertos": [
+          "Quiniela Loteka 7:55 PM: 63 en 1ra"
+        ]
       },
       {
         "id": "ny_tarde",
@@ -775,7 +796,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[63] o [64] Directo en 1ra",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -851,7 +872,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [63 × 64] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [63 × 64] registró doble impacto en el mediodía: el 64 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (64 ➔ 63), la presión residual se concentra con máxima fuerza en el 63 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -859,15 +880,15 @@ window.DATOS_LOTOPRO = {
       "63",
       "64"
     ],
-    "presion_acumulada_pct": 87.4,
-    "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
+    "presion_acumulada_pct": 99.4,
+    "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
     "sorteos_evaluados": "14 / 20",
     "ecos_detectados": [
       {
         "numero": "13",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "La Primera 12:00 PM (2da) ➔ La Suerte 6:00 PM (2da)",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "La Primera 12:00 PM (2da) ➔ La Suerte 6:00 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
         "loterias": [
           {
             "loteria": "La Primera 12:00 PM",
@@ -880,6 +901,12 @@ window.DATOS_LOTOPRO = {
             "id": "la_suerte_tarde",
             "pos": "2da",
             "premio_index": 2
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -964,6 +991,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "33",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Real 1:00 PM (3ra) ➔ Quiniela Loteka 7:55 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Real 1:00 PM",
+            "id": "quiniela_real",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "87",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1002,26 +1049,6 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
-      },
-      {
-        "numero": "97",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "New York 2:30 PM (1ra) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "New York 2:30 PM",
-            "id": "ny_tarde",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
@@ -1030,6 +1057,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "63",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 64 vibró en 1 sorteo(s), empujando al 63"
+      },
+      {
+        "numero_disparador": "63",
+        "objetivo_presionado": "64",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 63 vibró en 1 sorteo(s), encerrando al 64"
       },
       {
         "numero_disparador": "65",
@@ -1051,16 +1084,18 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [63 × 64] y Quiniela [63] / [64]",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Loteka 7:55 PM: 63 en 1ra)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          41,
-          83,
-          97
+          63,
+          33,
+          13
         ],
-        "aciertos": []
+        "aciertos": [
+          "Quiniela Loteka 7:55 PM: 63 en 1ra"
+        ]
       },
       {
         "id": "ny_tarde",
@@ -1068,7 +1103,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[63] o [64] Directo en 1ra",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -1151,16 +1186,18 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Especialista en Palé y 1ra",
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
-        "foco_recomendado": "Palé [63 × 64] y Quiniela [63] / [64]",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
-        "estado_radar": "FINALIZADO (Inercia Transferida)",
-        "color_estado": "#94a3b8",
+        "estado_radar": "🎯 ¡IMPACTO! (Quiniela Loteka 7:55 PM: 63 en 1ra)",
+        "color_estado": "#10b981",
         "premios_hoy": [
-          41,
-          83,
-          97
+          63,
+          33,
+          13
         ],
-        "aciertos": []
+        "aciertos": [
+          "Quiniela Loteka 7:55 PM: 63 en 1ra"
+        ]
       },
       {
         "id": "ny_tarde",
@@ -1168,7 +1205,7 @@ window.DATOS_LOTOPRO = {
         "rol_estrategico": "Líder 100% en 1ra (Mayor)",
         "record_historico": "100% efectividad histórica en 1ra",
         "afinidad_vaiven": "97.8%",
-        "foco_recomendado": "[63] o [64] Directo en 1ra",
+        "foco_recomendado": "63 en 1ra y Palé [63 × 64]",
         "estado_sorteo": "finalizado",
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
@@ -1244,6 +1281,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [63 × 64] en 1ra, la presión acumulada alcanza el 87.4%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "¡CONFIRMACIÓN DE VAIVÉN EN VIVO! La combinación de alta frecuencia [63 × 64] registró doble impacto en el mediodía: el 64 reventó en 1ra (LoteDom 12:00 PM) y rebotó en 2da (La Suerte 12:30 PM). Por atracción directa de jaladera (64 ➔ 63), la presión residual se concentra con máxima fuerza en el 63 para romper en 1ra o completar el Palé oficial en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
