@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-24",
   "fecha_ayer": "2026-11-23",
-  "actualizado_a_las": "03:40 PM",
+  "actualizado_a_las": "06:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -359,8 +359,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        4,
+        26,
+        27
+      ]
     },
     {
       "id": "anguila_6pm",
@@ -368,8 +372,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Anguila",
       "tanda": "Tarde",
       "hora": "6:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        94,
+        41,
+        80
+      ]
     },
     {
       "id": "quiniela_loteka",
@@ -450,10 +458,30 @@ window.DATOS_LOTOPRO = {
       "82",
       "40"
     ],
-    "presion_acumulada_pct": 81.0,
+    "presion_acumulada_pct": 84.2,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "12 / 20",
     "ecos_detectados": [
+      {
+        "numero": "27",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (2da) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "17",
         "repeticiones": 2,
@@ -513,6 +541,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "26",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -521,6 +569,18 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "82",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 83 vibró en 1 sorteo(s), empujando al 82"
+      },
+      {
+        "numero_disparador": "41",
+        "objetivo_presionado": "40",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 41 vibró en 1 sorteo(s), encerrando al 40"
+      },
+      {
+        "numero_disparador": "04",
+        "objetivo_presionado": "40",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 04 rompió hoy, activando tracción directa hacia el 40"
       }
     ],
     "top4_estrategicas": [
@@ -715,7 +775,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [82 × 40] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [82 × 40] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -723,10 +783,30 @@ window.DATOS_LOTOPRO = {
       "82",
       "40"
     ],
-    "presion_acumulada_pct": 81.0,
+    "presion_acumulada_pct": 84.2,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "10 / 20",
+    "sorteos_evaluados": "12 / 20",
     "ecos_detectados": [
+      {
+        "numero": "27",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 10:00 AM (2da) ➔ La Suerte 6:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 10:00 AM",
+            "id": "anguila_10am",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
       {
         "numero": "17",
         "repeticiones": 2,
@@ -786,6 +866,26 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
+      },
+      {
+        "numero": "26",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (3ra) ➔ La Suerte 6:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Suerte 6:00 PM",
+            "id": "la_suerte_tarde",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
     "presiones_vectoriales": [
@@ -794,6 +894,18 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "82",
         "tipo": "Flanco Vecino (±1)",
         "impacto": "El 83 vibró en 1 sorteo(s), empujando al 82"
+      },
+      {
+        "numero_disparador": "41",
+        "objetivo_presionado": "40",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 41 vibró en 1 sorteo(s), encerrando al 40"
+      },
+      {
+        "numero_disparador": "04",
+        "objetivo_presionado": "40",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 04 rompió hoy, activando tracción directa hacia el 40"
       }
     ],
     "top4_estrategicas": [
@@ -988,6 +1100,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [82 × 40] en 1ra, la presión acumulada alcanza el 81.0%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [82 × 40] en 1ra, la presión acumulada alcanza el 84.2%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
