@@ -11,7 +11,7 @@ on:
       - 'Loteria ag/style.css'
       - '.github/workflows/**'
   schedule:
-    # Minutos desfasados (:07, :22, :37, :52) para evitar saturación de servidores en GitHub y garantizar ejecución puntual 24/7
+    # Minutos desfasados (:07, :22, :37, :52) para garantizar ejecución continua 24/7
     - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 
@@ -20,15 +20,14 @@ permissions:
   pages: write
   id-token: write
 
+# Blindaje 1: Si un ciclo se atrasa o queda en cola, el nuevo lo cancela y toma el control (evita bloqueos)
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  actualizar:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # 1. RASTREO Y GENERACIÓN DE DATOS (Python + Guardado Git + Empaquetado)
+  construir:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar codigo
@@ -62,6 +61,14 @@ jobs:
         with:
           path: './Loteria ag'
 
+  # 2. DESPLIEGUE AUTÓNOMO (Separado para garantizar 100% de indexación del artefacto sin fallos)
+  desplegar:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: construir
+    steps:
       - name: Desplegar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
