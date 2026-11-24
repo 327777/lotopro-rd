@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-23",
   "fecha_ayer": "2026-11-22",
-  "actualizado_a_las": "11:00 PM",
+  "actualizado_a_las": "11:40 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -481,8 +481,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Extranjeras",
       "tanda": "Noche",
       "hora": "10:30 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        0,
+        4,
+        65
+      ]
     }
   ],
   "radar_vaiven_top4": {
@@ -493,7 +497,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "28",
@@ -626,6 +630,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "37",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -662,6 +686,26 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_loteka",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "65",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (3ra) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -743,7 +787,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "65",
         "objetivo_presionado": "64",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 65 vibró en 1 sorteo(s), encerrando al 64"
+        "impacto": "El 65 vibró en 2 sorteo(s), encerrando al 64"
       },
       {
         "numero_disparador": "46",
@@ -974,7 +1018,7 @@ window.DATOS_LOTOPRO = {
     ],
     "presion_acumulada_pct": 99.4,
     "fase_onda": "IMPACTO EN 1RA CONFIRMADO",
-    "sorteos_evaluados": "19 / 20",
+    "sorteos_evaluados": "20 / 20",
     "ecos_detectados": [
       {
         "numero": "28",
@@ -1107,6 +1151,26 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
+        "numero": "04",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "LoteDom 12:00 PM (1ra) ➔ New York 10:30 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "LoteDom 12:00 PM",
+            "id": "lotedom",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
+      },
+      {
         "numero": "37",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1143,6 +1207,26 @@ window.DATOS_LOTOPRO = {
             "id": "quiniela_loteka",
             "pos": "2da",
             "premio_index": 2
+          }
+        ]
+      },
+      {
+        "numero": "65",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Anguila 1:00 PM (3ra) ➔ New York 10:30 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Anguila 1:00 PM",
+            "id": "anguila_1pm",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "New York 10:30 PM",
+            "id": "ny_noche",
+            "pos": "3ra",
+            "premio_index": 3
           }
         ]
       },
@@ -1224,7 +1308,7 @@ window.DATOS_LOTOPRO = {
         "numero_disparador": "65",
         "objetivo_presionado": "64",
         "tipo": "Encierro Armónico (Sándwich)",
-        "impacto": "El 65 vibró en 1 sorteo(s), encerrando al 64"
+        "impacto": "El 65 vibró en 2 sorteo(s), encerrando al 64"
       },
       {
         "numero_disparador": "46",
