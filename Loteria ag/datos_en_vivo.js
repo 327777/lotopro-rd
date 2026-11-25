@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-24",
   "fecha_ayer": "2026-11-23",
-  "actualizado_a_las": "08:00 PM",
+  "actualizado_a_las": "08:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -387,9 +387,9 @@ window.DATOS_LOTOPRO = {
       "hora": "7:55 PM",
       "estado": "finalizado",
       "premios": [
-        28,
-        67,
-        12
+        81,
+        5,
+        16
       ]
     },
     {
@@ -569,29 +569,15 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
-      },
-      {
-        "numero": "12",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "81",
+        "objetivo_presionado": "82",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 81 vibró en 1 sorteo(s), empujando al 82"
+      },
       {
         "numero_disparador": "83",
         "objetivo_presionado": "82",
@@ -603,12 +589,6 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "40",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 41 vibró en 1 sorteo(s), encerrando al 40"
-      },
-      {
-        "numero_disparador": "28",
-        "objetivo_presionado": "82",
-        "tipo": "Revés Espejo (Virado en 1ra)",
-        "impacto": "El virado 28 rompió hoy, activando tracción directa hacia el 82"
       },
       {
         "numero_disparador": "04",
@@ -629,9 +609,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          28,
-          67,
-          12
+          81,
+          5,
+          16
         ],
         "aciertos": []
       },
@@ -729,9 +709,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          28,
-          67,
-          12
+          81,
+          5,
+          16
         ],
         "aciertos": []
       },
@@ -928,29 +908,15 @@ window.DATOS_LOTOPRO = {
             "premio_index": 2
           }
         ]
-      },
-      {
-        "numero": "12",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Gana Más 2:30 PM (2da) ➔ Quiniela Loteka 7:55 PM (3ra)",
-        "loterias": [
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Quiniela Loteka 7:55 PM",
-            "id": "quiniela_loteka",
-            "pos": "3ra",
-            "premio_index": 3
-          }
-        ]
       }
     ],
     "presiones_vectoriales": [
+      {
+        "numero_disparador": "81",
+        "objetivo_presionado": "82",
+        "tipo": "Flanco Vecino (±1)",
+        "impacto": "El 81 vibró en 1 sorteo(s), empujando al 82"
+      },
       {
         "numero_disparador": "83",
         "objetivo_presionado": "82",
@@ -962,12 +928,6 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "40",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 41 vibró en 1 sorteo(s), encerrando al 40"
-      },
-      {
-        "numero_disparador": "28",
-        "objetivo_presionado": "82",
-        "tipo": "Revés Espejo (Virado en 1ra)",
-        "impacto": "El virado 28 rompió hoy, activando tracción directa hacia el 82"
       },
       {
         "numero_disparador": "04",
@@ -988,9 +948,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          28,
-          67,
-          12
+          81,
+          5,
+          16
         ],
         "aciertos": []
       },
@@ -1088,9 +1048,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          28,
-          67,
-          12
+          81,
+          5,
+          16
         ],
         "aciertos": []
       },
