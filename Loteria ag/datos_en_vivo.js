@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-26",
   "fecha_ayer": "2026-11-25",
-  "actualizado_a_las": "06:10 PM",
+  "actualizado_a_las": "08:00 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -381,8 +381,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "7:55 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        28,
+        67,
+        6
+      ]
     },
     {
       "id": "primera_noche",
@@ -390,8 +394,12 @@ window.DATOS_LOTOPRO = {
       "categoria": "Dominicanas",
       "tanda": "Noche",
       "hora": "8:00 PM",
-      "estado": "proximo",
-      "premios": null
+      "estado": "finalizado",
+      "premios": [
+        88,
+        6,
+        29
+      ]
     },
     {
       "id": "quiniela_leidsa",
@@ -454,10 +462,36 @@ window.DATOS_LOTOPRO = {
       "60",
       "47"
     ],
-    "presion_acumulada_pct": 82.6,
+    "presion_acumulada_pct": 85.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "11 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
+      {
+        "numero": "88",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da) ➔ La Primera 8:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
       {
         "numero": "70",
         "repeticiones": 2,
@@ -473,26 +507,6 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "La Suerte 6:00 PM",
             "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "88",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
           }
@@ -517,9 +531,56 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "29",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "06",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "06",
+        "objetivo_presionado": "60",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 06 rompió hoy, activando tracción directa hacia el 60"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -528,10 +589,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [60 × 47] y Quiniela [60] / [47]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          28,
+          67,
+          6
+        ],
         "aciertos": []
       },
       {
@@ -620,10 +685,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [60 × 47] y Quiniela [60] / [47]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          28,
+          67,
+          6
+        ],
         "aciertos": []
       },
       {
@@ -704,7 +773,7 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [60 × 47] en 1ra, la presión acumulada alcanza el 82.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [60 × 47] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   },
   "radar_vaiven_top6": {
     "activo": true,
@@ -712,10 +781,36 @@ window.DATOS_LOTOPRO = {
       "60",
       "47"
     ],
-    "presion_acumulada_pct": 82.6,
+    "presion_acumulada_pct": 85.8,
     "fase_onda": "VENTANA CRÍTICA DE RUPTURA",
-    "sorteos_evaluados": "11 / 20",
+    "sorteos_evaluados": "13 / 20",
     "ecos_detectados": [
+      {
+        "numero": "88",
+        "repeticiones": 3,
+        "tipo": "Cadena Ondular Expansiva",
+        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da) ➔ La Primera 8:00 PM (1ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "1ra",
+            "premio_index": 1
+          },
+          {
+            "loteria": "Gana Más 2:30 PM",
+            "id": "gana_mas",
+            "pos": "2da",
+            "premio_index": 2
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "1ra",
+            "premio_index": 1
+          }
+        ]
+      },
       {
         "numero": "70",
         "repeticiones": 2,
@@ -731,26 +826,6 @@ window.DATOS_LOTOPRO = {
           {
             "loteria": "La Suerte 6:00 PM",
             "id": "la_suerte_tarde",
-            "pos": "2da",
-            "premio_index": 2
-          }
-        ]
-      },
-      {
-        "numero": "88",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "Florida 1:30 PM (1ra) ➔ Gana Más 2:30 PM (2da)",
-        "loterias": [
-          {
-            "loteria": "Florida 1:30 PM",
-            "id": "florida_dia",
-            "pos": "1ra",
-            "premio_index": 1
-          },
-          {
-            "loteria": "Gana Más 2:30 PM",
-            "id": "gana_mas",
             "pos": "2da",
             "premio_index": 2
           }
@@ -775,9 +850,56 @@ window.DATOS_LOTOPRO = {
             "premio_index": 3
           }
         ]
+      },
+      {
+        "numero": "29",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Florida 1:30 PM (3ra) ➔ La Primera 8:00 PM (3ra)",
+        "loterias": [
+          {
+            "loteria": "Florida 1:30 PM",
+            "id": "florida_dia",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "3ra",
+            "premio_index": 3
+          }
+        ]
+      },
+      {
+        "numero": "06",
+        "repeticiones": 2,
+        "tipo": "Eco Gemelo Inmediato",
+        "detalle": "Quiniela Loteka 7:55 PM (3ra) ➔ La Primera 8:00 PM (2da)",
+        "loterias": [
+          {
+            "loteria": "Quiniela Loteka 7:55 PM",
+            "id": "quiniela_loteka",
+            "pos": "3ra",
+            "premio_index": 3
+          },
+          {
+            "loteria": "La Primera 8:00 PM",
+            "id": "primera_noche",
+            "pos": "2da",
+            "premio_index": 2
+          }
+        ]
       }
     ],
-    "presiones_vectoriales": [],
+    "presiones_vectoriales": [
+      {
+        "numero_disparador": "06",
+        "objetivo_presionado": "60",
+        "tipo": "Revés Espejo (Virado en 1ra)",
+        "impacto": "El virado 06 rompió hoy, activando tracción directa hacia el 60"
+      }
+    ],
     "top4_estrategicas": [
       {
         "id": "quiniela_loteka",
@@ -786,10 +908,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [60 × 47] y Quiniela [60] / [47]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          28,
+          67,
+          6
+        ],
         "aciertos": []
       },
       {
@@ -878,10 +1004,14 @@ window.DATOS_LOTOPRO = {
         "record_historico": "Generadora de Palé Directo Oficial",
         "afinidad_vaiven": "98.3%",
         "foco_recomendado": "Palé [60 × 47] y Quiniela [60] / [47]",
-        "estado_sorteo": "proximo",
-        "estado_radar": "⚡ EN CONCENTRACIÓN NOCTURNA",
-        "color_estado": "#a855f7",
-        "premios_hoy": [],
+        "estado_sorteo": "finalizado",
+        "estado_radar": "FINALIZADO (Inercia Transferida)",
+        "color_estado": "#94a3b8",
+        "premios_hoy": [
+          28,
+          67,
+          6
+        ],
         "aciertos": []
       },
       {
@@ -962,6 +1092,6 @@ window.DATOS_LOTOPRO = {
         "aciertos": []
       }
     ],
-    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [60 × 47] en 1ra, la presión acumulada alcanza el 82.6%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
+    "diagnostico_algoritmo": "El patrón de vaivén matutino ha quedado matemáticamente demostrado con la duplicación del 79 (LoteDom 12:00 PM y La Suerte 12:30 PM) y la propagación en cadena del 69. Al no haber salido aún la Pareja Maestra [60 × 47] en 1ra, la presión acumulada alcanza el 85.8%, focalizando el punto de ruptura en New York Tarde (2:30 PM) y Quiniela Loteka (7:55 PM)."
   }
 };
