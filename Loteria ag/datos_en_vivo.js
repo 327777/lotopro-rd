@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-26",
   "fecha_ayer": "2026-11-25",
-  "actualizado_a_las": "09:10 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        19,
-        18,
-        22
+        27,
+        15,
+        17
       ]
     },
     {
@@ -585,26 +585,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "18",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 9:00 PM",
-            "id": "anguila_9pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "85",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -773,9 +753,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          18,
-          22
+          27,
+          15,
+          17
         ],
         "aciertos": []
       },
@@ -877,9 +857,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          18,
-          22
+          27,
+          15,
+          17
         ],
         "aciertos": []
       },
@@ -1012,26 +992,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "18",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (2da) ➔ Anguila 9:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "2da",
-            "premio_index": 2
-          },
-          {
-            "loteria": "Anguila 9:00 PM",
-            "id": "anguila_9pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "85",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1200,9 +1160,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          18,
-          22
+          27,
+          15,
+          17
         ],
         "aciertos": []
       },
@@ -1304,9 +1264,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          19,
-          18,
-          22
+          27,
+          15,
+          17
         ],
         "aciertos": []
       },
