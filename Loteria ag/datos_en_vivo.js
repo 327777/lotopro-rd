@@ -1,7 +1,7 @@
 window.DATOS_LOTOPRO = {
   "fecha_hoy": "2026-11-27",
   "fecha_ayer": "2026-11-26",
-  "actualizado_a_las": "09:20 PM",
+  "actualizado_a_las": "10:10 PM",
   "estadisticas_portal": {
     "usuarios_base": 185,
     "consultas_base": 112,
@@ -257,9 +257,9 @@ window.DATOS_LOTOPRO = {
       "hora": "12:00 PM",
       "estado": "finalizado",
       "premios": [
-        37,
-        5,
-        44
+        10,
+        85,
+        3
       ]
     },
     {
@@ -573,26 +573,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "44",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "51",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -705,6 +685,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "02",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 01 vibró en 1 sorteo(s), encerrando al 02"
+      },
+      {
+        "numero_disparador": "03",
+        "objetivo_presionado": "02",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 03 vibró en 1 sorteo(s), encerrando al 02"
       }
     ],
     "top4_estrategicas": [
@@ -787,9 +773,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          37,
-          5,
-          44
+          10,
+          85,
+          3
         ],
         "aciertos": []
       },
@@ -891,9 +877,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          37,
-          5,
-          44
+          10,
+          85,
+          3
         ],
         "aciertos": []
       },
@@ -1014,26 +1000,6 @@ window.DATOS_LOTOPRO = {
         ]
       },
       {
-        "numero": "44",
-        "repeticiones": 2,
-        "tipo": "Eco Gemelo Inmediato",
-        "detalle": "LoteDom 12:00 PM (3ra) ➔ Anguila 1:00 PM (1ra)",
-        "loterias": [
-          {
-            "loteria": "LoteDom 12:00 PM",
-            "id": "lotedom",
-            "pos": "3ra",
-            "premio_index": 3
-          },
-          {
-            "loteria": "Anguila 1:00 PM",
-            "id": "anguila_1pm",
-            "pos": "1ra",
-            "premio_index": 1
-          }
-        ]
-      },
-      {
         "numero": "51",
         "repeticiones": 2,
         "tipo": "Eco Gemelo Inmediato",
@@ -1146,6 +1112,12 @@ window.DATOS_LOTOPRO = {
         "objetivo_presionado": "02",
         "tipo": "Encierro Armónico (Sándwich)",
         "impacto": "El 01 vibró en 1 sorteo(s), encerrando al 02"
+      },
+      {
+        "numero_disparador": "03",
+        "objetivo_presionado": "02",
+        "tipo": "Encierro Armónico (Sándwich)",
+        "impacto": "El 03 vibró en 1 sorteo(s), encerrando al 02"
       }
     ],
     "top4_estrategicas": [
@@ -1228,9 +1200,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          37,
-          5,
-          44
+          10,
+          85,
+          3
         ],
         "aciertos": []
       },
@@ -1332,9 +1304,9 @@ window.DATOS_LOTOPRO = {
         "estado_radar": "FINALIZADO (Inercia Transferida)",
         "color_estado": "#94a3b8",
         "premios_hoy": [
-          37,
-          5,
-          44
+          10,
+          85,
+          3
         ],
         "aciertos": []
       },
